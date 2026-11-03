@@ -1,0 +1,98 @@
+++ git version
+++ awk '{print $3}'
++ GIT_VERSION=2.55.0
+++ awk -F. '{print $1}'
+++ echo 2.55.0
++ GIT_MAJOR=2
+++ echo 2.55.0
+++ awk -F. '{print $2}'
++ GIT_MINOR=55
++ [[ 2 -eq 2 ]]
++ [[ 55 -lt 31 ]]
++++ dirname -- tools/autoformat.sh
+++ cd -- tools
+++ pwd
++ SCRIPT_DIR=/data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/tools
++ CHECK_ONLY=true
++ SKIP_DOCS=false
++ BASE_REF=dev
++ git remote add autoformatter-remote https://github.com/NVIDIA/Megatron-LM.git
+error: remote autoformatter-remote already exists.
++ true
++ git fetch autoformatter-remote dev
+From https://github.com/NVIDIA/Megatron-LM
+ * branch                dev        -> FETCH_HEAD
+   c4220af3a..7b66fcc08  dev        -> autoformatter-remote/dev
+++ git diff --name-only --diff-filter=d --merge-base autoformatter-remote/dev megatron/core tests/
+++ grep '\.py$'
++ CHANGED_FILES='megatron/core/datasets/data_schedule.py
+megatron/core/datasets/data_schedule_utils.py
+tests/unit_tests/test_sequence_packing.py'
++ ADDITIONAL_ARGS=
++ ADDITIONAL_BLACK_ARGS=
++ ADDITIONAL_PYLINT_ARGS=
++ ADDITIONAL_RUFF_ARGS=
++ [[ true == true ]]
++ ADDITIONAL_ARGS=--check
++ ADDITIONAL_BLACK_ARGS=--diff
++ ADDITIONAL_RUFF_ARGS=--no-fix
++ [[ false == true ]]
++ [[ -n megatron/core/datasets/data_schedule.py
+megatron/core/datasets/data_schedule_utils.py
+tests/unit_tests/test_sequence_packing.py ]]
++ black --skip-magic-trailing-comma --skip-string-normalization --check --diff --verbose megatron/core/datasets/data_schedule.py megatron/core/datasets/data_schedule_utils.py tests/unit_tests/test_sequence_packing.py
+Identified `/data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats` as project root containing a .git directory.
+Using configuration from project root.
+line_length: 100
+skip_string_normalization: True
+required_version: 26
+skip_magic_trailing_comma: True
+include: \.pyi?$
+exclude: /(
+    \.git
+  | \.venv
+  | build
+)/
+
+target_version: ['py312', 'py313', 'py314']
+Warning: Python 3.12 cannot parse code formatted for Python 3.14. To fix this: run Black with Python 3.14, set --target-version to py312, or use --fast to skip the safety check. Black's safety check verifies equivalence by parsing the AST, which fails when the running Python is older than the target version.
+Found input source: "megatron/core/datasets/data_schedule.py"
+Found input source: "megatron/core/datasets/data_schedule_utils.py"
+Found input source: "tests/unit_tests/test_sequence_packing.py"
+megatron/core/datasets/data_schedule.py already well formatted, good job.
+megatron/core/datasets/data_schedule_utils.py already well formatted, good job.
+tests/unit_tests/test_sequence_packing.py already well formatted, good job.
+
+All done! ✨ 🍰 ✨
+3 files would be left unchanged.
++ isort --check megatron/core/datasets/data_schedule.py megatron/core/datasets/data_schedule_utils.py tests/unit_tests/test_sequence_packing.py
++ pylint megatron/core/datasets/data_schedule.py megatron/core/datasets/data_schedule_utils.py tests/unit_tests/test_sequence_packing.py
+
+------------------------------------
+Your code has been rated at 10.00/10
+
++ ruff check --no-fix megatron/core/datasets/data_schedule.py megatron/core/datasets/data_schedule_utils.py tests/unit_tests/test_sequence_packing.py
+warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:
+  - 'per-file-ignores' -> 'lint.per-file-ignores'
+All checks passed!
++ mypy --explicit-package-bases --follow-imports=skip megatron/core/datasets/data_schedule.py megatron/core/datasets/data_schedule_utils.py tests/unit_tests/test_sequence_packing.py
+megatron/core/datasets/data_schedule_utils.py:528: error: Incompatible types in assignment (expression has type "Any | None", variable has type "list[Any]")  [assignment]
+megatron/core/datasets/data_schedule_utils.py:923: error: Incompatible types in assignment (expression has type "tuple[float, int, str, None, list[int]]", variable has type "tuple[float, int, str, int, None] | None")  [assignment]
+megatron/core/datasets/data_schedule_utils.py:929: error: Incompatible types in assignment (expression has type "None", variable has type "list[int]")  [assignment]
+megatron/core/datasets/data_schedule.py:33: error: Skipping analyzing "transformer_engine": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/datasets/data_schedule.py:33: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+megatron/core/datasets/data_schedule.py:36: error: Cannot find implementation or library stub for module named "transformer_engine_torch"  [import-not-found]
+megatron/core/datasets/data_schedule.py:333: error: Argument 1 to "iter" has incompatible type "list[Any] | None"; expected "SupportsIter[Iterator[Any]]"  [arg-type]
+megatron/core/datasets/data_schedule.py:753: error: Unsupported operand types for - ("None" and "int")  [operator]
+megatron/core/datasets/data_schedule.py:753: note: Left operand is of type "int | None"
+megatron/core/datasets/data_schedule.py:788: error: "None" not callable  [misc]
+megatron/core/datasets/data_schedule.py:927: error: "None" not callable  [misc]
+megatron/core/datasets/data_schedule.py:969: error: "None" not callable  [misc]
+tests/unit_tests/test_sequence_packing.py:929: error: Incompatible default for parameter "padded_sequence_lengths" (default has type "None", parameter has type "list[Any]")  [assignment]
+tests/unit_tests/test_sequence_packing.py:929: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+tests/unit_tests/test_sequence_packing.py:929: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+tests/unit_tests/test_sequence_packing.py:930: error: Incompatible default for parameter "local_cp_size" (default has type "None", parameter has type "int")  [assignment]
+tests/unit_tests/test_sequence_packing.py:930: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+tests/unit_tests/test_sequence_packing.py:930: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+Found 12 errors in 3 files (checked 3 source files)
++ true

@@ -1,0 +1,89 @@
+{
+  "2": {
+    "ranks": 2,
+    "dp_cp_ranks": 2,
+    "updates": 5,
+    "bitwise_equal": [
+      "schedule",
+      "microbatch_count",
+      "loss",
+      "gradient",
+      "updated_parameter"
+    ],
+    "metrics": {
+      "dcp/estimated_attention_balance_efficiency": 0.92,
+      "dcp/cp_size_1_sample_fraction": 0.875,
+      "dcp/cp_size_2_sample_fraction": 0.125
+    },
+    "vpp_microbatches_before": null,
+    "vpp_microbatches_after": null,
+    "training_log_records": 5,
+    "tensorboard_records_per_metric": 5,
+    "evaluation_excluded": true,
+    "production_source_hashes": {
+      "megatron/core/datasets/data_schedule.py": "a4c99c8e46cbd65f558af956483ebcb646b5d9c56e69d440961c0aacf6507cfc",
+      "megatron/core/datasets/data_schedule_utils.py": "e589fc742c4fd85631075a0fd095768c433ad27bd134f6602e58a2f0e4f67aa8",
+      "megatron/training/config/training_config.py": "9c474a133f6358fb0cc6058f20553fe8973940faa60acdff6e251fae1c095d2e",
+      "megatron/training/logging/packed_sequence_stats.py": "5e09e63783e56d787f0ed257a4e476bfbbc88073c85b59d44f0ea6c83ee6feb6",
+      "megatron/training/training.py": "1d21914cfb37ffd8161a774e03d55ee05bf2eeb04c84d07707821f492270fd00"
+    }
+  },
+  "tp": {
+    "ranks": 4,
+    "dp_cp_ranks": 2,
+    "updates": 5,
+    "bitwise_equal": [
+      "schedule",
+      "microbatch_count",
+      "loss",
+      "gradient",
+      "updated_parameter"
+    ],
+    "metrics": {
+      "dcp/estimated_attention_balance_efficiency": 0.92,
+      "dcp/cp_size_1_sample_fraction": 0.875,
+      "dcp/cp_size_2_sample_fraction": 0.125
+    },
+    "vpp_microbatches_before": null,
+    "vpp_microbatches_after": null,
+    "training_log_records": 5,
+    "tensorboard_records_per_metric": 5,
+    "evaluation_excluded": true,
+    "production_source_hashes": {
+      "megatron/core/datasets/data_schedule.py": "a4c99c8e46cbd65f558af956483ebcb646b5d9c56e69d440961c0aacf6507cfc",
+      "megatron/core/datasets/data_schedule_utils.py": "e589fc742c4fd85631075a0fd095768c433ad27bd134f6602e58a2f0e4f67aa8",
+      "megatron/training/config/training_config.py": "9c474a133f6358fb0cc6058f20553fe8973940faa60acdff6e251fae1c095d2e",
+      "megatron/training/logging/packed_sequence_stats.py": "5e09e63783e56d787f0ed257a4e476bfbbc88073c85b59d44f0ea6c83ee6feb6",
+      "megatron/training/training.py": "1d21914cfb37ffd8161a774e03d55ee05bf2eeb04c84d07707821f492270fd00"
+    }
+  },
+  "pp": {
+    "ranks": 4,
+    "dp_cp_ranks": 2,
+    "updates": 5,
+    "bitwise_equal": [
+      "schedule",
+      "microbatch_count",
+      "loss",
+      "gradient",
+      "updated_parameter"
+    ],
+    "metrics": {
+      "dcp/estimated_attention_balance_efficiency": 0.92,
+      "dcp/cp_size_1_sample_fraction": 0.375,
+      "dcp/cp_size_2_sample_fraction": 0.625
+    },
+    "vpp_microbatches_before": 3,
+    "vpp_microbatches_after": 4,
+    "training_log_records": 5,
+    "tensorboard_records_per_metric": 5,
+    "evaluation_excluded": true,
+    "production_source_hashes": {
+      "megatron/core/datasets/data_schedule.py": "a4c99c8e46cbd65f558af956483ebcb646b5d9c56e69d440961c0aacf6507cfc",
+      "megatron/core/datasets/data_schedule_utils.py": "e589fc742c4fd85631075a0fd095768c433ad27bd134f6602e58a2f0e4f67aa8",
+      "megatron/training/config/training_config.py": "9c474a133f6358fb0cc6058f20553fe8973940faa60acdff6e251fae1c095d2e",
+      "megatron/training/logging/packed_sequence_stats.py": "5e09e63783e56d787f0ed257a4e476bfbbc88073c85b59d44f0ea6c83ee6feb6",
+      "megatron/training/training.py": "1d21914cfb37ffd8161a774e03d55ee05bf2eeb04c84d07707821f492270fd00"
+    }
+  }
+}

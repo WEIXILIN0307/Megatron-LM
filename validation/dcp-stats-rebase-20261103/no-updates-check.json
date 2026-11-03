@@ -1,0 +1,32 @@
+{
+  "ranks": [
+    {
+      "data_hook_iterations": [
+        0,
+        1,
+        2
+      ],
+      "empty_submissions": 3,
+      "empty_log_windows": 3,
+      "parameter_hash": "cc3afa0f02e1b366c45db3febcb08e4e00c18837fca09c8a7cd75b10b44d5f7f",
+      "parameters_unchanged": true,
+      "iterations": 3
+    },
+    {
+      "data_hook_iterations": [
+        0,
+        1,
+        2
+      ],
+      "empty_submissions": 3,
+      "empty_log_windows": 3,
+      "parameter_hash": "cc3afa0f02e1b366c45db3febcb08e4e00c18837fca09c8a7cd75b10b44d5f7f",
+      "parameters_unchanged": true,
+      "iterations": 3
+    }
+  ],
+  "stdout_dcp_records": 0,
+  "tensorboard_dcp_scalars": [],
+  "train_step_calls": 0,
+  "schedule_stats_computations": 0
+}

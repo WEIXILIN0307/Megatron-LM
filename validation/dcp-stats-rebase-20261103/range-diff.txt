@@ -1,0 +1,21 @@
+1:  27a69e362 ! 1:  3d7180d83 Log final DCP schedule attention-work balance and CP-size fractions
+    @@ megatron/training/training.py: def train(
+          # Iterations.
+          iteration = train_state.iteration
+     @@ megatron/training/training.py: def train(
+    -                 # we use previously-generated data for an update.
+    -                 buffered_rollouts = train_data_iterator
+    +         # The data hook may replace the iterator each iteration; the dataloader path keeps it.
+    +         train_data_iterator = next_train_iterator(iteration, train_data_iterator)
+      
+     +        # Keep pending stats local to this attempt: exceptions/early exits cannot
+     +        # leak into another step, and train_step's packed iterator is reused on rerun.
+     +        schedule_stats = {} if dcp_stats is not None else None
+    -         if cfg.validation.skip_train:
+    -             # RL inference-only mode: skip gradient updates, just collect rollouts.
+    +         if run_train_loop_without_updates:
+    +             # Rollout-only: the data hook collected this iteration's rollouts; no optimizer step.
+                  loss_dict = {}
+     @@ megatron/training/training.py: def train(
+                          pg_collection=pg_collection,
+2:  bc96c9ad5 = 2:  4566ad873 Document A6000 training parity and DCP observation cost measurements
