@@ -1,0 +1,1 @@
+Invalid for checkpoint-restored comparison: initial-aligned was a symlink to an unmounted directory. The underlying loader warned and started at iteration 0. All nine runs retained here and excluded from final aggregates. Fixed by copying the checkpoint into the mounted directory and enabling --exit-on-missing-checkpoint.

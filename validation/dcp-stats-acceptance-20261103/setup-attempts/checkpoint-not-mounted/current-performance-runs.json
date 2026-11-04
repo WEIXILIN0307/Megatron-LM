@@ -1,0 +1,65 @@
+[
+  {
+    "name": "current-0-off",
+    "repeat": 0,
+    "arm": "off",
+    "start_unix": 1793758689.566848,
+    "end_unix": 1793758733.6012235
+  },
+  {
+    "name": "current-0-on",
+    "repeat": 0,
+    "arm": "on",
+    "start_unix": 1793758733.6015673,
+    "end_unix": 1793758772.8297312
+  },
+  {
+    "name": "current-0-fixed",
+    "repeat": 0,
+    "arm": "fixed",
+    "start_unix": 1793758772.830075,
+    "end_unix": 1793758815.7674365
+  },
+  {
+    "name": "current-1-on",
+    "repeat": 1,
+    "arm": "on",
+    "start_unix": 1793758815.7678704,
+    "end_unix": 1793758853.4234254
+  },
+  {
+    "name": "current-1-fixed",
+    "repeat": 1,
+    "arm": "fixed",
+    "start_unix": 1793758853.4238694,
+    "end_unix": 1793758895.887485
+  },
+  {
+    "name": "current-1-off",
+    "repeat": 1,
+    "arm": "off",
+    "start_unix": 1793758895.8881009,
+    "end_unix": 1793758934.0638413
+  },
+  {
+    "name": "current-2-fixed",
+    "repeat": 2,
+    "arm": "fixed",
+    "start_unix": 1793758934.0643241,
+    "end_unix": 1793758973.8873398
+  },
+  {
+    "name": "current-2-off",
+    "repeat": 2,
+    "arm": "off",
+    "start_unix": 1793758973.8878443,
+    "end_unix": 1793759011.40763
+  },
+  {
+    "name": "current-2-on",
+    "repeat": 2,
+    "arm": "on",
+    "start_unix": 1793759011.4080565,
+    "end_unix": 1793759049.0678704
+  }
+]

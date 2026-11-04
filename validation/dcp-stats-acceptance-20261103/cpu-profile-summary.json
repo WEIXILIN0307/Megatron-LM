@@ -1,0 +1,140 @@
+{
+  "off": {
+    "0": {
+      "gc_generation_0": {
+        "calls": 14,
+        "mean_us": 183.2475,
+        "median_us": 177.429,
+        "max_us": 232.226,
+        "sum_us": 2565.465
+      },
+      "gc_generation_1": {
+        "calls": 1,
+        "mean_us": 207.449,
+        "median_us": 207.449,
+        "max_us": 207.449,
+        "sum_us": 207.449
+      },
+      "training_log": {
+        "calls": 30,
+        "mean_us": 1573.0835,
+        "median_us": 1613.1095,
+        "max_us": 2233.817,
+        "sum_us": 47192.505
+      }
+    },
+    "1": {
+      "gc_generation_0": {
+        "calls": 14,
+        "mean_us": 208.70807142857143,
+        "median_us": 217.3515,
+        "max_us": 239.408,
+        "sum_us": 2921.913
+      },
+      "gc_generation_1": {
+        "calls": 1,
+        "mean_us": 247.211,
+        "median_us": 247.211,
+        "max_us": 247.211,
+        "sum_us": 247.211
+      },
+      "training_log": {
+        "calls": 30,
+        "mean_us": 1618.5260333333333,
+        "median_us": 1597.618,
+        "max_us": 2024.681,
+        "sum_us": 48555.781
+      }
+    }
+  },
+  "on": {
+    "0": {
+      "compute_schedule_stats": {
+        "calls": 30,
+        "mean_us": 40.13903333333333,
+        "median_us": 38.473,
+        "max_us": 58.62,
+        "sum_us": 1204.171
+      },
+      "gc_generation_0": {
+        "calls": 14,
+        "mean_us": 169.34671428571428,
+        "median_us": 165.31900000000002,
+        "max_us": 213.924,
+        "sum_us": 2370.854
+      },
+      "gc_generation_1": {
+        "calls": 1,
+        "mean_us": 170.158,
+        "median_us": 170.158,
+        "max_us": 170.158,
+        "sum_us": 170.158
+      },
+      "metrics": {
+        "calls": 30,
+        "mean_us": 17.736833333333333,
+        "median_us": 17.4155,
+        "max_us": 24.442,
+        "sum_us": 532.105
+      },
+      "training_log": {
+        "calls": 30,
+        "mean_us": 1383.6506333333334,
+        "median_us": 1351.258,
+        "max_us": 1791.698,
+        "sum_us": 41509.519
+      },
+      "update": {
+        "calls": 30,
+        "mean_us": 12.619066666666667,
+        "median_us": 11.8975,
+        "max_us": 22.113,
+        "sum_us": 378.572
+      }
+    },
+    "1": {
+      "compute_schedule_stats": {
+        "calls": 30,
+        "mean_us": 41.42633333333333,
+        "median_us": 40.179500000000004,
+        "max_us": 51.05,
+        "sum_us": 1242.79
+      },
+      "gc_generation_0": {
+        "calls": 14,
+        "mean_us": 183.81435714285715,
+        "median_us": 173.538,
+        "max_us": 251.202,
+        "sum_us": 2573.401
+      },
+      "gc_generation_1": {
+        "calls": 1,
+        "mean_us": 194.326,
+        "median_us": 194.326,
+        "max_us": 194.326,
+        "sum_us": 194.326
+      },
+      "metrics": {
+        "calls": 30,
+        "mean_us": 15.549333333333333,
+        "median_us": 15.1415,
+        "max_us": 20.348,
+        "sum_us": 466.48
+      },
+      "training_log": {
+        "calls": 30,
+        "mean_us": 1534.8687333333332,
+        "median_us": 1511.3145,
+        "max_us": 1863.496,
+        "sum_us": 46046.062
+      },
+      "update": {
+        "calls": 30,
+        "mean_us": 13.300566666666667,
+        "median_us": 12.5215,
+        "max_us": 20.436,
+        "sum_us": 399.017
+      }
+    }
+  }
+}

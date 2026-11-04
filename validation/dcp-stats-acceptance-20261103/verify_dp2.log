@@ -1,0 +1,80 @@
+{
+  "source_head": "79bf7b6bcaa95538d2ad7068dc46b7a931fd2c7d",
+  "topology": {
+    "world": 4,
+    "TP": 1,
+    "PP": 1,
+    "DP": 2,
+    "CP": 2,
+    "dp_cp_domain": 4
+  },
+  "updates_per_arm": 9,
+  "bitwise_off_on": [
+    "schedules",
+    "scheduled_microbatch_counts",
+    "losses",
+    "gradients",
+    "updated_parameters"
+  ],
+  "log_interval": 3,
+  "tensorboard_event_iterations": [
+    3,
+    6,
+    9
+  ],
+  "stdout_event_iterations": [
+    2,
+    3,
+    6,
+    9
+  ],
+  "evaluation_excluded": true,
+  "per_microbatch_conservation": true,
+  "global_summaries_identical_across_ranks": true,
+  "completed_windows_reset": true,
+  "last_partial_window_not_emitted": true
+}
+window calculations: [
+  {
+    "iteration": 3,
+    "balance_numerator": 2621440.0,
+    "balance_denominator": 2752512.0,
+    "cp_sample_counts": {
+      "2": 3,
+      "1": 13
+    },
+    "metrics": {
+      "dcp/estimated_attention_balance_efficiency": 0.9523809523809523,
+      "dcp/cp_size_2_sample_fraction": 0.1875,
+      "dcp/cp_size_1_sample_fraction": 0.8125
+    }
+  },
+  {
+    "iteration": 6,
+    "balance_numerator": 6881280.0,
+    "balance_denominator": 6881280.0,
+    "cp_sample_counts": {
+      "1": 20,
+      "2": 4
+    },
+    "metrics": {
+      "dcp/estimated_attention_balance_efficiency": 1.0,
+      "dcp/cp_size_1_sample_fraction": 0.8333333333333334,
+      "dcp/cp_size_2_sample_fraction": 0.16666666666666666
+    }
+  },
+  {
+    "iteration": 9,
+    "balance_numerator": 5210112.0,
+    "balance_denominator": 6520832.0,
+    "cp_sample_counts": {
+      "2": 6,
+      "1": 18
+    },
+    "metrics": {
+      "dcp/estimated_attention_balance_efficiency": 0.7989949748743719,
+      "dcp/cp_size_2_sample_fraction": 0.25,
+      "dcp/cp_size_1_sample_fraction": 0.75
+    }
+  }
+]

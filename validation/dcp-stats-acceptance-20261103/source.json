@@ -1,0 +1,22 @@
+{
+  "head": "79bf7b6bcaa95538d2ad7068dc46b7a931fd2c7d",
+  "base": "7b66fcc088e6e60b87c350e0e185721e0373d0ab",
+  "benchmark_rerun": true,
+  "container_image": "sha256:070e339faa1fb4fec1c630f7bcc77c97ebd7eb138bc81802feac567aa011bcb8",
+  "date": "2026-11-03",
+  "timezone": "America/Los_Angeles",
+  "compatibility_patch_applied": false,
+  "gpu_indices": {
+    "benchmark": [
+      4,
+      5
+    ],
+    "dp2": [
+      1,
+      4,
+      5,
+      6
+    ]
+  },
+  "code_changes_during_validation": false
+}

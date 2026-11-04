@@ -1,0 +1,22 @@
+{
+  "initial-aligned/checkpoints/latest_train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-aligned/checkpoints/latest_checkpointed_iteration.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+  "initial-aligned/checkpoints/iter_0000001/run_config.yaml": "834833648cc25d8043a09d3c7d764b357630d63e3e6b3a6be112e240143ed284",
+  "initial-aligned/checkpoints/iter_0000001/train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-aligned/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt": "d3f5041d0bbeda6a008ab3a57981264ed92a70504f0a1cd231146ab686a3a7f8",
+  "initial-dp2/checkpoints/latest_train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-dp2/checkpoints/latest_checkpointed_iteration.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+  "initial-dp2/checkpoints/iter_0000001/run_config.yaml": "46582655d74213072607acd4439b058eabc872de3576450a0d5603fd0c1ca35e",
+  "initial-dp2/checkpoints/iter_0000001/train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-dp2/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt": "4804bce1f53a981f1bc7422327d153d8542afe03e3cce773cd9b6ef807a9f299",
+  "dp2-off/checkpoints/latest_train_state.pt": "1ecb4a8ffd10b2a73f88da4d66857894763919f26510298bb78793de1d122b21",
+  "dp2-off/checkpoints/latest_checkpointed_iteration.txt": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+  "dp2-off/checkpoints/iter_0000010/run_config.yaml": "74cdb9f0573bdbeb5b89cc534f2aebbd703081dc94bbe834bc61c61b4afcc53d",
+  "dp2-off/checkpoints/iter_0000010/train_state.pt": "1ecb4a8ffd10b2a73f88da4d66857894763919f26510298bb78793de1d122b21",
+  "dp2-off/checkpoints/iter_0000010/mp_rank_00/model_optim_rng.pt": "10275e521d46c118f04377ee3f7f3ed657f5fbc68a4d32b9216a296ca8c95b38",
+  "dp2-on/checkpoints/latest_train_state.pt": "1ecb4a8ffd10b2a73f88da4d66857894763919f26510298bb78793de1d122b21",
+  "dp2-on/checkpoints/latest_checkpointed_iteration.txt": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+  "dp2-on/checkpoints/iter_0000010/run_config.yaml": "b12c46f369dbf5ec2180ecce0bab3a46203e1568299b20cce989b38bb59dc335",
+  "dp2-on/checkpoints/iter_0000010/train_state.pt": "1ecb4a8ffd10b2a73f88da4d66857894763919f26510298bb78793de1d122b21",
+  "dp2-on/checkpoints/iter_0000010/mp_rank_00/model_optim_rng.pt": "d2f8c16b211ef69061cb78cad9af448842689db783601e7ad96a090636896227"
+}

@@ -1,0 +1,9 @@
+{
+  "ranks": 2,
+  "iterations": 3,
+  "data_hook_called_each_iteration": true,
+  "train_step_calls": 0,
+  "schedule_statistics_calls": 0,
+  "parameters_unchanged": true,
+  "dcp_stdout_tensorboard_metrics": 0
+}

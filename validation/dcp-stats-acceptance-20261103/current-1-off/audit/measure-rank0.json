@@ -1,0 +1,702 @@
+[
+  {
+    "iteration": 2,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 3,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 4,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 5,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 6,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 7,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 8,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 9,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 10,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 11,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 12,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 13,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 14,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 15,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 16,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 17,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 18,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 19,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 20,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 21,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 22,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 23,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 24,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 25,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 26,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 27,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 28,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 29,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 30,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 31,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 32,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 33,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 34,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 35,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 36,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 37,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 38,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 39,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 40,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 41,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 42,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 43,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 44,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 45,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 46,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 47,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 48,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 49,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 50,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 51,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 52,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 53,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 54,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 55,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 56,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 57,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 58,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 59,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 60,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 61,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 62,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 63,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 64,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 65,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 66,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 67,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 68,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 69,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 70,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 71,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 72,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 73,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 74,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 75,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 76,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 77,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 78,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 79,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 80,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 81,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 82,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 83,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 84,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 85,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 86,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 87,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 88,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 89,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 90,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 91,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 92,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 93,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 94,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 95,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 96,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 97,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 98,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 99,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 100,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  },
+  {
+    "iteration": 101,
+    "microbatches": 3,
+    "tokens": 2560.0,
+    "squared_lengths": 1507328.0,
+    "skipped": 0
+  }
+]

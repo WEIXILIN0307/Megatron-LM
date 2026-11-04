@@ -1,0 +1,1341 @@
+/data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+> PyTorch version ................ 2.11.0+cu130
+> Megatron-Core version .......... 0.21.0+79bf7b6bc
+> Transformer Engine version ... 2.20.2
+using world size: 2, data-parallel size: 1, resolved context-parallel group size: 2, hierarchical context-parallel sizes: None, tensor-model-parallel size: 1, pipeline-model-parallel size: 1
+/data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/training/utils/common_utils.py:572: UserWarning: Overriding default arguments for tokenizer_type:GPT2BPETokenizer with tokenizer_type:NullTokenizer
+  warnings.warn(message)
+Number of virtual stages per pipeline stage: None
+accumulate and all-reduce gradients in fp32 for bfloat16 data type.
+using torch.bfloat16 for parameters ...
+/data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/training/arguments.py:1553: UserWarning: Dynamic CP enabled: dp_size * context_parallel_size=2 will be used as the maximum dynamic CP group size. Dynamic CP groups will range from min_dynamic_context_parallel_size=1 to 2.
+  warnings.warn(
+------------------------ arguments ------------------------
+  _is_global_batch_size_explicitly_specified ...... True
+  _legacy_hash_moe_vocab .......................... False
+  account_for_embedding_in_pipeline_split ......... False
+  account_for_loss_in_pipeline_split .............. False
+  accumulate_allreduce_grads_in_fp32 .............. True
+  activation_func_clamp_value ..................... None
+  activation_func_tanh_clamp_scale ................ None
+  activation_func_tanh_clamp_scale_linear ......... None
+  activation_offload_fraction ..................... 1.0
+  adam_beta1 ...................................... 0.9
+  adam_beta2 ...................................... 0.999
+  adam_eps ........................................ 1e-08
+  add_bias_linear ................................. True
+  add_position_embedding .......................... True
+  add_qkv_bias .................................... True
+  adlr_autoresume ................................. False
+  adlr_autoresume_interval ........................ 1000
+  align_grad_reduce ............................... True
+  align_param_gather .............................. False
+  allow_ambiguous_pad_tokens ...................... False
+  app_tag_run_name ................................ None
+  app_tag_run_version ............................. 0.0.0
+  apply_dsa_kernel_fusion ......................... None
+  apply_query_key_layer_scaling ................... False
+  apply_residual_connection_post_layernorm ........ False
+  apply_rope_fusion ............................... False
+  apply_wd_to_qk_layernorm ........................ False
+  async_ckpt_cpu_priority ......................... 10
+  async_ckpt_io_priority .......................... 3
+  async_ckpt_use_cpu_shm .......................... False
+  async_save ...................................... False
+  async_strategy .................................. nvrx
+  attention_backend ............................... AttnBackend.flash
+  attention_cp_layout ............................. zigzag
+  attention_dropout ............................... 0.0
+  attention_latent_norm_epsilon ................... None
+  attention_output_gate ........................... False
+  attention_softmax_in_fp32 ....................... False
+  attn_logit_softcapping .......................... None
+  auto_detect_ckpt_format ......................... False
+  barrier_with_L1_time ............................ True
+  batch_invariant_backend ......................... te_native
+  batch_invariant_collective ...................... ordered
+  batch_invariant_mode ............................ False
+  batch_parallel_size ............................. 1
+  bert_binary_head ................................ True
+  bert_embedder_type .............................. megatron
+  bf16 ............................................ True
+  bias_dropout_fusion ............................. True
+  bias_gelu_fusion ................................ True
+  bias_swiglu_fusion .............................. True
+  cache_mla_latents ............................... False
+  calc_ft_timeouts ................................ False
+  calculate_per_token_loss ........................ True
+  chat_template ................................... None
+  check_for_large_grads ........................... False
+  check_for_nan_in_loss_and_grad .................. True
+  check_for_spiky_loss ............................ False
+  check_weight_hash_across_dp_replicas_interval ... None
+  chunked_optimizer_state_offload ................. False
+  ckpt_assume_constant_structure .................. False
+  ckpt_convert_format ............................. None
+  ckpt_convert_save ............................... None
+  ckpt_convert_update_legacy_dist_opt_format ...... False
+  ckpt_drop_redundant_extra_state ................. False
+  ckpt_format ..................................... torch_dist
+  ckpt_fully_parallel_load ........................ False
+  ckpt_fully_parallel_load_exchange_algo .......... broadcast
+  ckpt_fully_parallel_load_per_rank_objects ....... False
+  ckpt_fully_parallel_load_process_group .......... dp
+  ckpt_fully_parallel_save ........................ True
+  ckpt_fully_parallel_save_deprecated ............. False
+  ckpt_fully_parallel_save_process_group .......... dp
+  ckpt_load_validate_sharding_integrity ........... True
+  ckpt_pg_tensors_cache_create .................... False
+  ckpt_pg_tensors_cache_path ...................... None
+  ckpt_step ....................................... None
+  classes_fraction ................................ 1.0
+  clip_grad ....................................... 1.0
+  clone_scatter_output_in_embedding ............... True
+  config_logger_dir ............................... 
+  context_parallel_size ........................... 2
+  cp_comm_type .................................... ['p2p']
+  cp_partition_mode ............................... zigzag
+  cpu_offloading_num_layers ....................... 0
+  cpu_offloading_retain_pinned_cpu_buffers ........ False
+  create_all_gather_group ......................... False
+  create_attention_mask_in_dataloader ............. True
+  cross_entropy_fusion_impl ....................... native
+  cross_entropy_loss_fusion ....................... False
+  csa_compress_ratios ............................. None
+  csa_compress_rotary_base ........................ 40000.0
+  csa_dense_mode .................................. False
+  csa_window_size ................................. 128
+  cuda_graph_dynamic_microbatches ................. False
+  cuda_graph_impl ................................. none
+  cuda_graph_modules .............................. []
+  cuda_graph_warmup_steps ......................... 3
+  data_args_path .................................. None
+  data_cache_path ................................. /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-acceptance-20261103/data-cache
+  data_parallel_random_init ....................... False
+  data_parallel_sharding_strategy ................. optim_grads_params
+  data_parallel_size .............................. 1
+  data_path ....................................... None
+  data_per_class_fraction ......................... 1.0
+  data_sharding ................................... True
+  dataloader_defer_npy_index_mmap ................. False
+  dataloader_fast_cache_load ...................... False
+  dataloader_inter_document_masking ............... False
+  dataloader_type ................................. single
+  ddp_average_in_collective ....................... False
+  ddp_bucket_size ................................. None
+  ddp_num_buckets ................................. None
+  ddp_pad_buckets_for_high_nccl_busbw ............. False
+  ddp_param_name_patterns_for_fp32_local_accumulation  []
+  ddp_reduce_scatter_with_fp32_accumulation ....... False
+  decode_only_cuda_graphs ......................... False
+  decoder_first_pipeline_num_layers ............... None
+  decoder_last_pipeline_num_layers ................ None
+  decoder_num_layers .............................. None
+  decoder_seq_length .............................. None
+  decoupled_lr .................................... None
+  decoupled_min_lr ................................ None
+  decrease_batch_size_if_needed ................... False
+  defer_embedding_wgrad_compute ................... False
+  delay_offload_until_cuda_graph .................. False
+  delay_wgrad_compute ............................. False
+  delta_offload_bytes_across_pp_ranks ............. 0
+  dense_grouped_gemm .............................. False
+  deprecated_use_mcore_models ..................... True
+  deterministic_mode .............................. False
+  dino_bottleneck_size ............................ 256
+  dino_freeze_last_layer .......................... 1
+  dino_head_hidden_size ........................... 2048
+  dino_local_crops_number ......................... 10
+  dino_local_img_size ............................. 96
+  dino_norm_last_layer ............................ False
+  dino_teacher_temp ............................... 0.07
+  dino_warmup_teacher_temp ........................ 0.04
+  dino_warmup_teacher_temp_epochs ................. 30
+  disable_bf16_reduced_precision_matmul ........... False
+  disable_grad_buffers_cpu_backup ................. False
+  disable_jit_fuser ............................... False
+  disable_msc_deprecated .......................... False
+  disable_param_buffers_cpu_backup ................ False
+  disable_straggler_on_startup .................... False
+  disable_symmetric_registration .................. False
+  disagg_kv_transport_backend ..................... nixl
+  dist_ckpt_format_deprecated ..................... None
+  dist_ckpt_optim_fully_reshardable ............... False
+  dist_ckpt_save_pre_mcore_014 .................... False
+  dist_ckpt_strictness ............................ assume_ok_unexpected
+  dist_ckpt_workers ............................... 1
+  distrib_optim_fully_reshardable_mem_efficient ... False
+  distribute_saved_activations .................... False
+  distributed_backend ............................. nccl
+  distributed_timeout_minutes ..................... 5
+  distributed_timeout_seconds_after_init .......... None
+  dsa_compact_indexer_workspace_sharing ........... True
+  dsa_cp_balance_indexer .......................... False
+  dsa_fwd_use_dense_attn .......................... False
+  dsa_indexer_head_dim ............................ None
+  dsa_indexer_k_norm_epsilon ...................... None
+  dsa_indexer_k_norm_fp32 ......................... False
+  dsa_indexer_kpool ............................... 1
+  dsa_indexer_kpool_always_select_tail ............ True
+  dsa_indexer_kpool_use_quantization .............. False
+  dsa_indexer_loss_coeff .......................... None
+  dsa_indexer_mode ................................ standard
+  dsa_indexer_n_heads ............................. None
+  dsa_indexer_precision ........................... bf16
+  dsa_indexer_qk_proj_use_quantization ............ True
+  dsa_indexer_rope_interleaved .................... False
+  dsa_indexer_rotate_activation ................... True
+  dsa_indexer_scoring_relu ........................ True
+  dsa_indexer_skip_topk_offset .................... 0
+  dsa_indexer_topk ................................ None
+  dsa_indexer_topk_freq ........................... 1
+  dsa_indexer_use_sparse_loss ..................... False
+  dsa_indexer_weights_proj_output_dtype ........... bf16
+  dsa_indexer_weights_proj_use_quantization ....... True
+  dsa_kernel_backend .............................. None
+  dsa_reset_indexer_on_load ....................... False
+  dump_param_to_param_group_map ................... None
+  dynamic_context_parallel ........................ True
+  embedding_init_method_std ....................... None
+  empty_unused_memory_level ....................... 0
+  enable_chunked_prefill .......................... False
+  enable_cuda_graph ............................... False
+  enable_experimental ............................. False
+  enable_ft_package ............................... False
+  enable_full_sharding_in_hsdp .................... False
+  enable_hyper_connections ........................ False
+  enable_mhc_connections .......................... False
+  enable_msc ...................................... False
+  enable_one_logger ............................... False
+  encoder_num_layers .............................. 4
+  encoder_seq_length .............................. 1024
+  end_weight_decay ................................ None
+  eod_mask_loss ................................... False
+  ep_overlap_early_attn_memory_release ............ False
+  ep_overlap_use_scheduled_tensor_release ......... False
+  error_injection_rate ............................ 0
+  error_injection_type ............................ transient_error
+  eval_global_batch_size .......................... 8
+  eval_interval ................................... 1000000
+  eval_iters ...................................... 0
+  eval_micro_batch_size ........................... 1
+  exit_duration_in_mins ........................... None
+  exit_interval ................................... None
+  exit_on_missing_checkpoint ...................... False
+  exit_signal ..................................... 15
+  exit_signal_handler ............................. False
+  exit_signal_handler_for_dataloader .............. False
+  exit_signal_handler_for_training ................ False
+  exp_avg_dtype ................................... torch.float32
+  exp_avg_sq_dtype ................................ torch.float32
+  experimental_attention_variant .................. None
+  expert_data_parallel_sharding_strategy .......... None
+  expert_gtp_weight_remat_size .................... 1
+  expert_model_parallel_size ...................... 1
+  expert_outer_dp_sharding_strategy ............... None
+  expert_tensor_parallel_num_weight_shards ........ 1
+  expert_tensor_parallel_size ..................... 1
+  external_cuda_graph ............................. False
+  fake_process_group .............................. False
+  fallback_to_eager_attn .......................... False
+  fault_injector_delay_start_iteration ............ None
+  fault_injector_fault_delay ...................... None
+  fault_injector_fault_probabilities .............. None
+  fault_injector_fault_types ...................... None
+  fault_injector_mtti_seconds ..................... None
+  fault_injector_num_ranks ........................ None
+  fault_injector_offset_seconds ................... None
+  fault_injector_ranks ............................ None
+  fault_injector_seed ............................. None
+  ffn_hidden_size ................................. 512
+  fim_data ........................................ False
+  fim_eod_token ................................... <|endoftext|>
+  fim_fragment_rate ............................... None
+  fim_middle_token ................................ <fim_middle>
+  fim_no_prefix ................................... None
+  fim_pad_token ................................... <fim_pad>
+  fim_prefix_token ................................ <fim_prefix>
+  fim_rate ........................................ 0.5
+  fim_split_sample ................................ None
+  fim_spm_rate .................................... 0.5
+  fim_suffix_token ................................ <fim_suffix>
+  fine_grained_activation_offloading .............. False
+  fine_grained_offloading_buffer_size_gib ......... 0.0
+  fine_grained_offloading_max_inflight_offloads ... None
+  finetune ........................................ False
+  first_last_layers_bf16 .......................... False
+  flash_attention_version ......................... None
+  flash_decode .................................... False
+  flight_recorder_dump_on_timeout ................. True
+  flight_recorder_dump_path ....................... None
+  flight_recorder_extra_dump_on_exec .............. True
+  flight_recorder_include_only_active ............. True
+  flight_recorder_include_stack_trace ............. False
+  flight_recorder_trace_buffer_size ............... 2000
+  fp16 ............................................ False
+  fp16_lm_cross_entropy ........................... False
+  fp32_residual_connection ........................ False
+  fp4 ............................................. None
+  fp4_param_gather ................................ False
+  fp4_quantizer_factory ........................... None
+  fp4_recipe ...................................... nvfp4
+  fp8 ............................................. None
+  fp8_amax_compute_algo ........................... most_recent
+  fp8_amax_history_len ............................ 1
+  fp8_interval .................................... 1
+  fp8_margin ...................................... 0
+  fp8_output_proj ................................. False
+  fp8_param_gather ................................ False
+  fp8_quantizer_factory ........................... None
+  fp8_recipe ...................................... delayed
+  fp8_wgrad ....................................... True
+  freeze_all_layers ............................... False
+  freeze_base_model_for_mtp ....................... False
+  fsdp_buffer_count ............................... 2
+  fsdp_db_use_persist_buf_on_alloc_fail ........... False
+  fsdp_double_buffer .............................. False
+  fsdp_manual_registration ........................ False
+  ft_num_warmup_iters ............................. 5
+  full_validation ................................. False
+  fused_residual_rmsnorm .......................... False
+  gated_attention_proj_granularity ................ elementwise
+  gdn_conv_pad_alignment .......................... None
+  gdn_gated_output_norm_fusion .................... False
+  gdn_kernel_backend .............................. fla
+  gdn_pre_gated_delta_rule_fusion ................. False
+  gdp_cutedsl_kernel .............................. False
+  gdp_num_chunk_states_to_recompute ............... 2
+  gdp_num_householder ............................. 3
+  global_batch_size ............................... 8
+  glu_linear_offset ............................... 0.0
+  gpu_sniff_test_interval ......................... None
+  grad_reduce_in_bf16 ............................. False
+  gradient_accumulation_fusion .................... False
+  gradient_reduce_div_fusion ...................... True
+  group_query_attention ........................... False
+  grpo_clamp_eps_lower ............................ 0.01
+  grpo_clamp_eps_upper ............................ 0.01
+  grpo_entropy_term_weight ........................ 0.0
+  grpo_filter_groups_with_same_reward ............. False
+  grpo_group_size ................................. 2
+  grpo_iterations ................................. 2
+  grpo_kl_beta .................................... 0.001
+  grpo_prompts_per_step ........................... 32
+  gtp_expert_remat_nccl_ub ........................ False
+  gtp_remat_nccl_ub ............................... False
+  gtp_remat_num_sequence_shards ................... 1
+  gtp_remat_opt_in_modules ........................ []
+  gtp_remat_reduce_scatter_with_fp32_accumulation . False
+  gtp_weight_remat_size ........................... 1
+  head_lr_mult .................................... 1.0
+  head_wise_attn_gate ............................. False
+  heterogeneous_layers_config_encoded_json ........ None
+  heterogeneous_layers_config_path ................ None
+  hfsdp_param_gather_overlap ...................... False
+  hidden_dropout .................................. 0.0
+  hidden_size ..................................... 128
+  hierarchical_context_parallel_sizes ............. None
+  high_priority_a2a_comm_stream ................... False
+  high_priority_stream_groups ..................... []
+  hybrid_context_parallel ......................... False
+  hybrid_layer_pattern ............................ None
+  hybrid_override_pattern ......................... None
+  hysteresis ...................................... 2
+  img_h ........................................... 224
+  img_w ........................................... 224
+  inference_batch_times_seqlen_threshold .......... -1
+  inference_coordinator_port ...................... None
+  inference_cuda_graph_all_prefills ............... False
+  inference_cuda_graph_max_tokens ................. 512
+  inference_cuda_graph_scope ...................... InferenceCudaGraphScope.none
+  inference_disable_triton_nvls_kernels ........... False
+  inference_dynamic_batching ...................... False
+  inference_dynamic_batching_allow_stale_multimodal_embeddings  False
+  inference_dynamic_batching_async_sched_mode ..... async
+  inference_dynamic_batching_block_size ........... 256
+  inference_dynamic_batching_buffer_size_gb ....... 40.0
+  inference_dynamic_batching_cuda_graph_mixed_prefill_count  16
+  inference_dynamic_batching_cuda_graph_sizing_distribution  hybrid
+  inference_dynamic_batching_enable_prefix_caching  False
+  inference_dynamic_batching_logprobs_mode ........ raw_logprobs
+  inference_dynamic_batching_mamba_memory_ratio ... None
+  inference_dynamic_batching_max_requests ......... None
+  inference_dynamic_batching_max_tokens ........... None
+  inference_dynamic_batching_media_cache_coordinator_policy  affinity
+  inference_dynamic_batching_media_cache_routing_weight  1.0
+  inference_dynamic_batching_num_cuda_graphs ...... 16
+  inference_dynamic_batching_paused_buffer_size_gb  None
+  inference_dynamic_batching_prefix_cache_ttl_seconds  300.0
+  inference_dynamic_batching_prefix_caching_coordinator_policy  longest_prefix
+  inference_dynamic_batching_prefix_caching_eviction_policy  lru
+  inference_dynamic_batching_prefix_caching_mamba_gb  None
+  inference_dynamic_batching_prefix_caching_routing_alpha  1.0
+  inference_dynamic_batching_sampling_backend ..... torch
+  inference_dynamic_batching_track_generated_token_events  False
+  inference_dynamic_batching_track_paused_request_events  False
+  inference_dynamic_batching_unified_memory_level . 0
+  inference_dynamic_batching_vision_embedding_cache_max_bytes  0
+  inference_flashinfer_mxfp8_token_capacity ....... None
+  inference_fuse_tp_communication ................. False
+  inference_grouped_gemm_backend .................. vllm
+  inference_logging_step_interval ................. 0
+  inference_max_requests .......................... 8
+  inference_max_seq_length ........................ 2560
+  inference_moe_disable_fused_quant_kernels ....... False
+  inference_moe_nvfp4_recipe ...................... None
+  inference_moe_token_dispatcher_type ............. nvls
+  inference_rng_tracker ........................... False
+  inference_shards ................................ None
+  inference_text_gen_server_logging ............... False
+  inference_use_synchronous_zmq_collectives ....... False
+  inference_wandb_logging ......................... False
+  init_method_std ................................. 0.02
+  init_method_xavier_uniform ...................... False
+  init_model_with_meta_device ..................... False
+  initial_loss_scale .............................. 4294967296
+  inprocess_active_world_size ..................... 2
+  inprocess_barrier_timeout ....................... 120
+  inprocess_completion_timeout .................... 120
+  inprocess_empty_cuda_cache ...................... False
+  inprocess_granularity ........................... node
+  inprocess_hard_timeout .......................... 90
+  inprocess_heartbeat_interval .................... 30
+  inprocess_heartbeat_timeout ..................... 60
+  inprocess_last_call_wait ........................ 1
+  inprocess_max_iterations ........................ None
+  inprocess_monitor_process_interval .............. 1.0
+  inprocess_monitor_thread_interval ............... 1.0
+  inprocess_progress_watchdog_interval ............ 1.0
+  inprocess_restart ............................... False
+  inprocess_soft_timeout .......................... 60
+  inprocess_termination_grace_time ................ 1
+  is_hybrid_model ................................. False
+  iter_per_epoch .................................. 1250
+  iterations_to_skip .............................. []
+  kda_lower_bound ................................. None
+  kda_safe_gate ................................... False
+  keep_fp8_transpose_cache ........................ False
+  keep_mtp_in_bf16 ................................ False
+  kitchen_attention_backend ....................... sdpa
+  kv_cache_management_mode ........................ persist
+  kv_channels ..................................... 32
+  kv_lora_rank .................................... 32
+  langrl_env_config ............................... None
+  layernorm_epsilon ............................... 1e-05
+  layernorm_zero_centered_gamma ................... False
+  lazy_mpu_init ................................... False
+  linear_attention_freq ........................... None
+  linear_attention_type ........................... None
+  linear_conv_kernel_dim .......................... 4
+  linear_cp_layout ................................ None
+  linear_cp_mode .................................. None
+  linear_key_head_dim ............................. 128
+  linear_num_key_heads ............................ 16
+  linear_num_value_heads .......................... 32
+  linear_value_head_dim ........................... 128
+  lion_beta1 ...................................... 0.95
+  lion_beta2 ...................................... 0.98
+  load ............................................ /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-acceptance-20261103/initial-aligned/checkpoints
+  load_main_params_from_ckpt ...................... False
+  local_rank ...................................... 0
+  log_dcp_stats ................................... True
+  log_device_memory_used .......................... False
+  log_energy ...................................... False
+  log_interval .................................... 1
+  log_loss_scale_to_tensorboard ................... True
+  log_max_attention_logit ......................... False
+  log_memory_interval ............................. None
+  log_memory_to_tensorboard ....................... False
+  log_moe_overload_factor ......................... False
+  log_num_zeros_in_grad ........................... False
+  log_params_norm ................................. False
+  log_progress .................................... False
+  log_straggler ................................... False
+  log_throughput .................................. True
+  log_timers_to_tensorboard ....................... False
+  log_validation_ppl_to_tensorboard ............... False
+  log_world_size_to_tensorboard ................... False
+  logging_level ................................... None
+  logit_dtype ..................................... None
+  logits_load_decode_threads ...................... 4
+  logits_load_dir ................................. None
+  logits_load_ignore_errors ....................... False
+  logits_load_ignore_hash ......................... False
+  logits_load_kd_loss_alpha ....................... 1.0
+  logits_load_msc_prefetch_depth .................. 2
+  logits_save_dir ................................. None
+  logits_save_dtype ............................... fp16
+  logits_save_top_k ............................... 128
+  logits_save_top_p ............................... None
+  logits_save_top_p_min_k ......................... 1
+  loss_scale ...................................... None
+  loss_scale_window ............................... 1000
+  lr .............................................. 0.00015
+  lr_decay_iters .................................. 100
+  lr_decay_samples ................................ None
+  lr_decay_style .................................. cosine
+  lr_warmup_fraction .............................. None
+  lr_warmup_init .................................. 0.0
+  lr_warmup_iters ................................. 0
+  lr_warmup_samples ............................... 0
+  lr_wsd_decay_iters .............................. None
+  lr_wsd_decay_samples ............................ None
+  lr_wsd_decay_style .............................. exponential
+  main_grads_dtype ................................ torch.float32
+  main_params_dtype ............................... torch.float32
+  make_vocab_size_divisible_by .................... 128
+  mamba_head_dim .................................. 64
+  mamba_inference_conv_states_dtype ............... torch.bfloat16
+  mamba_inference_ssm_states_dtype ................ torch.bfloat16
+  mamba_num_groups ................................ 8
+  mamba_num_heads ................................. None
+  mamba_state_dim ................................. 128
+  mamba_training_ssm_states_dtype ................. None
+  manual_gc ....................................... False
+  manual_gc_eval .................................. True
+  manual_gc_interval .............................. 0
+  mask_factor ..................................... 1.0
+  mask_prob ....................................... 0.15
+  mask_type ....................................... random
+  masked_softmax_fusion ........................... True
+  max_position_embeddings ......................... 1024
+  max_seqlen_per_dp_cp_rank ....................... 512
+  max_tokens_to_oom ............................... 12000
+  megatron_fsdp_cache_param_bucket_views .......... False
+  megatron_fsdp_enable_fine_grained_param_gather .. False
+  megatron_fsdp_grad_comm_dtype ................... None
+  megatron_fsdp_main_grads_dtype .................. None
+  megatron_fsdp_main_params_dtype ................. torch.float32
+  megatron_fsdp_max_pool_double_buffer ............ False
+  megatron_fsdp_padded_shards ..................... True
+  megatron_fsdp_prefetch_recompute_forward_weights  False
+  megatron_fsdp_version ........................... 1
+  memory_snapshot_path ............................ snapshot.pickle
+  merge_file ...................................... None
+  metadata_path ................................... None
+  mhc_fused_backend ............................... auto
+  mhc_init_gating_factor .......................... 0.01
+  mhc_keep_mappings_in_fp32 ....................... False
+  mhc_learned_output_contract ..................... True
+  mhc_norm_eps_inside_sqrt ........................ False
+  mhc_num_residual_streams ........................ 4
+  mhc_recompute_attn_cuda_graph_split ............. False
+  mhc_recompute_layer_num ......................... None
+  mhc_sinkhorn_iterations ......................... 20
+  micro_batch_size ................................ 1
+  microbatch_group_size_per_vp_stage .............. None
+  mid_level_dataset_surplus ....................... 0.005
+  min_dynamic_context_parallel_size ............... 1
+  min_loss_scale .................................. 1.0
+  min_lr .......................................... 1e-05
+  min_offloaded_tensor_size ....................... 1048576
+  mla_down_proj_fusion ............................ False
+  mlp_chunks_for_prefill .......................... 1
+  mlp_chunks_for_training ......................... 1
+  mmap_bin_files .................................. True
+  mock_data ....................................... True
+  moe_apply_probs_on_input ........................ False
+  moe_aux_loss_coeff .............................. 0.0
+  moe_combine_bwd_dtype ........................... bf16
+  moe_deepep_num_sms .............................. None
+  moe_dispatch_fwd_dtype .......................... bf16
+  moe_enable_deepep ............................... False
+  moe_enable_routing_replay ....................... False
+  moe_expert_capacity_factor ...................... None
+  moe_expert_rank_capacity_factor ................. None
+  moe_ffn_hidden_size ............................. None
+  moe_flex_dispatcher_backend ..................... deepep
+  moe_flex_dispatcher_num_sms ..................... None
+  moe_grouped_gemm ................................ False
+  moe_hybridep_num_blocks_permute ................. None
+  moe_hybridep_num_blocks_unpermute ............... None
+  moe_hybridep_num_sms ............................ None
+  moe_hybridep_num_sms_preprocessing .............. 108
+  moe_hybridep_pad_uneven_dispatch_inputs ......... False
+  moe_hybridep_pad_variable_tokens ................ False
+  moe_hybridep_routing_map_mode ................... indices
+  moe_input_jitter_eps ............................ None
+  moe_latent_size ................................. None
+  moe_latent_up_projection_rmsnorm ................ False
+  moe_layer_freq .................................. 1
+  moe_layer_recompute ............................. False
+  moe_megakernel_backend .......................... None
+  moe_megakernel_backend_config ................... None
+  moe_mlp_glu_interleave_size ..................... None
+  moe_n_hash_layers ............................... 0
+  moe_ncclep_static_shape ......................... None
+  moe_ncclep_use_symm_mem ......................... False
+  moe_ncclep_zero_copy ............................ False
+  moe_num_hash_layers ............................. 0
+  moe_pad_expert_input_to_capacity ................ False
+  moe_pad_experts_for_cuda_graph_inference ........ False
+  moe_paged_stash ................................. False
+  moe_paged_stash_buffer_size_factor_cpu .......... 0.0
+  moe_paged_stash_buffer_size_factor_cuda ......... 1.1
+  moe_paged_stash_page_size ....................... 64
+  moe_per_layer_logging ........................... False
+  moe_permute_fusion .............................. False
+  moe_permute_fusion_into_hybridep ................ False
+  moe_router_aux_loss_fusion ...................... None
+  moe_router_bias_update_rate ..................... 0.001
+  moe_router_dtype ................................ None
+  moe_router_enable_expert_bias ................... False
+  moe_router_force_biased ......................... None
+  moe_router_force_load_balancing ................. False
+  moe_router_fusion ............................... False
+  moe_router_group_topk ........................... None
+  moe_router_load_balancing_type .................. aux_loss
+  moe_router_num_groups ........................... None
+  moe_router_padding_for_fp8 ...................... False
+  moe_router_padding_for_quantization ............. False
+  moe_router_pre_softmax .......................... False
+  moe_router_qb_num_bins .......................... 1000
+  moe_router_quantile_balancing_ema ............... 0.0
+  moe_router_quantile_balancing_estimation_scope .. global_batch
+  moe_router_score_function ....................... softmax
+  moe_router_skip_muon ............................ False
+  moe_router_topk ................................. 2
+  moe_router_topk_scaling_factor .................. None
+  moe_routing_trace_capture_hidden_states ......... False
+  moe_routing_trace_capture_logits ................ False
+  moe_routing_trace_dump_weights .................. False
+  moe_routing_trace_max_training_iters ............ None
+  moe_routing_trace_path .......................... None
+  moe_shared_expert_gate .......................... False
+  moe_shared_expert_glu_interleave_size ........... None
+  moe_shared_expert_intermediate_size ............. None
+  moe_shared_expert_overlap ....................... False
+  moe_shortcut_connection ......................... False
+  moe_shortcut_parallel ........................... False
+  moe_shortcut_post_norm .......................... False
+  moe_single_grouped_bias ......................... False
+  moe_single_grouped_weight ....................... False
+  moe_token_dispatcher_type ....................... allgather
+  moe_token_drop_policy ........................... probs
+  moe_upcycling_granularity ....................... 1
+  moe_use_grouped_tensor .......................... False
+  moe_use_norm_before_up_proj ..................... False
+  moe_use_upcycling ............................... False
+  moe_virtual_expert_load_balance ................. False
+  moe_z_loss_coeff ................................ None
+  mrope_interleaved ............................... False
+  mrope_section ................................... None
+  mscale .......................................... 1.0
+  mscale_all_dim .................................. 0.0
+  mtp_detach_heads ................................ False
+  mtp_hsm ......................................... False
+  mtp_hybrid_override_pattern ..................... None
+  mtp_loss_early_backward ......................... False
+  mtp_loss_scaling_factor ......................... 0.1
+  mtp_loss_type ................................... cross_entropy
+  mtp_num_layers .................................. None
+  mtp_standalone .................................. False
+  mtp_use_repeated_layer .......................... False
+  multi_latent_attention .......................... False
+  multiple_validation_sets ........................ False
+  muon_coefficient_type ........................... quintic
+  muon_concurrent_groups .......................... True
+  muon_extra_scale_factor ......................... 1.0
+  muon_fp32_matmul_prec ........................... medium
+  muon_momentum ................................... 0.9
+  muon_nesterov ................................... False
+  muon_ns_batch_size .............................. 1
+  muon_num_ns_steps ............................... 5
+  muon_scalar_optimizer ........................... adam
+  muon_scale_mode ................................. spectral
+  muon_split_mla_qkv .............................. False
+  muon_split_qkv .................................. True
+  muon_split_qkv_per_head ......................... False
+  muon_tp_mode .................................... duplicated
+  muon_use_syrk ................................... False
+  mup_attn_scale_power ............................ 1.0
+  mup_base_head_dim ............................... None
+  mup_base_hidden_size ............................ None
+  mup_embedding_mult .............................. 1.0
+  mup_output_mult ................................. 1.0
+  mup_width_mult .................................. 1.0
+  nccl_all_reduce_for_prefill ..................... False
+  nccl_communicator_config_path ................... None
+  nccl_ub ......................................... False
+  no_load_optim ................................... None
+  no_load_rng ..................................... None
+  no_persist_layer_norm ........................... False
+  no_rope_freq .................................... None
+  no_save_optim ................................... None
+  no_save_rng ..................................... None
+  non_persistent_ckpt_type ........................ None
+  non_persistent_global_ckpt_dir .................. None
+  non_persistent_local_ckpt_algo .................. fully_parallel
+  non_persistent_local_ckpt_dir ................... None
+  non_persistent_save_interval .................... None
+  normalization ................................... LayerNorm
+  null_tokenizer_eod_id ........................... None
+  null_tokenizer_pad_id ........................... 0
+  num_attention_heads ............................. 4
+  num_channels .................................... 3
+  num_classes ..................................... 1000
+  num_dataset_builder_threads ..................... 1
+  num_distributed_optimizer_instances ............. 1
+  num_experts ..................................... None
+  num_layers ...................................... 4
+  num_layers_at_end_in_bf16 ....................... 1
+  num_layers_at_start_in_bf16 ..................... 1
+  num_layers_per_virtual_pipeline_stage ........... None
+  num_query_groups ................................ 1
+  num_residual_streams ............................ 4
+  num_speculative_tokens .......................... 0
+  num_virtual_stages_per_pipeline_rank ............ None
+  num_workers ..................................... 0
+  nvtx_ranges ..................................... False
+  o_groups ........................................ 8
+  o_lora_rank ..................................... 1024
+  object_storage_cache_path ....................... None
+  offload_modules ................................. []
+  offload_optimizer_states ........................ False
+  offset_sampling_seed_by_dp_rank ................. True
+  one_logger_async ................................ False
+  one_logger_project .............................. megatron-lm
+  one_logger_run_name ............................. None
+  onnx_safe ....................................... None
+  openai_gelu ..................................... False
+  optimizer ....................................... adam
+  optimizer_cpu_offload ........................... False
+  optimizer_cuda_graph ............................ False
+  optimizer_offload_fraction ...................... 1.0
+  optimizer_state_offload_chunk_size_mb ........... 0
+  optimizer_state_offload_fraction ................ 1.0
+  original_max_position_embeddings ................ 4096
+  otel_enabled .................................... False
+  otel_service_name ............................... None
+  otel_span_groups ................................ None
+  outer_dp_sharding_strategy ...................... no_shard
+  output_bert_embeddings .......................... False
+  output_projection_groups ........................ 8
+  output_projection_lora_rank ..................... 1024
+  overlap_cpu_optimizer_d2h_h2d ................... False
+  overlap_dispatch_backward_with_experts_wgrad .... False
+  overlap_grad_reduce ............................. False
+  overlap_moe_expert_parallel_comm ................ False
+  overlap_p2p_comm ................................ False
+  overlap_p2p_comm_warmup_flush ................... False
+  overlap_param_gather ............................ False
+  overlap_param_gather_with_optimizer_step ........ False
+  override_ckpt_iteration ......................... None
+  override_opt_param_scheduler .................... False
+  pad_packed_seq_alignment ........................ None
+  pad_vocab_size .................................. True
+  padded_vocab_size ............................... None
+  params_dtype .................................... torch.bfloat16
+  patch_dim ....................................... 16
+  per_dataset_sequences_path ...................... None
+  per_split_data_args_path ........................ None
+  perform_initialization .......................... True
+  perform_rl_step ................................. False
+  phase_transition_iterations ..................... None
+  pin_cpu_grads ................................... True
+  pin_cpu_params .................................. True
+  pipeline_model_parallel_comm_backend ............ None
+  pipeline_model_parallel_layout .................. None
+  pipeline_model_parallel_size .................... 1
+  pipeline_p2p_fixed_shape ........................ False
+  position_embedding_type ......................... learned_absolute
+  pretrained_checkpoint ........................... None
+  profile ......................................... False
+  profile_ranks ................................... []
+  profile_step_end ................................ 12
+  profile_step_start .............................. 10
+  pytorch_profiler_collect_callstack .............. False
+  pytorch_profiler_collect_chakra ................. False
+  pytorch_profiler_collect_shapes ................. False
+  q_lora_rank ..................................... None
+  qk_clip ......................................... False
+  qk_clip_alpha ................................... 0.5
+  qk_clip_threshold ............................... 100
+  qk_head_dim ..................................... 128
+  qk_l2_norm ...................................... False
+  qk_layernorm .................................... False
+  qk_pos_emb_head_dim ............................. 64
+  quick_geglu ..................................... False
+  rampup_batch_size ............................... None
+  rank ............................................ 0
+  recompute_granularity ........................... None
+  recompute_method ................................ None
+  recompute_modules ............................... None
+  recompute_num_layers ............................ None
+  record_memory_history ........................... False
+  record_shapes ................................... False
+  refit_execution_batch_bytes ..................... None
+  refit_method .................................... gloo
+  relative_attention_max_distance ................. 128
+  relative_attention_num_buckets .................. 32
+  replication ..................................... False
+  replication_factor .............................. 2
+  replication_jump ................................ None
+  rerun_mode ...................................... validate_results
+  reset_attention_mask ............................ False
+  reset_position_ids .............................. False
+  residual_stream_recompute_num_layers ............ None
+  result_rejected_tracker_filename ................ None
+  reuse_grad_buf_for_mxfp8_param_ag ............... False
+  rl_consumption_granularity ...................... B
+  rl_default_temperature .......................... 1.0
+  rl_default_top_k ................................ -1
+  rl_default_top_p ................................ 0.0
+  rl_durable_rollout_bank ......................... False
+  rl_generation_lag ............................... None
+  rl_importance_sampling_truncation_coef .......... None
+  rl_inference_expert_model_parallel_size ......... None
+  rl_inference_expert_tensor_model_parallel_size .. None
+  rl_inference_logprobs_is_correction ............. False
+  rl_inference_model_unified_memory_level ......... 0
+  rl_inference_parsers ............................ []
+  rl_inference_pipeline_model_parallel_size ....... None
+  rl_inference_tensor_model_parallel_size ......... None
+  rl_max_inflight_requests ........................ None
+  rl_offload_inference_model_weights .............. False
+  rl_offload_optimizer_during_inference ........... False
+  rl_partial_rollouts ............................. False
+  rl_profile ...................................... False
+  rl_profile_dir .................................. None
+  rl_prompts_per_eval ............................. 32
+  rl_rollout_bank_dir ............................. None
+  rl_rollout_bank_max_bytes ....................... 0
+  rl_rollout_only ................................. False
+  rl_sequence_packing_algo ........................ fifo
+  rl_sequence_packing_max_sequences_per_bin ....... 50
+  rl_skip_bos_token ............................... False
+  rl_submission_granularity ....................... B
+  rl_training_cuda_graphs ......................... False
+  rl_use_sequence_packing ......................... False
+  rl_verify_model_weights_swap .................... False
+  rope_scaling_factor ............................. 8.0
+  rope_type ....................................... None
+  rotary_base ..................................... 10000
+  rotary_base_per_layer ........................... None
+  rotary_interleaved .............................. False
+  rotary_percent .................................. 1.0
+  rotary_scaling_factor ........................... 1.0
+  rotary_seq_len_interpolation_factor ............. None
+  run_workload_inspector_server ................... False
+  sample_rate ..................................... 1.0
+  save ............................................ None
+  save_activations_interval ....................... None
+  save_dgrads_interval ............................ None
+  save_interval ................................... 101
+  save_params_interval ............................ None
+  save_retain_interval ............................ None
+  save_tokenizer_assets ........................... True
+  save_tokens_per_expert_interval ................. None
+  save_wgrads_interval ............................ None
+  seed ............................................ 1234
+  seq_length ...................................... 1024
+  sequence_packing_scheduler ...................... default_dynamic_cp
+  sequence_parallel ............................... False
+  sft ............................................. False
+  sft_loss_log_mode ............................... token-weighted
+  sft_mock_dataset_config_json .................... None
+  sft_tokenizer_prompt_format ..................... nemotron-h-aligned
+  sgd_momentum .................................... 0.9
+  sharp_enabled_group ............................. None
+  short_seq_prob .................................. 0.1
+  situ_glu ........................................ False
+  situ_glu_beta1 .................................. 4.0
+  situ_glu_beta2 .................................. 25.0
+  skip_train ...................................... False
+  softmax_type .................................... vanilla
+  spec ............................................ None
+  special_tokens .................................. None
+  split ........................................... 99,1,0
+  squared_relu .................................... False
+  start_eval_at_iter .............................. None
+  start_weight_decay .............................. None
+  static_kv_memory_pointers ....................... False
+  step_batch_size_schedule ........................ None
+  straggler_ctrlr_port ............................ 65535
+  straggler_minmax_count .......................... 1
+  stream_ckpt_dequant ............................. False
+  strict_fsdp_dtensor_load ........................ True
+  suggested_communication_unit_size ............... None
+  swiglu .......................................... False
+  swin_backbone_type .............................. tiny
+  symmetric_ar_type ............................... None
+  te_precision_config_file ........................ None
+  te_rng_tracker .................................. False
+  tensor_metrics .................................. []
+  tensor_model_parallel_size ...................... 1
+  tensor_parallel_num_sequence_shards ............. 1
+  tensor_parallel_num_weight_shards ............... 1
+  tensorboard_dir ................................. /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-acceptance-20261103/current-2-on/tensorboard
+  tensorboard_log_interval ........................ 1
+  tensorboard_queue_size .......................... 1000
+  test_data_path .................................. None
+  test_mode ....................................... False
+  thd_max_packed_sequences ........................ None
+  thd_tail_padding_policy ......................... None
+  tiktoken_num_special_tokens ..................... 1000
+  tiktoken_pattern ................................ None
+  timing_log_level ................................ 0
+  timing_log_option ............................... minmax
+  tokenizer_hf_no_include_special_tokens .......... False
+  tokenizer_hf_no_use_fast ........................ False
+  tokenizer_model ................................. None
+  tokenizer_sentencepiece_ignore_extra_whitespaces  True
+  tokenizer_sentencepiece_legacy .................. False
+  tokenizer_type .................................. NullTokenizer
+  torch_fsdp2_reshard_after_forward ............... True
+  tp_comm_bootstrap_backend ....................... nccl
+  tp_comm_bulk_dgrad .............................. True
+  tp_comm_bulk_wgrad .............................. True
+  tp_comm_overlap ................................. False
+  tp_comm_overlap_ag .............................. True
+  tp_comm_overlap_cfg ............................. None
+  tp_comm_overlap_rs .............................. True
+  tp_comm_overlap_rs_dgrad ........................ False
+  tp_comm_split_ag ................................ True
+  tp_comm_split_rs ................................ True
+  train_data_path ................................. None
+  train_full_dataset .............................. False
+  train_iters ..................................... 101
+  train_samples ................................... None
+  train_sync_interval ............................. None
+  transformer_impl ................................ transformer_engine
+  transformer_pipeline_model_parallel_size ........ 1
+  triton_autotune_block_sizes ..................... ()
+  triton_autotune_chaos ........................... False
+  triton_autotune_config_invariant ................ ('transformer_engine.common.triton.permutation._permute_kernel', 'transformer_engine.common.triton.permutation._unpermute_kernel', 'transformer_engine.common.triton.permutation._sort_chunks_by_map_kernel', 'transformer_engine.pytorch.triton.permutation._permute_kernel', 'transformer_engine.pytorch.triton.permutation._unpermute_kernel', 'transformer_engine.pytorch.triton.permutation._sort_chunks_by_map_kernel')
+  triton_autotune_enumerate_autotuners ............ False
+  triton_autotune_mode ............................ None
+  triton_autotune_modules ......................... ('mamba_ssm', 'transformer_engine', 'megatron.core')
+  triton_autotune_on_miss ......................... min_cost
+  triton_autotune_record_path ..................... None
+  triton_autotune_table_path ...................... ()
+  triton_autotune_verify_every .................... 0
+  triton_autotune_verify_strict ................... False
+  trust_remote_code ............................... False
+  untie_embeddings_and_output_weights ............. False
+  use_checkpoint_args ............................. False
+  use_checkpoint_opt_param_scheduler .............. True
+  use_cpu_initialization .......................... None
+  use_dist_ckpt ................................... True
+  use_dist_ckpt_deprecated ........................ False
+  use_distributed_optimizer ....................... False
+  use_flash_attn .................................. False
+  use_fused_mhc ................................... False
+  use_fused_weighted_squared_relu ................. False
+  use_gigatoken ................................... False
+  use_gloo_process_groups ......................... True
+  use_grouped_gemm_for_dense_mlp .................. False
+  use_grouped_gemm_for_shared_expert .............. False
+  use_kitchen_attention ........................... False
+  use_layer_wise_distributed_optimizer ............ False
+  use_layer_wise_param_layout ..................... False
+  use_legacy_static_engine ........................ False
+  use_mamba_mem_eff_path .......................... True
+  use_megatron_fsdp ............................... False
+  use_mp_args_from_checkpoint_args ................ False
+  use_mup ......................................... False
+  use_persistent_ckpt_worker ...................... False
+  use_precision_aware_optimizer ................... False
+  use_pytorch_profiler ............................ False
+  use_ring_exchange_p2p ........................... False
+  use_rope_scaling ................................ False
+  use_rotary_position_embeddings .................. False
+  use_sharp ....................................... False
+  use_te_activation_func .......................... False
+  use_tokenizer_model_from_checkpoint_args ........ True
+  use_torch_fsdp2 ................................. False
+  use_torch_optimizer_for_cpu_offload ............. False
+  use_tp_pp_dp_mapping ............................ False
+  use_transformer_engine_op_fuser ................. False
+  use_varlen_dataset .............................. True
+  v_head_dim ...................................... 128
+  valid_data_path ................................. None
+  validation_set_names ............................ None
+  variable_seq_lengths ............................ True
+  varlen_mock_dataset_config_json ................. {"mode": "file", "format": "thd", "path": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-acceptance-20261103/lengths.csv"}
+  varlen_sbhd_validation .......................... False
+  verify_integrity ................................ False
+  virtual_pipeline_model_parallel_size ............ None
+  vision_backbone_type ............................ vit
+  vision_pretraining .............................. False
+  vision_pretraining_type ......................... classify
+  vocab_extra_ids ................................. 0
+  vocab_file ...................................... None
+  vocab_size ...................................... 256
+  wandb_entity .................................... None
+  wandb_exp_name .................................. None
+  wandb_project ................................... None
+  wandb_save_dir .................................. None
+  weight_decay .................................... 0.01
+  weight_decay_incr_style ......................... constant
+  wgrad_deferral_limit ............................ 0
+  wide_residual_learned_retention ................. False
+  wide_residual_num_streams ....................... None
+  wide_residual_retention_init .................... 0.999
+  wide_residual_retention_max_forget .............. 0.1
+  wide_residual_streamwise_sigmoid_init_scale ..... 0.01
+  window_attn_skip_freq ........................... None
+  window_size ..................................... None
+  world_size ...................................... 2
+  yaml_cfg ........................................ None
+  yarn_beta_fast .................................. None
+  yarn_beta_slow .................................. None
+  yarn_correction_range_round_to_int .............. None
+  yarn_original_max_position_embeddings ........... None
+-------------------- end of arguments ---------------------
+INFO:megatron.core.tokenizers.utils.build_tokenizer: > padded vocab (size: 256) with 0 dummy tokens (new size: 256)
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 8
+WARNING:megatron.core.rerun_state_machine:RerunStateMachine initialized in mode RerunMode.VALIDATE_RESULTS
+> initializing torch distributed ...
+> setting tensorboard ...
+> initialized tensor model parallel with size 1
+> initialized gtp weight remat with size 1
+> initialized pipeline model parallel with size 1
+> setting random seeds to 1234 ...
+> compiling dataset index builder ...
+make: Entering directory '/data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/datasets'
+make: Nothing to be done for 'default'.
+make: Leaving directory '/data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/datasets'
+>>> done with dataset index builder. Compilation time: 0.017 seconds
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W1104 02:23:43.648396348 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+WARNING:megatron.training.kernel_warmup:This PyTorch build lacks empty_host_cache; pinned cache may remain
+Finished training-kernel warmup.
+WARNING:megatron.training.kernel_warmup:This PyTorch build lacks empty_host_cache; pinned cache may remain
+time to initialize megatron (seconds): 6.659
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[after in-process setup and before initialize_megatron] datetime: 2026-11-04 02:23:42.608662 
+[after in-job setup and before initialize_megatron] datetime: 2026-11-04 02:23:43.048326 
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    startup-program-entry-spread ...................: (101.51, 101.51)
+    startup-library-setup ..........................: (11.64, 12.63)
+    startup-program-setup ..........................: (307.82, 365.22)
+    startup-in-process-setup .......................: (0.05, 0.07)
+    startup-in-job-setup ...........................: (437.54, 439.66)
+    startup-initialize-megatron ....................: (695.80, 851.62)
+    startup-set-jit-fusion-options .................: (4980.60, 5030.37)
+    all-reduce-start-timestamps-tensor .............: (0.82, 50.64)
+    startup-megatron-init-local ....................: (6164.60, 6322.57)
+    startup-megatron-init-global ...................: (6642.97, 6643.02)
+[before library-setup] datetime: 2026-11-04 02:23:42.288157
+[after library-setup] datetime: 2026-11-04 02:23:42.300790
+[before megatron-init] datetime: 2026-11-04 02:23:42.608611
+[after megatron is initialized] datetime: 2026-11-04 02:23:48.932519 
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+ > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 0): 957184
+INFO:megatron.core.distributed.distributed_data_parallel:Setting up DistributedDataParallel with config DistributedDataParallelConfig(grad_reduce_in_fp32=True, overlap_grad_reduce=False, overlap_param_gather=False, align_param_gather=False, use_distributed_optimizer=False, disable_grad_buffers_cpu_backup=False, disable_param_buffers_cpu_backup=False, num_distributed_optimizer_instances=1, use_layer_wise_param_layout=False, check_for_nan_in_grad=True, check_for_large_grads=False, bucket_size=None, num_buckets=None, pad_buckets_for_high_nccl_busbw=False, reduce_scatter_with_fp32_accumulation=False, param_name_patterns_for_fp32_local_accumulation=(), average_in_collective=False, fp8_param_gather=False, fp4_param_gather=False, reuse_grad_buf_for_mxfp8_param_ag=False, use_megatron_fsdp=False, megatron_fsdp_version=1, use_custom_fsdp=False, data_parallel_sharding_strategy='optim_grads_params', expert_data_parallel_sharding_strategy='optim_grads_params', gradient_reduce_div_fusion=True, suggested_communication_unit_size=None, keep_fp8_transpose_cache=False, nccl_ub=False, grad_buffer_offload=False, fsdp_double_buffer=False, fsdp_buffer_count=2, fsdp_db_use_persist_buf_on_alloc_fail=False, fsdp_all_gather_in_start_param_sync=True, outer_dp_sharding_strategy='no_shard', expert_outer_dp_sharding_strategy='no_shard', disable_symmetric_registration=False, fsdp_manual_registration=False, delay_wgrad_compute=False, megatron_fsdp_main_params_dtype=torch.float32, megatron_fsdp_main_grads_dtype=None, megatron_fsdp_grad_comm_dtype=None, megatron_fsdp_use_decoupled_grad=False, megatron_fsdp_prefetch_recompute_forward_weights=False, megatron_fsdp_cache_param_bucket_views=False, megatron_fsdp_cuda_graph_mode=False, megatron_fsdp_enable_fine_grained_param_gather=False, megatron_fsdp_padded_shards=True, megatron_fsdp_max_pool_double_buffer=False, hfsdp_param_gather_overlap=False)
+INFO:megatron.core.distributed.param_and_grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+Params for bucket 1 (957184 elements, 957184 padded size, 0 param(s) with extra main_grads):
+	module.decoder.final_layernorm.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.final_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.embedding.position_embeddings.weight (param.main_grad.dtype=torch.float32)
+	module.embedding.word_embeddings.weight (param.main_grad.dtype=torch.float32)
+INFO:megatron.core.distributed.param_and_grad_buffer:Using all-reduce for gradient reductions because self.ddp_config.use_distributed_optimizer=False
+INFO:megatron.core.optimizer:Setting up optimizer with config OptimizerConfig(lr=0.00015, min_lr=1e-05, decoupled_lr=None, decoupled_min_lr=None, weight_decay=0.01, apply_wd_to_qk_layernorm=False, fp8_recipe='delayed', fp16=False, bf16=True, reuse_grad_buf_for_mxfp8_param_ag=False, params_dtype=torch.bfloat16, use_precision_aware_optimizer=False, store_param_remainders=True, main_grads_dtype=torch.float32, main_params_dtype=torch.float32, exp_avg_dtype=torch.float32, exp_avg_sq_dtype=torch.float32, optimizer='adam', loss_scale=None, initial_loss_scale=4294967296, min_loss_scale=1.0, loss_scale_window=1000, hysteresis=2, adam_beta1=0.9, adam_beta2=0.999, adam_eps=1e-08, decoupled_weight_decay=True, sgd_momentum=0.9, muon_momentum=0.9, muon_split_qkv=True, muon_split_qkv_per_head=False, muon_split_mla_qkv=False, muon_nesterov=False, muon_scale_mode='spectral', muon_fp32_matmul_prec='medium', muon_coefficient_type='quintic', muon_num_ns_steps=5, muon_tp_mode='duplicated', muon_use_syrk=False, muon_extra_scale_factor=1.0, muon_ns_batch_size=1, muon_concurrent_groups=True, muon_scalar_optimizer='adam', lion_beta1=0.95, lion_beta2=0.98, soap_shampoo_beta=0.95, soap_use_kl_shampoo=True, adaptive_muon_moment2_method='adamuon', adaptive_muon_beta2=0.95, adaptive_muon_eps=1e-08, use_distributed_optimizer=False, use_layer_wise_distributed_optimizer=False, use_layer_wise_param_layout=False, overlap_param_gather=False, overlap_param_gather_with_optimizer_step=False, optimizer_cpu_offload=False, optimizer_offload_fraction=1.0, use_torch_optimizer_for_cpu_offload=False, overlap_cpu_optimizer_d2h_h2d=False, pin_cpu_grads=True, pin_cpu_params=True, chunked_optimizer_state_offload=False, optimizer_state_offload_chunk_size_mb=0, optimizer_state_offload_fraction=1.0, offload_optimizer_states=False, clip_grad=1.0, grad_norm_skip_threshold=inf, log_num_zeros_in_grad=False, barrier_with_L1_time=True, timers=<megatron.core.timers.Timers object at 0x7f4a74431910>, config_logger_dir='', optimizer_cuda_graph=False)
+INFO:megatron.core.optimizer_param_scheduler:> learning rate decay style: cosine
+WARNING: could not find the metadata file /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-acceptance-20261103/initial-aligned/checkpoints/latest_checkpointed_iteration.txt
+    will not load any checkpoints and will start from random
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    load-checkpoint ................................: (0.41, 0.42)
+[after model, optimizer, and learning rate scheduler are built] datetime: 2026-11-04 02:23:48.982293 
+> building train, validation, and test datasets ...
+ > datasets target sizes (minimum size):
+    train:      808
+    validation: 0
+    test:       0
+INFO:megatron.core.datasets.blended_megatron_dataset_config:Let mock = True, as both blend and blend_per_split are None
+INFO:megatron.core.datasets.blended_megatron_dataset_config:Let split = 1,1,1, an arbitrarily even split, as mock is True
+INFO:megatron.core.datasets.blended_megatron_dataset_config:Let split_matrix = [(0, 0.3333333333333333), (0.3333333333333333, 0.6666666666666666), (0.6666666666666666, 1.0)]
+> building train, validation, and test datasets for GPT ...
+INFO:megatron.core.datasets.blended_megatron_dataset_builder:Building MockVarlenDataset splits with sizes=(808, 0, 0) and config=GPTDatasetConfig(random_seed=1234, sequence_length=1024, blend=None, blend_per_split=None, multiple_validation_sets=False, full_validation=False, split='1,1,1', split_matrix=[(0, 0.3333333333333333), (0.3333333333333333, 0.6666666666666666), (0.6666666666666666, 1.0)], num_dataset_builder_threads=1, path_to_cache='/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-acceptance-20261103/data-cache', mmap_bin_files=True, mock=True, tokenizer=<megatron.core.tokenizers.text.text_tokenizer.MegatronTokenizerText object at 0x7f4a741c7c80>, mid_level_dataset_surplus=0.005, allow_ambiguous_pad_tokens=False, fast_cache_load=False, defer_npy_index_mmap=False, reset_position_ids=False, reset_attention_mask=False, eod_mask_loss=False, create_attention_mask=True, drop_last_partial_validation_sequence=True, add_extra_token_to_sequence=True, object_storage_cache_path=None, data_parallel_size=1, sequence_parallel_size=0, dynamic_context_parallel=True, hybrid_context_parallel=False, sequences_per_dataset=None, token_dtype_code=8, context_parallel_size=2, inter_document_masking=False, sft_mock_dataset_config_json=None, varlen_mock_dataset_config_json='{"mode": "file", "format": "thd", "path": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-acceptance-20261103/lengths.csv"}', varlen_sbhd_validation=False)
+> finished creating GPT datasets ...
+[after dataloaders are built] datetime: 2026-11-04 02:23:48.986851 
+done with setup ...
+training ...
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (49.29, 49.48)
+    train/valid/test-data-iterators-setup ..........: (3.92, 4.28)
+Overwriting rerun_state_machine.current_iteration from -1 to 0...
+[before the start of training step] datetime: 2026-11-04 02:23:49.001898 
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'th3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+  ) = dpa_utils.get_qkv_layout(
+WARNING:megatron.core.rerun_state_machine:Result validation enabled
+ [2026-11-04 02:23:50.922799] iteration        1/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:            8 | elapsed time per iteration (ms): 1920.8 | throughput per GPU (TFLOP/s/GPU): 0.0 | learning rate: 1.499655E-04 | global batch size:     8 | lm loss: 5.542106E+00 | loss scale: 1.0 | grad norm: 1.933 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Number of parameters in transformer block in billions:  0.00
+Number of active parameters in transformer block in billions:  0.00
+Number of parameters in embedding layers in billions: 0.00
+Total number of parameters in billions: 0.00
+Total number of active parameters in billions: 0.00
+Number of parameters in most loaded shard in billions: 0.0008
+compute_activation_memory_without_sp
+Activation memory footprint per transformer layer (precise, without SP): 4.2 MB
+Theoretical memory footprints: weight and optimizer=14.10 MB, activation=18.78 MB, total=32.88 MB
+
+[Rank 1] (after 1 iterations) memory (MB) | allocated: 84.44 | max allocated: 92.41 | reserved: 102.00 | max reserved: 102.00
+[Rank 0] (after 1 iterations) memory (MB) | allocated: 84.44 | max allocated: 92.41 | reserved: 102.00 | max reserved: 102.00
+Skipping automatic checkpoint at iteration 1 (microbatch change: 3 -> 8)
+Number of parameters in transformer block in billions:  0.00
+Number of active parameters in transformer block in billions:  0.00
+Number of parameters in embedding layers in billions: 0.00
+Total number of parameters in billions: 0.00
+Total number of active parameters in billions: 0.00
+Number of parameters in most loaded shard in billions: 0.0008
+compute_activation_memory_without_sp
+Activation memory footprint per transformer layer (precise, without SP): 4.2 MB
+Theoretical memory footprints: weight and optimizer=14.10 MB, activation=18.78 MB, total=32.88 MB
+
+ [2026-11-04 02:23:51.037312] iteration        2/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           16 | elapsed time per iteration (ms): 114.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.498619E-04 | global batch size:     8 | lm loss: 5.383910E+00 | loss scale: 1.0 | grad norm: 1.899 | number of skipped iterations:   0 | number of nan iterations:   0 |
+[Rank 0] (after 2 iterations) memory (MB) | allocated: 84.44 | max allocated: 99.72 | reserved: 110.00 | max reserved: 110.00
+Skipping automatic checkpoint at iteration 2 (microbatch change: 3 -> 8)
+[Rank 1] (after 2 iterations) memory (MB) | allocated: 84.44 | max allocated: 99.71 | reserved: 110.00 | max reserved: 110.00
+ [2026-11-04 02:23:51.163467] iteration        3/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           24 | elapsed time per iteration (ms): 126.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.496893E-04 | global batch size:     8 | lm loss: 5.234051E+00 | loss scale: 1.0 | grad norm: 1.867 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 3 (microbatch change: 3 -> 8)
+
+ [2026-11-04 02:23:51.284307] iteration        4/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           32 | elapsed time per iteration (ms): 120.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.494480E-04 | global batch size:     8 | lm loss: 5.086669E+00 | loss scale: 1.0 | grad norm: 1.755 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 4 (microbatch change: 3 -> 8)
+
+ [2026-11-04 02:23:51.408900] iteration        5/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           40 | elapsed time per iteration (ms): 124.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.491382E-04 | global batch size:     8 | lm loss: 4.966232E+00 | loss scale: 1.0 | grad norm: 1.651 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 5 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 6 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:51.528166] iteration        6/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           48 | elapsed time per iteration (ms): 119.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.487601E-04 | global batch size:     8 | lm loss: 4.858112E+00 | loss scale: 1.0 | grad norm: 1.542 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 7 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:51.643377] iteration        7/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           56 | elapsed time per iteration (ms): 115.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.483142E-04 | global batch size:     8 | lm loss: 4.755370E+00 | loss scale: 1.0 | grad norm: 1.394 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 8 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:51.762529] iteration        8/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           64 | elapsed time per iteration (ms): 119.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.478008E-04 | global batch size:     8 | lm loss: 4.666922E+00 | loss scale: 1.0 | grad norm: 1.331 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 9 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:51.880123] iteration        9/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           72 | elapsed time per iteration (ms): 117.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.472206E-04 | global batch size:     8 | lm loss: 4.582416E+00 | loss scale: 1.0 | grad norm: 1.272 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 10 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:51.996078] iteration       10/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           80 | elapsed time per iteration (ms): 115.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.465740E-04 | global batch size:     8 | lm loss: 4.509819E+00 | loss scale: 1.0 | grad norm: 1.202 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:52.111244] iteration       11/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           88 | elapsed time per iteration (ms): 115.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.458617E-04 | global batch size:     8 | lm loss: 4.442832E+00 | loss scale: 1.0 | grad norm: 1.156 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 11 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 12 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:52.227510] iteration       12/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:           96 | elapsed time per iteration (ms): 116.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.450844E-04 | global batch size:     8 | lm loss: 4.376693E+00 | loss scale: 1.0 | grad norm: 1.102 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 13 (microbatch change: 3 -> 8) [2026-11-04 02:23:52.344064] iteration       13/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          104 | elapsed time per iteration (ms): 116.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.442428E-04 | global batch size:     8 | lm loss: 4.319015E+00 | loss scale: 1.0 | grad norm: 1.086 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 14 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:52.452517] iteration       14/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          112 | elapsed time per iteration (ms): 108.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.433379E-04 | global batch size:     8 | lm loss: 4.262372E+00 | loss scale: 1.0 | grad norm: 1.044 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:52.558342] iteration       15/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          120 | elapsed time per iteration (ms): 105.6 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.423705E-04 | global batch size:     8 | lm loss: 4.210019E+00 | loss scale: 1.0 | grad norm: 1.026 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 15 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:52.682494] iteration       16/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          128 | elapsed time per iteration (ms): 123.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.413415E-04 | global batch size:     8 | lm loss: 4.160111E+00 | loss scale: 1.0 | grad norm: 1.002 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 16 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 17 (microbatch change: 3 -> 8) [2026-11-04 02:23:52.810921] iteration       17/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          136 | elapsed time per iteration (ms): 128.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.402519E-04 | global batch size:     8 | lm loss: 4.111257E+00 | loss scale: 1.0 | grad norm: 0.978 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 18 (microbatch change: 3 -> 8) [2026-11-04 02:23:52.920797] iteration       18/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          144 | elapsed time per iteration (ms): 109.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.391030E-04 | global batch size:     8 | lm loss: 4.066050E+00 | loss scale: 1.0 | grad norm: 0.969 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 19 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:53.020255] iteration       19/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          152 | elapsed time per iteration (ms): 99.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.378956E-04 | global batch size:     8 | lm loss: 4.022722E+00 | loss scale: 1.0 | grad norm: 0.962 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 20 (microbatch change: 3 -> 8) [2026-11-04 02:23:53.119924] iteration       20/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          160 | elapsed time per iteration (ms): 99.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.366312E-04 | global batch size:     8 | lm loss: 3.979299E+00 | loss scale: 1.0 | grad norm: 0.948 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+ [2026-11-04 02:23:53.220789] iteration       21/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          168 | elapsed time per iteration (ms): 100.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.353109E-04 | global batch size:     8 | lm loss: 3.939544E+00 | loss scale: 1.0 | grad norm: 0.931 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 21 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 22 (microbatch change: 3 -> 8) [2026-11-04 02:23:53.324397] iteration       22/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          176 | elapsed time per iteration (ms): 103.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.339359E-04 | global batch size:     8 | lm loss: 3.899965E+00 | loss scale: 1.0 | grad norm: 0.916 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 23 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:53.430424] iteration       23/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          184 | elapsed time per iteration (ms): 105.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.325078E-04 | global batch size:     8 | lm loss: 3.861211E+00 | loss scale: 1.0 | grad norm: 0.917 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:53.543301] iteration       24/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          192 | elapsed time per iteration (ms): 112.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.310278E-04 | global batch size:     8 | lm loss: 3.824981E+00 | loss scale: 1.0 | grad norm: 0.902 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 24 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 25 (microbatch change: 3 -> 8) [2026-11-04 02:23:53.644632] iteration       25/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          200 | elapsed time per iteration (ms): 101.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.294975E-04 | global batch size:     8 | lm loss: 3.788290E+00 | loss scale: 1.0 | grad norm: 0.894 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 26 (microbatch change: 3 -> 8) [2026-11-04 02:23:53.741701] iteration       26/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          208 | elapsed time per iteration (ms): 96.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.279183E-04 | global batch size:     8 | lm loss: 3.753470E+00 | loss scale: 1.0 | grad norm: 0.878 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 27 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:53.845152] iteration       27/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          216 | elapsed time per iteration (ms): 103.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.262918E-04 | global batch size:     8 | lm loss: 3.716342E+00 | loss scale: 1.0 | grad norm: 0.876 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 28 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:53.951757] iteration       28/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          224 | elapsed time per iteration (ms): 106.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.246197E-04 | global batch size:     8 | lm loss: 3.679818E+00 | loss scale: 1.0 | grad norm: 0.866 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:54.052776] iteration       29/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          232 | elapsed time per iteration (ms): 100.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.229035E-04 | global batch size:     8 | lm loss: 3.647317E+00 | loss scale: 1.0 | grad norm: 0.861 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 29 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 30 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:54.150897] iteration       30/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          240 | elapsed time per iteration (ms): 97.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.211450E-04 | global batch size:     8 | lm loss: 3.613910E+00 | loss scale: 1.0 | grad norm: 0.872 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:54.248260] iteration       31/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          248 | elapsed time per iteration (ms): 97.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.193458E-04 | global batch size:     8 | lm loss: 3.579924E+00 | loss scale: 1.0 | grad norm: 0.925 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 31 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 32 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:54.353031] iteration       32/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          256 | elapsed time per iteration (ms): 104.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.175079E-04 | global batch size:     8 | lm loss: 3.548576E+00 | loss scale: 1.0 | grad norm: 1.168 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:54.456397] iteration       33/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          264 | elapsed time per iteration (ms): 103.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.156329E-04 | global batch size:     8 | lm loss: 3.518325E+00 | loss scale: 1.0 | grad norm: 1.272 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 33 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 34 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:54.552629] iteration       34/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          272 | elapsed time per iteration (ms): 96.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.137228E-04 | global batch size:     8 | lm loss: 3.489109E+00 | loss scale: 1.0 | grad norm: 0.915 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 35 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:54.662313] iteration       35/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          280 | elapsed time per iteration (ms): 109.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.117793E-04 | global batch size:     8 | lm loss: 3.460843E+00 | loss scale: 1.0 | grad norm: 0.854 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:54.779358] iteration       36/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          288 | elapsed time per iteration (ms): 116.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.098045E-04 | global batch size:     8 | lm loss: 3.433847E+00 | loss scale: 1.0 | grad norm: 1.099 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 36 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 37 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:54.896778] iteration       37/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          296 | elapsed time per iteration (ms): 117.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.078004E-04 | global batch size:     8 | lm loss: 3.407391E+00 | loss scale: 1.0 | grad norm: 1.159 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:55.005063] iteration       38/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          304 | elapsed time per iteration (ms): 108.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.057687E-04 | global batch size:     8 | lm loss: 3.381427E+00 | loss scale: 1.0 | grad norm: 0.880 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 38 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:55.122113] iteration       39/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          312 | elapsed time per iteration (ms): 116.8 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.037117E-04 | global batch size:     8 | lm loss: 3.356230E+00 | loss scale: 1.0 | grad norm: 0.875 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 39 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:55.250729] iteration       40/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          320 | elapsed time per iteration (ms): 128.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.016312E-04 | global batch size:     8 | lm loss: 3.332235E+00 | loss scale: 1.0 | grad norm: 1.162 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 40 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 41 (microbatch change: 3 -> 8) [2026-11-04 02:23:55.350660] iteration       41/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          328 | elapsed time per iteration (ms): 99.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 9.952937E-05 | global batch size:     8 | lm loss: 3.308412E+00 | loss scale: 1.0 | grad norm: 1.008 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+ [2026-11-04 02:23:55.441941] iteration       42/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          336 | elapsed time per iteration (ms): 91.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 9.740829E-05 | global batch size:     8 | lm loss: 3.285056E+00 | loss scale: 1.0 | grad norm: 0.822 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 42 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 43 (microbatch change: 3 -> 8) [2026-11-04 02:23:55.534848] iteration       43/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          344 | elapsed time per iteration (ms): 92.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 9.527003E-05 | global batch size:     8 | lm loss: 3.262192E+00 | loss scale: 1.0 | grad norm: 0.879 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 44 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:55.636660] iteration       44/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          352 | elapsed time per iteration (ms): 101.6 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 9.311669E-05 | global batch size:     8 | lm loss: 3.240367E+00 | loss scale: 1.0 | grad norm: 1.032 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 45 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:55.751177] iteration       45/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          360 | elapsed time per iteration (ms): 114.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 9.095042E-05 | global batch size:     8 | lm loss: 3.219210E+00 | loss scale: 1.0 | grad norm: 0.964 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 46 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:55.874927] iteration       46/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          368 | elapsed time per iteration (ms): 123.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 8.877333E-05 | global batch size:     8 | lm loss: 3.197858E+00 | loss scale: 1.0 | grad norm: 0.844 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 47 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:55.975243] iteration       47/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          376 | elapsed time per iteration (ms): 100.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 8.658758E-05 | global batch size:     8 | lm loss: 3.177434E+00 | loss scale: 1.0 | grad norm: 0.831 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 48 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.076679] iteration       48/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          384 | elapsed time per iteration (ms): 101.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 8.439534E-05 | global batch size:     8 | lm loss: 3.158207E+00 | loss scale: 1.0 | grad norm: 0.905 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 49 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.187318] iteration       49/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          392 | elapsed time per iteration (ms): 110.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 8.219876E-05 | global batch size:     8 | lm loss: 3.138514E+00 | loss scale: 1.0 | grad norm: 0.894 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 50 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.292714] iteration       50/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          400 | elapsed time per iteration (ms): 105.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 8.000000E-05 | global batch size:     8 | lm loss: 3.119791E+00 | loss scale: 1.0 | grad norm: 0.833 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 51 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.393125] iteration       51/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          408 | elapsed time per iteration (ms): 100.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 7.780125E-05 | global batch size:     8 | lm loss: 3.102041E+00 | loss scale: 1.0 | grad norm: 0.811 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 52 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.507896] iteration       52/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          416 | elapsed time per iteration (ms): 114.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 7.560466E-05 | global batch size:     8 | lm loss: 3.084894E+00 | loss scale: 1.0 | grad norm: 0.853 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 53 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.623917] iteration       53/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          424 | elapsed time per iteration (ms): 115.8 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 7.341242E-05 | global batch size:     8 | lm loss: 3.067363E+00 | loss scale: 1.0 | grad norm: 0.833 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 54 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.746979] iteration       54/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          432 | elapsed time per iteration (ms): 122.8 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 7.122667E-05 | global batch size:     8 | lm loss: 3.050517E+00 | loss scale: 1.0 | grad norm: 0.828 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 55 (microbatch change: 3 -> 8) [2026-11-04 02:23:56.862562] iteration       55/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          440 | elapsed time per iteration (ms): 115.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 6.904959E-05 | global batch size:     8 | lm loss: 3.035142E+00 | loss scale: 1.0 | grad norm: 0.879 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 56 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:56.968364] iteration       56/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          448 | elapsed time per iteration (ms): 105.6 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 6.688331E-05 | global batch size:     8 | lm loss: 3.019873E+00 | loss scale: 1.0 | grad norm: 0.901 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:57.069924] iteration       57/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          456 | elapsed time per iteration (ms): 101.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 6.472997E-05 | global batch size:     8 | lm loss: 3.005121E+00 | loss scale: 1.0 | grad norm: 0.848 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 57 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 58 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:57.167504] iteration       58/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          464 | elapsed time per iteration (ms): 97.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 6.259171E-05 | global batch size:     8 | lm loss: 2.990976E+00 | loss scale: 1.0 | grad norm: 0.820 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 59 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:57.266560] iteration       59/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          472 | elapsed time per iteration (ms): 98.8 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 6.047062E-05 | global batch size:     8 | lm loss: 2.977543E+00 | loss scale: 1.0 | grad norm: 0.832 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 60 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:57.365414] iteration       60/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          480 | elapsed time per iteration (ms): 98.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 5.836881E-05 | global batch size:     8 | lm loss: 2.964424E+00 | loss scale: 1.0 | grad norm: 0.800 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 61 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:57.467107] iteration       61/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          488 | elapsed time per iteration (ms): 101.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 5.628835E-05 | global batch size:     8 | lm loss: 2.951710E+00 | loss scale: 1.0 | grad norm: 0.815 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 62 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:57.567902] iteration       62/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          496 | elapsed time per iteration (ms): 100.6 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 5.423128E-05 | global batch size:     8 | lm loss: 2.939804E+00 | loss scale: 1.0 | grad norm: 0.775 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:57.678776] iteration       63/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          504 | elapsed time per iteration (ms): 110.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 5.219965E-05 | global batch size:     8 | lm loss: 2.928046E+00 | loss scale: 1.0 | grad norm: 0.787 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 63 (microbatch change: 3 -> 8)
+
+ [2026-11-04 02:23:57.787683] iteration       64/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          512 | elapsed time per iteration (ms): 108.8 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 5.019545E-05 | global batch size:     8 | lm loss: 2.917420E+00 | loss scale: 1.0 | grad norm: 0.825 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 64 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 65 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:57.883431] iteration       65/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          520 | elapsed time per iteration (ms): 95.6 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 4.822066E-05 | global batch size:     8 | lm loss: 2.906132E+00 | loss scale: 1.0 | grad norm: 0.781 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:57.975951] iteration       66/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          528 | elapsed time per iteration (ms): 92.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 4.627724E-05 | global batch size:     8 | lm loss: 2.896812E+00 | loss scale: 1.0 | grad norm: 0.760 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 66 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 67 (microbatch change: 3 -> 8) [2026-11-04 02:23:58.068108] iteration       67/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          536 | elapsed time per iteration (ms): 92.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 4.436710E-05 | global batch size:     8 | lm loss: 2.886592E+00 | loss scale: 1.0 | grad norm: 0.803 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 68 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:58.168707] iteration       68/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          544 | elapsed time per iteration (ms): 100.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 4.249212E-05 | global batch size:     8 | lm loss: 2.877780E+00 | loss scale: 1.0 | grad norm: 0.825 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 69 (microbatch change: 3 -> 8) [2026-11-04 02:23:58.269423] iteration       69/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          552 | elapsed time per iteration (ms): 100.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 4.065416E-05 | global batch size:     8 | lm loss: 2.868535E+00 | loss scale: 1.0 | grad norm: 0.765 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 70 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:58.382650] iteration       70/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          560 | elapsed time per iteration (ms): 113.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 3.885503E-05 | global batch size:     8 | lm loss: 2.860723E+00 | loss scale: 1.0 | grad norm: 0.767 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:58.487421] iteration       71/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          568 | elapsed time per iteration (ms): 104.6 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 3.709651E-05 | global batch size:     8 | lm loss: 2.852532E+00 | loss scale: 1.0 | grad norm: 0.778 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 71 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 72 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:58.587891] iteration       72/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          576 | elapsed time per iteration (ms): 100.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 3.538032E-05 | global batch size:     8 | lm loss: 2.844943E+00 | loss scale: 1.0 | grad norm: 0.754 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 73 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:58.686518] iteration       73/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          584 | elapsed time per iteration (ms): 98.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 3.370817E-05 | global batch size:     8 | lm loss: 2.837757E+00 | loss scale: 1.0 | grad norm: 0.782 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 74 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:58.811760] iteration       74/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          592 | elapsed time per iteration (ms): 125.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 3.208170E-05 | global batch size:     8 | lm loss: 2.830557E+00 | loss scale: 1.0 | grad norm: 0.756 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 75 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:58.940754] iteration       75/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          600 | elapsed time per iteration (ms): 128.8 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 3.050253E-05 | global batch size:     8 | lm loss: 2.824372E+00 | loss scale: 1.0 | grad norm: 0.763 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 76 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:59.049030] iteration       76/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          608 | elapsed time per iteration (ms): 108.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 2.897220E-05 | global batch size:     8 | lm loss: 2.818241E+00 | loss scale: 1.0 | grad norm: 0.753 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:59.146461] iteration       77/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          616 | elapsed time per iteration (ms): 97.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 2.749223E-05 | global batch size:     8 | lm loss: 2.812496E+00 | loss scale: 1.0 | grad norm: 0.768 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 77 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 78 (microbatch change: 3 -> 8) [2026-11-04 02:23:59.255831] iteration       78/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          624 | elapsed time per iteration (ms): 109.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 2.606407E-05 | global batch size:     8 | lm loss: 2.806770E+00 | loss scale: 1.0 | grad norm: 0.743 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+ [2026-11-04 02:23:59.354391] iteration       79/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          632 | elapsed time per iteration (ms): 98.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 2.468915E-05 | global batch size:     8 | lm loss: 2.801623E+00 | loss scale: 1.0 | grad norm: 0.760 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 79 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 80 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:59.472744] iteration       80/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          640 | elapsed time per iteration (ms): 118.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 2.336881E-05 | global batch size:     8 | lm loss: 2.797314E+00 | loss scale: 1.0 | grad norm: 0.745 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:59.570046] iteration       81/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          648 | elapsed time per iteration (ms): 97.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 2.210436E-05 | global batch size:     8 | lm loss: 2.792010E+00 | loss scale: 1.0 | grad norm: 0.756 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 81 (microbatch change: 3 -> 8)
+
+ [2026-11-04 02:23:59.664141] iteration       82/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          656 | elapsed time per iteration (ms): 93.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 2.089705E-05 | global batch size:     8 | lm loss: 2.787609E+00 | loss scale: 1.0 | grad norm: 0.746 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 82 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 83 (microbatch change: 3 -> 8)
+ [2026-11-04 02:23:59.763506] iteration       83/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          664 | elapsed time per iteration (ms): 99.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.974806E-05 | global batch size:     8 | lm loss: 2.783813E+00 | loss scale: 1.0 | grad norm: 0.749 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:23:59.873036] iteration       84/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          672 | elapsed time per iteration (ms): 109.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.865853E-05 | global batch size:     8 | lm loss: 2.779906E+00 | loss scale: 1.0 | grad norm: 0.753 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 84 (microbatch change: 3 -> 8)
+
+ [2026-11-04 02:23:59.973769] iteration       85/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          680 | elapsed time per iteration (ms): 100.6 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.762954E-05 | global batch size:     8 | lm loss: 2.775826E+00 | loss scale: 1.0 | grad norm: 0.741 | number of skipped iterations:   0 | number of nan iterations:   0 |Skipping automatic checkpoint at iteration 85 (microbatch change: 3 -> 8)
+
+Skipping automatic checkpoint at iteration 86 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:00.067591] iteration       86/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          688 | elapsed time per iteration (ms): 93.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.666211E-05 | global batch size:     8 | lm loss: 2.772710E+00 | loss scale: 1.0 | grad norm: 0.746 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:24:00.158868] iteration       87/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          696 | elapsed time per iteration (ms): 91.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.575718E-05 | global batch size:     8 | lm loss: 2.769569E+00 | loss scale: 1.0 | grad norm: 0.745 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 87 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 88 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:00.262977] iteration       88/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          704 | elapsed time per iteration (ms): 103.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.491565E-05 | global batch size:     8 | lm loss: 2.765968E+00 | loss scale: 1.0 | grad norm: 0.743 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 89 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:00.366609] iteration       89/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          712 | elapsed time per iteration (ms): 103.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.413835E-05 | global batch size:     8 | lm loss: 2.763245E+00 | loss scale: 1.0 | grad norm: 0.743 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 90 (microbatch change: 3 -> 8) [2026-11-04 02:24:00.469990] iteration       90/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          720 | elapsed time per iteration (ms): 103.2 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.342604E-05 | global batch size:     8 | lm loss: 2.760713E+00 | loss scale: 1.0 | grad norm: 0.746 | number of skipped iterations:   0 | number of nan iterations:   0 |
+
+Skipping automatic checkpoint at iteration 91 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:00.571387] iteration       91/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          728 | elapsed time per iteration (ms): 101.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.277944E-05 | global batch size:     8 | lm loss: 2.758251E+00 | loss scale: 1.0 | grad norm: 0.736 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:24:00.682350] iteration       92/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          736 | elapsed time per iteration (ms): 110.8 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.219918E-05 | global batch size:     8 | lm loss: 2.756024E+00 | loss scale: 1.0 | grad norm: 0.738 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 92 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 93 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:00.805552] iteration       93/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          744 | elapsed time per iteration (ms): 122.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.168583E-05 | global batch size:     8 | lm loss: 2.753510E+00 | loss scale: 1.0 | grad norm: 0.737 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:24:00.929097] iteration       94/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          752 | elapsed time per iteration (ms): 123.3 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.123989E-05 | global batch size:     8 | lm loss: 2.751357E+00 | loss scale: 1.0 | grad norm: 0.733 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 94 (microbatch change: 3 -> 8)
+Skipping automatic checkpoint at iteration 95 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:01.044350] iteration       95/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          760 | elapsed time per iteration (ms): 115.1 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.086182E-05 | global batch size:     8 | lm loss: 2.748744E+00 | loss scale: 1.0 | grad norm: 0.739 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 96 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:01.153007] iteration       96/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          768 | elapsed time per iteration (ms): 108.5 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.055197E-05 | global batch size:     8 | lm loss: 2.746743E+00 | loss scale: 1.0 | grad norm: 0.729 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 97 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:01.256228] iteration       97/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          776 | elapsed time per iteration (ms): 103.0 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.031066E-05 | global batch size:     8 | lm loss: 2.744727E+00 | loss scale: 1.0 | grad norm: 0.734 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 98 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:01.373216] iteration       98/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          784 | elapsed time per iteration (ms): 116.7 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.013813E-05 | global batch size:     8 | lm loss: 2.742907E+00 | loss scale: 1.0 | grad norm: 0.732 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 99 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:01.489394] iteration       99/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          792 | elapsed time per iteration (ms): 115.9 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.003454E-05 | global batch size:     8 | lm loss: 2.741185E+00 | loss scale: 1.0 | grad norm: 0.733 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Skipping automatic checkpoint at iteration 100 (microbatch change: 3 -> 8)
+ [2026-11-04 02:24:01.585985] iteration      100/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          800 | elapsed time per iteration (ms): 96.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.000000E-05 | global batch size:     8 | lm loss: 2.739610E+00 | loss scale: 1.0 | grad norm: 0.731 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-04 02:24:01.681500] iteration      101/     101 | dcp/estimated_attention_balance_efficiency: 0.920000 | dcp/cp_size_1_sample_fraction: 0.875000 | dcp/cp_size_2_sample_fraction: 0.125000 | consumed samples:          808 | elapsed time per iteration (ms): 95.4 | throughput per GPU (TFLOP/s/GPU): 0.1 | learning rate: 1.000000E-05 | global batch size:     8 | lm loss: 2.737659E+00 | loss scale: 1.0 | grad norm: 0.733 | number of skipped iterations:   0 | number of nan iterations:   0 |
+[after training is done] datetime: 2026-11-04 02:24:01.681878 
+[rank1]:[W1104 02:24:03.046848605 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank0]:[W1104 02:24:03.131481824 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

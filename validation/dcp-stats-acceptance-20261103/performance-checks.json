@@ -1,0 +1,11 @@
+{
+  "runs_checked": 9,
+  "checkpoint_restored": true,
+  "updates_per_run": 100,
+  "warmup_updates_excluded": 10,
+  "steady_updates_per_run": 90,
+  "tokens_per_update": 2560,
+  "microbatches_per_update": 3,
+  "once_per_update_stdout_tensorboard": true,
+  "primary_runs_without_tensor_hashing_or_cpu_profiling": true
+}

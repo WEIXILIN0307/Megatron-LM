@@ -1,0 +1,9 @@
+{
+  "docs/user-guide/data-loading.md": "09c4fa69e16d15a8c2ac06cc216a98e8a5debf9001d6c18b0b1ad3562fcffa83",
+  "megatron/core/datasets/data_schedule.py": "a4c99c8e46cbd65f558af956483ebcb646b5d9c56e69d440961c0aacf6507cfc",
+  "megatron/core/datasets/data_schedule_utils.py": "e589fc742c4fd85631075a0fd095768c433ad27bd134f6602e58a2f0e4f67aa8",
+  "megatron/training/config/training_config.py": "9c474a133f6358fb0cc6058f20553fe8973940faa60acdff6e251fae1c095d2e",
+  "megatron/training/logging/packed_sequence_stats.py": "5e09e63783e56d787f0ed257a4e476bfbbc88073c85b59d44f0ea6c83ee6feb6",
+  "megatron/training/training.py": "1d21914cfb37ffd8161a774e03d55ee05bf2eeb04c84d07707821f492270fd00",
+  "tests/unit_tests/test_sequence_packing.py": "36d9597e574a19a3e368de733710094f4b7bf3ae930a43540fd9fba896e2ec95"
+}
