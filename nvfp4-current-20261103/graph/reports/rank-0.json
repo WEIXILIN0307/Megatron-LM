@@ -1,0 +1,61 @@
+{
+  "rank": 0,
+  "collected": 9,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn-False-False-False-False-1.0-fp4-False-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn-False-True-True-True-1.0-fp4-False-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-False-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-False-False-False-1.0-fp4-False-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-False-0.0-fp4-False-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-False-False-0.5-fp4-False-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn-True-False-True-False-1.0-fp4-False-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn-False-False-False-False-1.0-fp4-True-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

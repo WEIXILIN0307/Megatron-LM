@@ -1,0 +1,19 @@
+{
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "capability": [
+    12,
+    0
+  ],
+  "te": "2.20.2",
+  "fla": "0.5.1",
+  "nvfp4_check": [
+    true,
+    ""
+  ],
+  "recipe": "recipe_type=NVFP4BlockScaling, fp4_format=E2M1, fp8_format=E4M3, fp8_dpa=False, fp8_mha=False, backward_override=None, row_scaled_activation=False, nvfp4_4over6=none, nvfp4_4over6_e4m3_use_256=all, nvfp4_4over6_err_mode=MAE, fp4_quant_fwd_inp=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=True,\nstochastic_rounding=False,\nfp4_2d_quantization=False\n), fp4_quant_fwd_weight=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=False,\nstochastic_rounding=False,\nfp4_2d_quantization=True\n), fp4_quant_bwd_grad=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=True,\nstochastic_rounding=True,\nfp4_2d_quantization=False\n), ",
+  "disable_rht": false,
+  "disable_stochastic_rounding": false,
+  "backward_override": null
+}
