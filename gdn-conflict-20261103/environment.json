@@ -1,0 +1,12 @@
+{
+  "python": "3.12.4",
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "packages": {
+    "transformer-engine": "2.20.2",
+    "flash-linear-attention": "0.5.1",
+    "triton": "3.6.0",
+    "pytest": "9.1.1"
+  }
+}
