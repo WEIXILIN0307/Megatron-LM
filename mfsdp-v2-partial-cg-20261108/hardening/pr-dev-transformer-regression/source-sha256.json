@@ -1,0 +1,5 @@
+{
+  "tests/unit_tests/transformer/test_cuda_graphs.py": "b2e99f164457dbdb691b7ffcffe04b061ebaaedbda5669e4682a8aa47ff1a9c6",
+  "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+  "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245"
+}

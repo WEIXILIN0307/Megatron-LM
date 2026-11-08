@@ -1,0 +1,9 @@
+{
+  "/workspace/Megatron-LM/megatron/core/transformer/cuda_graphs.py": "238bff467a290082d4166b331aa25a3cf4c6223019ec2e8629368d53abc1c63c",
+  "/workspace/Megatron-LM/megatron/core/transformer/module.py": "1a07547dd45e33b6abffbe309099975280aa37250db66faf84c100167ee02e53",
+  "/workspace/Megatron-LM/megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "bda052281f8d1997f75c76605324a7d74ea312d8aa1ad68ed9ca24e143341aa3",
+  "/workspace/Megatron-LM/megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py": "be70467318fb4f9497f6ef6fb4ac92c0dd0763542dcf0fb358b997af647c853d",
+  "/workspace/Megatron-LM/megatron/training/checkpointing.py": "26f3cf4b8c625bf6d043220bf0bfa2957a8d884af2f66ec7cd3ec22bd0be0d1e",
+  "/artifacts/hardening/run_olmoe_hardening.py": "9e046b5bed392ea89fbd542ff3faea543f06aa2699394e5c55a4a33f5ca1133f",
+  "/artifacts/hardening/olmoe_spec.py": "323caf3076c3c9521a44a9729d6970c91dfef0b3b8b170c662bbf3e123698181"
+}

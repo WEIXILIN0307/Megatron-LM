@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "model_parameters": 6919161856,
+  "attention_dropout": 0.1,
+  "hidden_dropout": 0.1,
+  "recorded_iterations": 1,
+  "cudaGraphLaunch": 256,
+  "expected": "32 captured units x GA4 x forward/backward2",
+  "trace_sha256": "4918a04239c96b9d7f57aeacbf742e3d5740fce59c4d6a874fff1e8f5b379902",
+  "trace_bytes": 7675862,
+  "timing_used_for_performance": false
+}

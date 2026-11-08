@@ -1,0 +1,258 @@
+diff --git a/docs/developer/mfsdp_v2_partial_cuda_graph.md b/docs/developer/mfsdp_v2_partial_cuda_graph.md
+index 7e9204889..49a1e27e4 100644
+--- a/docs/developer/mfsdp_v2_partial_cuda_graph.md
++++ b/docs/developer/mfsdp_v2_partial_cuda_graph.md
+@@ -4,14 +4,7 @@ The integration captures existing fixed-shape attention, dense MLP, and MoE
+ router/preprocess regions with Transformer Engine and composes them with the
+ existing dynamic expert dispatch and MFSDP v2 runtimes. It establishes correctness
+ for a restricted configuration and documents the resident compute-weight memory
+-cost. Padding-aware GEMM is
+-independent of this work.
+-
+-The [roadmap discussion](https://github.com/NVIDIA/Megatron-LM/issues/6757#issuecomment-6525631746)
+-explicitly calls out prior unsuccessful attempts and asks for a design. It does
+-not establish a 26.10 or 26.12 release commitment. The
+-[padding-aware GEMM response](https://github.com/NVIDIA/Megatron-LM/issues/6757#issuecomment-6559944233)
+-points to separate kernel work in PR #8430.
++cost.
+ 
+ ## Reproduced failures
+ 
+@@ -43,15 +36,16 @@ BF16 buffers, exposes its original full Parameters, and suspends only its own
+ module execution hooks. Parameter gradient-completion callbacks are suppressed
+ while TE performs real warmup backward passes. This avoids modifying the
+ execution trace, gradient countdown, or reduction state during capture. The
+-context restores hooks and sharded bindings on success or failure.
++context restores hooks and sharded bindings on success or failure. The helper
++owns retained storage cleanup, so a failed capture resets returned graphs
++before releasing that storage.
+ 
+ Failure cleanup also covers input preparation and binding the graphs returned by
+ TE. Returned graphs are reset before retained compute storage is released. A
+ failed attempt clears its capture flags, constants and temporary training state
+ and restores RNG contents through the existing graph-safe RNG helpers. TE's
+ temporary module-class call wrappers and capture flag are also restored when
+-its call raises. This
+-matters for dropout: TE restores RNG after successful capture, but a failed
++its call raises. This matters for dropout: TE restores RNG after successful capture, but a failed
+ warmup can otherwise consume the next training step's random numbers. Cleanup
+ supports retrying recoverable Python errors, not continuing after fatal CUDA or
+ NCCL failures.
+@@ -148,15 +142,9 @@ The existing MoE training/clipping test also covers repeated evaluation, and
+ the existing EP checkpoint roundtrip test goes through production preprocessing
+ with SwiGLU instead of bypassing it.
+ 
+-End-to-end acceptance uses the stock `pretrain_gpt.py` entry point and the
+-`deepseek_proxy_mfsdp_v2_ep2_mb2` recipe with reduced widths, real tokenized text,
+-BF16, ZeRO3, EP2, MLA, grouped experts, and shared experts. Compare training and
+-validation scalars at full TensorBoard precision and reconstruct DCP tensors to
+-compare all model weights and optimizer state. Also restart from an intermediate
+-checkpoint and compare against an eager restart with the same data and state.
+-Process exit status alone is insufficient.
+-
+-Full-size acceptance also uses the stock `pretrain_hybrid.py` entry point with
++End-to-end validation uses the stock `pretrain_gpt.py` and `pretrain_hybrid.py`
++entry points with real text, evaluation, normal RNG/Adam checkpoint loading and
++graph recapture after restart. Full-size validation uses
+ the complete OLMoE-1B-7B-0924 architecture: 6,919,161,856 parameters, 16
+ attention/MoE blocks, hidden size 2048, 64 experts and top-8 routing. It starts
+ from random initialization and uses the public tokenizer and real WikiText-103
+@@ -165,22 +153,14 @@ to the full-width Q/K vectors through existing module-spec extension points.
+ This checks integration with the complete architecture, rather than pretrained
+ weight conversion or equivalence to another framework's training recipe.
+ 
+-The full-size checks include strict eager/captured model and Adam-state
+-comparison, matched checkpoint restarts with RNG loading enabled, and 1000
+-optimizer steps with evaluation and checkpointing at steps 250/500/750/1000.
+-Training restarts at step 500 and recaptures its graphs. Inspect the final DCP
+-optimizer step values as well as logs. Profile a separate full-size iteration
+-to verify actual forward/backward graph launches; do not use profiler timings
+-as performance measurements. A short run cannot establish full pretraining
+-convergence.
+-
+-The completed 1000-step run and AB/BA measurements use the earlier zero-dropout
+-integration baseline. The capture-failure cleanup revision is checked with the
+-74-case matrix and new full-size 12-step runs with attention and hidden dropout
+-both set to 0.1, including eager/captured restarts from the same step-6 checkpoint.
+-Compare the actual saved RNG payloads as well as model and Adam state. These
+-checks supplement the historical long run; they are not a new 1000-step run or
+-a new performance measurement on the cleanup revision.
++Compare all saved model and Adam tensors, actual deserialized DCP metadata,
++RNG payloads, and training/validation scalar events against eager. Inspect saved
++optimizer step values and profile actual forward/backward graph launches.
++Stochastic validation sets attention and hidden dropout to 0.1 and compares
++matched restarts from the same checkpoint. A short run establishes integration
++correctness, not full pretraining convergence. Historical long-run and timing
++results must identify the source revision they measured; profiler timings are
++not performance benchmarks.
+ 
+ For native DCP restart comparisons, both runs use the existing TE RNG tracker
+ and the same saved RNG schema. The integration does not convert ordinary
+@@ -189,23 +169,6 @@ leaves unused CUDA allocator cache under memory pressure, the existing
+ `--empty-unused-memory-level 2` training policy can release that cache; apply
+ the same policy to both resumed modes before comparing them.
+ 
+-## Independently reviewable stages
+-
+-| Stage | Change | Acceptance gate |
+-|---|---|---|
+-| 1 | Exclude pure evaluation from the training execution cursor | Existing eager MoE train/eval/train and clipping parity |
+-| 2 | Preserve the native v2 checkpoint layout | SwiGLU EP1/2/4 save/load roundtrips and normal pretraining restart |
+-| 3 | Add scoped capture lifecycle and fixed gathered-buffer addresses | Partial-scope attention/MLA loss, gradient, main-weight, and Adam-state parity; failure cleanup; teardown |
+-| 4 | Validate MoE composition in normal training | Real text, multiple accumulated microbatches, evaluation, DCP save/load, graph recapture after restart |
+-| 5 | Measure performance and memory | Matched eager baseline, AB/BA repeats, capture cost, steady-state step time, allocated/reserved peak memory, GPU activity monitoring |
+-
+-Stages 1 and 2 are small prerequisite fixes. Stage 3 has the highest correctness
+-risk because hook execution, graph autograd, stream ordering, and buffer lifetime
+-must agree. Stage 4 prevents successful capture from masking a broken training
+-composition. Stage 5 must be assessed separately. Measurements on a shared
+-host describe that environment and must identify other resident GPU contexts;
+-repeat on dedicated GPUs before generalizing performance gains.
+-
+ This work is limited to the supported MFSDP v2 partial-capture configuration and
+ its end-to-end MoE composition validation. Other precision, recomputation,
+ parallelism and communication-overlap features remain outside this integration;
+diff --git a/docs/user-guide/features/cuda_graph.md b/docs/user-guide/features/cuda_graph.md
+index 91adc20b6..ea8cd3633 100644
+--- a/docs/user-guide/features/cuda_graph.md
++++ b/docs/user-guide/features/cuda_graph.md
+@@ -178,11 +178,7 @@ hyper-connections, delayed weight gradients or expert communication overlap are
+ initial integration. Existing MFSDP v2 restrictions, including the requirement
+ to disable gradient accumulation fusion, still apply. The integration is
+ validated with GPTModel and HybridModel, ordinary attention and MLA, grouped MoE
+-experts, shared experts, and accumulated microbatches. Full-size validation also
+-covers the OLMoE architecture from random initialization, with four accumulated
+-microbatches. The earlier zero-dropout baseline completed 1000 optimizer steps
+-with checkpoint restart; the cleanup revision adds nonzero-dropout short-run
+-and matched-restart checks. See the
++experts, shared experts, accumulated microbatches, and checkpoint restart. See the
+ [design and validation notes](../../developer/mfsdp_v2_partial_cuda_graph.md).
+ 
+ ### mHC Attention Split
+diff --git a/megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py b/megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py
+index 16023d4ee..61da3b8f4 100644
+--- a/megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py
++++ b/megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py
+@@ -256,8 +256,6 @@ class FsdpModule:
+             if group.dtype != torch.bfloat16 or self.context.use_symmetric_memory:
+                 raise ValueError("FSDP partial CUDA graphs require BF16 without symmetric memory.")
+         saved_hooks = {}
+-        retained = [group._retain_unsharded_storage for group in self._parameter_groups]
+-        succeeded = False
+         self._fsdp_cuda_graph_capturing = True
+         try:
+             for group in self._parameter_groups:
+@@ -270,14 +268,11 @@ class FsdpModule:
+                     setattr(self, name, saved_hooks[name].copy())
+                 getattr(self, name).pop(hook_id, None)
+             yield
+-            succeeded = True
+         finally:
+             for name, hooks in saved_hooks.items():
+                 setattr(self, name, hooks)
+             self._fsdp_cuda_graph_capturing = False
+-            if not succeeded:
+-                for group, previous in zip(self._parameter_groups, retained):
+-                    group._retain_unsharded_storage = previous
++            # The graph owner releases retained storage after resetting failed graphs.
+             self.reshard()
+ 
+     def release_cuda_graph_buffers(self) -> None:
+diff --git a/megatron/core/transformer/cuda_graphs.py b/megatron/core/transformer/cuda_graphs.py
+index 9ef98a14d..dd15dc0c5 100644
+--- a/megatron/core/transformer/cuda_graphs.py
++++ b/megatron/core/transformer/cuda_graphs.py
+@@ -3837,11 +3837,6 @@ class TECudaGraphHelper:
+             and has_local_moe_layer
+         )
+ 
+-    def _fsdp_graph_modules(self):
+-        return [
+-            layer for layer in self.flattened_callables if hasattr(layer, "fsdp_cuda_graph_capture")
+-        ]
+-
+     def _validate_fsdp_capture(self):
+         """Reject unsupported v2 compositions before changing global capture state."""
+         partial_modules = {
+@@ -3870,7 +3865,6 @@ class TECudaGraphHelper:
+             or self.config.delay_wgrad_compute
+             or self.config.recompute_granularity is not None
+             or self.config.fine_grained_activation_offloading
+-            or self.config.cpu_offloading
+             or self.config.enable_hyper_connections
+             or self.config.mtp_num_layers
+         ):
+@@ -3881,15 +3875,6 @@ class TECudaGraphHelper:
+                 "offload, hyper-connections, MTP, or delayed/overlapped expert backward."
+             )
+ 
+-    @contextmanager
+-    def _fsdp_capture_context(self):
+-        """Use v2's existing weight buffers and suspend only its capture-time hooks."""
+-        modules = self._fsdp_graph_modules()
+-        with ExitStack() as stack:
+-            for module in modules:
+-                stack.enter_context(module.fsdp_cuda_graph_capture())
+-            yield
+-
+     def create_cudagraphs(self):
+         """
+         Capture CUDA Graphs per TransformerLayer per microbatch.
+@@ -3902,7 +3887,9 @@ class TECudaGraphHelper:
+                     "DSA metric tracker must be initialized before CUDA Graph capture."
+                 )
+         self._validate_fsdp_capture()
+-        fsdp_modules = self._fsdp_graph_modules()
++        fsdp_modules = [
++            layer for layer in self.flattened_callables if hasattr(layer, "fsdp_cuda_graph_capture")
++        ]
+         original_calls = {type(layer): type(layer).__call__ for layer in fsdp_modules}
+         rng_states = _get_all_rng_states() if fsdp_modules else None
+         start_time = self._start_capturing()
+@@ -3926,21 +3913,23 @@ class TECudaGraphHelper:
+                     rng_context = nullcontext()
+                 from megatron.core.transformer.moe.paged_stash import paged_stash_te_graph_capture
+ 
+-                with (
+-                    self._fsdp_capture_context(),
+-                    rng_context,
+-                    capture_constants(self),
+-                    paged_stash_te_graph_capture(
+-                        self._should_enable_paged_stash_capture(),
+-                        order=kwargs['_order'],
+-                        config=self.config,
+-                    ),
+-                ):
+-                    te_capture_started = True
+-                    graphs = make_graphed_callables(
+-                        tuple(self.flattened_callables), sample_args, **kwargs
+-                    )
+-                    te_capture_started = False
++                with ExitStack() as stack:
++                    for layer in fsdp_modules:
++                        stack.enter_context(layer.fsdp_cuda_graph_capture())
++                    with (
++                        rng_context,
++                        capture_constants(self),
++                        paged_stash_te_graph_capture(
++                            self._should_enable_paged_stash_capture(),
++                            order=kwargs['_order'],
++                            config=self.config,
++                        ),
++                    ):
++                        te_capture_started = True
++                        graphs = make_graphed_callables(
++                            tuple(self.flattened_callables), sample_args, **kwargs
++                        )
++                        te_capture_started = False
+                 self._validate_mhc_static_hidden_inputs(sample_args)
+ 
+                 # The returned callables can outlive this helper. Share the capture's
+@@ -4013,7 +4002,6 @@ class TECudaGraphHelper:
+                 release_capture_constants(self)
+                 self._clear_graph_dynamic_route_arenas()
+                 self._graphs_created = False
+-                self._capture_finished = False
+                 _set_capture_end()
+                 if FREEZE_GC:
+                     gc.unfreeze()

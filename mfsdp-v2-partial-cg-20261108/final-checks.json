@@ -1,0 +1,122 @@
+{
+  "checks": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "mfsdp-partial-cg-20261107",
+        "python",
+        "-m",
+        "isort",
+        "--check-only",
+        "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py",
+        "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py",
+        "megatron/core/transformer/cuda_graphs.py",
+        "megatron/core/transformer/module.py",
+        "megatron/training/checkpointing.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_checkpoint.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "mfsdp-partial-cg-20261107",
+        "python",
+        "-m",
+        "black",
+        "--check",
+        "--target-version",
+        "py312",
+        "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py",
+        "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py",
+        "megatron/core/transformer/cuda_graphs.py",
+        "megatron/core/transformer/module.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_checkpoint.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "All done! \u2728 \ud83c\udf70 \u2728\n7 files would be left unchanged.\n"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "mfsdp-partial-cg-20261107",
+        "python",
+        "-m",
+        "black",
+        "--check",
+        "--target-version",
+        "py312",
+        "--line-ranges",
+        "1884-1906",
+        "megatron/training/checkpointing.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "All done! \u2728 \ud83c\udf70 \u2728\n1 file would be left unchanged.\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        "--select",
+        "E9,F63,F7,F82",
+        "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py",
+        "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py",
+        "megatron/core/transformer/cuda_graphs.py",
+        "megatron/core/transformer/module.py",
+        "megatron/training/checkpointing.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_checkpoint.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py",
+        "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:\n  - 'per-file-ignores' -> 'lint.per-file-ignores'\n"
+    }
+  ],
+  "source_sha256": {
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245",
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py": "be70467318fb4f9497f6ef6fb4ac92c0dd0763542dcf0fb358b997af647c853d",
+    "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+    "megatron/core/transformer/module.py": "1a07547dd45e33b6abffbe309099975280aa37250db66faf84c100167ee02e53",
+    "megatron/training/checkpointing.py": "26f3cf4b8c625bf6d043220bf0bfa2957a8d884af2f66ec7cd3ec22bd0be0d1e",
+    "tests/unit_tests/distributed/mfsdp_v2/test_checkpoint.py": "33a48d33c7fd5246c0cb0f5040a88a79c66b218af874f7fcbec0ebac96507ef4",
+    "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py": "8beff38442d18d6e5d30299a70be0e1449a46d273bc846b6ca32e859ebc5e4b4",
+    "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py": "6b3ba9bfdd8883c2f8e11cc63f6c85db02c7a1816c6ede896403fa9825c4c3fe"
+  },
+  "artifact_python_ast": [
+    "production/analyze_acceptance.py",
+    "production/analyze_profile.py",
+    "production/compare_production.py",
+    "production/inspect_checkpoint.py",
+    "production/monitor_acceptance.py",
+    "production/olmoe_spec.py",
+    "production/plot_acceptance.py",
+    "production/review_gpu_activity.py",
+    "production/run_acceptance.py",
+    "production/run_olmoe.py",
+    "production/verify_olmoe_spec.py"
+  ],
+  "checkpointing_format_scope": "Changed region only; unrelated baseline formatting retained.",
+  "passed": true
+}

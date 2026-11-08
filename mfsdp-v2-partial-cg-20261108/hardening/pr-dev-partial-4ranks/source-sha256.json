@@ -1,0 +1,5 @@
+{
+  "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py": "6b3ba9bfdd8883c2f8e11cc63f6c85db02c7a1816c6ede896403fa9825c4c3fe",
+  "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+  "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245"
+}

@@ -1,0 +1,642 @@
+........................................................ssssssssssss............................................................................                                     [100%]                                     [100%]                                     [100%]                                     [100%]
+==================================== PASSES ====================================
+_ TestCudaGraphConfigAndArguments.test_te_capture_requires_initialized_dsa_tracker _
+---------------------------- Captured stdout setup -----------------------------
+Test data already available at /opt/data
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-16] ________
+----------------------------- Captured stdout call -----------------------------
+Initializing torch.distributed with rank: 2, world_size: 4
+----------------------------- Captured stderr call -----------------------------
+[rank2]:[W1108 07:48:06.196596016 ProcessGroupGloo.cpp:524] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-64] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-256] _______
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-16] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 4 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-64] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 4 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-256] _______
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 4 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-16] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-64] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-256] _______
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 2 graphable layers.
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-16] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 4 graphable layers.
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-64] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 4 graphable layers.
+________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-256] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 4 graphable layers.
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-16] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 2 graphable layers.
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-64] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 2 graphable layers.
+________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-256] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 2: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 2: 2 graphable layers.
+============================= slowest 10 durations =============================
+4.16s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]
+0.29s teardown tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]
+0.15s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]
+0.13s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]
+0.08s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-64]
+0.08s teardown tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+=========================== short test summary info ============================
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestCudaGraphConfigAndArguments::test_te_capture_requires_initialized_dsa_tracker
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules0-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules1-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules2-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[nested-moe-cuda_graph_modules3-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules4-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]
+SKIPPED [3] tests/unit_tests/transformer/test_cuda_graphs.py:2734: vpp_size must be None when pp_size is 1
+33 passed, 3 skipped, 97 warnings in 6.57s
+
+==================================== PASSES ====================================
+_ TestCudaGraphConfigAndArguments.test_te_capture_requires_initialized_dsa_tracker _
+---------------------------- Captured stdout setup -----------------------------
+Test data already available at /opt/data
+
+
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-16] ________
+----------------------------- Captured stdout call -----------------------------
+Initializing torch.distributed with rank: 3, world_size: 4
+----------------------------- Captured stderr call -----------------------------
+[rank3]:[W1108 07:48:06.196247687 ProcessGroupGloo.cpp:524] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-64] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64==================================== PASSES ====================================
+
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-256] _______
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+------------------------------ Captured log call -------------------------------
+==================================== PASSES ====================================INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+
+_ TestCudaGraphConfigAndArguments.test_te_capture_requires_initialized_dsa_tracker _
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-16] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+---------------------------- Captured stdout setup -----------------------------_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-64] ________
+
+_ TestCudaGraphConfigAndArguments.test_te_capture_requires_initialized_dsa_tracker _----------------------------- Captured stderr call -----------------------------Test data already available at /opt/data
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-256] _______
+---------------------------- Captured stdout setup ---------------------------------------------------------- Captured stderr call -----------------------------
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+Test data already available at /opt/data------------------------------ Captured log call -------------------------------
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-16] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 3: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 3: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-64] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 3: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 3: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-256] _______
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-16] ________----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 3: 2 graphable layers.
+
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 3: 2 graphable layers.
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-16] _________
+----------------------------- Captured stdout call -----------------------------
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+Initializing torch.distributed with rank: 1, world_size: 4------------------------------ Captured log call -------------------------------
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-16] ________----------------------------- Captured stderr call -----------------------------_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-64] _________
+
+
+----------------------------- Captured stderr call -----------------------------
+[rank1]:[W1108 07:48:06.197356846 ProcessGroupGloo.cpp:524] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+----------------------------- Captured stdout call -----------------------------
+------------------------------ Captured log call -------------------------------________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-256] _________Initializing torch.distributed with rank: 0, world_size: 4
+NCCL version 2.28.9+cuda13.0
+
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16----------------------------- Captured stderr call -----------------------------
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+------------------------------ Captured log call -------------------------------
+----------------------------- Captured stderr call -----------------------------INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+
+[rank0]:[W1108 07:48:05.711123524 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank0]:[W1108 07:48:06.195673164 ProcessGroupGloo.cpp:524] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 8 graphable layers._________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-16] ________________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-64] ________
+
+
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 3: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 3: 2 graphable layers.------------------------------ Captured log call -------------------------------
+----------------------------- Captured stderr call -----------------------------
+
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-64] _________
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 8 graphable layers.----------------------------- Captured stderr call -----------------------------
+
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 3: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 3: 2 graphable layers.------------------------------ Captured log call -------------------------------
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-256] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 3: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 3: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-64] ________
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-256] _______
+----------------------------- Captured stderr call -----------------------------
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 8 graphable layers.INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+
+------------------------------ Captured log call ------------------------------------------------------------- Captured log call -------------------------------
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 8 graphable layers.
+
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-16] ________============================= slowest 10 durations =============================
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-1-256] _______
+
+----------------------------- Captured stderr call -----------------------------6.78s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]
+
+0.27s teardown tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+----------------------------- Captured stderr call -----------------------------0.15s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]
+
+
+0.12s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+0.11s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 8 graphable layers.------------------------------ Captured log call -------------------------------0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]
+
+
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 160.09s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]
+
+0.08s teardown tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+------------------------------ Captured log call -------------------------------0.08s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-64]
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 8 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-64] ________
+----------------------------- Captured stderr call -----------------------------
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-16] ________INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+
+------------------------------ Captured log call ------------------------------------------------------------ Captured stderr call -----------------------------
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 4 graphable layers.
+
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 4 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-256] _______
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-64] ________
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256----------------------------- Captured stderr call -----------------------------
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 4 graphable layers._______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-16] ________
+
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 1: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-2-256] _______
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 1: 2 graphable layers.----------------------------- Captured stderr call -----------------------------
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 4 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 4 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-64] ________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 1: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-16] ________
+------------------------------ Captured log call -------------------------------
+----------------------------- Captured stderr call -----------------------------INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 1: 2 graphable layers.
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-256] _______
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 1: 2 graphable layers.
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-64] ________
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 1: 2 graphable layers.
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphable layers.
+------------------------------ Captured log call -------------------------------_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-16] _________
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 2 graphable layers.
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+------------------------------ Captured log call -------------------------------
+_______ TestTECudaGraphHelper.test_get_cuda_graph_input_data[None-4-256] _______INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphable layers.
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-64] _________
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 2 graphable layers.
+----------------------------- Captured stderr call -----------------------------=========================== short test summary info ============================
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestCudaGraphConfigAndArguments::test_te_capture_requires_initialized_dsa_tracker
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-True]
+------------------------------ Captured log call -------------------------------PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-16] _________PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-16]----------------------------- Captured stderr call -----------------------------
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-16]INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 4 graphable layers.
+________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-256] _________PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]
+
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-256]------------------------------ Captured log call -------------------------------
+----------------------------- Captured stderr call -----------------------------
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules0-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules1-False]INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 4 graphable layers.
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules2-True]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[nested-moe-cuda_graph_modules3-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules4-False]------------------------------ Captured log call -------------------------------
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-True]
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-False]
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-64] _________PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]
+
+SKIPPED [3] tests/unit_tests/transformer/test_cuda_graphs.py:2734: vpp_size must be None when pp_size is 1
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-16] _________----------------------------- Captured stderr call -----------------------------
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 4 graphable layers.
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+INFO:megatron.core.transformer.cuda_graphs:Rank 1: 2 graphable layers.------------------------------ Captured log call -------------------------------
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 4 graphable layers.33 passed, 3 skipped, 97 warnings in 9.59s------------------------------ Captured log call -------------------------------
+
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 1: 2 graphable layers.
+________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-2-256] _________
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-64] _________
+----------------------------- Captured stderr call -----------------------------
+----------------------------- Captured stderr call -----------------------------INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 4 graphable layers.
+
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+INFO:megatron.core.transformer.cuda_graphs:Rank 1: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+------------------------------ Captured log call -------------------------------INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 4 graphable layers.
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 1: 2 graphable layers.
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-16] _________
+________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-256] _________
+----------------------------- Captured stderr call -----------------------------
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 16
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphable layers.INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+INFO:megatron.core.transformer.cuda_graphs:Rank 1: 2 graphable layers.
+
+------------------------------ Captured log call ------------------------------------------------------------- Captured log call -------------------------------
+
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 16
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 2 graphable layers.INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 1: 2 graphable layers.
+
+_________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-64] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 64
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 64
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 2 graphable layers.
+________ TestTECudaGraphHelper.test_get_cuda_graph_input_data[2-4-256] _________
+----------------------------- Captured stderr call -----------------------------
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 256
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphable layers.
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:297 setting number of microbatches to constant 256
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.transformer.cuda_graphs:utils.py:1114 Rank 0: 2 graphable layers.
+============================= slowest 10 durations =============================
+6.63s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]
+0.29s teardown tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]
+0.15s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]
+0.13s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+0.12s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-64]
+0.09s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-256]
+0.09s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]
+0.09s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]
+============================= slowest 10 durations =============================
+0.84s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]
+0.26s teardown tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]
+0.16s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]
+0.14s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+0.12s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]
+0.11s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-16]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]
+0.10s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]
+0.09s call     tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-256]
+=========================== short test summary info ============================
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestCudaGraphConfigAndArguments::test_te_capture_requires_initialized_dsa_tracker
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-16]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-256]
+=========================== short test summary info ============================PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-16]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestCudaGraphConfigAndArguments::test_te_capture_requires_initialized_dsa_tracker
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-False]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-16]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[False-True]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-64]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-False]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-256]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors[True-True]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules0-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-16]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules1-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-64]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules2-True]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-1-256]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[nested-moe-cuda_graph_modules3-True]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-16]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules4-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-64]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-2-256]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-True]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-16]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-64]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-True]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[None-4-256]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-16]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-True]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-64]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-False]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-2-256]PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-16]SKIPPED [3] tests/unit_tests/transformer/test_cuda_graphs.py:2734: vpp_size must be None when pp_size is 1
+
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-64]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data[2-4-256]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules0-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[dense-cuda_graph_modules1-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules2-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[nested-moe-cuda_graph_modules3-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe[direct-moe-cuda_graph_modules4-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[before_capture-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[capture-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[warmup-True]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-False]
+PASSED tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state[None-True]
+SKIPPED [3] tests/unit_tests/transformer/test_cuda_graphs.py:2734: vpp_size must be None when pp_size is 1
+33 passed, 3 skipped, 97 warnings in 9.04s
+33 passed, 3 skipped, 113 warnings in 3.26s

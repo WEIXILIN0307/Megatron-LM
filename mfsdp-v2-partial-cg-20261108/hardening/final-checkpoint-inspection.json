@@ -1,0 +1,15 @@
+{
+  "global_model_parameters": 6919161856,
+  "model_tensor_count": 2163,
+  "total_checkpoint_entries": 36792,
+  "sample_key": "model.embedding.word_embeddings.weight",
+  "sample_shape": [
+    50304,
+    2048
+  ],
+  "sample_finite": true,
+  "optimizer_group_step_entries": 2163,
+  "optimizer_group_steps": [
+    12
+  ]
+}

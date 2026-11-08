@@ -1,0 +1,13 @@
+{
+  "head_sha": "cf473f207e4c09e3a108457969352b92b7efb86c",
+  "base_sha": "3d9609fcc0a96e252323af359d61dc37d1549528",
+  "command": [
+    "python",
+    "tools/check_kernel_determinism_coverage.py",
+    "--base-ref",
+    "3d9609fcc0a96e252323af359d61dc37d1549528"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "Kernel determinism coverage check passed for 10 changed file(s).\n"
+}

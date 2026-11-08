@@ -1,0 +1,18 @@
+[
+  "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+  "-m",
+  "torch.distributed.run",
+  "--master-addr",
+  "127.0.0.1",
+  "--master-port",
+  "29678",
+  "--nproc-per-node",
+  "4",
+  "-m",
+  "pytest",
+  "-q",
+  "-o",
+  "addopts=--durations=10 --capture=fd -rA --tb=short",
+  "--disable-warnings",
+  "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+]

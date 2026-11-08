@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "head_sha": "cf473f207e4c09e3a108457969352b92b7efb86c",
+  "base_branch": "dev",
+  "base_sha": "3d9609fcc0a96e252323af359d61dc37d1549528",
+  "completed_at_utc": "2026-11-08T07:49:34.621893+00:00",
+  "regressions": {
+    "pr-dev-partial-4ranks": {
+      "ranks": 4,
+      "per_rank_passed": 74,
+      "per_rank_skipped": 0,
+      "per_rank_deselected": 0,
+      "wall_seconds": 604.8585884571075,
+      "directory": "hardening/pr-dev-partial-4ranks"
+    },
+    "pr-dev-fsdp-regression": {
+      "ranks": 4,
+      "per_rank_passed": 22,
+      "per_rank_skipped": 0,
+      "per_rank_deselected": 1,
+      "wall_seconds": 83.74236702919006,
+      "directory": "hardening/pr-dev-fsdp-regression"
+    },
+    "pr-dev-transformer-regression": {
+      "ranks": 4,
+      "per_rank_passed": 33,
+      "per_rank_skipped": 3,
+      "per_rank_deselected": 0,
+      "wall_seconds": 36.29167866706848,
+      "directory": "hardening/pr-dev-transformer-regression"
+    }
+  },
+  "source_files_sha256": "publication/source-files-sha256.json",
+  "feature_diff_identical_to_simplified_validated_series": true,
+  "all_feature_source_files_identical_to_simplification": true,
+  "style_checks_match_current_source": true,
+  "kernel_determinism_check": "publication/kernel-determinism-check.json",
+  "full_size_training_on_this_head": false,
+  "long_training_on_this_head": false,
+  "performance_benchmark_on_this_head": false,
+  "upstream_CI": "not run"
+}

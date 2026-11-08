@@ -1,0 +1,22 @@
+[
+  "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+  "-m",
+  "torch.distributed.run",
+  "--master-addr",
+  "127.0.0.1",
+  "--master-port",
+  "29678",
+  "--nproc-per-node",
+  "4",
+  "-m",
+  "pytest",
+  "-q",
+  "-o",
+  "addopts=--durations=10 --capture=fd -rA --tb=short",
+  "--disable-warnings",
+  "tests/unit_tests/transformer/test_cuda_graphs.py::TestCudaGraphConfigAndArguments::test_te_capture_requires_initialized_dsa_tracker",
+  "tests/unit_tests/transformer/test_cuda_graphs.py::TestHybridTECudaGraphDiscovery::test_hybrid_partial_replay_runs_eager_tail_and_propagates_errors",
+  "tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_get_cuda_graph_input_data",
+  "tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_paged_stash_te_capture_context_requires_rank_local_whole_moe",
+  "tests/unit_tests/transformer/test_cuda_graphs.py::test_failed_capture_restores_global_state"
+]

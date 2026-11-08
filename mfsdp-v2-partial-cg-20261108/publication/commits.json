@@ -1,0 +1,34 @@
+{
+  "base_branch": "dev",
+  "base_sha": "3d9609fcc0a96e252323af359d61dc37d1549528",
+  "head_branch": "feat/mfsdp-v2-partial-cuda-graphs",
+  "head_sha": "cf473f207e4c09e3a108457969352b92b7efb86c",
+  "commits": [
+    {
+      "sha": "d83c045f53f9f28f26127f7cba28e98fe0d3d114",
+      "title": "fix(mfsdp): preserve the training cursor during evaluation"
+    },
+    {
+      "sha": "bbae32361bec063ab121ca3f90ba9d225ca6f480",
+      "title": "fix(mfsdp): preserve native v2 checkpoint projections"
+    },
+    {
+      "sha": "cf473f207e4c09e3a108457969352b92b7efb86c",
+      "title": "feat(mfsdp): integrate v2 with TE partial CUDA graphs"
+    }
+  ],
+  "feature_diff_identical_to_validated_patch_series": true,
+  "source_sha256": {
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245",
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py": "be70467318fb4f9497f6ef6fb4ac92c0dd0763542dcf0fb358b997af647c853d",
+    "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+    "megatron/core/transformer/module.py": "1a07547dd45e33b6abffbe309099975280aa37250db66faf84c100167ee02e53",
+    "megatron/training/checkpointing.py": "26f3cf4b8c625bf6d043220bf0bfa2957a8d884af2f66ec7cd3ec22bd0be0d1e",
+    "tests/unit_tests/distributed/mfsdp_v2/test_checkpoint.py": "33a48d33c7fd5246c0cb0f5040a88a79c66b218af874f7fcbec0ebac96507ef4",
+    "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py": "8beff38442d18d6e5d30299a70be0e1449a46d273bc846b6ca32e859ebc5e4b4",
+    "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py": "6b3ba9bfdd8883c2f8e11cc63f6c85db02c7a1816c6ede896403fa9825c4c3fe",
+    "docs/developer/mfsdp_v2_partial_cuda_graph.md": "d2274e917d413cedccff4798de5608b4ea8166972d3410aae3e7f4f70132beea",
+    "docs/user-guide/features/cuda_graph.md": "ac1d696fcd2542cfe8dea12da0fe1afbe4c624eb87912a216e846a287e847f63"
+  },
+  "working_directory": "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-mfsdp-partial-cg-pr"
+}

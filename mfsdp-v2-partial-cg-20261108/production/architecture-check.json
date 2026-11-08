@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "reference_parameters": 6919161856,
+  "qk_norm_width": 2048,
+  "qk_norm_epsilon": 1e-05,
+  "maximum_forward_error": 7.152557373046875e-07,
+  "maximum_input_gradient_error": 7.152557373046875e-07,
+  "maximum_weight_gradient_error": 3.814697265625e-06,
+  "training_initialization": "random; pretrained weights are not loaded"
+}

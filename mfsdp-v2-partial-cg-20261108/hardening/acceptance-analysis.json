@@ -1,0 +1,102 @@
+{
+  "scope": "FSDP v2 partial CUDA Graph integration and end-to-end MoE validation only",
+  "complete": true,
+  "regressions": {
+    "all-partial-4ranks-final": {
+      "per_rank_passed": 74,
+      "ranks": 4
+    },
+    "fsdp-regression": {
+      "per_rank_passed": 22,
+      "ranks": 4
+    },
+    "transformer-regression-final": {
+      "per_rank_passed": 33,
+      "ranks": 4
+    }
+  },
+  "full_size_runs": {
+    "hardening-eager-dropout": {
+      "steps": [
+        1,
+        12
+      ],
+      "attention_dropout": 0.1,
+      "hidden_dropout": 0.1,
+      "nan_or_skips": 0,
+      "final_lm_loss": 8.956457138061523
+    },
+    "hardening-partial-dropout": {
+      "steps": [
+        1,
+        12
+      ],
+      "attention_dropout": 0.1,
+      "hidden_dropout": 0.1,
+      "nan_or_skips": 0,
+      "final_lm_loss": 8.956457138061523
+    },
+    "hardening-eager-dropout-resume": {
+      "steps": [
+        7,
+        12
+      ],
+      "attention_dropout": 0.1,
+      "hidden_dropout": 0.1,
+      "nan_or_skips": 0,
+      "final_lm_loss": 8.956457138061523
+    },
+    "hardening-partial-dropout-resume": {
+      "steps": [
+        7,
+        12
+      ],
+      "attention_dropout": 0.1,
+      "hidden_dropout": 0.1,
+      "nan_or_skips": 0,
+      "final_lm_loss": 8.956457138061523
+    }
+  },
+  "full_size_parity": [
+    {
+      "report": "compare-hardening-eager-dropout-vs-hardening-partial-dropout-step12.json",
+      "tensors": 6489,
+      "elements": 20757485568,
+      "actual_non_tensor_entries": 30282,
+      "bit_exact": true
+    },
+    {
+      "report": "compare-hardening-eager-dropout-resume-vs-hardening-partial-dropout-resume-step12.json",
+      "tensors": 6489,
+      "elements": 20757485568,
+      "actual_non_tensor_entries": 30282,
+      "bit_exact": true
+    }
+  ],
+  "profile": {
+    "recorded_optimizer_iterations": 1,
+    "cudaGraphLaunch": 256,
+    "expected": "32 units x GA4 x forward/backward2",
+    "trace": "hardening-partial-dropout/torch_profile/rank-0.json.gz",
+    "trace_sha256": "4918a04239c96b9d7f57aeacbf742e3d5740fce59c4d6a874fff1e8f5b379902",
+    "timing_used_as_performance": false
+  },
+  "continuation_metrics": {
+    "eager": {
+      "lm loss": 0.0,
+      "grad-norm": 0.0,
+      "params-norm": 0.0,
+      "load_balancing_loss": 0.0
+    },
+    "partial": {
+      "lm loss": 0.0,
+      "grad-norm": 0.0,
+      "params-norm": 0.0,
+      "load_balancing_loss": 0.0
+    }
+  },
+  "acceptance_evidence_passed": true,
+  "RNG_native_checkpoint_validation": "rng-comparison.json",
+  "final_checkpoint_inspection": "final-checkpoint-inspection.json",
+  "reviewed_at_utc": "2026-11-08T05:18:52.550630+00:00"
+}

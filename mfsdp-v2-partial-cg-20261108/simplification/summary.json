@@ -1,0 +1,85 @@
+{
+  "status": "completed",
+  "scope": "FSDP v2 partial CUDA Graph capture lifecycle and end-to-end MoE validation only",
+  "completed_at_utc": "2026-11-08T07:19:18.679017+00:00",
+  "changed_files": {
+    "docs/developer/mfsdp_v2_partial_cuda_graph.md": {
+      "before_lines": 212,
+      "after_lines": 175
+    },
+    "docs/user-guide/features/cuda_graph.md": {
+      "before_lines": 339,
+      "after_lines": 335
+    },
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": {
+      "before_lines": 645,
+      "after_lines": 640
+    },
+    "megatron/core/transformer/cuda_graphs.py": {
+      "before_lines": 4489,
+      "after_lines": 4477
+    }
+  },
+  "production_lines_net_removed": 17,
+  "documentation_lines_net_removed": 41,
+  "removals": [
+    "Removed _fsdp_graph_modules and _fsdp_capture_context; select units once and enter the existing contexts inline.",
+    "Removed local retained-storage snapshot and success flag; TECudaGraphHelper owns failed graph reset and retained-storage release.",
+    "Removed CPU-offload rejection duplicated by TransformerConfig and the redundant failure-path _capture_finished=False assignment.",
+    "Removed repeated roadmap, release-history, long-run-history and project-stage prose from repository docs."
+  ],
+  "preserved": [
+    "Original hooks, gradient completion and reduction lifecycle",
+    "Fixed gathered-buffer addresses",
+    "Recoverable capture-failure hooks/class-call/TE/MCore flag/RNG cleanup",
+    "Eager evaluation and native-v2 checkpoint prerequisite fixes",
+    "All 74 focused test cases and existing regression assertions"
+  ],
+  "test_sources_unchanged": true,
+  "regressions": {
+    "simplified-partial-4ranks": {
+      "per_rank_passed": 74,
+      "ranks": 4,
+      "per_rank_skipped": 0,
+      "per_rank_deselected": 0,
+      "log": "hardening/simplified-partial-4ranks/pytest.log"
+    },
+    "simplified-fsdp-regression": {
+      "per_rank_passed": 22,
+      "ranks": 4,
+      "per_rank_skipped": 0,
+      "per_rank_deselected": 1,
+      "log": "hardening/simplified-fsdp-regression/pytest.log"
+    },
+    "simplified-transformer-regression": {
+      "per_rank_passed": 33,
+      "ranks": 4,
+      "per_rank_skipped": 3,
+      "per_rank_deselected": 0,
+      "log": "hardening/simplified-transformer-regression/pytest.log"
+    }
+  },
+  "source_sha256": {
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245",
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py": "be70467318fb4f9497f6ef6fb4ac92c0dd0763542dcf0fb358b997af647c853d",
+    "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+    "megatron/core/transformer/module.py": "1a07547dd45e33b6abffbe309099975280aa37250db66faf84c100167ee02e53",
+    "megatron/training/checkpointing.py": "26f3cf4b8c625bf6d043220bf0bfa2957a8d884af2f66ec7cd3ec22bd0be0d1e",
+    "tests/unit_tests/distributed/mfsdp_v2/test_checkpoint.py": "33a48d33c7fd5246c0cb0f5040a88a79c66b218af874f7fcbec0ebac96507ef4",
+    "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py": "8beff38442d18d6e5d30299a70be0e1449a46d273bc846b6ca32e859ebc5e4b4",
+    "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py": "6b3ba9bfdd8883c2f8e11cc63f6c85db02c7a1816c6ede896403fa9825c4c3fe",
+    "docs/developer/mfsdp_v2_partial_cuda_graph.md": "d2274e917d413cedccff4798de5608b4ea8166972d3410aae3e7f4f70132beea",
+    "docs/user-guide/features/cuda_graph.md": "ac1d696fcd2542cfe8dea12da0fe1afbe4c624eb87912a216e846a287e847f63"
+  },
+  "first_two_patch_trees_unchanged": true,
+  "previous_final_tree": "228db5340b808ca736ee6cbba52257a6b13bb1de",
+  "current_final_tree": "a4b0b0ca6083da6cbf62f650072ca6122bd0b2b7",
+  "delta_patch": "simplification/delta.patch",
+  "new_full_size_training_run": false,
+  "new_1000_step_training_run": false,
+  "new_performance_benchmark": false,
+  "reuse_rationale": "No numeric algorithm, optimizer, sharding, replay dispatch or successful capture context order changed. Current real GPT/Hybrid MoE regression and failure/retry tests validate the cleanup simplification. Full-size dropout/restart, long-run and timing results remain explicitly tied to their earlier source revisions.",
+  "previous_evidence": "simplification/before-evidence/validation-summary.json",
+  "remote_source_audit": "simplification/remote-source-audit.json",
+  "official_CI_status": "not run; existing mfsdp_v2 recipe glob includes the focused test file"
+}

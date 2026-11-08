@@ -1,0 +1,8 @@
+{
+  "tests/unit_tests/distributed/mfsdp_v2/test_checkpoint.py": "33a48d33c7fd5246c0cb0f5040a88a79c66b218af874f7fcbec0ebac96507ef4",
+  "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py": "8beff38442d18d6e5d30299a70be0e1449a46d273bc846b6ca32e859ebc5e4b4",
+  "tests/unit_tests/distributed/mfsdp_v2/test_cuda_graph.py": "c3829a9a304ff533156694fbb406ac27a62190708b9518ab3851088b07bcd627",
+  "tests/unit_tests/distributed/mfsdp_v2/test_mcore_cuda_graph.py": "b979b08bb99fcffa8af41fa0f1c742306c26bf1081a10281aadca1b773766f13",
+  "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+  "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245"
+}
