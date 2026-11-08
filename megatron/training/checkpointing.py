@@ -1887,6 +1887,16 @@ def preprocess_fsdp_dtensor_state_dict(
     state_dict = raw_state_dict.copy()
     handle_fp8_extra_state_case(state_dict['model'])
 
+    if getattr(args, 'megatron_fsdp_version', 1) == 2:
+        # V2 checkpoints expose native packed DTensor views, as do its standalone
+        # checkpoint helpers. V1's projection splitting relies on v1 slice metadata.
+        if args.num_experts:
+            state_dict['model'] = handle_experts_in_state_dict(
+                state_dict['model'], args.num_experts
+            )
+        preprocess_state_dict_for_uneven_dtensor(state_dict)
+        return state_dict
+
     def apply(handler):
         """Run a state dict handler over the model and, when present, the optimizer state."""
         model_state_dict, optimizer_state_dict = handler(
