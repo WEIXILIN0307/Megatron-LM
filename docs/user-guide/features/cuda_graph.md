@@ -124,6 +124,63 @@ not enable mHC capture by themselves.
 The same training `--cuda-graph-modules` options apply as for `local`, and the default is likewise
 whole-layer training capture when the flag is omitted.
 
+### Megatron FSDP v2 partial capture
+
+The MFSDP v2 integration supports fixed-shape BF16 training with
+`--cuda-graph-impl transformer_engine` and TP=PP=CP=1. Select existing partial
+scopes with `--cuda-graph-modules`: `attn`, `mlp`, `moe_router`, and
+`moe_preprocess` (paired with `moe_router`). The selected forward and backward
+regions use TE graphs. Dynamic MoE token dispatch, routed experts, gradient
+communication, and the optimizer use their usual eager paths. Router capture
+also includes shared experts through the existing partial MoE implementation.
+Expert parallelism and gradient accumulation remain available.
+
+```bash
+--use-megatron-fsdp \
+--megatron-fsdp-version 2 \
+--data-parallel-sharding-strategy optim_grads_params \
+--bf16 \
+--no-gradient-accumulation-fusion \
+--te-rng-tracker \
+--cuda-graph-impl transformer_engine \
+--cuda-graph-modules attn moe_router moe_preprocess
+```
+
+FSDP gathers and refreshes its existing compute-weight buffers before replay.
+The gathered BF16 buffers belonging to captured FSDP units stay allocated at
+fixed addresses until graph deletion. In GPTModel, this retains the whole
+TransformerLayer's owned buffers, including eager dense MLP and shared-expert
+weights. HybridModel's separate attention and MLP/MoE layer boundaries limit
+retention to the selected units. Units outside capture, independently wrapped
+routed experts, and the model root retain their usual sharded storage lifecycle. Main weights and
+optimizer state retain their configured sharding. Budget for these resident
+compute buffers in addition to graph activation memory; this implementation
+does not preserve ZeRO3's normal per-layer compute-weight memory peak.
+
+Capture temporarily suspends FSDP's own execution hooks; replay runs the normal
+module hooks outside the graph. Evaluation uses eager forward. Deleting the
+graphs releases the retained buffers, and ordinary eager training can resume.
+To capture again after deletion, construct a new `TECudaGraphHelper` for the
+same model and optimizer; a helper's capture operation is single-use.
+Checkpointing uses v2's native packed DTensor layout, including packed SwiGLU
+projections; conversion to the v1 split-projection checkpoint layout is not
+provided.
+
+Use `--te-rng-tracker` in both the eager reference and captured runs when
+comparing native `fsdp_dtensor` restarts. DCP load planning requires the saved
+and destination RNG state representations to agree. This integration preserves
+normal RNG save/load; it does not convert existing DCP checkpoints between
+ordinary Tensor and graph-safe Generator RNG schemas.
+
+Whole-layer and other capture scopes, FP8/FP4, TP/PP/CP greater than one, sequence packing,
+activation recomputation or offloading, symmetric-memory collectives, MTP, and
+hyper-connections, delayed weight gradients or expert communication overlap are outside this
+initial integration. Existing MFSDP v2 restrictions, including the requirement
+to disable gradient accumulation fusion, still apply. The integration is
+validated with GPTModel and HybridModel, ordinary attention and MLA, grouped MoE
+experts, shared experts, accumulated microbatches, and checkpoint restart. See the
+[design and validation notes](../../developer/mfsdp_v2_partial_cuda_graph.md).
+
 ### mHC Attention Split
 
 For mHC selective recompute, `--mhc-recompute-attn-cuda-graph-split` keeps mHC aggregation and
