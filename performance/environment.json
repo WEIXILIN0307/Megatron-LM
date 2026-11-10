@@ -1,0 +1,17 @@
+{
+  "pytorch": "2.11.0+cu130",
+  "transformer_engine": "2.20.2",
+  "gpus": "2 x RTX A6000 48GB, physical indices 5/6; PCIe PIX link",
+  "env": {
+    "NVTE_ALLOW_NONDETERMINISTIC_ALGO": "0",
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "NCCL_DEBUG": "WARN",
+    "NCCL_NVLS_ENABLE": "0",
+    "PYTORCH_ALLOC_CONF": "expandable_segments:True",
+    "OMP_NUM_THREADS": "4",
+    "CUDA_DEVICE_MAX_CONNECTIONS": "8"
+  },
+  "entry_env": "Set MFSDP_BENCH_SOURCE=<workspace>, MFSDP_BENCH_OUTPUT=<run output>, PYTHONPATH=<evidence>/performance:<workspace>; select exactly two GPUs.",
+  "paths": "Command paths are anonymized placeholders; parameter values are preserved.",
+  "setup": "Reused the existing Python/TE environment and a make binary from the existing identical-base container; an initial missing-make startup failed before training and is excluded from samples."
+}

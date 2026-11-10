@@ -1,0 +1,35 @@
+{
+  "runtime_head": "45bc0d38bf6b87208a6807f013597aadd68b8f54",
+  "workload": "OLMoE-derived Hybrid MoE proxy, randomly initialized, real WikiText-103; 16 blocks, hidden size 2048, 16 experts instead of 64, top-8; not full OLMoE",
+  "source_sha256": {
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245",
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py": "be70467318fb4f9497f6ef6fb4ac92c0dd0763542dcf0fb358b997af647c853d",
+    "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+    "megatron/core/transformer/module.py": "1a07547dd45e33b6abffbe309099975280aa37250db66faf84c100167ee02e53",
+    "megatron/training/checkpointing.py": "26f3cf4b8c625bf6d043220bf0bfa2957a8d884af2f66ec7cd3ec22bd0be0d1e"
+  },
+  "gpu_indices": [
+    5,
+    6
+  ],
+  "ranks": 2,
+  "EP": 2,
+  "GA": 2,
+  "global_batch_size": 4,
+  "sequence_length": 1024,
+  "steps": 60,
+  "steady_steps": [
+    16,
+    60
+  ],
+  "order": [
+    "eager-1",
+    "partial-1",
+    "partial-2",
+    "eager-2",
+    "eager-3",
+    "partial-3"
+  ],
+  "profiler": false,
+  "save_checkpoint": false
+}

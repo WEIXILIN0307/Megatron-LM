@@ -1,0 +1,174 @@
+{
+  "plan": {
+    "runtime_head": "45bc0d38bf6b87208a6807f013597aadd68b8f54",
+    "workload": "OLMoE-derived Hybrid MoE proxy, randomly initialized, real WikiText-103; 16 blocks, hidden size 2048, 16 experts instead of 64, top-8; not full OLMoE",
+    "source_sha256": {
+      "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245",
+      "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py": "be70467318fb4f9497f6ef6fb4ac92c0dd0763542dcf0fb358b997af647c853d",
+      "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+      "megatron/core/transformer/module.py": "1a07547dd45e33b6abffbe309099975280aa37250db66faf84c100167ee02e53",
+      "megatron/training/checkpointing.py": "26f3cf4b8c625bf6d043220bf0bfa2957a8d884af2f66ec7cd3ec22bd0be0d1e"
+    },
+    "gpu_indices": [
+      5,
+      6
+    ],
+    "ranks": 2,
+    "EP": 2,
+    "GA": 2,
+    "global_batch_size": 4,
+    "sequence_length": 1024,
+    "steps": 60,
+    "steady_steps": [
+      16,
+      60
+    ],
+    "order": [
+      "eager-1",
+      "partial-1",
+      "partial-2",
+      "eager-2",
+      "eager-3",
+      "partial-3"
+    ],
+    "profiler": false,
+    "save_checkpoint": false
+  },
+  "runs": [
+    {
+      "name": "eager-1",
+      "sampled_steady_peak_gpu_memory_mib": 26277.0,
+      "mode": "eager",
+      "steady_steps": 45,
+      "steady_wall_seconds": 54.930974673014134,
+      "steady_wall_seconds_per_step": 1.2206883260669807,
+      "global_tokens_per_second": 3355.483879490502,
+      "max_rank_step_median_seconds": 1.205014135222882,
+      "max_rank_step_p90_seconds": 1.2365801888518035,
+      "peak_allocated_bytes": 23437881344,
+      "peak_reserved_bytes": 24786239488,
+      "lifecycle_peak_allocated_bytes": 23461497344,
+      "lifecycle_peak_reserved_bytes": 24786239488,
+      "capture_seconds": 0
+    },
+    {
+      "name": "partial-1",
+      "sampled_steady_peak_gpu_memory_mib": 27833.0,
+      "mode": "partial",
+      "steady_steps": 45,
+      "steady_wall_seconds": 50.2649840740487,
+      "steady_wall_seconds_per_step": 1.1169996460899712,
+      "global_tokens_per_second": 3666.9662468900005,
+      "max_rank_step_median_seconds": 1.1051664832048118,
+      "max_rank_step_p90_seconds": 1.1159088066779077,
+      "peak_allocated_bytes": 22245819904,
+      "peak_reserved_bytes": 26384269312,
+      "lifecycle_peak_allocated_bytes": 23413705216,
+      "lifecycle_peak_reserved_bytes": 26384269312,
+      "capture_seconds": 1.8923577321693301
+    },
+    {
+      "name": "partial-2",
+      "sampled_steady_peak_gpu_memory_mib": 27833.0,
+      "mode": "partial",
+      "steady_steps": 45,
+      "steady_wall_seconds": 50.34804737614468,
+      "steady_wall_seconds_per_step": 1.1188454972476596,
+      "global_tokens_per_second": 3660.916551995864,
+      "max_rank_step_median_seconds": 1.1056480086408556,
+      "max_rank_step_p90_seconds": 1.1177754630334675,
+      "peak_allocated_bytes": 22245819904,
+      "peak_reserved_bytes": 26384269312,
+      "lifecycle_peak_allocated_bytes": 23413705216,
+      "lifecycle_peak_reserved_bytes": 26384269312,
+      "capture_seconds": 2.2322449418716133
+    },
+    {
+      "name": "eager-2",
+      "sampled_steady_peak_gpu_memory_mib": 26277.0,
+      "mode": "eager",
+      "steady_steps": 45,
+      "steady_wall_seconds": 54.40742954192683,
+      "steady_wall_seconds_per_step": 1.2090539898205963,
+      "global_tokens_per_second": 3387.7726176709275,
+      "max_rank_step_median_seconds": 1.187948752194643,
+      "max_rank_step_p90_seconds": 1.2359280828386545,
+      "peak_allocated_bytes": 23437881344,
+      "peak_reserved_bytes": 24786239488,
+      "lifecycle_peak_allocated_bytes": 23461497344,
+      "lifecycle_peak_reserved_bytes": 24786239488,
+      "capture_seconds": 0
+    },
+    {
+      "name": "eager-3",
+      "sampled_steady_peak_gpu_memory_mib": 26277.0,
+      "mode": "eager",
+      "steady_steps": 45,
+      "steady_wall_seconds": 53.43224320234731,
+      "steady_wall_seconds_per_step": 1.1873831822743846,
+      "global_tokens_per_second": 3449.6025050264543,
+      "max_rank_step_median_seconds": 1.1715449141338468,
+      "max_rank_step_p90_seconds": 1.199069257825613,
+      "peak_allocated_bytes": 23437881344,
+      "peak_reserved_bytes": 24786239488,
+      "lifecycle_peak_allocated_bytes": 23461497344,
+      "lifecycle_peak_reserved_bytes": 24786239488,
+      "capture_seconds": 0
+    },
+    {
+      "name": "partial-3",
+      "sampled_steady_peak_gpu_memory_mib": 27833.0,
+      "mode": "partial",
+      "steady_steps": 45,
+      "steady_wall_seconds": 50.02002939209342,
+      "steady_wall_seconds_per_step": 1.1115562087131872,
+      "global_tokens_per_second": 3684.92386430175,
+      "max_rank_step_median_seconds": 1.0990931103006005,
+      "max_rank_step_p90_seconds": 1.1130815451033413,
+      "peak_allocated_bytes": 22245819904,
+      "peak_reserved_bytes": 26384269312,
+      "lifecycle_peak_allocated_bytes": 23413705216,
+      "lifecycle_peak_reserved_bytes": 26384269312,
+      "capture_seconds": 2.464064115192741
+    }
+  ],
+  "summary": {
+    "eager": {
+      "mean_steady_seconds_per_step": 1.2057084993873206,
+      "stdev_steady_seconds_per_step": 0.01690273292816082,
+      "aggregate_global_tokens_per_second": 3397.17270142939,
+      "peak_allocated_bytes": 23437881344,
+      "peak_reserved_bytes": 24786239488,
+      "lifecycle_peak_allocated_bytes": 23461497344,
+      "lifecycle_peak_reserved_bytes": 24786239488,
+      "sampled_steady_peak_gpu_memory_mib": 26277.0,
+      "mean_capture_seconds": 0
+    },
+    "partial": {
+      "mean_steady_seconds_per_step": 1.115800450683606,
+      "stdev_steady_seconds_per_step": 0.003789720840864572,
+      "aggregate_global_tokens_per_second": 3670.907282292767,
+      "peak_allocated_bytes": 22245819904,
+      "peak_reserved_bytes": 26384269312,
+      "lifecycle_peak_allocated_bytes": 23413705216,
+      "lifecycle_peak_reserved_bytes": 26384269312,
+      "sampled_steady_peak_gpu_memory_mib": 27833.0,
+      "mean_capture_seconds": 2.1962222630778947
+    }
+  },
+  "mean_speedup_ratio": 1.080577175469531,
+  "paired_speedup_ratios": [
+    1.0928278539209653,
+    1.080626407126675,
+    1.068216949324569
+  ],
+  "loss_histories_equal": true,
+  "capture_amortization_steps": 25,
+  "timing_scope": "CUDA-synchronized stock train_step boundaries. Steady wall window includes inter-step logging/measurement overhead. Maximum-rank step times computed offline, no per-step distributed timing collective.",
+  "limits": [
+    "Proxy has 16 experts, not the full 64-expert OLMoE; no full-model speedup inference.",
+    "Two GPUs with EP2 have expert-DP size 1; this timing run does not benchmark expert-DP collective overlap.",
+    "Shared host; balanced order and GPU telemetry reduce but cannot eliminate interference.",
+    "Capture amortization is a steady-rate estimate, not measured full-job time-to-solution."
+  ]
+}

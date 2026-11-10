@@ -1,6 +1,6 @@
 # FSDP v2 partial CUDA Graph: overlap validation
 
-This is a focused record for [PR #9112](https://github.com/NVIDIA/Megatron-LM/pull/9112) and [RFC #9113](https://github.com/NVIDIA/Megatron-LM/issues/9113). It records a completed historical four-GPU run; no further GPU allocation is implied.
+This is a focused record for [PR #9112](https://github.com/NVIDIA/Megatron-LM/pull/9112) and [RFC #9113](https://github.com/NVIDIA/Megatron-LM/issues/9113). It records the earlier full-model four-GPU validation and a separate current-runtime two-A6000 proxy performance comparison.
 
 ## Workload and correctness
 
@@ -27,3 +27,13 @@ Run `python analyze_trace.py rank-0-filtered.json.gz --output reproduced.json`. 
 | Expert-model-parallel all-to-all | 0 / 192 | — |
 
 Expert-DP collectives are FSDP communication; expert-model-parallel all-to-all is dynamic token dispatch. This observation is limited to one rank and iteration. It does not establish overlap for every operation, performance gains, convergence, or support for the separate MoE expert-overlap schedule. Upstream CI and maintainer acceptance remain separate.
+
+## Measured overlap
+
+![Measured GPU kernel overlap](overlap-observation.png)
+
+Each panel has a separate time origin. Green shading is an actual GPU kernel time intersection. Stream IDs and selected intervals are retained in `overlap-observation.json`. Run `python plot_observation.py` with Matplotlib to regenerate the figure from the published filtered trace. This figure describes the earlier full-model four-GPU trace, not the two-GPU proxy timing run.
+
+## Current-runtime performance
+
+See [the separate two-A6000 proxy benchmark](performance/README.md) for all repeats, capture cost, memory, timing method and limits. The proxy result must not be represented as a complete OLMoE speedup.
