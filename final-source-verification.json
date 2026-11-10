@@ -1,0 +1,16 @@
+{
+  "checked_at_utc": "2026-11-10T09:59:44.618922+00:00",
+  "all_unchanged": true,
+  "source_sha256": {
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py": "193b72ea10d743a3784ac8aabb3b21aa1aba3d3eeb4968f9eb8e1894c68f9245",
+    "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/parameter_group.py": "be70467318fb4f9497f6ef6fb4ac92c0dd0763542dcf0fb358b997af647c853d",
+    "megatron/core/transformer/cuda_graphs.py": "7a0abf0a49569a223660fa557b0595e34bd372f24ada04306c91829b7f9d2981",
+    "megatron/core/transformer/module.py": "1a07547dd45e33b6abffbe309099975280aa37250db66faf84c100167ee02e53",
+    "megatron/training/checkpointing.py": "26f3cf4b8c625bf6d043220bf0bfa2957a8d884af2f66ec7cd3ec22bd0be0d1e",
+    "docs/developer/mfsdp_v2_partial_cuda_graph.md": "bcdee4c8b3e50367a14ff4679e14a3d112418dc38dc8ce121a78f6964d1593f2",
+    "docs/user-guide/features/cuda_graph.md": "d2e3791236026390522d23beb4d533dc89d138b828b99e195f35b88c2f53fbd9",
+    "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py": "85ca901c61dfb2a28c3460d4a22aa8558d6bb8b1ca5d03e133b5d47de0700ac5"
+  },
+  "git_diff_check": "passed",
+  "head": "cf473f207e4c09e3a108457969352b92b7efb86c"
+}

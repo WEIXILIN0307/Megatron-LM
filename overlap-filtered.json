@@ -1,0 +1,390 @@
+[
+  {
+    "trace": "rank-0-filtered.json.gz",
+    "sha256": "8f68e49ff42021aa8ab151057a0bb9f8e264a31d2291506810b8f1f5276674ea",
+    "method": "Actual GPU kernel intervals on distinct streams; graph attribution by cudaGraphLaunch correlation, excluding captured NCCL from compute.",
+    "graph_launches": 128,
+    "graph_launches_by_phase": {
+      "forward": 64,
+      "backward": 64
+    },
+    "captured_compute_kernels": 7360,
+    "graph_streams": {
+      "16": 7360
+    },
+    "groups": [
+      {
+        "kind": "eager_compute",
+        "process_group": "all",
+        "total": 11285,
+        "overlapped": 31,
+        "overlap_us": 247.61865234375,
+        "overlap_by_graph_phase": {
+          "backward": 31
+        },
+        "examples": [
+          {
+            "eager": {
+              "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+              "ts": 3446866191857.859,
+              "dur": 4.256,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 32,
+                "correlation": 292289
+              }
+            },
+            "captured": {
+              "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+              "ts": 3446866191801.955,
+              "dur": 63.744,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 292405
+              }
+            },
+            "graph_phase": "backward"
+          },
+          {
+            "eager": {
+              "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+              "ts": 3446866441657.391,
+              "dur": 2.784,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 32,
+                "correlation": 296146
+              }
+            },
+            "captured": {
+              "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+              "ts": 3446866441599.663,
+              "dur": 63.68,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 296262
+              }
+            },
+            "graph_phase": "backward"
+          }
+        ]
+      },
+      {
+        "kind": "_allgather_base",
+        "process_group": "DATA_PARALLEL_GROUP_WITH_CP",
+        "total": 132,
+        "overlapped": 61,
+        "overlap_us": 14973.12646484375,
+        "overlap_by_graph_phase": {
+          "forward": 32,
+          "backward": 29
+        },
+        "examples": [
+          {
+            "eager": {
+              "name": "ncclDevKernel_AllGather_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446864349677.054,
+              "dur": 128.129,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 36,
+                "correlation": 260461,
+                "Collective name": "_allgather_base",
+                "Process Group Description": "DATA_PARALLEL_GROUP_WITH_CP"
+              }
+            },
+            "captured": {
+              "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_256x128_32x3_tn_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_256x128_32x3_tn_align8::Params)",
+              "ts": 3446864349785.246,
+              "dur": 236.513,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 260574
+              }
+            },
+            "graph_phase": "forward"
+          },
+          {
+            "eager": {
+              "name": "ncclDevKernel_AllGather_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446864437263.994,
+              "dur": 281.473,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 36,
+                "correlation": 262180,
+                "Collective name": "_allgather_base",
+                "Process Group Description": "DATA_PARALLEL_GROUP_WITH_CP"
+              }
+            },
+            "captured": {
+              "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_256x128_32x3_tn_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_256x128_32x3_tn_align8::Params)",
+              "ts": 3446864437312.762,
+              "dur": 235.617,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 262293
+              }
+            },
+            "graph_phase": "forward"
+          }
+        ]
+      },
+      {
+        "kind": "_allgather_base",
+        "process_group": "EXPERT_DATA_PARALLEL_GROUP",
+        "total": 64,
+        "overlapped": 32,
+        "overlap_us": 58874.4462890625,
+        "overlap_by_graph_phase": {
+          "forward": 32
+        },
+        "examples": [
+          {
+            "eager": {
+              "name": "ncclDevKernel_AllGather_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446864350827.331,
+              "dur": 77131.122,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 36,
+                "correlation": 260646,
+                "Collective name": "_allgather_base",
+                "Process Group Description": "EXPERT_DATA_PARALLEL_GROUP"
+              }
+            },
+            "captured": {
+              "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+              "ts": 3446864352837.035,
+              "dur": 174.752,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 260715
+              }
+            },
+            "graph_phase": "forward"
+          },
+          {
+            "eager": {
+              "name": "ncclDevKernel_AllGather_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446864438354.686,
+              "dur": 75035.05,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 36,
+                "correlation": 262365,
+                "Collective name": "_allgather_base",
+                "Process Group Description": "EXPERT_DATA_PARALLEL_GROUP"
+              }
+            },
+            "captured": {
+              "name": "void at::native::sbtopk::gatherTopK<float, unsigned int, 2, false>(at::cuda::detail::TensorInfo<float const, unsigned int>, unsigned int, unsigned int, bool, unsigned int, unsigned int, at::cuda::detail::TensorInfo<float, unsigned int>, unsigned int, at::cuda::detail::TensorInfo<long, unsigned int>, unsigned int, float*)",
+              "ts": 3446864440454.663,
+              "dur": 166.08,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 262434
+              }
+            },
+            "graph_phase": "forward"
+          }
+        ]
+      },
+      {
+        "kind": "all_to_allv",
+        "process_group": "EXPERT_MODEL_PARALLEL_GROUP",
+        "total": 192,
+        "overlapped": 0,
+        "overlap_us": 0,
+        "overlap_by_graph_phase": {},
+        "examples": []
+      },
+      {
+        "kind": "allreduce",
+        "process_group": "default_pg",
+        "total": 2,
+        "overlapped": 0,
+        "overlap_us": 0,
+        "overlap_by_graph_phase": {},
+        "examples": []
+      },
+      {
+        "kind": "allreduce",
+        "process_group": "DATA_PARALLEL_GROUP_WITH_CP",
+        "total": 7,
+        "overlapped": 0,
+        "overlap_us": 0,
+        "overlap_by_graph_phase": {},
+        "examples": []
+      },
+      {
+        "kind": "allreduce",
+        "process_group": "EXPERT_DATA_PARALLEL_GROUP",
+        "total": 2,
+        "overlapped": 0,
+        "overlap_us": 0,
+        "overlap_by_graph_phase": {},
+        "examples": []
+      },
+      {
+        "kind": "barrier",
+        "process_group": "default_pg",
+        "total": 2,
+        "overlapped": 0,
+        "overlap_us": 0,
+        "overlap_by_graph_phase": {},
+        "examples": []
+      },
+      {
+        "kind": "_reduce_scatter_base",
+        "process_group": "EXPERT_DATA_PARALLEL_GROUP",
+        "total": 32,
+        "overlapped": 32,
+        "overlap_us": 14930.84228515625,
+        "overlap_by_graph_phase": {
+          "backward": 32
+        },
+        "examples": [
+          {
+            "eager": {
+              "name": "ncclDevKernel_ReduceScatter_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446865794780.05,
+              "dur": 144163.861,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 32,
+                "correlation": 287417,
+                "Collective name": "_reduce_scatter_base",
+                "Process Group Description": "EXPERT_DATA_PARALLEL_GROUP"
+              }
+            },
+            "captured": {
+              "name": "_unpermute_kernel",
+              "ts": 3446865803356.204,
+              "dur": 88.961,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 288082
+              }
+            },
+            "graph_phase": "backward"
+          },
+          {
+            "eager": {
+              "name": "ncclDevKernel_ReduceScatter_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446866043842.244,
+              "dur": 144749.525,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 32,
+                "correlation": 291324,
+                "Collective name": "_reduce_scatter_base",
+                "Process Group Description": "EXPERT_DATA_PARALLEL_GROUP"
+              }
+            },
+            "captured": {
+              "name": "void at_cuda_detail::cub::detail::radix_sort::DeviceRadixSortOnesweepKernel<at_cuda_detail::cub::detail::radix::policy_hub<long, at::cuda::cub::detail::OpaqueType<8>, unsigned long long>::Policy1000, (at_cuda_detail::cub::SortOrder)0, long, at::cuda::cub::detail::OpaqueType<8>, unsigned long long, int, int, at_cuda_detail::cub::detail::identity_decomposer_t>(int*, int*, unsigned long long*, unsigned long long const*, long*, long const*, at::cuda::cub::detail::OpaqueType<8>*, at::cuda::cub::detail::OpaqueType<8> const*, int, int, int, at_cuda_detail::cub::detail::identity_decomposer_t)",
+              "ts": 3446866049367.252,
+              "dur": 137.152,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 292068
+              }
+            },
+            "graph_phase": "backward"
+          }
+        ]
+      },
+      {
+        "kind": "_reduce_scatter_base",
+        "process_group": "DATA_PARALLEL_GROUP_WITH_CP",
+        "total": 66,
+        "overlapped": 32,
+        "overlap_us": 9348.5322265625,
+        "overlap_by_graph_phase": {
+          "backward": 32
+        },
+        "examples": [
+          {
+            "eager": {
+              "name": "ncclDevKernel_ReduceScatter_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446865941985.168,
+              "dur": 3758.667,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 32,
+                "correlation": 288223,
+                "Collective name": "_reduce_scatter_base",
+                "Process Group Description": "DATA_PARALLEL_GROUP_WITH_CP"
+              }
+            },
+            "captured": {
+              "name": "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn",
+              "ts": 3446865943141.043,
+              "dur": 215.425,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 288368
+              }
+            },
+            "graph_phase": "backward"
+          },
+          {
+            "eager": {
+              "name": "ncclDevKernel_ReduceScatter_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+              "ts": 3446866191600.898,
+              "dur": 243.329,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 32,
+                "correlation": 292260,
+                "Collective name": "_reduce_scatter_base",
+                "Process Group Description": "DATA_PARALLEL_GROUP_WITH_CP"
+              }
+            },
+            "captured": {
+              "name": "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn",
+              "ts": 3446866191626.626,
+              "dur": 92.417,
+              "args": {
+                "device": 0,
+                "context": 1,
+                "stream": 16,
+                "correlation": 292405
+              }
+            },
+            "graph_phase": "backward"
+          }
+        ]
+      }
+    ]
+  }
+]
