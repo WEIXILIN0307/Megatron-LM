@@ -160,6 +160,9 @@ does not preserve ZeRO3's normal per-layer compute-weight memory peak.
 Capture temporarily suspends FSDP's own execution hooks; replay runs the normal
 module hooks outside the graph. Evaluation uses eager forward. Deleting the
 graphs releases the retained buffers, and ordinary eager training can resume.
+Ordinary FSDP parameter prefetch and gradient reduction keep their existing
+streams and can overlap captured compute. This is distinct from the separate
+MoE expert-overlap schedule, which is not supported by this integration.
 To capture again after deletion, construct a new `TECudaGraphHelper` for the
 same model and optimizer; a helper's capture operation is single-use.
 Checkpointing uses v2's native packed DTensor layout, including packed SwiGLU

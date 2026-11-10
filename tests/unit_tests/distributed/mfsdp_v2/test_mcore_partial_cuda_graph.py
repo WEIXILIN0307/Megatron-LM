@@ -12,6 +12,11 @@ from transformer_engine.pytorch import graph as te_graph
 
 from megatron.core.distributed import DistributedDataParallelConfig
 from megatron.core.distributed.fsdp.mcore_fsdp_adapter import FullyShardedDataParallel
+from megatron.core.distributed.fsdp.src.megatron_fsdp.experimental import (
+    FsdpContext,
+    RuntimePolicy,
+    fully_shard_context,
+)
 from megatron.core.models.gpt.gpt_layer_specs import get_gpt_decoder_block_spec
 from megatron.core.models.gpt.gpt_model import GPTModel
 from megatron.core.models.hybrid.hybrid_layer_specs import hybrid_stack_spec
@@ -340,6 +345,72 @@ def _train_moe_step(model, optimizer, batch):
             for key in ("exp_avg", "exp_avg_sq")
         ],
     )
+
+
+@pytest.mark.parametrize("hybrid", [False, True], ids=["gpt", "hybrid"])
+@pytest.mark.parametrize(
+    "separate_communication_streams", [False, True], ids=["shared", "separate"]
+)
+def test_partial_capture_preserves_communication_streams(
+    process_groups, hybrid, separate_communication_streams
+):
+    """Preserve the existing FSDP stream policy and training state across capture.
+
+    GPU timing depends on workload and hardware. Check correctness with both
+    communication policies here; establish actual overlap with a training trace.
+    """
+    config = replace(_moe_config(hybrid=hybrid), attention_dropout=0.1, hidden_dropout=0.1)
+    torch.manual_seed(6791 + torch.distributed.get_rank())
+    batches = [torch.randint(0, 128, (2, 1, 17), device="cuda") for _ in range(6)]
+
+    def run(graphs):
+        context = FsdpContext(
+            runtime_policy=RuntimePolicy(
+                caller_managed_grad_sync=True,
+                overlap_allgather_reduction=separate_communication_streams,
+            )
+        )
+        streams = (
+            context.allgather_stream,
+            context.inner_reduction_stream,
+            context.outer_reduction_stream,
+        )
+        assert all(stream != torch.cuda.current_stream() for stream in streams)
+        assert (streams[0] != streams[1]) == separate_communication_streams
+        with fully_shard_context(context):
+            model, optimizer = _build_moe_model(
+                config,
+                process_groups,
+                hybrid,
+                ["attn", "mlp", "moe_router", "moe_preprocess"],
+                "optim_grads_params",
+                graphs,
+            )
+        helper = (
+            TECudaGraphHelper([model], model.config, 16, 1, [optimizer], process_groups)
+            if graphs
+            else None
+        )
+        history = []
+        try:
+            for step, batch in enumerate(batches):
+                if helper is not None and step == 3:
+                    helper.create_cudagraphs()
+                if helper is not None and step == 5:
+                    helper.delete_cuda_graphs()
+                history.append(_train_moe_step(model, optimizer, batch))
+                assert streams == (
+                    context.allgather_stream,
+                    context.inner_reduction_stream,
+                    context.outer_reduction_stream,
+                )
+            return history
+        finally:
+            if helper is not None and helper.graphs_created():
+                helper.delete_cuda_graphs()
+            destroy_moe_metrics_tracker()
+
+    torch.testing.assert_close(run(True), run(False), rtol=0, atol=0)
 
 
 def _rng_contents():

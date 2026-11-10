@@ -57,26 +57,92 @@ parameter-completion hooks consume gradients and perform their usual reductions.
 The implementation reuses the FSDP buffer allocator and TE's graph/autograd
 machinery. It does not introduce a separate parameter or gradient store.
 
-The lifecycle of each captured FSDP unit is:
+Dynamic dispatch and routed-expert compute remain between the captured regions
+in the existing MoE execution path. FSDP communication stays outside the graphs.
+
+## Overlap between eager communication and captured compute
+
+Keeping communication outside capture must preserve its ability to overlap graph
+replay. The integration uses the existing FSDP scheduler and streams: the current
+compute stream `C`, all-gather stream `A`, and gradient-reduction stream `R`.
+`RuntimePolicy.overlap_allgather_reduction` selects whether `A` and `R` are
+separate; both policies keep communication separate from `C`. Graph replay runs
+through the ordinary module call, so it retains these hooks and stream choices.
+
+Before unit `i` computes, its hook issues any required gather on `A`. Compute
+waits for that unit's readiness event, recorded before successor prefetch is
+submitted. It does not wait for the successor's gather. This permits eager
+`AG(i+1)` to run while `CG(i)` executes. The same prefetch rule applies in
+backward, including transitions between captured and eager units.
+
+Once a unit's gradients are produced, existing FSDP hooks pack them on `C` and
+make `R` wait for the copy before reducing them. Subsequent independent backward
+compute may run while that eager reduction completes. The existing buffer
+allocation/reuse dependencies still apply; capture does not promise that every
+reduction overlaps or that a particular fraction of communication is hidden.
+The training schedule joins submitted reductions through `finish_grad_sync()`
+before gradients are inspected or Adam updates the weights.
+
+The following diagram shows allowed concurrency, not a measured timing ratio:
 
 ```mermaid
 sequenceDiagram
-    participant F as Existing FSDP hooks
-    participant B as Existing BF16 compute buffer
-    participant G as TE captured region
-    F->>B: Gather current weights before forward
-    Note over B: Retain the same numerical address until graph deletion
-    F->>G: Replay forward through module call
-    G-->>F: Outputs
-    F->>F: Reshard parameter bindings
-    F->>B: Gather current weights before backward
-    F->>G: Replay backward
-    G-->>F: Parameter gradient completion callbacks
-    F->>F: Reduce gradients and reshard bindings
+    participant A as Eager all-gather stream
+    participant C as Compute stream
+    participant R as Eager reduction stream
+    A->>A: Gather parameters for unit i
+    A-->>C: Readiness event for unit i
+    par Independent successor prefetch
+        A->>A: Gather parameters for unit i+1
+    and Captured compute
+        C->>C: Replay graph for unit i
+    end
+    C->>C: Replay backward and pack completed gradients
+    C-->>R: Gradient-copy completion dependency
+    par Eager gradient reduction
+        R->>R: Reduce completed gradients
+    and Independent backward compute
+        C->>C: Next backward graph or eager unit
+    end
+    R-->>C: finish_grad_sync before optimizer
 ```
 
-Dynamic dispatch and routed-expert compute remain between the captured regions
-in the existing MoE execution path. FSDP communication stays outside the graphs.
+Concurrent execution requires the following buffer-lifetime rules:
+
+- A graph reads only after its own parameter-gather event. Prefetch readiness is
+  not substituted for the current unit's event.
+- A captured unit's gathered compute storage retains its numerical address.
+  Resharding clears readiness even when storage is retained, so later gathers
+  refresh values. The existing compute-to-all-gather dependency orders release
+  and subsequent reuse after the preceding reader; it must not be removed merely
+  because the buffer is persistent.
+- Gradient packing follows the graph backward on `C`. Reduction reads the packed
+  copy after its dependency, rather than reading graph-owned gradient storage
+  while a later replay may overwrite it.
+- TE owns graph intermediates and the configured replay order. Eager MoE tails
+  consume graph outputs through the existing autograd/dispatcher path; the
+  integration does not reuse graph buffers for eager communication scratch.
+- Normal teardown synchronizes pending device work and resets graph owners
+  before releasing captured weight storage.
+
+Dependencies within one microbatch still apply: routing precedes dispatch,
+experts consume dispatched tokens, and combine consumes expert outputs. This
+design preserves existing FSDP communication overlap. The separate MoE expert
+overlap schedule (`overlap_moe_expert_parallel_comm`) remains outside the initial
+integration; that exclusion does not disable ordinary FSDP prefetch or reduction
+overlap.
+
+Acceptance separates correctness from observed concurrency. A distributed
+regression compares loss, every gradient/main-weight shard, and Adam moments to
+eager under shared and separate all-gather/reduction streams, including dropout,
+capture and deletion. Actual overlap requires a GPU trace from real training:
+attribute kernels to graph launches by correlation, distinguish eager FSDP
+collectives, and show intersecting kernel intervals on different streams. CPU
+launch counts and whole-graph envelopes alone do not establish overlap. Record
+the source checksums, workload, ranks and environment; a trace is evidence for
+that run, not a performance benchmark or a guarantee of overlap on every input.
+
+## Storage and checkpoint lifecycle
 
 Captured FSDP units retain gathered storage, and gather only reallocates storage
 that has been released. This preserves numerical addresses across forward,
@@ -138,6 +204,10 @@ check stable addresses and allocated-memory release. Recapture uses a new
 `TECudaGraphHelper` for the same model and optimizer, following the existing
 single-use helper contract.
 
+Four further cases cover GPT/Hybrid with shared or separate all-gather/reduction
+streams, bringing the partial-capture suite to 78 cases. They compare stochastic
+training before capture, during replay, and after graph deletion.
+
 The existing MoE training/clipping test also covers repeated evaluation, and
 the existing EP checkpoint roundtrip test goes through production preprocessing
 with SwiGLU instead of bypassing it.
@@ -171,5 +241,5 @@ the same policy to both resumed modes before comparing them.
 
 This work is limited to the supported MFSDP v2 partial-capture configuration and
 its end-to-end MoE composition validation. Other precision, recomputation,
-parallelism and communication-overlap features remain outside this integration;
-its acceptance checks do not imply support for them.
+parallelism and the separate MoE expert-overlap schedule remain outside this
+integration; its acceptance checks do not imply support for them.
