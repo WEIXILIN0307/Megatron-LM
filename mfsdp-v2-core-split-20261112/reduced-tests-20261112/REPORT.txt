@@ -1,0 +1,17 @@
+Reduced MFSDP v2 partial CUDA Graph regression coverage
+
+Core PR head: 26714de5265eb2ac593dc66f17f3f02062058359.
+Composed source: a8a842466016426769ca479eac22a6354e4668a4, including the evaluation-cursor and native-DTensor checkpoint prerequisites.
+Tested tree: cb18090e9779f17ed692d966ae58390487b38d83. The assembled composed tree exactly matches the files executed on the GPUs.
+
+Only the primary test parametrization changed. AST comparison confirms that test bodies, assertions and all other code are unchanged. The primary matrix shrinks from 60 Cartesian cases to 12 representative cases; total cases in the file shrink from 76 to 28. Coverage retains all five scope selections, ZeRO-1/2/3 for GPT and Hybrid, representative MLA layouts, both communication-stream policies, both tested MCore failure points, dropout/RNG variants, native checkpoint continuation and graph deletion/recapture. The five evaluation-fix and two checkpoint-fix regressions are unchanged.
+
+All 28 cases pass on each of two RTX PRO 6000 GPUs with unmodified TE 2.20.2 and PyTorch 2.11.0+cu130. Rank 0: 28 passed, 391 warnings in 175.56s. Rank 1: 28 passed, 353 warnings in 174.83s. This is a shared-GPU correctness run, not a performance benchmark. Black, isort, Pylint, Ruff and git diff checks pass for the changed file.
+
+Production source and documentation are byte-identical to the previous graph PR head. Earlier four-GPU, real-text proxy and FSDP/graph trace evidence remains associated with composed source 269f02ebd652a4787691c3799f89c3ff232af24e; those experiments were not rerun for a parametrization-only change.
+
+Preliminary local attempts did not reach test execution: one failed to load the required C++ ABI, and another faulted at the initial distributed barrier after a process-local runtime preload. Their logs are retained locally; neither is counted as passing. The final OCI run used the previously validated environment and an explicit loopback rendezvous address. No production workaround was added.
+
+Effective critical-path communication hiding, stable speedup, full-size OLMoE qualification and long-run convergence remain unproven. Current free memory is insufficient for the full-size run, and shared-GPU timing would not establish stable speedup. No new scheduler, EP reordering, reduced-precision/offload feature or TE patch was introduced.
+
+Temporary remote source (70,046,166 bytes) and this task's local crash report (715,359,241 bytes) were removed after recording results. No large model checkpoint was written. Per-rank logs, commands and source metadata are retained; the shared OCI and environment remain intact.

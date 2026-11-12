@@ -1,0 +1,8 @@
+{
+  "core_before": "5c12bd9af86d3ba098eadd6aeaad4d154100f725",
+  "core": "26714de5265eb2ac593dc66f17f3f02062058359",
+  "composed": "a8a842466016426769ca479eac22a6354e4668a4",
+  "tested_tree": "cb18090e9779f17ed692d966ae58390487b38d83",
+  "production_source_unchanged": true,
+  "composed_tree_exactly_matches_tested_files": true
+}

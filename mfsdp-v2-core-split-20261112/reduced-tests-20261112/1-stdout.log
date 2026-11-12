@@ -1,0 +1,177 @@
+Test data already available at /opt/data
+Initializing torch.distributed with rank: 1, world_size: 2
+............................
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:71
+  /artifacts/mfsdp-pr-format-and-validation-20261112/source/megatron/core/dist_checkpointing/strategies/torch.py:71: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /artifacts/mfsdp-pr-format-and-validation-20261112/source/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /artifacts/mfsdp-pr-format-and-validation-20261112/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 28 warnings
+  /artifacts/mfsdp-pr-format-and-validation-20261112/source/megatron/core/transformer/transformer_config.py:4166: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 56 warnings
+  /artifacts/mfsdp-pr-format-and-validation-20261112/source/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 56 warnings
+  /artifacts/mfsdp-pr-format-and-validation-20261112/source/megatron/core/transformer/moe/shared_experts.py:134: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    super().__init__(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 28 warnings
+  sys:1: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 40 warnings
+  /artifacts/mfsdp-pr-format-and-validation-20261112/source/megatron/core/transformer/cuda_graphs.py:3075: DeprecationWarning: make_graphed_callables has deprecated `fp8_enabled` kwarg in favor of `enabled`. `fp8_enabled` will be removed in a future release.
+    graphs = make_graphed_callables(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-optim_grads_params-attention-gpt]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/profiler/profiler.py:224: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+    _warn_once(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-optim_grads_params-attention-gpt]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 126 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+_ test_partial_cuda_graph_moe_matches_eager[attn-optim_grads_params-attention-gpt] _
+------------------------------ Captured log call -------------------------------
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126
+__________________ test_partial_capture_delete_recapture[gpt] __________________
+------------------------------ Captured log call -------------------------------
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '120935593245734293753858349249403850607', 'func_name': 'save', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548503457400, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': None, 'uuid': '275120675432559514224125888522662272003', 'func_name': '_stateful_to_state_dict', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548507055420, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': None, 'uuid': '159832907970379587997288339147248646083', 'func_name': '_stateful_to_state_dict.model', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548507319392, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': None, 'uuid': '159832907970379587997288339147248646083', 'func_name': '_stateful_to_state_dict.model', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548507511865, 'log_exceptions': True, 'times_spent': 192076}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': None, 'uuid': '121184936682020151974650408353175103085', 'func_name': '_stateful_to_state_dict.optimizer', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548507659479, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': None, 'uuid': '121184936682020151974650408353175103085', 'func_name': '_stateful_to_state_dict.optimizer', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548507773554, 'log_exceptions': True, 'times_spent': 113716}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': None, 'uuid': '275120675432559514224125888522662272003', 'func_name': '_stateful_to_state_dict', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548507858773, 'log_exceptions': True, 'times_spent': 803103}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '218554797475795335841540114316874049043', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548508016226, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '218554797475795335841540114316874049043', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548514738412, 'log_exceptions': False, 'times_spent': 6721773}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '30629832854825344610821940299143867244', 'func_name': 'write_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548566713686, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '30629832854825344610821940299143867244', 'func_name': 'write_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548639193063, 'log_exceptions': False, 'times_spent': 72478975}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '120935593245734293753858349249403850607', 'func_name': 'save', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548660169795, 'log_exceptions': True, 'times_spent': 156712085}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '82559505346544033319973389930204535555', 'func_name': 'load', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548709206957, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '149556848938795230705701600136259107880', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548709529638, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '149556848938795230705701600136259107880', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548715848607, 'log_exceptions': False, 'times_spent': 6318765}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '26080166022361033721707460704791008021', 'func_name': 'read_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470548730748933, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '26080166022361033721707460704791008021', 'func_name': 'read_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548770117397, 'log_exceptions': False, 'times_spent': 39367991}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '82559505346544033319973389930204535555', 'func_name': 'load', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470548771822656, 'log_exceptions': True, 'times_spent': 62615222}
+________________ test_partial_capture_delete_recapture[hybrid] _________________
+------------------------------ Captured log call -------------------------------
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '202889469195283573887589161986209217230', 'func_name': 'save', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558210345204, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': None, 'uuid': '128412216734053185780799673216872253799', 'func_name': '_stateful_to_state_dict', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558210650117, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': None, 'uuid': '290336651655920410401747578960432124162', 'func_name': '_stateful_to_state_dict.model', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558210792392, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': None, 'uuid': '290336651655920410401747578960432124162', 'func_name': '_stateful_to_state_dict.model', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558210891735, 'log_exceptions': True, 'times_spent': 99110}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': None, 'uuid': '279887045268183808389766849834002201778', 'func_name': '_stateful_to_state_dict.optimizer', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558211001254, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': None, 'uuid': '279887045268183808389766849834002201778', 'func_name': '_stateful_to_state_dict.optimizer', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558211074715, 'log_exceptions': True, 'times_spent': 73254}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': None, 'uuid': '128412216734053185780799673216872253799', 'func_name': '_stateful_to_state_dict', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558211126003, 'log_exceptions': True, 'times_spent': 475643}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '75929405087119242694043696175372812575', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558211269401, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '75929405087119242694043696175372812575', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558216150017, 'log_exceptions': False, 'times_spent': 4880264}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '134724575960152987199312923140939361687', 'func_name': 'write_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558231588242, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '134724575960152987199312923140939361687', 'func_name': 'write_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558297932574, 'log_exceptions': False, 'times_spent': 66342947}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '202889469195283573887589161986209217230', 'func_name': 'save', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558309071953, 'log_exceptions': True, 'times_spent': 98726389}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '259849408920135981488685417375662285436', 'func_name': 'load', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558354882184, 'log_exceptions': True}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '285370810225054386382008148641910509520', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558355140545, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '285370810225054386382008148641910509520', 'func_name': 'local_step', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558360878726, 'log_exceptions': False, 'times_spent': 5737912}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:86 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '43269343876062903576215446971763669526', 'func_name': 'read_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'start', 'time': 1794470558373177771, 'log_exceptions': False}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '43269343876062903576215446971763669526', 'func_name': 'read_data', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558408514649, 'log_exceptions': False, 'times_spent': 35336568}
+DEBUG    c10d-NullHandler-dcp_logger:logger.py:104 {'checkpoint_id': '/tmp/pytest-of-mfsdp/tmp_dist_ckpt/partial_graph_restart', 'uuid': '259849408920135981488685417375662285436', 'func_name': 'load', 'pg_name': 'None', 'backend': 'nccl', 'world_size': '2', 'group_size': '2', 'global_rank': '1', 'local_rank': '1', 'nccl_version': '2.28.9', 'event': 'end', 'time': 1794470558411553797, 'log_exceptions': True, 'times_spent': 56671255}
+============================= slowest 15 durations =============================
+7.84s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_delete_recapture[gpt]
+7.83s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_delete_recapture[hybrid]
+7.67s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+7.03s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-optim_grads_params-attention-gpt]
+6.20s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-attention-hybrid]
+5.89s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim-attention-hybrid]
+5.83s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads-attention-hybrid]
+5.53s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-hybrid]
+5.46s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[mlp-optim_grads_params-attention-gpt]
+5.37s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-optim_grads_params-attention-gpt]
+5.29s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads-attention-gpt]
+5.17s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-attention-gpt]
+5.13s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[router-optim_grads_params-attention-gpt]
+4.98s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim-attention-gpt]
+3.92s call     tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_preserves_communication_streams[shared-hybrid]
+=========================== short test summary info ============================
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-optim_grads_params-attention-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[mlp-optim_grads_params-attention-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[router-optim_grads_params-attention-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-optim_grads_params-attention-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-attention-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim-attention-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads-attention-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-attention-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim-attention-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads-attention-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_preserves_communication_streams[shared-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_preserves_communication_streams[shared-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_preserves_communication_streams[separate-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_preserves_communication_streams[separate-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[inputs-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[inputs-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[finish-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[finish-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_dropout_rng[0.1-0.0-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_dropout_rng[0.1-0.0-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_dropout_rng[0.0-0.1-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_dropout_rng[0.0-0.1-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_dropout_rng[0.1-0.1-gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_dropout_rng[0.1-0.1-hybrid]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_delete_recapture[gpt]
+PASSED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_delete_recapture[hybrid]
+28 passed, 353 warnings in 174.83s (0:02:54)

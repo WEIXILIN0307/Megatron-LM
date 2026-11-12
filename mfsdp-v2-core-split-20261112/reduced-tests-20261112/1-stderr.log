@@ -1,0 +1,2 @@
+INFO:fla.utils._device:Blackwell detected: registering default global_scratch allocator.
+[rank1]:[W1112 07:59:52.216036053 ProcessGroupGloo.cpp:524] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())

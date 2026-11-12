@@ -1,0 +1,19 @@
+{
+  "before": {
+    "test_partial_cuda_graph_moe_matches_eager": 60,
+    "test_partial_capture_preserves_communication_streams": 4,
+    "test_partial_capture_failure_retry": 4,
+    "test_partial_capture_dropout_rng": 6,
+    "test_partial_capture_delete_recapture": 2
+  },
+  "after": {
+    "test_partial_cuda_graph_moe_matches_eager": 12,
+    "test_partial_capture_preserves_communication_streams": 4,
+    "test_partial_capture_failure_retry": 4,
+    "test_partial_capture_dropout_rng": 6,
+    "test_partial_capture_delete_recapture": 2
+  },
+  "total_before": 76,
+  "total_after": 28,
+  "only_primary_parametrization_changed": true
+}
