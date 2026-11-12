@@ -1,0 +1,23 @@
+WARNING: one_logger package is required to enable e2e metrics tracking. please go to https://confluence.nvidia.com/display/MLWFO/Package+Repositories for details to install it
+WARNING:megatron.training.kernel_warmup:This PyTorch build lacks empty_host_cache; pinned cache may remain
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    startup-program-entry-spread ...................: (598.35, 2602.02)
+    startup-library-setup ..........................: (15.22, 19.43)
+    startup-program-setup ..........................: (215.75, 509.23)
+    startup-in-process-setup .......................: (0.13, 0.18)
+    startup-in-job-setup ...........................: (0.19, 0.25)
+    startup-initialize-megatron ....................: (10287.47, 12953.50)
+    startup-set-jit-fusion-options .................: (10321.00, 11458.77)
+    all-reduce-start-timestamps-tensor .............: (1.01, 1138.63)
+    startup-megatron-init-local ....................: (21747.69, 24413.44)
+    startup-megatron-init-global ...................: (24644.41, 24644.44)
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (1639.10, 1656.53)
+    train/valid/test-data-iterators-setup ..........: (91.80, 92.53)
+ [2026-11-12 13:09:02.770211] iteration        1/      30 | consumed samples:            6 | elapsed time per iteration (ms): 10843.1 | learning rate: 5.000000E-05 | global batch size:     6 | lm loss: 1.120938E+01 | load_balancing_loss: 1.466609E+00 | loss scale: 1.0 | grad norm: 25.875 | num zeros: 0 | params norm: 819.664 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-12 13:09:11.115545] iteration        5/      30 | consumed samples:           30 | elapsed time per iteration (ms): 3837.7 | learning rate: 9.999800E-05 | global batch size:     6 | lm loss: 1.125721E+01 | load_balancing_loss: 1.484569E+00 | loss scale: 1.0 | grad norm: 52.296 | num zeros: 0 | params norm: 819.658 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-12 13:09:24.154726] iteration       10/      30 | consumed samples:           60 | elapsed time per iteration (ms): 2607.8 | learning rate: 9.998573E-05 | global batch size:     6 | lm loss: 9.660643E+00 | load_balancing_loss: 1.335689E+00 | loss scale: 1.0 | grad norm: 4.089 | num zeros: 0 | params norm: 819.688 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-12 13:09:34.530289] iteration       15/      30 | consumed samples:           90 | elapsed time per iteration (ms): 2075.1 | learning rate: 9.996232E-05 | global batch size:     6 | lm loss: 8.563400E+00 | load_balancing_loss: 1.238626E+00 | loss scale: 1.0 | grad norm: 2.774 | num zeros: 0 | params norm: 819.733 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-12 13:09:44.790905] iteration       20/      30 | consumed samples:          120 | elapsed time per iteration (ms): 2052.1 | learning rate: 9.992778E-05 | global batch size:     6 | lm loss: 7.966265E+00 | load_balancing_loss: 1.167318E+00 | loss scale: 1.0 | grad norm: 1.439 | num zeros: 0 | params norm: 819.778 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-12 13:09:54.938141] iteration       25/      30 | consumed samples:          150 | elapsed time per iteration (ms): 2029.4 | learning rate: 9.988211E-05 | global batch size:     6 | lm loss: 7.764925E+00 | load_balancing_loss: 1.088548E+00 | loss scale: 1.0 | grad norm: 1.071 | num zeros: 0 | params norm: 819.832 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2026-11-12 13:10:05.115176] iteration       30/      30 | consumed samples:          180 | elapsed time per iteration (ms): 2035.4 | learning rate: 9.982532E-05 | global batch size:     6 | lm loss: 7.575125E+00 | load_balancing_loss: 1.060774E+00 | loss scale: 1.0 | grad norm: 1.295 | num zeros: 0 | params norm: 819.890 | number of skipped iterations:   0 | number of nan iterations:   0 |

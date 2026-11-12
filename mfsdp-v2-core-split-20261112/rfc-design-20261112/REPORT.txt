@@ -1,0 +1,33 @@
+RFC design evidence: MFSDP v2 partial CUDA Graphs
+
+No production implementation or regression tests were changed for this evidence update.
+Current core PR head: 26714de5265eb2ac593dc66f17f3f02062058359.
+Current composed source: a8a842466016426769ca479eac22a6354e4668a4.
+Earlier traced source: 269f02ebd652a4787691c3799f89c3ff232af24e; production code is identical.
+
+Timeline
+
+The figure plots recorded GPU kernel intervals from the rank-0 Nsight Systems SQLite export, step 10 of the ordinary EP1/expert-DP2 2.09B MoE proxy run. Input SHA256: 29507ce22dd57e27e51668d7079d95100ad5696e02db6d9acc0216b7f9e3d190. The published timeline-data.json contains selected kernel intervals and attribution, not the export's environment tables.
+
+Reproduce the figure with Matplotlib:
+    python make_timeline.py timeline-data.json output
+
+The same script accepts the original SQLite file as input. The JSON-based reproduction is checked against the original PNG. The three graph/communication intersections match the earlier analysis exactly: AG 26.151144 ms, expert-DP RS 29.186084 ms, ordinary-DP RS 0 ms. Graph launch count is 64. Stream IDs: graph compute 14, FSDP AG 34, reductions 30. AG meshes are aggregated; RS attribution uses the reducing unit. Stream/event arrows in the RFC are source-defined dependencies, not invented event-producer mappings from this export. Kernel overlap does not establish network progress or hidden critical-path time.
+
+Bounded cost probe
+
+Stock pretrain_gpt.py, WikiText-103, random-initialized 2.09B proxy; 16 layers, hidden 2048, 16 experts, top-8; BF16/ZeRO-3, EP1/expert-DP3, sequence 1024, microbatch 1, global batch 6 (GA2), dropout 0.1. Uses shared RTX PRO GPUs 0/1/2. The wrapper sets each rank's PyTorch allocator budget to startup free memory minus 4 GiB; this is not a total-device memory limit. No profiler, tensor hashing, model checkpoint or model-size reduction is used.
+
+Eager completes 30 optimizer steps, without skips. Steps 16-30 form one 15-step observation window. Across ranks, peak allocated is 16.490812 GiB, peak reserved 17.931641 GiB, and slowest-rank mean step time is 2038.261463 ms. This single shared-GPU observation does not establish stable performance.
+
+Partial graph completes capture, then fails in the first post-capture training step (step 4) with an allocation OOM on rank 2. It has no complete observation window. Rank 2 has the same 17.360352 GiB allocator budget as in the eager run; eager's rank-2 peaks are 16.485556 GiB allocated and 17.244141 GiB reserved. The graph OOM diagnostic reports 16.92 GiB allocated, including 2.40 GiB in private pools, and a failed 16 MiB allocation. Private pools are not attributed solely to TE or retained compute weights. Counters after exception unwinding are not a successful steady-state graph peak.
+
+Rank 2's full successful capture-helper call takes 2.057390 s, including its synchronization and cleanup; other ranks' complete timing reports are unavailable after launcher termination. After capture, each of the 16 retained, non-alias BF16 unit buffers occupies 33,632,256 bytes (32.07421875 MiB), for 538,116,096 bytes (513.1875 MiB) per rank as observed on rank 2. This is compute-weight residency, not peak-memory delta.
+
+Interpretation
+
+The probe documents capture cost, retained storage and a resource-limited OOM. There is no successful paired steady-memory/performance comparison, stable-speedup result, critical-path-hiding proof, full-size OLMoE qualification or convergence claim. A controlled comparison with sufficient headroom remains necessary. All raw per-rank logs, command arrays and available JSON reports are retained here; the failed graph run is explicitly recorded with return code 1.
+
+Cleanup
+
+Temporary remote source (70,337,496 bytes) and this probe's dataset cache (6,079,983 bytes) were removed after copying evidence. The shared container has only its original sleep process remaining. Shared environments, model/tokenizer files, WikiText data and common caches were preserved. No large checkpoint was written.

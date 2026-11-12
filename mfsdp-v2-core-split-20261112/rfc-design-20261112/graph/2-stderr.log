@@ -1,0 +1,177 @@
+[rank2]:[W1112 13:10:34.027092876 ProcessGroupGloo.cpp:524] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/measure_cost.py", line 106, in <module>
+[rank2]:     runpy.run_path(str(source / "pretrain_gpt.py"), run_name="__main__")
+[rank2]:   File "<frozen runpy>", line 286, in run_path
+[rank2]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank2]:   File "<frozen runpy>", line 88, in _run_code
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/pretrain_gpt.py", line 497, in <module>
+[rank2]:     pretrain(
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/training/training.py", line 2297, in pretrain
+[rank2]:     iteration, num_floating_point_operations_so_far = train(
+[rank2]:                                                       ^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/training/training.py", line 5374, in train
+[rank2]:     ) = train_step(
+[rank2]:         ^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/measure_cost.py", line 88, in step
+[rank2]:     result = original_step(*args, **kwargs)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/training/training.py", line 3547, in train_step
+[rank2]:     losses_reduced = forward_backward_func(
+[rank2]:                      ^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/pipeline_parallel/schedules.py", line 810, in forward_backward_no_pipelining
+[rank2]:     output_tensor, num_tokens = forward_step(
+[rank2]:                                 ^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/pipeline_parallel/schedules.py", line 527, in forward_step
+[rank2]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
+[rank2]:                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/pretrain_gpt.py", line 424, in forward_step
+[rank2]:     output_tensor = model(
+[rank2]:                     ^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/distributed/data_parallel_base.py", line 22, in forward
+[rank2]:     return self.module(*inputs, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+[rank2]:     return inner()
+[rank2]:            ^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1833, in inner
+[rank2]:     result = forward_call(*args, **kwargs)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/module.py", line 612, in forward
+[rank2]:     outputs = self.module(*inputs, **kwargs)
+[rank2]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/models/gpt/gpt_model.py", line 604, in __call__
+[rank2]:     return super().__call__(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/module.py", line 433, in __call__
+[rank2]:     return super().__call__(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/models/gpt/gpt_model.py", line 686, in forward
+[rank2]:     hidden_states = self.decoder(
+[rank2]:                     ^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/transformer_block.py", line 521, in __call__
+[rank2]:     return super().__call__(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/module.py", line 433, in __call__
+[rank2]:     return super().__call__(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/transformer_block.py", line 747, in forward
+[rank2]:     hidden_states, context = layer(
+[rank2]:                              ^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/module.py", line 432, in __call__
+[rank2]:     return self._call_cuda_graph(cuda_graph_func, *args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py", line 290, in _call_cuda_graph
+[rank2]:     return nn.Module.__call__(self, *args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+[rank2]:     return inner()
+[rank2]:            ^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1833, in inner
+[rank2]:     result = forward_call(*args, **kwargs)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/transformer_layer.py", line 2080, in _te_cuda_graph_replay
+[rank2]:     return self._te_cuda_graph_replay_impl(args, kwargs, context)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/transformer_layer.py", line 2178, in _te_cuda_graph_replay_impl
+[rank2]:     mlp_output_with_bias = apply_module(self.mlp)(
+[rank2]:                            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/moe/moe_layer.py", line 899, in forward
+[rank2]:     outputs = custom_forward(hidden_states, intermediate_tensors, padding_mask)
+[rank2]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/moe/moe_layer.py", line 864, in custom_forward
+[rank2]:     output, mlp_bias = self.routed_experts_compute(*self.dispatch(hidden_states, probs))
+[rank2]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/moe/moe_layer.py", line 707, in routed_experts_compute
+[rank2]:     expert_output, mlp_bias = apply_module(self.experts)(
+[rank2]:                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+[rank2]:     return inner()
+[rank2]:            ^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1833, in inner
+[rank2]:     result = forward_call(*args, **kwargs)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/moe/experts.py", line 1322, in forward
+[rank2]:     output = self._unfused_forward(
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/moe/experts.py", line 1216, in _unfused_forward
+[rank2]:     bias_act_output = bias_act_func(fc1_output, bias_parallel, permuted_probs)
+[rank2]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/transformer/moe/experts.py", line 1092, in bias_act_func
+[rank2]:     intermediate_parallel = weighted_bias_swiglu_impl(
+[rank2]:                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/fusions/fused_bias_swiglu.py", line 555, in weighted_bias_swiglu_impl
+[rank2]:     output = WeightedSwiGLUFunction.apply(
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/function.py", line 596, in apply
+[rank2]:     return super().apply(*args, **kwargs)  # type: ignore[misc]
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/fusions/fused_bias_swiglu.py", line 442, in forward
+[rank2]:     return weighted_swiglu(input, weights)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1024, in compile_wrapper
+[rank2]:     return fn(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/mfsdp-rfc-design-20261112/source/megatron/core/fusions/fused_bias_swiglu.py", line 76, in weighted_swiglu
+[rank2]:     @jit_fuser
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1263, in _fn
+[rank2]:     return fn(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_functorch/aot_autograd.py", line 1200, in forward
+[rank2]:     return compiled_fn(full_args)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 2298, in __call__
+[rank2]:     return self.compiled_fn(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 580, in runtime_wrapper
+[rank2]:     all_outs = call_func_at_runtime_with_args(
+[rank2]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 138, in call_func_at_runtime_with_args
+[rank2]:     out = normalize_as_list(f(args))
+[rank2]:                             ^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 783, in wrapper
+[rank2]:     return compiled_fn(runtime_args)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_inductor/output_code.py", line 656, in __call__
+[rank2]:     return self.current_callable(inputs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_inductor/utils.py", line 3401, in run
+[rank2]:     out = model(new_inputs)
+[rank2]:           ^^^^^^^^^^^^^^^^^
+[rank2]:   File "/artifacts/cache/inductor/45/c45xagaqzgl4tirl44nr5ynvvnvgduwboocudyx7tb5fz3zg65k3.py", line 122, in call
+[rank2]:     buf0 = empty_strided_cuda((8192, 1024), (1024, 1), torch.bfloat16)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 MiB. GPU 2 has a total capacity of 94.97 GiB of which 2.05 GiB is free. Including non-PyTorch memory, this process has 19.85 GiB memory in use. 17.36 GiB allowed; Of the allocated memory 16.92 GiB is allocated by PyTorch, with 2.40 GiB allocated in private pools (e.g., CUDA Graphs), and 444.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

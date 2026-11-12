@@ -1,0 +1,154 @@
+{
+  "rank": 2,
+  "variant": "eager",
+  "free_bytes_at_start": 22935502848,
+  "allocator_budget_bytes": 18640535552,
+  "limits": "Shared GPUs; one bounded window, not evidence of stable speedup. Memory is the process's PyTorch allocator; driver/NCCL allocations are excluded.",
+  "capture": [],
+  "steps": [
+    {
+      "step": 1,
+      "skipped": 0
+    },
+    {
+      "step": 2,
+      "skipped": 0
+    },
+    {
+      "step": 3,
+      "skipped": 0
+    },
+    {
+      "step": 4,
+      "skipped": 0
+    },
+    {
+      "step": 5,
+      "skipped": 0
+    },
+    {
+      "step": 6,
+      "skipped": 0
+    },
+    {
+      "step": 7,
+      "skipped": 0
+    },
+    {
+      "step": 8,
+      "skipped": 0
+    },
+    {
+      "step": 9,
+      "skipped": 0
+    },
+    {
+      "step": 10,
+      "skipped": 0
+    },
+    {
+      "step": 11,
+      "skipped": 0
+    },
+    {
+      "step": 12,
+      "skipped": 0
+    },
+    {
+      "step": 13,
+      "skipped": 0
+    },
+    {
+      "step": 14,
+      "skipped": 0
+    },
+    {
+      "step": 15,
+      "skipped": 0
+    },
+    {
+      "step": 16,
+      "skipped": 0
+    },
+    {
+      "step": 17,
+      "skipped": 0
+    },
+    {
+      "step": 18,
+      "skipped": 0
+    },
+    {
+      "step": 19,
+      "skipped": 0
+    },
+    {
+      "step": 20,
+      "skipped": 0
+    },
+    {
+      "step": 21,
+      "skipped": 0
+    },
+    {
+      "step": 22,
+      "skipped": 0
+    },
+    {
+      "step": 23,
+      "skipped": 0
+    },
+    {
+      "step": 24,
+      "skipped": 0
+    },
+    {
+      "step": 25,
+      "skipped": 0
+    },
+    {
+      "step": 26,
+      "skipped": 0
+    },
+    {
+      "step": 27,
+      "skipped": 0
+    },
+    {
+      "step": 28,
+      "skipped": 0
+    },
+    {
+      "step": 29,
+      "skipped": 0
+    },
+    {
+      "step": 30,
+      "skipped": 0
+    }
+  ],
+  "before_window": {
+    "allocated": 12755200512,
+    "reserved": 14998831104,
+    "peak_allocated": 17702819328,
+    "peak_reserved": 18515755008
+  },
+  "window": {
+    "first": 16,
+    "last": 30,
+    "steps": 15,
+    "seconds": 30.573921942035668,
+    "memory": {
+      "allocated": 12755201024,
+      "reserved": 14998831104,
+      "peak_allocated": 17701230592,
+      "peak_reserved": 18515755008
+    }
+  },
+  "end_memory": {
+    "allocated": 12755198464,
+    "reserved": 14998831104,
+    "peak_allocated": 17701230592,
+    "peak_reserved": 18515755008
+  }
+}

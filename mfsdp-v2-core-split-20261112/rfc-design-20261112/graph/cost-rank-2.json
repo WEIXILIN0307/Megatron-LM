@@ -1,0 +1,222 @@
+{
+  "rank": 2,
+  "variant": "graph",
+  "free_bytes_at_start": 22935502848,
+  "allocator_budget_bytes": 18640535552,
+  "limits": "Shared GPUs; one bounded window, not evidence of stable speedup. Memory is the process's PyTorch allocator; driver/NCCL allocations are excluded.",
+  "capture": [
+    {
+      "full_setup_seconds": 2.05739005189389,
+      "before": {
+        "allocated": 12755122688,
+        "reserved": 15529410560,
+        "peak_allocated": 17695004672,
+        "peak_reserved": 18601738240
+      },
+      "after": {
+        "allocated": 13655174656,
+        "reserved": 16691232768,
+        "peak_allocated": 17695004672,
+        "peak_reserved": 18601738240
+      },
+      "units": [
+        {
+          "name": "module.decoder.layers.0",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.1",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.2",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.3",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.4",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.5",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.6",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.7",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.8",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.9",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.10",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.11",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.12",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.13",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.14",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.15",
+          "groups": [
+            {
+              "elements": 16816128,
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "skipped": 0
+    },
+    {
+      "step": 2,
+      "skipped": 0
+    },
+    {
+      "step": 3,
+      "skipped": 0
+    }
+  ],
+  "end_memory": {
+    "allocated": 15585918976,
+    "reserved": 18631098368,
+    "peak_allocated": 17695004672,
+    "peak_reserved": 18631098368
+  }
+}

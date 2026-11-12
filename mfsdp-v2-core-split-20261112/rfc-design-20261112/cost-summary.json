@@ -1,0 +1,504 @@
+{
+  "eager": {
+    "all_ranks": [
+      {
+        "rank": 1,
+        "variant": "eager",
+        "free_bytes_at_start": 25568083968,
+        "allocator_budget_bytes": 21273116672,
+        "limits": "Shared GPUs; one bounded window, not evidence of stable speedup. Memory is the process's PyTorch allocator; driver/NCCL allocations are excluded.",
+        "capture": [],
+        "steps": [
+          {
+            "step": 1,
+            "skipped": 0
+          },
+          {
+            "step": 2,
+            "skipped": 0
+          },
+          {
+            "step": 3,
+            "skipped": 0
+          },
+          {
+            "step": 4,
+            "skipped": 0
+          },
+          {
+            "step": 5,
+            "skipped": 0
+          },
+          {
+            "step": 6,
+            "skipped": 0
+          },
+          {
+            "step": 7,
+            "skipped": 0
+          },
+          {
+            "step": 8,
+            "skipped": 0
+          },
+          {
+            "step": 9,
+            "skipped": 0
+          },
+          {
+            "step": 10,
+            "skipped": 0
+          },
+          {
+            "step": 11,
+            "skipped": 0
+          },
+          {
+            "step": 12,
+            "skipped": 0
+          },
+          {
+            "step": 13,
+            "skipped": 0
+          },
+          {
+            "step": 14,
+            "skipped": 0
+          },
+          {
+            "step": 15,
+            "skipped": 0
+          },
+          {
+            "step": 16,
+            "skipped": 0
+          },
+          {
+            "step": 17,
+            "skipped": 0
+          },
+          {
+            "step": 18,
+            "skipped": 0
+          },
+          {
+            "step": 19,
+            "skipped": 0
+          },
+          {
+            "step": 20,
+            "skipped": 0
+          },
+          {
+            "step": 21,
+            "skipped": 0
+          },
+          {
+            "step": 22,
+            "skipped": 0
+          },
+          {
+            "step": 23,
+            "skipped": 0
+          },
+          {
+            "step": 24,
+            "skipped": 0
+          },
+          {
+            "step": 25,
+            "skipped": 0
+          },
+          {
+            "step": 26,
+            "skipped": 0
+          },
+          {
+            "step": 27,
+            "skipped": 0
+          },
+          {
+            "step": 28,
+            "skipped": 0
+          },
+          {
+            "step": 29,
+            "skipped": 0
+          },
+          {
+            "step": 30,
+            "skipped": 0
+          }
+        ],
+        "before_window": {
+          "allocated": 12760820224,
+          "reserved": 18972934144,
+          "peak_allocated": 17706874880,
+          "peak_reserved": 18972934144
+        },
+        "window": {
+          "first": 16,
+          "last": 30,
+          "steps": 15,
+          "seconds": 30.57380902802106,
+          "memory": {
+            "allocated": 12760820736,
+            "reserved": 18972934144,
+            "peak_allocated": 17706874880,
+            "peak_reserved": 18972934144
+          }
+        },
+        "end_memory": {
+          "allocated": 12760818176,
+          "reserved": 18972934144,
+          "peak_allocated": 17706874880,
+          "peak_reserved": 18972934144
+        }
+      },
+      {
+        "rank": 2,
+        "variant": "eager",
+        "free_bytes_at_start": 22935502848,
+        "allocator_budget_bytes": 18640535552,
+        "limits": "Shared GPUs; one bounded window, not evidence of stable speedup. Memory is the process's PyTorch allocator; driver/NCCL allocations are excluded.",
+        "capture": [],
+        "steps": [
+          {
+            "step": 1,
+            "skipped": 0
+          },
+          {
+            "step": 2,
+            "skipped": 0
+          },
+          {
+            "step": 3,
+            "skipped": 0
+          },
+          {
+            "step": 4,
+            "skipped": 0
+          },
+          {
+            "step": 5,
+            "skipped": 0
+          },
+          {
+            "step": 6,
+            "skipped": 0
+          },
+          {
+            "step": 7,
+            "skipped": 0
+          },
+          {
+            "step": 8,
+            "skipped": 0
+          },
+          {
+            "step": 9,
+            "skipped": 0
+          },
+          {
+            "step": 10,
+            "skipped": 0
+          },
+          {
+            "step": 11,
+            "skipped": 0
+          },
+          {
+            "step": 12,
+            "skipped": 0
+          },
+          {
+            "step": 13,
+            "skipped": 0
+          },
+          {
+            "step": 14,
+            "skipped": 0
+          },
+          {
+            "step": 15,
+            "skipped": 0
+          },
+          {
+            "step": 16,
+            "skipped": 0
+          },
+          {
+            "step": 17,
+            "skipped": 0
+          },
+          {
+            "step": 18,
+            "skipped": 0
+          },
+          {
+            "step": 19,
+            "skipped": 0
+          },
+          {
+            "step": 20,
+            "skipped": 0
+          },
+          {
+            "step": 21,
+            "skipped": 0
+          },
+          {
+            "step": 22,
+            "skipped": 0
+          },
+          {
+            "step": 23,
+            "skipped": 0
+          },
+          {
+            "step": 24,
+            "skipped": 0
+          },
+          {
+            "step": 25,
+            "skipped": 0
+          },
+          {
+            "step": 26,
+            "skipped": 0
+          },
+          {
+            "step": 27,
+            "skipped": 0
+          },
+          {
+            "step": 28,
+            "skipped": 0
+          },
+          {
+            "step": 29,
+            "skipped": 0
+          },
+          {
+            "step": 30,
+            "skipped": 0
+          }
+        ],
+        "before_window": {
+          "allocated": 12755200512,
+          "reserved": 14998831104,
+          "peak_allocated": 17702819328,
+          "peak_reserved": 18515755008
+        },
+        "window": {
+          "first": 16,
+          "last": 30,
+          "steps": 15,
+          "seconds": 30.573921942035668,
+          "memory": {
+            "allocated": 12755201024,
+            "reserved": 14998831104,
+            "peak_allocated": 17701230592,
+            "peak_reserved": 18515755008
+          }
+        },
+        "end_memory": {
+          "allocated": 12755198464,
+          "reserved": 14998831104,
+          "peak_allocated": 17701230592,
+          "peak_reserved": 18515755008
+        }
+      },
+      {
+        "rank": 0,
+        "variant": "eager",
+        "free_bytes_at_start": 36773232640,
+        "allocator_budget_bytes": 32478265344,
+        "limits": "Shared GPUs; one bounded window, not evidence of stable speedup. Memory is the process's PyTorch allocator; driver/NCCL allocations are excluded.",
+        "capture": [],
+        "steps": [
+          {
+            "step": 1,
+            "skipped": 0
+          },
+          {
+            "step": 2,
+            "skipped": 0
+          },
+          {
+            "step": 3,
+            "skipped": 0
+          },
+          {
+            "step": 4,
+            "skipped": 0
+          },
+          {
+            "step": 5,
+            "skipped": 0
+          },
+          {
+            "step": 6,
+            "skipped": 0
+          },
+          {
+            "step": 7,
+            "skipped": 0
+          },
+          {
+            "step": 8,
+            "skipped": 0
+          },
+          {
+            "step": 9,
+            "skipped": 0
+          },
+          {
+            "step": 10,
+            "skipped": 0
+          },
+          {
+            "step": 11,
+            "skipped": 0
+          },
+          {
+            "step": 12,
+            "skipped": 0
+          },
+          {
+            "step": 13,
+            "skipped": 0
+          },
+          {
+            "step": 14,
+            "skipped": 0
+          },
+          {
+            "step": 15,
+            "skipped": 0
+          },
+          {
+            "step": 16,
+            "skipped": 0
+          },
+          {
+            "step": 17,
+            "skipped": 0
+          },
+          {
+            "step": 18,
+            "skipped": 0
+          },
+          {
+            "step": 19,
+            "skipped": 0
+          },
+          {
+            "step": 20,
+            "skipped": 0
+          },
+          {
+            "step": 21,
+            "skipped": 0
+          },
+          {
+            "step": 22,
+            "skipped": 0
+          },
+          {
+            "step": 23,
+            "skipped": 0
+          },
+          {
+            "step": 24,
+            "skipped": 0
+          },
+          {
+            "step": 25,
+            "skipped": 0
+          },
+          {
+            "step": 26,
+            "skipped": 0
+          },
+          {
+            "step": 27,
+            "skipped": 0
+          },
+          {
+            "step": 28,
+            "skipped": 0
+          },
+          {
+            "step": 29,
+            "skipped": 0
+          },
+          {
+            "step": 30,
+            "skipped": 0
+          }
+        ],
+        "before_window": {
+          "allocated": 12752923136,
+          "reserved": 19253952512,
+          "peak_allocated": 17698945024,
+          "peak_reserved": 19253952512
+        },
+        "window": {
+          "first": 16,
+          "last": 30,
+          "steps": 15,
+          "seconds": 30.573856509989128,
+          "memory": {
+            "allocated": 12752923648,
+            "reserved": 19253952512,
+            "peak_allocated": 17698945024,
+            "peak_reserved": 19253952512
+          }
+        },
+        "end_memory": {
+          "allocated": 12752921088,
+          "reserved": 19253952512,
+          "peak_allocated": 17698945024,
+          "peak_reserved": 19253952512
+        }
+      }
+    ],
+    "window_step_ms_slowest_rank": 2038.2614628023775,
+    "peak_allocated_gib_max_rank": 16.490812301635742,
+    "peak_reserved_gib_max_rank": 17.931640625
+  },
+  "graph": {
+    "result": "capture completed then OOM; no complete steady window",
+    "failed_rank": 2,
+    "completed_steps": 3,
+    "allocator_budget_gib": 17.3603515625,
+    "capture_setup_seconds_rank2": 2.05739005189389,
+    "capture_after_memory_gib": {
+      "allocated": 12.717372417449951,
+      "reserved": 15.544921875,
+      "peak_allocated": 16.47975730895996,
+      "peak_reserved": 17.32421875
+    },
+    "retained_bytes_per_unit": {
+      "module.decoder.layers.0": 33632256,
+      "module.decoder.layers.1": 33632256,
+      "module.decoder.layers.2": 33632256,
+      "module.decoder.layers.3": 33632256,
+      "module.decoder.layers.4": 33632256,
+      "module.decoder.layers.5": 33632256,
+      "module.decoder.layers.6": 33632256,
+      "module.decoder.layers.7": 33632256,
+      "module.decoder.layers.8": 33632256,
+      "module.decoder.layers.9": 33632256,
+      "module.decoder.layers.10": 33632256,
+      "module.decoder.layers.11": 33632256,
+      "module.decoder.layers.12": 33632256,
+      "module.decoder.layers.13": 33632256,
+      "module.decoder.layers.14": 33632256,
+      "module.decoder.layers.15": 33632256
+    },
+    "retained_total_mib_rank2": 513.1875
+  },
+  "limits": "Single shared-GPU capacity probe with per-rank PyTorch allocator budgets. The graph run has no complete steady window; no matched steady-memory delta or stable-speedup conclusion is available."
+}
