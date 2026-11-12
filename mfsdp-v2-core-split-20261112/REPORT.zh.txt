@@ -1,0 +1,50 @@
+Megatron FSDP v2 partial CUDA Graph：三个 PR 的拆分与最终验证
+
+基线：a7a6d2225700a8ee701453288894501d868c6bd4（本轮开始时的 main）。
+PR 1：41103622852c379074ad993cf592fb799df65a21，纯 evaluation 不推进训练执行游标。
+PR 2：2886280662e31c1678e9ceb5bb4c94a2c09304e9，v2 原生 DTensor 不走 v1 投影转换。
+PR 3：5c12bd9af86d3ba098eadd6aeaad4d154100f725，基础 partial graph 集成及 MoE 验证。
+组合验证：269f02ebd652a4787691c3799f89c3ff232af24e，包含以上三项。
+
+每个 PR 只有一个带 DCO 和 SSH 签名的提交，均直接基于 main。两项修复可独立合入；
+主 PR 的原始 diff 不包含它们，合入前需要这两个前置修复。组合验证结果不冒充
+孤立的 graph-only PR head 结果。未引入 #7582、细粒度桥接、EP 重排或 TE 补丁。
+原完整工作分支 feat/mfsdp-v2-dispatch-graph-reorder 保留，不改写其历史。
+
+最终验证（RTX PRO 6000，PyTorch 2.11.0+cu130、TE 2.20.2、pytest 9.1.1）：
+- PR 1 独立源码：两卡各 5 passed，含录制前 eval、train/eval/train、游标、参数及 Adam。
+- PR 2 独立源码：两卡各 2 passed，含 EP1/EP2 原生 checkpoint 及继续训练状态精确比较。
+- 组合源码：两卡各 23 passed，代表 GPT/Hybrid、attention/MLA、ZeRO-1/2/3、通信流策略、
+  dropout/RNG、自有失败点清理、graph 删除、checkpoint 恢复及重新 capture。
+- 同一组合源码：四卡各 2 passed，普通模块路径的 checkpoint 恢复/recapture 与 dropout。
+  实际 DP=[0,1,2,3]，EP=[0,1]/[2,3]，expert-DP=[0,2]/[1,3]；四 GPU UUID 不同。
+- 三个分支的 Black、isort、Pylint、Ruff 检查通过。容器内首次 formatter 的网络 fetch
+  失败，之后使用已经获取的同一 origin/main 执行原检查管线。Mypy 按仓库脚本为非门禁，
+  仍有既有 mixin/stub 诊断；本轮引入的两个类型诊断已修正。kernel coverage checker 通过。
+
+真实文本：stock pretrain_gpt.py，随机初始化、已接受的 2.09B proxy；16 层、hidden2048、
+16 experts、top8、seq1024、BF16、ZeRO3、EP2、TP=PP=CP=1、GA2、dropout0.1，真实 WikiText-103。
+普通 eager 与 graph 各 12 步，无 skipped，逐步 loss 相同。第 4、12 步所有逻辑本地
+参数、梯度、main weights、Adam 张量内容的 SHA256、shape/dtype 与 metadata 两 rank 一致。
+Graph 每步记录 32 次 forward replay，eager 为 0。不写大型 checkpoint，不做性能计时。
+
+新版本 GPU trace：同一 proxy，普通调度 EP1/expert-DP2，仅第 10 步。每 rank 64 次 graph
+launch，图计算区间排除图内 NCCL。图外 FSDP AG / 图计算交叠 rank0/1 为
+26.151144 / 27.837883 ms；专家 DP RS 为 29.186084 / 28.261979 ms；普通 DP RS 为 0/0。
+AG 普通/专家 mesh 合并归属，RS 按实际 reducing unit 归属，未归属 RS 为 0。
+这是有效配置中的 kernel 并发，非网络进展、关键路径隐藏或 step-time 收益。EP1 没有 EP A2A。
+
+四卡首次失败发生于显存断言，而非已证实的数值错误：每次 recapture 增加 17,039,360 字节。
+诊断只在原测量点清理 cuBLAS 的 handle/stream workspace 后，四个 rank 的三次剩余
+分配各自完全一致，数值对照通过。最终仅按现有 test_memory.py 的方法修正测试，保留
+原断言；生产路径没有清空缓存。原始失败与诊断数据保留，不计为通过。
+
+边界：不是完整 OLMoE、收敛或生产长跑验证；真实文本只比较两个采样点的完整状态。
+不要求或宣称 EP dispatch/combine 有效隐藏、稳定加速、细粒度桥接或全部 TE 异常恢复。
+原版 TE warmup 临时 hook 清理缺口仍需独立 TE 修复或进程重启；不阻断正常基础路径。
+完整 upstream CI、维护者设计审查及前置 PR 的合入仍待完成。PR 均保持 draft。
+
+证据及清理：validation/delivery-validation.json、各独立源码 manifest、原始日志、
+逐张量摘要与 Nsight report/SQLite 均保留。清理见 validation/cleanup.json 和
+cleanup-local.json；移除本轮临时工具、远端源码副本、压缩包和 cache，保留共享 OCI、
+venv、CUDA、模型、WikiText 和其他任务。测试结束后 OCI 只剩原有 sleep 进程。

@@ -1,0 +1,77 @@
+++ git version
+++ awk '{print $3}'
++ GIT_VERSION=2.47.3
+++ echo 2.47.3
+++ awk -F. '{print $1}'
++ GIT_MAJOR=2
+++ echo 2.47.3
+++ awk -F. '{print $2}'
++ GIT_MINOR=47
++ [[ 2 -eq 2 ]]
++ [[ 47 -lt 31 ]]
++++ dirname -- /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112/autoformat-local-ref.sh
+++ cd -- /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112
+++ pwd
++ SCRIPT_DIR=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112
++ CHECK_ONLY=true
++ SKIP_DOCS=false
++ BASE_REF=main
+++ git diff --name-only --diff-filter=d --merge-base origin/main megatron/core tests/
+++ grep '\.py$'
++ CHANGED_FILES='megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py
+tests/unit_tests/distributed/mfsdp_v2/test_context.py
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py'
++ ADDITIONAL_ARGS=
++ ADDITIONAL_BLACK_ARGS=
++ ADDITIONAL_PYLINT_ARGS=
++ ADDITIONAL_RUFF_ARGS=
++ [[ true == true ]]
++ ADDITIONAL_ARGS=--check
++ ADDITIONAL_BLACK_ARGS=--diff
++ ADDITIONAL_RUFF_ARGS=--no-fix
++ [[ false == true ]]
++ [[ -n megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py
+tests/unit_tests/distributed/mfsdp_v2/test_context.py
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py ]]
++ black --skip-magic-trailing-comma --skip-string-normalization --check --diff --verbose megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py tests/unit_tests/distributed/mfsdp_v2/test_context.py tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py
+Identified `/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112/eval` as project root containing a .git directory.
+Using configuration from project root.
+line_length: 100
+skip_string_normalization: True
+required_version: 26
+skip_magic_trailing_comma: True
+include: \.pyi?$
+exclude: /(
+    \.git
+  | \.venv
+  | build
+)/
+
+target_version: ['py312', 'py313', 'py314']
+Warning: Python 3.12 cannot parse code formatted for Python 3.14. To fix this: run Black with Python 3.14, set --target-version to py312, or use --fast to skip the safety check. Black's safety check verifies equivalence by parsing the AST, which fails when the running Python is older than the target version.
+Found input source: "megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py"
+Found input source: "tests/unit_tests/distributed/mfsdp_v2/test_context.py"
+Found input source: "tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py"
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py already well formatted, good job.
+megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py already well formatted, good job.
+tests/unit_tests/distributed/mfsdp_v2/test_context.py already well formatted, good job.
+
+All done! ✨ 🍰 ✨
+3 files would be left unchanged.
++ isort --check megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py tests/unit_tests/distributed/mfsdp_v2/test_context.py tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py
++ pylint megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py tests/unit_tests/distributed/mfsdp_v2/test_context.py tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
++ ruff check --no-fix megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py tests/unit_tests/distributed/mfsdp_v2/test_context.py tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py
+warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:
+  - 'per-file-ignores' -> 'lint.per-file-ignores'
+All checks passed!
++ mypy --explicit-package-bases --follow-imports=skip megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py tests/unit_tests/distributed/mfsdp_v2/test_context.py tests/unit_tests/distributed/mfsdp_v2/test_mcore_moe.py
+tests/unit_tests/distributed/mfsdp_v2/test_context.py:14: error: Skipping analyzing "transformer_engine.pytorch": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+tests/unit_tests/distributed/mfsdp_v2/test_context.py:14: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+tests/unit_tests/distributed/mfsdp_v2/test_context.py:14: error: Skipping analyzing "transformer_engine": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py:119: error: "FsdpModule" has no attribute "register_load_state_dict_pre_hook"  [attr-defined]
+Found 3 errors in 2 files (checked 3 source files)
++ true
