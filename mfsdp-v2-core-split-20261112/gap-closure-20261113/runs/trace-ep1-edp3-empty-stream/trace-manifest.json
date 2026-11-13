@@ -1,0 +1,44 @@
+[
+  {
+    "file": "trace-rank-0.sqlite.gz",
+    "bytes": 897360,
+    "sha256": "af13aee1ae654a85265c08c7d215c28a5923bd8fd92247c3412f0f227a1a7bdf",
+    "rows": {
+      "NVTX_EVENTS": 4621,
+      "CUPTI_ACTIVITY_KIND_RUNTIME": 25847,
+      "CUPTI_ACTIVITY_KIND_CUDA_EVENT": 2596,
+      "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": 3909,
+      "CUPTI_ACTIVITY_KIND_KERNEL": 13646,
+      "StringIds": 363
+    },
+    "original_sha256": "f8c5043f26e9f4605f86d3865ce9d9ea39ae28ca2c5fd3f0bb8a9e1672afa01d"
+  },
+  {
+    "file": "trace-rank-1.sqlite.gz",
+    "bytes": 873061,
+    "sha256": "c9d013c721c3c1d9879794cf0991b0aaeb07fdb499cb2e45c939b84a12afdb06",
+    "rows": {
+      "NVTX_EVENTS": 4429,
+      "CUPTI_ACTIVITY_KIND_RUNTIME": 25094,
+      "CUPTI_ACTIVITY_KIND_CUDA_EVENT": 2596,
+      "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": 3895,
+      "CUPTI_ACTIVITY_KIND_KERNEL": 13298,
+      "StringIds": 362
+    },
+    "original_sha256": "74b346b70a22c5e8c7ae78507451b6314de145ae6e70af1e06981e375310fde4"
+  },
+  {
+    "file": "trace-rank-2.sqlite.gz",
+    "bytes": 962410,
+    "sha256": "c232aa7e0a277976abb81cbef8c77e4aaeb8a380bd740535bf87e89110363d1d",
+    "rows": {
+      "NVTX_EVENTS": 4759,
+      "CUPTI_ACTIVITY_KIND_RUNTIME": 27745,
+      "CUPTI_ACTIVITY_KIND_CUDA_EVENT": 2596,
+      "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": 3882,
+      "CUPTI_ACTIVITY_KIND_KERNEL": 14583,
+      "StringIds": 361
+    },
+    "original_sha256": "4c090643e1bfd522fb9f326093dddf0798b1ca3aad7f8a797beccc3d0d152c40"
+  }
+]

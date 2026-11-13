@@ -1,0 +1,39 @@
+Initializing torch.distributed with rank: 1, world_size: 2
+..
+=============================== warnings summary ===============================
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112/composed/megatron/core/transformer/transformer_config.py:4166: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112/composed/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112/composed/megatron/core/transformer/moe/shared_experts.py:134: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    super().__init__(
+
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+  sys:1: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.
+
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[hybrid]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-three-pr-split-20261112/composed/megatron/core/transformer/cuda_graphs.py:3075: DeprecationWarning: make_graphed_callables has deprecated `fp8_enabled` kwarg in favor of `enabled`. `fp8_enabled` will be removed in a future release.
+    graphs = make_graphed_callables(
+
+.codex-artifacts/mfsdp-gap-closure-20261113/test_warmup_retry.py::test_moe_te_warmup_failure_retry[gpt]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 17 warnings in 9.21s

@@ -1,0 +1,13 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_warmup_forward_failure_cleanup_and_retry _________________
+TransformerEngine/tests/pytorch/test_cuda_graphs.py:172: in test_warmup_forward_failure_cleanup_and_retry
+    assert module._forward_hooks == original_hooks
+E   assert OrderedDict({...efbb5a65bc0>}) == {}
+E
+E     Left contains 1 more item:
+E     {0: <function _make_graphed_callables.<locals>._run_warmup_forward.<locals>.hook_fn at 0x7efbb5a65bc0>}
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED TransformerEngine/tests/pytorch/test_cuda_graphs.py::test_warmup_forward_failure_cleanup_and_retry
+1 failed in 4.01s

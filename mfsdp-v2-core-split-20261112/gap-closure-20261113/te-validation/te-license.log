@@ -1,0 +1,2397 @@
+Entering /proof/TransformerEngine
+Checking CPPLINT.cfg
+[92mOK[0m
+Checking MANIFEST.in
+[93mUnknown filetype[0m
+Checking pyproject.toml
+[93mUnknown filetype[0m
+Checking README.rst
+[92mOK[0m
+Checking setup.py
+[92mOK[0m
+Checking CONTRIBUTING.rst
+[92mOK[0m
+Checking CODEOWNERS
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/transformer_engine
+Checking __init__.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/debug
+Checking __init__.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/debug/pytorch
+Checking __init__.py
+[92mOK[0m
+Checking debug_state.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Checking debug_quantization.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/debug/features
+Checking disable_quantization_layer.py
+[92mOK[0m
+Checking log_fp8_tensor_stats.py
+[92mOK[0m
+Checking log_nvfp4_tensor_stats.py
+[92mOK[0m
+Checking _test_dummy_feature.py
+[92mOK[0m
+Checking disable_fp8_gemm.py
+[92mOK[0m
+Checking api.py
+[92mOK[0m
+Checking dump_tensors.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking per_tensor_scaling.py
+[92mOK[0m
+Checking disable_quantization_gemm.py
+[92mOK[0m
+Checking disable_fp8_layer.py
+[92mOK[0m
+Checking log_tensor_stats.py
+[92mOK[0m
+Checking fake_quant.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/debug/features/utils
+Checking stats_computation.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking stats_buffer.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax
+Checking version_utils.py
+[92mOK[0m
+Checking mhc.py
+[92mOK[0m
+Checking moe.py
+[92mOK[0m
+Checking softmax.py
+[92mOK[0m
+Checking layernorm_dense.py
+[92mOK[0m
+Checking activation.py
+[92mOK[0m
+Checking attention.py
+[92mOK[0m
+Checking ep.py
+[92mOK[0m
+Checking checkpoint_policies.py
+[92mOK[0m
+Checking router.py
+[92mOK[0m
+Checking MANIFEST.in
+[93mUnknown filetype[0m
+Checking pyproject.toml
+[93mUnknown filetype[0m
+Checking dense.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking setup.py
+[92mOK[0m
+Checking layernorm_mlp.py
+[92mOK[0m
+Checking permutation.py
+[92mOK[0m
+Checking layernorm.py
+[92mOK[0m
+Checking sharding.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/triton_extensions
+Checking mhc.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking permutation.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/flax
+Checking moe.py
+[92mOK[0m
+Checking transformer.py
+[92mOK[0m
+Checking module.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/debug
+Checking __init__.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/debug/experimental
+Checking inspect.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/cpp_extensions
+Checking flex_attention.py
+[92mOK[0m
+Checking misc.py
+[92mOK[0m
+Checking softmax.py
+[92mOK[0m
+Checking activation.py
+[92mOK[0m
+Checking gemm.py
+[92mOK[0m
+Checking attention.py
+[92mOK[0m
+Checking ep.py
+[92mOK[0m
+Checking quantization.py
+[92mOK[0m
+Checking amax.py
+[92mOK[0m
+Checking router.py
+[92mOK[0m
+Checking grouped_gemm_glu.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking normalization.py
+[92mOK[0m
+Checking topk.py
+[92mOK[0m
+Checking base.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/quantize
+Checking misc.py
+[92mOK[0m
+Checking metadata.py
+[92mOK[0m
+Checking dequantizer.py
+[92mOK[0m
+Checking tensor.py
+[92mOK[0m
+Checking quantizer.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking helper.py
+[92mOK[0m
+Checking hadamard.py
+[92mOK[0m
+Checking device_utils.py
+[92mOK[0m
+Checking scaling_modes.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/csrc
+Checking extensions.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/jax/csrc/extensions
+Checking ep.cpp
+[92mOK[0m
+Checking amax.cpp
+[92mOK[0m
+Checking utils.cpp
+[92mOK[0m
+Checking utils.h
+[92mOK[0m
+Checking cgemm_helper.cpp
+[92mOK[0m
+Checking quantization.cpp
+[92mOK[0m
+Checking softmax.cpp
+[92mOK[0m
+Checking inspect.cpp
+[92mOK[0m
+Checking cudnn.cpp
+[92mOK[0m
+Checking ffi_collectives.h
+[92mOK[0m
+Checking activation.cpp
+[92mOK[0m
+Checking attention.cpp
+[92mOK[0m
+Checking misc.cpp
+[92mOK[0m
+Checking normalization.cpp
+[92mOK[0m
+Checking ffi.h
+[92mOK[0m
+Checking pybind.cpp
+[92mOK[0m
+Checking ffi_collectives.cpp
+[92mOK[0m
+Checking cgemm_helper.h
+[92mOK[0m
+Checking misc.h
+[92mOK[0m
+Checking router.cpp
+[92mOK[0m
+Checking ffi.cpp
+[92mOK[0m
+Checking topk.cpp
+[92mOK[0m
+Checking gemm.cpp
+[92mOK[0m
+Checking cublas.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch
+Checking onnx_extensions.py
+[92mOK[0m
+Checking float8_tensor.py
+[92mOK[0m
+Checking constants.py
+[92mOK[0m
+Checking ep.py
+[92mOK[0m
+Checking cpu_offload_v1.py
+[92mOK[0m
+Checking quantization.py
+[92mOK[0m
+Checking fp8.py
+[92mOK[0m
+Checking transformer.py
+[92mOK[0m
+Checking quantized_tensor.py
+[92mOK[0m
+Checking device.py
+[92mOK[0m
+Checking router.py
+[92mOK[0m
+Checking MANIFEST.in
+[93mUnknown filetype[0m
+Checking pyproject.toml
+[93mUnknown filetype[0m
+Checking jit.py
+[92mOK[0m
+Checking newton_schulz.py
+[92mOK[0m
+Checking cross_entropy.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking distributed_weight.py
+[92mOK[0m
+Checking graph.py
+[92mOK[0m
+Checking distributed.py
+[92mOK[0m
+Checking setup.py
+[92mOK[0m
+Checking permutation.py
+[92mOK[0m
+Checking numerics_debug.py
+[92mOK[0m
+Checking torch_version.py
+[92mOK[0m
+Checking cpu_offload.py
+[92mOK[0m
+Checking export.py
+[92mOK[0m
+Checking _extra_state.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/triton
+Checking mhc.py
+[92mOK[0m
+Checking grouped_dbias_dscales.py
+[92mOK[0m
+Checking cross_entropy.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking permutation.py
+[92mOK[0m
+Checking pad.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/dynamo
+Checking custom_op.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking fake.py
+[92mOK[0m
+Checking tensor_spec.py
+[92mOK[0m
+Checking quantizer_opaque.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/ops
+Checking linear.py
+[92mOK[0m
+Checking _common.py
+[92mOK[0m
+Checking fuser.py
+[92mOK[0m
+Checking sequential.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking op.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/ops/basic
+Checking basic_linear.py
+[92mOK[0m
+Checking bias.py
+[92mOK[0m
+Checking grouped_linear.py
+[92mOK[0m
+Checking dropout.py
+[92mOK[0m
+Checking dispatch.py
+[92mOK[0m
+Checking all_gather.py
+[92mOK[0m
+Checking activation.py
+[92mOK[0m
+Checking quantize.py
+[92mOK[0m
+Checking reshape.py
+[92mOK[0m
+Checking reduce_scatter.py
+[92mOK[0m
+Checking batched_linear.py
+[92mOK[0m
+Checking add_extra_input.py
+[92mOK[0m
+Checking make_extra_output.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking constant_scale.py
+[92mOK[0m
+Checking l2normalization.py
+[92mOK[0m
+Checking combine.py
+[92mOK[0m
+Checking identity.py
+[92mOK[0m
+Checking rmsnorm.py
+[92mOK[0m
+Checking all_reduce.py
+[92mOK[0m
+Checking layer_norm.py
+[92mOK[0m
+Checking swiglu.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/ops/fused
+Checking backward_linear_add.py
+[92mOK[0m
+Checking backward_linear_scale.py
+[92mOK[0m
+Checking userbuffers_backward_linear.py
+[92mOK[0m
+Checking forward_linear_bias_activation.py
+[92mOK[0m
+Checking backward_activation_bias.py
+[92mOK[0m
+Checking grouped_mlp.py
+[92mOK[0m
+Checking forward_linear_bias_add.py
+[92mOK[0m
+Checking userbuffers_forward_linear.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking forward_linear_scale_add.py
+[92mOK[0m
+Checking backward_add_rmsnorm.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/cpp_extensions
+Checking gemm.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking fused_attn.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/custom_recipes
+Checking reference_current_scaling.py
+[92mOK[0m
+Checking quantizer_factories.py
+[92mOK[0m
+Checking reference_utils.py
+[92mOK[0m
+Checking gemm.py
+[92mOK[0m
+Checking quantizer_factory_zoo.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking reference_nvfp4.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/attention
+Checking multi_head_attention.py
+[92mOK[0m
+Checking custom_ops.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking inference.py
+[92mOK[0m
+Checking rope.py
+[92mOK[0m
+Checking fused_mla_q_uproj.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/attention/linear_attention
+Checking gdn.py
+[92mOK[0m
+Checking kda.py
+[92mOK[0m
+Checking gdp.py
+[92mOK[0m
+Checking gdn2.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking base.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/attention/dot_product_attention
+Checking flex_attention.py
+[92mOK[0m
+Checking softmax.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking dot_product_attention.py
+[92mOK[0m
+Checking backends.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Checking context_parallel.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/csrc
+Checking common.cpp
+[92mOK[0m
+Checking pybind.h
+[92mOK[0m
+Checking quantizer.cpp
+[92mOK[0m
+Checking type_converters.cpp
+[92mOK[0m
+Checking util.h
+[92mOK[0m
+Checking common.h
+[92mOK[0m
+Checking extensions.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/csrc/extensions
+Checking ep.cpp
+[92mOK[0m
+Checking pybind_dtype_caster.h
+[92mOK[0m
+Checking softmax.cpp
+[92mOK[0m
+Checking allocate.cpp
+[92mOK[0m
+Checking comm_gemm_overlap.cpp
+[92mOK[0m
+Checking activation.cpp
+[92mOK[0m
+Checking attention.cpp
+[92mOK[0m
+Checking dropout.cpp
+[92mOK[0m
+Checking misc.cpp
+[92mOK[0m
+Checking grouped_mlp_experimental.cpp
+[92mOK[0m
+Checking transpose.cpp
+[92mOK[0m
+Checking comm.cpp
+[92mOK[0m
+Checking nvfp4_2d_partial_cast.cpp
+[92mOK[0m
+Checking fp8_partial_cast.cpp
+[92mOK[0m
+Checking newton_schulz.cpp
+[92mOK[0m
+Checking normalization.cpp
+[92mOK[0m
+Checking recipe.cpp
+[92mOK[0m
+Checking pybind.cpp
+[92mOK[0m
+Checking swizzle.cpp
+[92mOK[0m
+Checking bias.cpp
+[92mOK[0m
+Checking cast.cpp
+[92mOK[0m
+Checking router.cpp
+[92mOK[0m
+Checking nvshmem_comm.cpp
+[92mOK[0m
+Checking apply_rope.cpp
+[92mOK[0m
+Checking padding.cpp
+[92mOK[0m
+Checking gemm.cpp
+[92mOK[0m
+Checking permutation.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/csrc/extensions/multi_tensor
+Checking adam.cpp
+[92mOK[0m
+Checking compute_scale.cpp
+[92mOK[0m
+Checking scale.cpp
+[92mOK[0m
+Checking l2norm.cpp
+[92mOK[0m
+Checking sgd.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/optimizers
+Checking fused_adam.py
+[92mOK[0m
+Checking fused_sgd.py
+[92mOK[0m
+Checking newton_schulz.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking multi_tensor_apply.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/module
+Checking linear.py
+[92mOK[0m
+Checking grouped_linear.py
+[92mOK[0m
+Checking _common.py
+[92mOK[0m
+Checking fp8_padding.py
+[92mOK[0m
+Checking _split_quantization.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking fp8_unpadding.py
+[92mOK[0m
+Checking layernorm_linear.py
+[92mOK[0m
+Checking rmsnorm.py
+[92mOK[0m
+Checking layernorm_mlp.py
+[92mOK[0m
+Checking layernorm.py
+[92mOK[0m
+Checking base.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/tensor
+Checking grouped_tensor.py
+[92mOK[0m
+Checking float8_blockwise_tensor.py
+[92mOK[0m
+Checking float8_tensor.py
+[92mOK[0m
+Checking identity_tensor.py
+[92mOK[0m
+Checking hybrid_tensor.py
+[92mOK[0m
+Checking _quantization_helpers.py
+[92mOK[0m
+Checking nvfp4_tensor.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking mxfp8_tensor.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/pytorch/tensor/storage
+Checking nvfp4_tensor_storage.py
+[92mOK[0m
+Checking float8_tensor_storage.py
+[92mOK[0m
+Checking identity_tensor_storage.py
+[92mOK[0m
+Checking mxfp8_tensor_storage.py
+[92mOK[0m
+Checking hybrid_tensor_storage.py
+[92mOK[0m
+Checking float8_blockwise_tensor_storage.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking grouped_tensor_storage.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common
+Checking cudnn_utils.h
+[92mOK[0m
+Checking init_python.cpp
+[92mOK[0m
+Checking cudnn_utils.cpp
+[92mOK[0m
+Checking cudnn_min_version.h
+[92mOK[0m
+Checking nvtx.h
+[92mOK[0m
+Checking libtransformer_engine.version
+[93mUnknown filetype[0m
+Checking tvm_ffi_bridge.h
+[92mOK[0m
+Checking transformer_engine.cpp
+[92mOK[0m
+Checking common.cu
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking common.h
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Checking utils.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast
+Checking cast_grouped.cu
+[92mOK[0m
+Checking cast_grouped_dbias.cu
+[92mOK[0m
+Checking cast.cu
+[92mOK[0m
+Checking cast_dbias.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/nvfp4
+Checking quantize_4over6_nvfp4.cuh
+[92mOK[0m
+Checking quantize_4over6_kernel.cuh
+[92mOK[0m
+Checking quantize_transpose_nvfp4.cuh
+[92mOK[0m
+Checking group_quantize_transpose_nvfp4.cuh
+[92mOK[0m
+Checking rtc_dispatch.h
+[92mOK[0m
+Checking core_nvfp4.cuh
+[92mOK[0m
+Checking rtc_dispatch.cpp
+[92mOK[0m
+Checking dequantize_nvfp4.cuh
+[92mOK[0m
+Checking swizzle.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/nvfp4/specialized
+Checking quantize_transpose_nvfp4_tuned_1D.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/nvfp4/rtc
+Checking quantize_4over6.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/dispatch
+Checking gated.cuh
+[92mOK[0m
+Checking dequantize.cuh
+[92mOK[0m
+Checking quantize.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/core
+Checking common.cuh
+[92mOK[0m
+Checking grouped_layout.cuh
+[92mOK[0m
+Checking grouped_tma.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/fp8
+Checking group_amax_fp8.cuh
+[92mOK[0m
+Checking group_quantize_fp8.cuh
+[92mOK[0m
+Checking gated_fp8.cuh
+[92mOK[0m
+Checking quantize_fp8.cuh
+[92mOK[0m
+Checking dequantize_fp8.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/mxfp8
+Checking dequantize_mxfp8_cutedsl.cuh
+[92mOK[0m
+Checking group_dequantize_mxfp8.cuh
+[92mOK[0m
+Checking gated_mxfp8.cuh
+[92mOK[0m
+Checking requantize_mxfp8.cu
+[92mOK[0m
+Checking group_quantize_mxfp8.cuh
+[92mOK[0m
+Checking dequantize_mxfp8.cuh
+[92mOK[0m
+Checking requantize_mxfp8_cutedsl.cuh
+[92mOK[0m
+Checking quantize_mxfp8_cutedsl.cuh
+[92mOK[0m
+Checking swizzle.cuh
+[92mOK[0m
+Checking group_scaled_swiglu_mxfp8.cuh
+[92mOK[0m
+Checking quantize_mxfp8.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/mxfp8/specialized
+Checking state_counter.cuh
+[92mOK[0m
+Checking cast_bidim.cuh
+[92mOK[0m
+Checking cast_rowwise.cuh
+[92mOK[0m
+Checking swizzle.cuh
+[92mOK[0m
+Checking quantize_mxfp8.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cast/fp8_blockwise
+Checking group_dequantize_fp8_blockwise.cuh
+[92mOK[0m
+Checking group_quantize_fp8_blockwise.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/CuTeDSL
+Checking utils_fp8.py
+[92mOK[0m
+Checking activations.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/CuTeDSL/cast
+Checking __init__.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/CuTeDSL/cast/mxfp8
+Checking quantize_mxfp8_g2s_general.py
+[92mOK[0m
+Checking quantize_mxfp8_g2r_bidim.py
+[92mOK[0m
+Checking quantize_mxfp8_g2s_bidim.py
+[92mOK[0m
+Checking quantize_mxfp8_common.py
+[92mOK[0m
+Checking quantize_mxfp8_g2r_rowwise_1lane.py
+[92mOK[0m
+Checking dequantize_mxfp8.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking requantize_mxfp8.py
+[92mOK[0m
+Checking quantize_mxfp8_g2r_rowwise_2lane.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/fused_attn
+Checking utils.h
+[92mOK[0m
+Checking kv_cache.cu
+[92mOK[0m
+Checking graph_cache_debug.h
+[92mOK[0m
+Checking fused_attn_f16_arbitrary_seqlen.cu
+[92mOK[0m
+Checking flash_attn.cu
+[92mOK[0m
+Checking fused_attn_f16_arbitrary_seqlen.h
+[92mOK[0m
+Checking context_parallel.cu
+[92mOK[0m
+Checking config_and_params.cpp
+[92mOK[0m
+Checking utils.cu
+[92mOK[0m
+Checking fused_attn_fp8.h
+[92mOK[0m
+Checking graph_cache.h
+[92mOK[0m
+Checking fused_attn_fp8.cu
+[92mOK[0m
+Checking config_and_params.h
+[92mOK[0m
+Checking fused_attn.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/normalization
+Checking common.cpp
+[92mOK[0m
+Checking kernel_traits.h
+[92mOK[0m
+Checking rtc_dispatch.h
+[92mOK[0m
+Checking kernel_params.h
+[92mOK[0m
+Checking rtc_dispatch.cpp
+[92mOK[0m
+Checking common.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/normalization/layernorm
+Checking ln_fwd_cuda_kernel.cu
+[92mOK[0m
+Checking ln_fwd_kernels.cuh
+[92mOK[0m
+Checking ln_bwd_semi_cuda_kernel.cu
+[92mOK[0m
+Checking ln_api.cpp
+[92mOK[0m
+Checking ln_bwd_kernels.cuh
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/normalization/layernorm/rtc
+Checking ln_fwd_kernel.cu
+[92mOK[0m
+Checking ln_bwd_kernel.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/normalization/rmsnorm
+Checking rmsnorm_fwd_kernels.cuh
+[92mOK[0m
+Checking rmsnorm_api.cpp
+[92mOK[0m
+Checking rmsnorm_fwd_cuda_kernel.cu
+[92mOK[0m
+Checking rmsnorm_bwd_kernels.cuh
+[92mOK[0m
+Checking rmsnorm_bwd_semi_cuda_kernel.cu
+[92mOK[0m
+Checking rmsnorm_fwd_mxfp8.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/normalization/rmsnorm/rtc
+Checking rmsnorm_fwd_kernel.cu
+[92mOK[0m
+Checking rmsnorm_bwd_kernel.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/nvshmem_api
+Checking nvshmem_waitkernel.cu
+[92mOK[0m
+Checking nvshmem_waitkernel.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/dropout
+Checking dropout.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/comm_gemm
+Checking comm_gemm.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/cmake
+Checking cuDNN.cmake
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/transformer_engine/common/swizzle
+Checking swizzle_block_scaling.cu
+[92mOK[0m
+Checking swizzle.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/multi_tensor
+Checking adam.cu
+[92mOK[0m
+Checking multi_tensor_apply.cuh
+[92mOK[0m
+Checking compute_scale.cu
+[92mOK[0m
+Checking scale.cu
+[92mOK[0m
+Checking l2norm.cu
+[92mOK[0m
+Checking sgd.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/util
+Checking logging.h
+[92mOK[0m
+Checking rtc.h
+[92mOK[0m
+Checking multi_stream.cpp
+[92mOK[0m
+Checking topk.cu
+[92mOK[0m
+Checking splits_to_offsets.cu
+[92mOK[0m
+Checking padding.cu
+[92mOK[0m
+Checking vectorized_pointwise.h
+[92mOK[0m
+Checking pybind_helper.h
+[92mOK[0m
+Checking standalone_topk.cuh
+[92mOK[0m
+Checking cutedsl_utils.h
+[92mOK[0m
+Checking type_extrema.h
+[92mOK[0m
+Checking system.h
+[92mOK[0m
+Checking utils.cu
+[92mOK[0m
+Checking cuda_runtime.cpp
+[92mOK[0m
+Checking string_header.h.in
+[93mUnknown filetype[0m
+Checking cuda_nvml.cpp
+[92mOK[0m
+Checking ptx.cuh
+[92mOK[0m
+Checking ptx_arch_spec.cuh
+[92mOK[0m
+Checking curanddx.hpp
+[93mUnknown filetype[0m
+Checking rtc.cpp
+[92mOK[0m
+Checking multi_stream.h
+[92mOK[0m
+Checking cuda_nvml.h
+[92mOK[0m
+Checking cuda_driver.cpp
+[92mOK[0m
+Checking shared_lib_wrapper.h
+[92mOK[0m
+Checking string.h
+[92mOK[0m
+Checking cuda_driver.h
+[92mOK[0m
+Checking cuda_runtime.h
+[92mOK[0m
+Checking handle_manager.h
+[92mOK[0m
+Checking math.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/newton_schulz
+Checking newton_schulz.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/triton
+Checking mhc.py
+[92mOK[0m
+Checking grouped_dbias_dscales.py
+[92mOK[0m
+Checking cross_entropy.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking permutation.py
+[92mOK[0m
+Checking pad.py
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/recipe
+Checking current_scaling.cu
+[92mOK[0m
+Checking recipe_common.cuh
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking mxfp8_scaling.cu
+[92mOK[0m
+Checking delayed_scaling.cu
+[92mOK[0m
+Checking fp8_block_scaling.cu
+[92mOK[0m
+Checking nvfp4.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/ep
+Checking ep_api.cpp
+[92mOK[0m
+Checking nccl_ep_provider.h
+[92mOK[0m
+Checking nccl_ep_provider.cpp
+[92mOK[0m
+Checking ep_backend.cpp
+[92mOK[0m
+Checking ep_backend.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/permutation
+Checking permutation.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/hadamard_transform
+Checking row_cast_col_hadamard_transform_cast_fusion.cu
+[92mOK[0m
+Checking graph_safe_group_row_cast_col_hadamard_transform_cast_fusion.cu
+[92mOK[0m
+Checking group_hadamard_transform.cu
+[92mOK[0m
+Checking hadamard_transform_utils.cuh
+[92mOK[0m
+Checking group_hadamard_transform_cast_fusion.cu
+[92mOK[0m
+Checking customized_pipeline.cuh
+[92mOK[0m
+Checking graph_safe_group_hadamard_transform.cu
+[92mOK[0m
+Checking hadamard_transform_cast_fusion.cu
+[92mOK[0m
+Checking hadamard_transform.cu
+[92mOK[0m
+Checking group_row_cast_col_hadamard_transform_cast_fusion.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/include
+Entering /proof/TransformerEngine/transformer_engine/common/include/transformer_engine
+Checking softmax.h
+[92mOK[0m
+Checking gemm.h
+[92mOK[0m
+Checking topk.h
+[92mOK[0m
+Checking dropout.h
+[92mOK[0m
+Checking activation.h
+[92mOK[0m
+Checking utils.h
+[92mOK[0m
+Checking transformer_engine.h
+[92mOK[0m
+Checking cast.h
+[92mOK[0m
+Checking comm_gemm_overlap.h
+[92mOK[0m
+Checking cast_transpose_noop.h
+[92mOK[0m
+Checking fused_attn.h
+[92mOK[0m
+Checking swizzle.h
+[92mOK[0m
+Checking permutation.h
+[92mOK[0m
+Checking normalization.h
+[92mOK[0m
+Checking hadamard_transform.h
+[92mOK[0m
+Checking fused_router.h
+[92mOK[0m
+Checking transpose.h
+[92mOK[0m
+Checking padding.h
+[92mOK[0m
+Checking multi_stream.h
+[92mOK[0m
+Checking cudnn.h
+[92mOK[0m
+Checking recipe.h
+[92mOK[0m
+Checking ep.h
+[92mOK[0m
+Checking comm_window.h
+[92mOK[0m
+Checking newton_schulz.h
+[92mOK[0m
+Checking comm_gemm.h
+[92mOK[0m
+Checking multi_tensor.h
+[92mOK[0m
+Checking fused_rope.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/include/transformer_engine/nvfp4
+Checking 4over6.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/gemm
+Checking cublaslt_grouped_gemm.cu
+[92mOK[0m
+Checking cutlass_grouped_gemm.cu
+[92mOK[0m
+Checking config.cpp
+[92mOK[0m
+Checking config.h
+[92mOK[0m
+Checking cublaslt_gemm.cu
+[92mOK[0m
+Checking cutlass_grouped_gemm.cuh
+[92mOK[0m
+Checking cublaslt_batched_gemm.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/activation
+Checking swiglu_grouped.cu
+[92mOK[0m
+Checking scaled_swiglu_grouped.cu
+[92mOK[0m
+Checking swiglu_grouped_dbias.cu
+[92mOK[0m
+Checking activation_template.h
+[92mOK[0m
+Checking glu.cu
+[92mOK[0m
+Checking scaled_activation.cu
+[92mOK[0m
+Checking relu_grouped_bwd.cu
+[92mOK[0m
+Checking swiglu_grouped_bwd.cu
+[92mOK[0m
+Checking gelu_dbias.cu
+[92mOK[0m
+Checking gelu.cu
+[92mOK[0m
+Checking relu_grouped.cu
+[92mOK[0m
+Checking scaled_srelu.cu
+[92mOK[0m
+Checking relu.cu
+[92mOK[0m
+Checking qgelu_grouped.cu
+[92mOK[0m
+Checking scaled_activation.h
+[92mOK[0m
+Checking relu_dbias.cu
+[92mOK[0m
+Checking swiglu.cu
+[92mOK[0m
+Checking relu_grouped_dbias.cu
+[92mOK[0m
+Checking qgelu_grouped_dbias.cu
+[92mOK[0m
+Checking gelu_grouped_bwd.cu
+[92mOK[0m
+Checking swiglu_dbias.cu
+[92mOK[0m
+Checking gelu_grouped.cu
+[92mOK[0m
+Checking scaled_swiglu.cu
+[92mOK[0m
+Checking scaled_clamped_swiglu_grouped.cu
+[92mOK[0m
+Checking srelu_grouped_bwd.cu
+[92mOK[0m
+Checking qgelu_grouped_bwd.cu
+[92mOK[0m
+Checking gelu_grouped_dbias.cu
+[92mOK[0m
+Checking srelu_grouped_dbias.cu
+[92mOK[0m
+Checking srelu_grouped.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/fused_rope
+Checking fused_mla_kv_rope_mxfp8.cu
+[92mOK[0m
+Checking fused_rope.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/transpose
+Checking quantize_transpose_vector_blockwise.cu
+[92mOK[0m
+Checking quantize_transpose_vector_blockwise_fp4.cu
+[92mOK[0m
+Checking cast_transpose.h
+[92mOK[0m
+Checking quantize_transpose_square_blockwise.cu
+[92mOK[0m
+Checking cast_transpose.cu
+[92mOK[0m
+Checking cast_transpose_fusion.cu
+[92mOK[0m
+Checking swap_first_dims.cu
+[92mOK[0m
+Checking transpose.cu
+[92mOK[0m
+Checking multi_cast_transpose.cu
+[92mOK[0m
+Checking transpose.h
+[92mOK[0m
+Checking transpose_fusion.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/transpose/rtc
+Checking cast_transpose.cu
+[92mOK[0m
+Checking cast_transpose_fusion.cu
+[92mOK[0m
+Checking swap_first_dims.cu
+[92mOK[0m
+Checking transpose.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/fused_router
+Checking utils.h
+[92mOK[0m
+Checking fused_topk_with_score_function.cu
+[92mOK[0m
+Checking fused_moe_aux_loss.cu
+[92mOK[0m
+Checking async_loader.h
+[92mOK[0m
+Checking fused_score_for_moe_aux_loss.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/comm_gemm_overlap
+Checking comm_gemm_overlap.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/comm_gemm_overlap/userbuffers
+Checking userbuffers.cu
+[92mOK[0m
+Checking ipcsocket.h
+[92mOK[0m
+Checking userbuffers-host.cpp
+[92mOK[0m
+Checking ipcsocket.cc
+[93mUnknown filetype[0m
+Checking userbuffers.h
+[92mOK[0m
+Entering /proof/TransformerEngine/transformer_engine/common/fused_softmax
+Checking scaled_upper_triang_masked_softmax.cu
+[92mOK[0m
+Checking scaled_aligned_causal_masked_softmax.cu
+[92mOK[0m
+Checking scaled_masked_softmax.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/qa
+Checking check_nccl_ep_headers.py
+[92mOK[0m
+Checking format.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_pytorch_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_pytorch_lint
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_pytorch_wheel
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L2_jax_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_cppunittest_cutedsl_off
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_pytorch_onnx_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_cppunittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_pytorch_distributed_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_jax_distributed_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_jax_distributed_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L3_pytorch_FA_versions_test
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_pytorch_mcore_integration
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_jax_wheel
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_jax_lint
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_pytorch_debug_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_pytorch_mcore_fsdp_integration
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_pytorch_hybrid_distributed_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L1_cpp_distributed
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_license
+Checking test.sh
+[92mOK[0m
+Checking copyright_checker.py
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L2_jax_distributed_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/qa/L0_jax_unittest
+Checking test.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/tests
+Entering /proof/TransformerEngine/tests/cpp
+Checking test_common.cu
+[92mOK[0m
+Checking test_common.h
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/cpp/operator
+Checking test_multi_cast_transpose.cu
+[92mOK[0m
+Checking test_requantize_mxfp8_grouped.cu
+[92mOK[0m
+Checking test_cast_current_scaling_grouped.cu
+[92mOK[0m
+Checking test_cast_dbias.cu
+[92mOK[0m
+Checking test_cast_dbias_dgelu.cu
+[92mOK[0m
+Checking test_swizzle.cu
+[92mOK[0m
+Checking test_gemm.cu
+[92mOK[0m
+Checking test_cast_mxfp8_grouped.cu
+[92mOK[0m
+Checking test_cast_float8blockwise.cu
+[92mOK[0m
+Checking test_swizzle_block_scaling.cu
+[92mOK[0m
+Checking test_act.cu
+[92mOK[0m
+Checking test_multi_padding.cu
+[92mOK[0m
+Checking test_grouped_gemm.cu
+[92mOK[0m
+Checking test_cast_transpose_current_scaling.cu
+[92mOK[0m
+Checking test_cast_mxfp8_gated_swiglu.cu
+[92mOK[0m
+Checking test_dequantize_mxfp8.cu
+[92mOK[0m
+Checking test_cast_transpose_dgeglu.cu
+[92mOK[0m
+Checking test_multi_swizzle.cu
+[92mOK[0m
+Checking test_cast_gated_swiglu.cu
+[92mOK[0m
+Checking test_cast_nvfp4_transpose.cu
+[92mOK[0m
+Checking test_cast_transpose_dbias_dgelu.cu
+[92mOK[0m
+Checking test_dequantize_nvfp4.cu
+[92mOK[0m
+Checking test_row_scaled_nvfp4_grouped_cast.cu
+[92mOK[0m
+Checking test_swap_first_dims.cu
+[92mOK[0m
+Checking test_row_scaled_nvfp4_grouped_amax.cu
+[92mOK[0m
+Checking test_normalization.cu
+[92mOK[0m
+Checking test_multi_unpadding.cu
+[92mOK[0m
+Checking test_memset.cu
+[92mOK[0m
+Checking test_cast_float8blockwise_grouped.cu
+[92mOK[0m
+Checking test_scaled_activation.cu
+[92mOK[0m
+Checking test_qdq.cu
+[92mOK[0m
+Checking test_fused_moe_aux_loss.cpp
+[92mOK[0m
+Checking test_cast_transpose_dbias.cu
+[92mOK[0m
+Checking test_dequantize_float8blockwise_grouped.cu
+[92mOK[0m
+Checking test_transpose.cu
+[92mOK[0m
+Checking test_cast_mxfp8_grouped_scaled_swiglu.cu
+[92mOK[0m
+Checking test_cast.cu
+[92mOK[0m
+Checking test_causal_softmax.cu
+[92mOK[0m
+Checking test_dequantize_mxfp8_grouped.cu
+[92mOK[0m
+Checking test_normalization.h
+[92mOK[0m
+Checking test_normalization_mxfp8.cu
+[92mOK[0m
+Checking test_softmax.cu
+[92mOK[0m
+Checking test_cast_current_scaling.cu
+[92mOK[0m
+Checking test_cast_mxfp8.cu
+[92mOK[0m
+Checking test_cast_transpose.cu
+[92mOK[0m
+Checking test_splits_to_offsets.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/cpp/util
+Checking test_string.cpp
+[92mOK[0m
+Checking test_nvrtc.cpp
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/cpp_distributed
+Checking test_ep_common.h
+[92mOK[0m
+Checking test_comm_gemm.cu
+[92mOK[0m
+Checking run_test_ep.sh
+[92mOK[0m
+Checking test_ep.cu
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/jax
+Checking test_mhc.py
+[92mOK[0m
+Checking test_te_ep_moe.py
+[92mOK[0m
+Checking test_distributed_layernorm_mlp.py
+[92mOK[0m
+Checking test_distributed_fused_attn.py
+[92mOK[0m
+Checking test_misc.py
+[92mOK[0m
+Checking test_fused_attn_score_mod.py
+[92mOK[0m
+Checking test_permutation.py
+[92mOK[0m
+Checking test_distributed_softmax.py
+[92mOK[0m
+Checking test_distributed_layernorm.py
+[92mOK[0m
+Checking test_softmax.py
+[92mOK[0m
+Checking test_gemm_partitioning.py
+[92mOK[0m
+Checking test_fused_attn.py
+[92mOK[0m
+Checking distributed_test_base.py
+[92mOK[0m
+Checking test_layer.py
+[92mOK[0m
+Checking conftest.py
+[92mOK[0m
+Checking pytest.ini
+[93mUnknown filetype[0m
+Checking test_triton_custom_calls.py
+[92mOK[0m
+Checking test_distributed_router.py
+[92mOK[0m
+Checking test_fused_router.py
+[92mOK[0m
+Checking test_distributed_permutation.py
+[92mOK[0m
+Checking run_te_ep_moe.sh
+[92mOK[0m
+Checking test_distributed_mhc.py
+[92mOK[0m
+Checking test_multi_process_distributed_grouped_gemm.py
+[92mOK[0m
+Checking test_functions.py
+[92mOK[0m
+Checking test_custom_call_compute.py
+[92mOK[0m
+Checking test_multi_process_ep.py
+[92mOK[0m
+Checking test_mxfp8_cutedsl_backend.py
+[92mOK[0m
+Checking test_recipe_characteristics.py
+[92mOK[0m
+Checking test_distributed_helper.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Checking multi_process_launch.sh
+[92mOK[0m
+Checking test_sanity_import.py
+[92mOK[0m
+Checking multi_process_launch_ep.sh
+[92mOK[0m
+Checking test_distributed_dense.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/jax/moe
+Checking test_moe_fsdp_layout.py
+[92mOK[0m
+Checking test_moe_resource_api.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch
+Checking test_float8blockwisetensor.py
+[92mOK[0m
+Checking test_mhc.py
+[92mOK[0m
+Checking test_cpu_offloading.py
+[92mOK[0m
+Checking test_hf_integration.py
+[92mOK[0m
+Checking test_jit.py
+[92mOK[0m
+Checking test_torch_compile.py
+[92mOK[0m
+Checking test_cpu_offloading_v1.py
+[92mOK[0m
+Checking test_permutation.py
+[92mOK[0m
+Checking test_multi_tensor.py
+[92mOK[0m
+Checking test_strided_batched_gemm.py
+[92mOK[0m
+Checking test_module_grouped_linear_distributed_weight.py
+[92mOK[0m
+Checking test_fused_router_perf.py
+[92mOK[0m
+Checking test_float8_blockwise_scaling_exact.py
+[92mOK[0m
+Checking test_partial_cast.py
+[92mOK[0m
+Checking test_ops_grouped_linear_distributed_weight.py
+[92mOK[0m
+Checking test_gqa.py
+[92mOK[0m
+Checking test_optional_flash_attn_import.py
+[92mOK[0m
+Checking test_identity_quantizer.py
+[92mOK[0m
+Checking test_batched_linear.py
+[92mOK[0m
+Checking test_fused_rope.py
+[92mOK[0m
+Checking test_custom_recipe.py
+[92mOK[0m
+Checking hybrid_quantization_utils.py
+[92mOK[0m
+Checking test_mxfp8_2d_quantize.py
+[92mOK[0m
+Checking test_grouped_linear.py
+[92mOK[0m
+Checking test_hybrid_quantization.py
+[92mOK[0m
+Checking test_hybrid_quantization_fsdp2.py
+[92mOK[0m
+Checking test_nccl_ep_discovery.py
+[92mOK[0m
+Checking test_fused_router.py
+[92mOK[0m
+Checking test_distributed_weight.py
+[92mOK[0m
+Checking test_grouped_tensor.py
+[92mOK[0m
+Checking test_cuda_graphs.py
+[92mOK[0m
+Checking test_backward_override.py
+[92mOK[0m
+Checking test_cross_entropy.py
+[92mOK[0m
+Checking test_onnx_export.py
+[92mOK[0m
+Checking test_checkpoint.py
+[92mOK[0m
+Checking test_recipe.py
+[92mOK[0m
+Checking test_weight_swizzle_in_layers.py
+[92mOK[0m
+Checking test_sanity.py
+[92mOK[0m
+Checking test_float8_current_scaling_exact.py
+[92mOK[0m
+Checking test_grouped_mlp.py
+[92mOK[0m
+Checking test_deferred_init.py
+[92mOK[0m
+Checking test_tied_delayed_wgrad.py
+[92mOK[0m
+Checking test_fused_optimizer.py
+[92mOK[0m
+Checking test_quantized_tensor.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Checking test_fusible_ops.py
+[92mOK[0m
+Checking test_sanity_import.py
+[92mOK[0m
+Checking test_float8_blockwise_gemm_exact.py
+[92mOK[0m
+Checking test_qk_norm.py
+[92mOK[0m
+Checking test_numerics.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/distributed
+Checking test_parallel_cross_entropy.py
+[92mOK[0m
+Checking test_comm_gemm_overlap.py
+[92mOK[0m
+Checking ep_reference.py
+[92mOK[0m
+Checking run_test_ep.sh
+[92mOK[0m
+Checking test_hybrid_tp_sp.py
+[92mOK[0m
+Checking test_symmetric_memory.py
+[92mOK[0m
+Checking test_torch_fsdp2.py
+[92mOK[0m
+Checking test_newton_schulz.py
+[92mOK[0m
+Checking run_newton_schulz.py
+[92mOK[0m
+Checking run_gemm_with_overlap.py
+[92mOK[0m
+Checking run_layer_with_overlap.py
+[92mOK[0m
+Checking run_hybrid_tp_sp.py
+[92mOK[0m
+Checking run_ep.py
+[92mOK[0m
+Checking test_cast_master_weights_to_fp8.py
+[92mOK[0m
+Checking test_sanity.py
+[92mOK[0m
+Checking run_numerics_exact.py
+[92mOK[0m
+Checking run_numerics.py
+[92mOK[0m
+Checking test_fusible_ops.py
+[92mOK[0m
+Checking test_ep.py
+[92mOK[0m
+Checking test_fusible_ops_with_userbuffers.py
+[92mOK[0m
+Checking test_numerics_exact.py
+[92mOK[0m
+Checking test_numerics.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/distributed/fsdp2_tests
+Checking run_fsdp2_mem_leak.py
+[92mOK[0m
+Checking run_fsdp2_fused_adam.py
+[92mOK[0m
+Checking conftest.py
+[92mOK[0m
+Checking run_fsdp2_model.py
+[92mOK[0m
+Checking fsdp2_utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/debug
+Checking test_api_features.py
+[92mOK[0m
+Checking test_log.py
+[92mOK[0m
+Checking test_perf.py
+[92mOK[0m
+Checking conftest.py
+[92mOK[0m
+Checking test_distributed.py
+[92mOK[0m
+Checking run_distributed.py
+[92mOK[0m
+Checking test_sanity.py
+[92mOK[0m
+Checking test_config.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Checking test_numerics.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/debug/test_configs
+Checking dummy_feature.yaml
+[93mUnknown filetype[0m
+Checking test_switch_to_nondebug_mode.yaml
+[93mUnknown filetype[0m
+Checking stats_collection_test_config.yaml
+[93mUnknown filetype[0m
+Checking disable_fp8_layer.yaml
+[93mUnknown filetype[0m
+Checking per_tensor_scaling.yaml
+[93mUnknown filetype[0m
+Checking disable_fp8_gemms.yaml
+[93mUnknown filetype[0m
+Checking tensor_manipulation_transformer_engine.yaml
+[93mUnknown filetype[0m
+Checking fake_quantization_config.yaml
+[93mUnknown filetype[0m
+Checking log_config.yaml
+[93mUnknown filetype[0m
+Checking perf_config.yaml
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/tests/pytorch/nvfp4
+Checking test_nvfp4_rng_lifetime.py
+[92mOK[0m
+Checking test_nvfp4_rht_quantize_exact.py
+[92mOK[0m
+Checking test_nvfp4_gemm_exact.py
+[92mOK[0m
+Checking test_nvfp4_rht_quantize_swizzle_fusion.py
+[92mOK[0m
+Checking nvfp4_utils.py
+[92mOK[0m
+Checking test_nvfp4_group_quantize.py
+[92mOK[0m
+Checking test_nvfp4_quantize_exact.py
+[92mOK[0m
+Checking test_nvfp4_group_quantize_graph_safe.py
+[92mOK[0m
+Checking test_nvfp4_group_row_scaled_quantize.py
+[92mOK[0m
+Checking test_nvfp4_weight_swizzle_cache.py
+[92mOK[0m
+Checking test_nvfp4_sr_quantize.py
+[92mOK[0m
+Checking test_nvfp4_rht_sm12x.py
+[92mOK[0m
+Checking test_nvfp4_module_exact.py
+[92mOK[0m
+Checking test_nvfp4_2d_quantize_swizzle_fusion.py
+[92mOK[0m
+Checking test_nvfp4_fsdp2_hooks.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/attention
+Checking test_gdn2_attention.py
+[92mOK[0m
+Checking test_flex_attention.py
+[92mOK[0m
+Checking test_kv_cache.py
+[92mOK[0m
+Checking test_attention.py
+[92mOK[0m
+Checking test_attention_with_cp.py
+[92mOK[0m
+Checking test_gdn_attention.py
+[92mOK[0m
+Checking test_mixed_thd_attention.py
+[92mOK[0m
+Checking test_linear_mxfp8_attention.py
+[92mOK[0m
+Checking test_cp_utils.py
+[92mOK[0m
+Checking mla_rope_utils.py
+[92mOK[0m
+Checking test_gdp_attention.py
+[92mOK[0m
+Checking test_attention_backend_selection.py
+[92mOK[0m
+Checking run_attention_with_cp.py
+[92mOK[0m
+Checking run_graph_cache.py
+[92mOK[0m
+Checking test_kda_attention.py
+[92mOK[0m
+Checking test_fused_mla.py
+[92mOK[0m
+Checking run_attention_with_cp_pool.py
+[92mOK[0m
+Checking test_cu_seqlens_cache.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/layernorm_mlp
+Checking test_selective_activation_checkpoint.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/references
+Checking quantize_scale_calc.py
+[92mOK[0m
+Checking blockwise_quantizer_reference.py
+[92mOK[0m
+Checking ref_per_tensor_cs.py
+[92mOK[0m
+Checking blockwise_fp8_gemm_reference.py
+[92mOK[0m
+Entering /proof/TransformerEngine/tests/pytorch/mxfp8
+Checking mxfp8_utils.py
+[92mOK[0m
+Checking test_mxfp8_master_weight_empty_shard.py
+[92mOK[0m
+Checking test_mxfp8_rmsnorm_fwd.py
+[92mOK[0m
+Checking test_mxfp8_quantize_swizzle_fusion.py
+[92mOK[0m
+Checking test_mxfp8_dequantize_extreme_scales.py
+[92mOK[0m
+Checking test_mxfp8_requantize_cutedsl.py
+[92mOK[0m
+Checking test_mxfp8_group_quantize_graph_safe.py
+[92mOK[0m
+Checking test_mxfp8_cutedsl_backend.py
+[92mOK[0m
+Entering /proof/TransformerEngine/benchmarks
+Checking benchmark_parallel_cross_entropy.py
+[92mOK[0m
+Checking benchmark_rht_cast_swizzle_fusion.py
+[92mOK[0m
+Checking benchmark_group_scaled_swiglu.py
+[92mOK[0m
+Checking benchmark_group_quantize_current_scaling.py
+[92mOK[0m
+Checking profile_rht_cast_swizzle_fusion.py
+[92mOK[0m
+Checking benchmark_rht_cast.py
+[92mOK[0m
+Entering /proof/TransformerEngine/benchmarks/linear
+Checking benchmark_linear.py
+[92mOK[0m
+Checking benchmark_grouped_linear_cublas_grouped_gemm.py
+[92mOK[0m
+Checking benchmark_graph_safe_grouped_mlp.py
+[92mOK[0m
+Checking benchmark_grouped_gemm_kernels.py
+[92mOK[0m
+Checking benchmark_grouped_linear.py
+[92mOK[0m
+Entering /proof/TransformerEngine/benchmarks/gemm
+Checking benchmark_gemm.py
+[92mOK[0m
+Entering /proof/TransformerEngine/benchmarks/attention
+Checking benchmark_attention.py
+[92mOK[0m
+Entering /proof/TransformerEngine/build_tools
+Checking build_ext.py
+[92mOK[0m
+Checking te_version.py
+[92mOK[0m
+Checking jax.py
+[92mOK[0m
+Checking __init__.py
+[92mOK[0m
+Checking pytorch.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/build_tools/wheel_utils
+Checking Dockerfile.aarch
+[93mUnknown filetype[0m
+Checking launch_x86.sh
+[92mOK[0m
+Checking launch_aarch.sh
+[92mOK[0m
+Checking Dockerfile.x86
+[93mUnknown filetype[0m
+Checking build_wheels.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/docs
+Checking resources.rst
+[92mOK[0m
+Checking support_matrix.rst
+[92mOK[0m
+Checking troubleshooting.rst
+[92mOK[0m
+Checking index.rst
+[92mOK[0m
+Checking envvars.rst
+[92mOK[0m
+Checking documentation-archive.rst
+[92mOK[0m
+Checking debug.rst
+[92mOK[0m
+Checking installation.rst
+[92mOK[0m
+Checking project_updates.rst
+[92mOK[0m
+Checking conf.py
+[92mOK[0m
+Checking ecosystem.rst
+[92mOK[0m
+Checking faq.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/getting_started
+Checking getting_started_jax.out
+[93mUnknown filetype[0m
+Checking index.rst
+[92mOK[0m
+Checking transformer_layer.svg
+[93mUnknown filetype[0m
+Checking getting_started_utils_jax.py
+[92mOK[0m
+Checking getting_started_utils_pytorch.py
+[92mOK[0m
+Checking getting_started_jax_summary.csv
+[93mUnknown filetype[0m
+Checking getting_started_pytorch.py
+[92mOK[0m
+Checking getting_started_jax.py
+[92mOK[0m
+Checking getting_started_pytorch.out
+[93mUnknown filetype[0m
+Checking getting_started_pytorch_summary.csv
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/_static
+Checking nvidia-logo-horiz-rgb-blk-for-screen.svg
+[93mUnknown filetype[0m
+Checking nvidia-logo-horiz-rgb-1c-wht-for-screen.svg
+[93mUnknown filetype[0m
+Checking nvidia-logo-horiz-rgb-1c-blk-for-screen.svg
+[93mUnknown filetype[0m
+Checking nvidia-logo-horiz-rgb-wht-for-screen.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/_static/css
+Checking svg-responsive.css
+[93mUnknown filetype[0m
+Checking output-style.css
+[93mUnknown filetype[0m
+Checking sphinx_tabs.css
+[93mUnknown filetype[0m
+Checking diagram-colors.css
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/debug
+Checking 4_distributed.rst
+[92mOK[0m
+Checking 3_api_features.rst
+[92mOK[0m
+Checking 1_getting_started.rst
+[92mOK[0m
+Checking 3_api_debug_setup.rst
+[92mOK[0m
+Checking 3_api_te_calls.rst
+[92mOK[0m
+Checking 2_config_file_structure.rst
+[92mOK[0m
+Checking api.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/debug/custom_feature_dir
+Checking custom_feature_example_config.yaml
+[93mUnknown filetype[0m
+Checking percentage_greater_than_threshold.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/debug/img
+Checking names.svg
+[93mUnknown filetype[0m
+Checking pipeline_logging.svg
+[93mUnknown filetype[0m
+Checking reduction2.svg
+[93mUnknown filetype[0m
+Checking scaling_factors.svg
+[93mUnknown filetype[0m
+Checking introduction.svg
+[93mUnknown filetype[0m
+Checking fake_quant.svg
+[93mUnknown filetype[0m
+Checking api_calls1.svg
+[93mUnknown filetype[0m
+Checking reduction3.svg
+[93mUnknown filetype[0m
+Checking reduction1.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/api
+Checking framework.rst
+[92mOK[0m
+Checking common.rst
+[92mOK[0m
+Checking pytorch.rst
+[92mOK[0m
+Checking jax.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/api/c
+Checking cast.rst
+[92mOK[0m
+Checking cast_transpose_noop.rst
+[92mOK[0m
+Checking fused_rope.rst
+[92mOK[0m
+Checking transformer_engine.rst
+[92mOK[0m
+Checking softmax.rst
+[92mOK[0m
+Checking index.rst
+[92mOK[0m
+Checking padding.rst
+[92mOK[0m
+Checking gemm.rst
+[92mOK[0m
+Checking recipe.rst
+[92mOK[0m
+Checking swizzle.rst
+[92mOK[0m
+Checking normalization.rst
+[92mOK[0m
+Checking fused_attn.rst
+[92mOK[0m
+Checking cudnn.rst
+[92mOK[0m
+Checking permutation.rst
+[92mOK[0m
+Checking activation.rst
+[92mOK[0m
+Checking transpose.rst
+[92mOK[0m
+Checking multi_tensor.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples
+Checking comparison-fp8-bf16-training-nvidia-dgx-cloud-benchmarking-performance-explorer.jpg
+[93mUnknown filetype[0m
+Checking te_jax_integration.rst
+[92mOK[0m
+Checking quickstart_utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/gemm_profiling
+Checking gemm_profiling.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/gemm_profiling/img
+Entering /proof/TransformerEngine/docs/examples/op_fuser
+Checking op_fuser.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/fine_grained_quantization
+Checking pytorch_fine_grained_quantization_example.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/te_gemma
+Checking te_gemma_loading_weights.py
+[92mOK[0m
+Checking te_gemma.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/te_gemma/media
+Checking fp8_model_init.svg
+[93mUnknown filetype[0m
+Checking calibration_2_half.svg
+[93mUnknown filetype[0m
+Checking fp8_model_init_2_half.svg
+[93mUnknown filetype[0m
+Checking graphs.svg
+[93mUnknown filetype[0m
+Checking calibration_1_half.svg
+[93mUnknown filetype[0m
+Checking calibration.svg
+[93mUnknown filetype[0m
+Checking fp8_model_init_1_half.svg
+[93mUnknown filetype[0m
+Checking generation_animation.gif
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/examples/attention
+Checking arbitrary_mask_to_post_scale_bias.py
+[92mOK[0m
+Checking example_attention.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/jax
+Checking quickstart_jax_utils.py
+[92mOK[0m
+Checking test_attention.py
+[92mOK[0m
+Checking attention_context_parallel.rst
+[92mOK[0m
+Checking attention.py
+[92mOK[0m
+Checking test_dense.py
+[92mOK[0m
+Checking attention_context_parallel.out
+[93mUnknown filetype[0m
+Checking dense.py
+[92mOK[0m
+Checking attention_single_gpu.rst
+[92mOK[0m
+Checking collective_gemm.rst
+[92mOK[0m
+Checking attention_context_parallel.py
+[92mOK[0m
+Checking dense.rst
+[92mOK[0m
+Checking attention.out
+[93mUnknown filetype[0m
+Checking expert_parallelism.rst
+[92mOK[0m
+Checking attention.rst
+[92mOK[0m
+Checking dense.out
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/examples/te_mixtral
+Checking run_finetune_ep.py
+[92mOK[0m
+Checking hf_to_te_weights.py
+[92mOK[0m
+Checking collator.py
+[92mOK[0m
+Checking te_moe_dispatch.py
+[92mOK[0m
+Checking te_mixtral.py
+[92mOK[0m
+Checking te_mixtral_mxfp8.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Checking test_accuracy.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/te_mixtral/media
+Checking dense_to_sparse.svg
+[93mUnknown filetype[0m
+Checking fused_mlp_path.svg
+[93mUnknown filetype[0m
+Checking mixtral_decoder_swap.svg
+[93mUnknown filetype[0m
+Checking mixtral_decoder_swap.drawio
+[93mUnknown filetype[0m
+Checking moe_loop_vs_grouped.svg
+[93mUnknown filetype[0m
+Checking moe_loop_vs_grouped.drawio
+[93mUnknown filetype[0m
+Checking dense_to_sparse.drawio
+[93mUnknown filetype[0m
+Checking fused_mlp_path.drawio
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/examples/te_llama
+Checking te_llama.py
+[92mOK[0m
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/examples/te_llama/media
+Checking llama_zoom.svg
+[93mUnknown filetype[0m
+Checking tellamadecoderlayer.svg
+[93mUnknown filetype[0m
+Checking llamadecoderlayer.svg
+[93mUnknown filetype[0m
+Checking swiglu.svg
+[93mUnknown filetype[0m
+Checking model_change.svg
+[93mUnknown filetype[0m
+Checking weight_swap.svg
+[93mUnknown filetype[0m
+Checking swiglu_te.svg
+[93mUnknown filetype[0m
+Checking llama_for_causal_lm.svg
+[93mUnknown filetype[0m
+Checking transformer_vs_llama.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/examples/onnx
+Checking utils.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features
+Entering /proof/TransformerEngine/docs/features/mixture_of_experts
+Checking router_jax.py
+[92mOK[0m
+Checking router_pytorch.py
+[92mOK[0m
+Checking mixture_of_experts.rst
+[92mOK[0m
+Checking moe_unpermute_pytorch.py
+[92mOK[0m
+Checking grouped_mlp_pytorch.py
+[92mOK[0m
+Checking grouped_linear_pytorch.py
+[92mOK[0m
+Checking moe_expert_parallel_jax.py
+[92mOK[0m
+Checking moe_permute_pytorch.py
+[92mOK[0m
+Checking moe_layer_pytorch.py
+[92mOK[0m
+Checking grouped_linear_jax.py
+[92mOK[0m
+Checking moe_expert_parallel_pytorch.py
+[92mOK[0m
+Checking moe_permute_pad_pytorch.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/mixture_of_experts/img
+Checking moe_layer_ep.svg
+[93mUnknown filetype[0m
+Checking grouped_linear.svg
+[93mUnknown filetype[0m
+Checking moe_expert_placement.svg
+[93mUnknown filetype[0m
+Checking moe_grouped_mlp.svg
+[93mUnknown filetype[0m
+Checking moe_router.svg
+[93mUnknown filetype[0m
+Checking moe_unpermute.svg
+[93mUnknown filetype[0m
+Checking moe_ep_one_step.svg
+[93mUnknown filetype[0m
+Checking moe_padding.svg
+[93mUnknown filetype[0m
+Checking moe_permute.svg
+[93mUnknown filetype[0m
+Checking moe_expert_parallel.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training
+Checking index.rst
+[92mOK[0m
+Checking speedups.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/gemm_profiling
+Entering /proof/TransformerEngine/docs/features/low_precision_training/gemm_profiling/img
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fp8_blockwise_scaling
+Checking pytorch_blockwise_scaling_example.py
+[92mOK[0m
+Checking fp8_blockwise_scaling.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fp8_blockwise_scaling/img
+Checking combined_scaling.svg
+[93mUnknown filetype[0m
+Checking blockwise_swizzle_flow.svg
+[93mUnknown filetype[0m
+Checking transpose_handling.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fine_grained_quantization
+Checking fine_grained_quantization.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fine_grained_quantization/img
+Checking hybrid_columnwise_source.svg
+[93mUnknown filetype[0m
+Checking hybrid_quantizer.svg
+[93mUnknown filetype[0m
+Checking fine_grained_assignments.svg
+[93mUnknown filetype[0m
+Checking fine_grained_linear_mapping.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/nvfp4
+Checking jax_nvfp4_example.py
+[92mOK[0m
+Checking nvfp4.rst
+[92mOK[0m
+Checking pytorch_nvfp4_example.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/nvfp4/img
+Checking nvfp4_row_col.svg
+[93mUnknown filetype[0m
+Checking nvfp4_hierarchical_scaling.svg
+[93mUnknown filetype[0m
+Checking rht.svg
+[93mUnknown filetype[0m
+Checking stochastic_rounding.svg
+[93mUnknown filetype[0m
+Checking nvfp4_vs_fp8.svg
+[93mUnknown filetype[0m
+Checking nvfp4_all_gather.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/introduction
+Checking bf16_fp16_training_jax.py
+[92mOK[0m
+Checking introduction.rst
+[92mOK[0m
+Checking autocast_jax.py
+[92mOK[0m
+Checking autocast_pytorch.py
+[92mOK[0m
+Checking bf16_fp16_training_pytorch.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/introduction/img
+Checking fp8_linear_flow.svg
+[93mUnknown filetype[0m
+Checking fp_formats_comparison.svg
+[93mUnknown filetype[0m
+Checking mixed_precision_operations.svg
+[93mUnknown filetype[0m
+Checking master_weights_approaches.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/performance_considerations
+Checking save_original_input_pytorch.py
+[92mOK[0m
+Checking memory_usage_3_pytorch.out
+[93mUnknown filetype[0m
+Checking memory_usage_2_jax.out
+[93mUnknown filetype[0m
+Checking fused_layers_pytorch.py
+[92mOK[0m
+Checking memory_usage_2_pytorch.py
+[92mOK[0m
+Checking memory_usage_2_jax.py
+[92mOK[0m
+Checking memory_usage_1_pytorch.py
+[92mOK[0m
+Checking memory_usage_1_jax.py
+[92mOK[0m
+Checking memory_usage_3_pytorch.py
+[92mOK[0m
+Checking memory_usage_1_jax.out
+[93mUnknown filetype[0m
+Checking memory_usage_2_pytorch.out
+[93mUnknown filetype[0m
+Checking memory_usage_1_pytorch.out
+[93mUnknown filetype[0m
+Checking save_original_input_pytorch.out
+[93mUnknown filetype[0m
+Checking performance_considerations.rst
+[92mOK[0m
+Checking fused_layers_jax.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/performance_considerations/img
+Checking hopper_vs_blackwell_layout.svg
+[93mUnknown filetype[0m
+Checking gemm_access_pattern.svg
+[93mUnknown filetype[0m
+Checking sequence_parallel_quantization.svg
+[93mUnknown filetype[0m
+Checking transpose_fusion.svg
+[93mUnknown filetype[0m
+Checking fused_layers.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fp8_delayed_scaling
+Checking pytorch_delayed_scaling_example.py
+[92mOK[0m
+Checking pytorch_delayed_scaling_distributed_example.py
+[92mOK[0m
+Checking jax_delayed_scaling_distributed_example.py
+[92mOK[0m
+Checking fp8_delayed_scaling.rst
+[92mOK[0m
+Checking jax_delayed_scaling_example.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fp8_delayed_scaling/img
+Checking scaling_comparison.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/mxfp8
+Checking pytorch_mxfp8_example.py
+[92mOK[0m
+Checking jax_mxfp8_example.py
+[92mOK[0m
+Checking mxfp8.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/mxfp8/img
+Checking mxfp8_swizzle_both_tensors.svg
+[93mUnknown filetype[0m
+Checking mxfp8_scale_linearize_and_swizzle.svg
+[93mUnknown filetype[0m
+Checking mxfp8_row_col.svg
+[93mUnknown filetype[0m
+Checking fp8_1d_scaling.svg
+[93mUnknown filetype[0m
+Checking mxfp8_tensor_scaling_layout.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fp8_current_scaling
+Checking pytorch_current_scaling_example.py
+[92mOK[0m
+Checking fp8_current_scaling.rst
+[92mOK[0m
+Checking jax_current_scaling_example.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/low_precision_training/fp8_current_scaling/img
+Checking fp8_cast_process.svg
+[93mUnknown filetype[0m
+Checking fp8_scaling_concept.svg
+[93mUnknown filetype[0m
+Checking fp8_current_scaling_all_gather.svg
+[93mUnknown filetype[0m
+Checking fp8_formats.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/docs/features/other_optimizations
+Checking index.rst
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/other_optimizations/cpu_offloading
+Checking pytorch_cuda_graphs_example.py
+[92mOK[0m
+Checking cpu_offloading.rst
+[92mOK[0m
+Checking pytorch_basic_offload_example.py
+[92mOK[0m
+Checking pytorch_manual_offload_example.py
+[92mOK[0m
+Entering /proof/TransformerEngine/docs/features/other_optimizations/cpu_offloading/img
+Checking layer_sequence.svg
+[93mUnknown filetype[0m
+Checking scheduling.svg
+[93mUnknown filetype[0m
+Checking pcie_vs_nvlink.svg
+[93mUnknown filetype[0m
+Checking scheduling_stall.svg
+[93mUnknown filetype[0m
+Entering /proof/TransformerEngine/examples
+Entering /proof/TransformerEngine/examples/jax
+Entering /proof/TransformerEngine/examples/jax/mnist
+Checking test_single_gpu_mnist.py
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/jax/encoder
+Checking test_single_gpu_encoder.py
+[92mOK[0m
+Checking common.py
+[92mOK[0m
+Checking run_test_multiprocessing_encoder.sh
+[92mOK[0m
+Checking test_multiprocessing_encoder.py
+[92mOK[0m
+Checking conftest.py
+[92mOK[0m
+Checking test_model_parallel_encoder.py
+[92mOK[0m
+Checking test_multigpu_encoder.py
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/jax/ep
+Checking ep_moe.py
+[92mOK[0m
+Checking run_test_ep.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/jax/ep/bench
+Checking ep_bench.py
+[92mOK[0m
+Checking run_ep_bench.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/jax/collective_gemm
+Checking common.py
+[92mOK[0m
+Checking test_dense_grad.py
+[92mOK[0m
+Checking test_gemm.py
+[92mOK[0m
+Checking run_test_cgemm.sh
+[92mOK[0m
+Checking conftest.py
+[92mOK[0m
+Checking test_layernorm_mlp_grad.py
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/pytorch
+Entering /proof/TransformerEngine/examples/pytorch/mnist
+Checking main.py
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/pytorch/quantized_model_init
+Checking fully_shard.py
+[92mOK[0m
+Checking main.py
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/pytorch/ep
+Checking ep_moe.py
+[92mOK[0m
+Checking run_test_ep.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/pytorch/ep/bench
+Checking run_nccl_ep_bench.sh
+[92mOK[0m
+Checking ep_bench.py
+[92mOK[0m
+Checking run_ep_bench.sh
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/pytorch/fsdp
+Checking fsdp.py
+[92mOK[0m
+Entering /proof/TransformerEngine/examples/pytorch/comm_gemm_overlap
+Checking te_layer_with_overlap.py
+[92mOK[0m

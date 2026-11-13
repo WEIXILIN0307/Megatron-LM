@@ -1,0 +1,33 @@
+{
+  "Megatron_composition": "a8a842466016426769ca479eac22a6354e4668a4",
+  "PR_9112_head": "26714de5265eb2ac593dc66f17f3f02062058359",
+  "gpu": "RTX A6000 48 GiB",
+  "steady_gpu_indices": [
+    0,
+    1,
+    2
+  ],
+  "four_rank_trace_gpu_indices": [
+    0,
+    1,
+    2,
+    7
+  ],
+  "shared_trace_gpu": 7,
+  "driver": "580.178.04",
+  "torch": "2.11.0+cu130",
+  "CUDA": "13.0",
+  "TE": "2.20.2",
+  "stock_TE_graph_sha256": "8f795d0be87618100ab5b3c6bbb9d11bb1958c3428807ec656b62da5c89209b6",
+  "NCCL": [
+    2,
+    28,
+    9
+  ],
+  "cuDNN_runtime_integer": 91900,
+  "Nsight_Systems": "2025.3.2",
+  "TE_fix_commit": "0eb9c38ba05932a6db5bafb6fbc4fa50661fee8e",
+  "TE_base": "464df759d5a4ed549f2ce99b58fe653178a252f5",
+  "TE_native_rebuilt": false,
+  "TE_fix_validation": "Upstream Python graph.py overlay with installed 2.20.2 native extension; isolated equivalent release overlay also tested. Final upstream commit adds only public documentation after the tested logic."
+}

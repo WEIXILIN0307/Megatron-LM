@@ -1,0 +1,17 @@
+WARNING: one_logger package is required to enable e2e metrics tracking. please go to https://confluence.nvidia.com/display/MLWFO/Package+Repositories for details to install it
+WARNING:megatron.training.kernel_warmup:This PyTorch build lacks empty_host_cache; pinned cache may remain
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    startup-program-entry-spread ...................: (473.15, 473.15)
+    startup-library-setup ..........................: (15.78, 16.61)
+    startup-program-setup ..........................: (515.98, 571.01)
+    startup-in-process-setup .......................: (0.15, 0.17)
+    startup-in-job-setup ...........................: (0.18, 0.19)
+    startup-initialize-megatron ....................: (667.40, 1086.34)
+    startup-set-jit-fusion-options .................: (5284.95, 5696.63)
+    all-reduce-start-timestamps-tensor .............: (1.00, 412.76)
+    startup-megatron-init-local ....................: (6365.38, 6784.37)
+    startup-megatron-init-global ...................: (7371.12, 7371.16)
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (874.33, 967.51)
+    train/valid/test-data-iterators-setup ..........: (102.79, 103.28)
+ [2026-11-13 05:07:13.477217] iteration        1/      45 | consumed samples:            4 | elapsed time per iteration (ms): 8839.5 | learning rate: 5.000000E-05 | global batch size:     4 | lm loss: 1.126775E+01 | load_balancing_loss: 1.480239E+00 | loss scale: 1.0 | grad norm: 29.211 | num zeros: 0 | params norm: 673.618 | number of skipped iterations:   0 | number of nan iterations:   0 |

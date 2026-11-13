@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T03:55:22.483239+00:00",
+  "end_utc": "2026-11-13T03:56:29.394678+00:00",
+  "options": {
+    "name": "capacity-graph-ready",
+    "mode": "graph",
+    "gpus": "0,1,2",
+    "ep": 1,
+    "steps": 8,
+    "first": 6,
+    "last": 8,
+    "trace": false
+  }
+}

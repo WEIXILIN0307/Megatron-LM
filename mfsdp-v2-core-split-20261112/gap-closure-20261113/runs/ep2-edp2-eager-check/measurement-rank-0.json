@@ -1,0 +1,88 @@
+{
+  "rank": 0,
+  "mode": "eager",
+  "free_bytes_at_start": 50592546816,
+  "allocator_budget_bytes": 46297579520,
+  "capture": [],
+  "steps": [
+    {
+      "step": 1,
+      "skipped": 0
+    },
+    {
+      "step": 2,
+      "skipped": 0
+    },
+    {
+      "step": 3,
+      "skipped": 0
+    },
+    {
+      "step": 4,
+      "skipped": 0
+    },
+    {
+      "step": 5,
+      "skipped": 0
+    },
+    {
+      "step": 6,
+      "skipped": 0
+    },
+    {
+      "step": 7,
+      "skipped": 0
+    },
+    {
+      "step": 8,
+      "skipped": 0
+    }
+  ],
+  "serialized_gather_boundaries": 0,
+  "serialized_reduction_boundaries": 0,
+  "measure_active": false,
+  "window": {
+    "first": 6,
+    "last": 8,
+    "steps": 3,
+    "seconds": 14.26339118881151,
+    "memory": {
+      "allocated": 9476969472,
+      "reserved": 15961423872,
+      "peak_allocated": 13993932800,
+      "peak_reserved": 15961423872
+    }
+  },
+  "end_memory": {
+    "allocated": 9476967936,
+    "reserved": 15961423872,
+    "peak_allocated": 13993932800,
+    "peak_reserved": 15961423872
+  },
+  "losses": [
+    {
+      "lm loss": 11.235529899597168
+    },
+    {
+      "lm loss": 11.248062133789062
+    },
+    {
+      "lm loss": 10.360843658447266
+    },
+    {
+      "lm loss": 12.186090469360352
+    },
+    {
+      "lm loss": 11.081701278686523
+    },
+    {
+      "lm loss": 10.434532165527344
+    },
+    {
+      "lm loss": 10.018502235412598
+    },
+    {
+      "lm loss": 9.92434024810791
+    }
+  ]
+}

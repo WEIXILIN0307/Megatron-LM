@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T05:44:17.092468+00:00",
+  "end_utc": "2026-11-13T05:46:49.747843+00:00",
+  "options": {
+    "name": "steady-empty-stream-control",
+    "mode": "empty-stream",
+    "gpus": "0,1,2",
+    "ep": 1,
+    "steps": 45,
+    "first": 16,
+    "last": 45,
+    "trace": false,
+    "state_digests": false,
+    "cuda_event_trace": "true",
+    "capture_provenance": false
+  }
+}

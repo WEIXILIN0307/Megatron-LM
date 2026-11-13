@@ -1,0 +1,27 @@
+[
+  {
+    "run": "trace-ep1-edp3-empty-stream",
+    "all_analysis_fields_equal": true,
+    "ranks": 3
+  },
+  {
+    "run": "trace-ep1-edp3-natural",
+    "all_analysis_fields_equal": true,
+    "ranks": 3
+  },
+  {
+    "run": "trace-ep1-edp3-serialized",
+    "all_analysis_fields_equal": true,
+    "ranks": 3
+  },
+  {
+    "run": "trace-ep2-edp2-events",
+    "all_analysis_fields_equal": true,
+    "ranks": 4
+  },
+  {
+    "run": "trace-ep2-edp2-natural",
+    "all_analysis_fields_equal": true,
+    "ranks": 4
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "file": "trace-rank-0.sqlite.gz",
+    "bytes": 902296,
+    "sha256": "16a829d4cceb5a2f36b8b4b6587210c91ba93ce4a6262070b48e0fd1f48673f7",
+    "rows": {
+      "NVTX_EVENTS": 4693,
+      "CUPTI_ACTIVITY_KIND_RUNTIME": 27301,
+      "CUPTI_ACTIVITY_KIND_CUDA_EVENT": 3236,
+      "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": 5728,
+      "CUPTI_ACTIVITY_KIND_KERNEL": 12046,
+      "StringIds": 363
+    },
+    "original_sha256": "721c2a4961ee504b99a7a766308059b34a999b44fe8349b79ad0bd49d3dfd845"
+  },
+  {
+    "file": "trace-rank-1.sqlite.gz",
+    "bytes": 910968,
+    "sha256": "d01f77d438bac2a28aada3d1327b2982a312a6d909df2fc2113c6bf8036bc739",
+    "rows": {
+      "NVTX_EVENTS": 4669,
+      "CUPTI_ACTIVITY_KIND_RUNTIME": 26894,
+      "CUPTI_ACTIVITY_KIND_CUDA_EVENT": 3236,
+      "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": 5720,
+      "CUPTI_ACTIVITY_KIND_KERNEL": 11851,
+      "StringIds": 364
+    },
+    "original_sha256": "896356e31c8e23e5eae0f5d04b7cbe648ad6ac20ee89a34321a331b45a216abe"
+  },
+  {
+    "file": "trace-rank-2.sqlite.gz",
+    "bytes": 939436,
+    "sha256": "6d13cfda894f668e747802c14a74dc722cb9050f3bec62c479aaaae978e0a61f",
+    "rows": {
+      "NVTX_EVENTS": 4584,
+      "CUPTI_ACTIVITY_KIND_RUNTIME": 27540,
+      "CUPTI_ACTIVITY_KIND_CUDA_EVENT": 3236,
+      "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": 5748,
+      "CUPTI_ACTIVITY_KIND_KERNEL": 12100,
+      "StringIds": 362
+    },
+    "original_sha256": "e5be53817a8b5c1ba16d74f0d6fd8445ec49522469a8cb4c07d48401185357be"
+  },
+  {
+    "file": "trace-rank-3.sqlite.gz",
+    "bytes": 959765,
+    "sha256": "4a88c036cdfb0bd156b3a607db419b6bea94d7ce10fa56138c8130153cb03754",
+    "rows": {
+      "NVTX_EVENTS": 4609,
+      "CUPTI_ACTIVITY_KIND_RUNTIME": 28276,
+      "CUPTI_ACTIVITY_KIND_CUDA_EVENT": 3230,
+      "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": 5763,
+      "CUPTI_ACTIVITY_KIND_KERNEL": 12427,
+      "StringIds": 364
+    },
+    "original_sha256": "a4d2b2b485b0bd11ffe6f6b2c880a00f81c6e75c28000ee184709a6486d7823d"
+  }
+]

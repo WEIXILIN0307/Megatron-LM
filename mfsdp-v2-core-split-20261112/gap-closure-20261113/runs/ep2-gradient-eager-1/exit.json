@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T05:48:20.040240+00:00",
+  "end_utc": "2026-11-13T05:50:49.939786+00:00",
+  "options": {
+    "name": "ep2-gradient-eager-1",
+    "mode": "eager",
+    "gpus": "0,1",
+    "ep": 2,
+    "steps": 12,
+    "first": 4,
+    "last": 12,
+    "trace": false,
+    "state_digests": true,
+    "cuda_event_trace": "true",
+    "capture_provenance": false,
+    "gradient_focus": true
+  }
+}

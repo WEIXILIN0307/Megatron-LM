@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T05:47:11.582941+00:00",
+  "end_utc": "2026-11-13T05:48:19.430580+00:00",
+  "options": {
+    "name": "trace-ep1-edp3-empty-stream",
+    "mode": "empty-stream",
+    "gpus": "0,1,2",
+    "ep": 1,
+    "steps": 8,
+    "first": 4,
+    "last": 8,
+    "trace": true,
+    "state_digests": false,
+    "cuda_event_trace": "false",
+    "capture_provenance": false,
+    "gradient_focus": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T04:11:40.084679+00:00",
+  "end_utc": "2026-11-13T04:14:11.149483+00:00",
+  "options": {
+    "name": "steady-b2-eager",
+    "mode": "eager",
+    "gpus": "0,1,2",
+    "ep": 1,
+    "steps": 45,
+    "first": 16,
+    "last": 45,
+    "trace": false
+  }
+}

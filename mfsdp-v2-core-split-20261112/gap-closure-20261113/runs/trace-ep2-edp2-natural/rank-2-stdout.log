@@ -1,0 +1,24 @@
+WARNING:megatron.training.kernel_warmup:This PyTorch build lacks empty_host_cache; pinned cache may remain
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/proof/tmp/nsys-report-e664.qdstrm'
+
+[1/1] [0%                          ] trace-rank-2.nsys-repProcessing events...
+
+[1/1] [0%                          ] trace-rank-2.nsys-rep
+[1/1] [==========49%               ] trace-rank-2.nsys-rep
+[1/1] [========================98% ] trace-rank-2.nsys-rep
+[1/1] [6%                          ] trace-rank-2.nsys-rep
+[1/1] [=========44%                ] trace-rank-2.nsys-rep
+[1/1] [=====29%                    ] trace-rank-2.nsys-rep
+[1/1] [===22%                      ] trace-rank-2.nsys-rep
+[1/1] [==21%                       ] trace-rank-2.nsys-rep
+[1/1] [=======36%                  ] trace-rank-2.nsys-rep
+[1/1] [============54%             ] trace-rank-2.nsys-rep
+[1/1] [=================73%        ] trace-rank-2.nsys-rep
+[1/1] [==================78%       ] trace-rank-2.nsys-rep
+[1/1] [===================81%      ] trace-rank-2.nsys-rep
+[1/1] [========================100%] trace-rank-2.nsys-rep
+[1/1] [========================100%] trace-rank-2.nsys-rep
+Generated:
+	/proof/runs/trace-ep2-edp2-natural/trace-rank-2.nsys-rep

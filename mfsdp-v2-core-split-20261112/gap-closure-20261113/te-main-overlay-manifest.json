@@ -1,0 +1,13 @@
+{
+  "mode": "upstream graph.py",
+  "source_head": "464df759d5a4ed549f2ce99b58fe653178a252f5",
+  "installed_sha256": "8f795d0be87618100ab5b3c6bbb9d11bb1958c3428807ec656b62da5c89209b6",
+  "upstream_baseline_sha256": "fc572e3a4c0531d69e8c99ed9d7e0cdd9c3cbb9e8c12beee07c7d3b88bdee06c",
+  "overlay_sha256": "231bce773be29b819b1b778794655558bb7478eac3c2463074224d649b405e37",
+  "installed_package_modified": false,
+  "native_extension_modified": false,
+  "changes": [
+    "finally remove temporary warmup hooks",
+    "finally restore capture-owned RNG, dispatch, FP8 state and flag"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T04:28:05.500510+00:00",
+  "end_utc": "2026-11-13T04:29:13.836247+00:00",
+  "options": {
+    "name": "trace-ep1-edp3-natural",
+    "mode": "graph",
+    "gpus": "0,1,2",
+    "ep": 1,
+    "steps": 8,
+    "first": 6,
+    "last": 8,
+    "trace": true,
+    "cuda_event_trace": "false"
+  }
+}

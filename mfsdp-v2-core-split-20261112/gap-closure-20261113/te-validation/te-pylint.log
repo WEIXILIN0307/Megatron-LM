@@ -1,0 +1,2 @@
+************* Module /proof/TransformerEngine/pylintrc
+pylintrc:1:0: W0012: Unknown option value for '--disable', expected a valid pylint message and got 'too-many-positional-arguments' (unknown-option-value)

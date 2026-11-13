@@ -1,0 +1,518 @@
+{
+  "rank": 2,
+  "mode": "graph",
+  "free_bytes_at_start": 50595430400,
+  "allocator_budget_bytes": 46300463104,
+  "capture": [
+    {
+      "setup_seconds": 2.143649450968951,
+      "memory": {
+        "allocated": 13508369920,
+        "reserved": 16517169152,
+        "peak_allocated": 17551377920,
+        "peak_reserved": 19277021184
+      },
+      "units": [
+        {
+          "name": "module.decoder.layers.0",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.1",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.2",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.3",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.4",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.5",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.6",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.7",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.8",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.9",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.10",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.11",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.12",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.13",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.14",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        },
+        {
+          "name": "module.decoder.layers.15",
+          "groups": [
+            {
+              "storage_bytes": 33632256,
+              "aliases_model_weight": false,
+              "retained": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "skipped": 0
+    },
+    {
+      "step": 2,
+      "skipped": 0
+    },
+    {
+      "step": 3,
+      "skipped": 0
+    },
+    {
+      "step": 4,
+      "skipped": 0
+    },
+    {
+      "step": 5,
+      "skipped": 0
+    },
+    {
+      "step": 6,
+      "skipped": 0
+    },
+    {
+      "step": 7,
+      "skipped": 0
+    },
+    {
+      "step": 8,
+      "skipped": 0
+    },
+    {
+      "step": 9,
+      "skipped": 0
+    },
+    {
+      "step": 10,
+      "skipped": 0
+    },
+    {
+      "step": 11,
+      "skipped": 0
+    },
+    {
+      "step": 12,
+      "skipped": 0
+    },
+    {
+      "step": 13,
+      "skipped": 0
+    },
+    {
+      "step": 14,
+      "skipped": 0
+    },
+    {
+      "step": 15,
+      "skipped": 0
+    },
+    {
+      "step": 16,
+      "skipped": 0
+    },
+    {
+      "step": 17,
+      "skipped": 0
+    },
+    {
+      "step": 18,
+      "skipped": 0
+    },
+    {
+      "step": 19,
+      "skipped": 0
+    },
+    {
+      "step": 20,
+      "skipped": 0
+    },
+    {
+      "step": 21,
+      "skipped": 0
+    },
+    {
+      "step": 22,
+      "skipped": 0
+    },
+    {
+      "step": 23,
+      "skipped": 0
+    },
+    {
+      "step": 24,
+      "skipped": 0
+    },
+    {
+      "step": 25,
+      "skipped": 0
+    },
+    {
+      "step": 26,
+      "skipped": 0
+    },
+    {
+      "step": 27,
+      "skipped": 0
+    },
+    {
+      "step": 28,
+      "skipped": 0
+    },
+    {
+      "step": 29,
+      "skipped": 0
+    },
+    {
+      "step": 30,
+      "skipped": 0
+    },
+    {
+      "step": 31,
+      "skipped": 0
+    },
+    {
+      "step": 32,
+      "skipped": 0
+    },
+    {
+      "step": 33,
+      "skipped": 0
+    },
+    {
+      "step": 34,
+      "skipped": 0
+    },
+    {
+      "step": 35,
+      "skipped": 0
+    },
+    {
+      "step": 36,
+      "skipped": 0
+    },
+    {
+      "step": 37,
+      "skipped": 0
+    },
+    {
+      "step": 38,
+      "skipped": 0
+    },
+    {
+      "step": 39,
+      "skipped": 0
+    },
+    {
+      "step": 40,
+      "skipped": 0
+    },
+    {
+      "step": 41,
+      "skipped": 0
+    },
+    {
+      "step": 42,
+      "skipped": 0
+    },
+    {
+      "step": 43,
+      "skipped": 0
+    },
+    {
+      "step": 44,
+      "skipped": 0
+    },
+    {
+      "step": 45,
+      "skipped": 0
+    }
+  ],
+  "serialized_gather_boundaries": 0,
+  "serialized_reduction_boundaries": 0,
+  "window": {
+    "first": 16,
+    "last": 45,
+    "steps": 30,
+    "seconds": 77.92111979797482,
+    "memory": {
+      "allocated": 13437800960,
+      "reserved": 20833107968,
+      "peak_allocated": 16239709696,
+      "peak_reserved": 20833107968
+    }
+  },
+  "end_memory": {
+    "allocated": 12740122624,
+    "reserved": 20833107968,
+    "peak_allocated": 16239709696,
+    "peak_reserved": 20833107968
+  },
+  "losses": [
+    {
+      "lm loss": 11.234562873840332
+    },
+    {
+      "lm loss": 11.236199378967285
+    },
+    {
+      "lm loss": 10.641325950622559
+    },
+    {
+      "lm loss": 11.886641502380371
+    },
+    {
+      "lm loss": 10.736045837402344
+    },
+    {
+      "lm loss": 10.282950401306152
+    },
+    {
+      "lm loss": 10.07849407196045
+    },
+    {
+      "lm loss": 9.578347206115723
+    },
+    {
+      "lm loss": 9.083023071289062
+    },
+    {
+      "lm loss": 8.645570755004883
+    },
+    {
+      "lm loss": 9.209080696105957
+    },
+    {
+      "lm loss": 8.632539749145508
+    },
+    {
+      "lm loss": 8.419610977172852
+    },
+    {
+      "lm loss": 8.377703666687012
+    },
+    {
+      "lm loss": 8.20553970336914
+    },
+    {
+      "lm loss": 8.134102821350098
+    },
+    {
+      "lm loss": 7.9809889793396
+    },
+    {
+      "lm loss": 7.9612908363342285
+    },
+    {
+      "lm loss": 7.89647912979126
+    },
+    {
+      "lm loss": 7.80060338973999
+    },
+    {
+      "lm loss": 7.846116542816162
+    },
+    {
+      "lm loss": 7.7505364418029785
+    },
+    {
+      "lm loss": 7.727659225463867
+    },
+    {
+      "lm loss": 7.733089447021484
+    },
+    {
+      "lm loss": 7.7892842292785645
+    },
+    {
+      "lm loss": 7.6704840660095215
+    },
+    {
+      "lm loss": 7.663793563842773
+    },
+    {
+      "lm loss": 7.587331295013428
+    },
+    {
+      "lm loss": 7.540318965911865
+    },
+    {
+      "lm loss": 7.515232563018799
+    },
+    {
+      "lm loss": 7.718830108642578
+    },
+    {
+      "lm loss": 7.714654922485352
+    },
+    {
+      "lm loss": 7.574460506439209
+    },
+    {
+      "lm loss": 7.658962249755859
+    },
+    {
+      "lm loss": 7.462164402008057
+    },
+    {
+      "lm loss": 7.476348876953125
+    },
+    {
+      "lm loss": 7.490401744842529
+    },
+    {
+      "lm loss": 7.408632278442383
+    },
+    {
+      "lm loss": 7.4178314208984375
+    },
+    {
+      "lm loss": 7.361043930053711
+    },
+    {
+      "lm loss": 7.449089050292969
+    },
+    {
+      "lm loss": 7.406827926635742
+    },
+    {
+      "lm loss": 7.405420303344727
+    },
+    {
+      "lm loss": 7.307358264923096
+    },
+    {
+      "lm loss": 7.227758407592773
+    }
+  ]
+}

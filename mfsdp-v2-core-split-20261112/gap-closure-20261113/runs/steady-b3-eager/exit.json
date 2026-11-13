@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T04:16:52.263753+00:00",
+  "end_utc": "2026-11-13T04:19:23.969572+00:00",
+  "options": {
+    "name": "steady-b3-eager",
+    "mode": "eager",
+    "gpus": "0,1,2",
+    "ep": 1,
+    "steps": 45,
+    "first": 16,
+    "last": 45,
+    "trace": false,
+    "cuda_event_trace": "true"
+  }
+}

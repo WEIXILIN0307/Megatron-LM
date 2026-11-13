@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T05:24:53.434142+00:00",
+  "end_utc": "2026-11-13T05:27:23.844518+00:00",
+  "options": {
+    "name": "ep2-state-eager",
+    "mode": "eager",
+    "gpus": "0,1",
+    "ep": 2,
+    "steps": 12,
+    "first": 16,
+    "last": 45,
+    "trace": false,
+    "state_digests": true,
+    "cuda_event_trace": "true",
+    "capture_provenance": false
+  }
+}

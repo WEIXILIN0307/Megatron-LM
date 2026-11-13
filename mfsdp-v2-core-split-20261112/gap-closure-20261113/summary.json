@@ -1,0 +1,916 @@
+{
+  "ep1_expert_dp3": {
+    "eager": {
+      "runs": [
+        {
+          "name": "steady-b1-eager",
+          "ms_per_step": 2576.486418799808,
+          "peak_allocated_GiB": 16.354036808013916,
+          "peak_reserved_GiB": 17.80078125,
+          "capture_setup_s": 0,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "steady-b2-eager",
+          "ms_per_step": 2586.068182392046,
+          "peak_allocated_GiB": 16.354036808013916,
+          "peak_reserved_GiB": 17.80078125,
+          "capture_setup_s": 0,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "steady-b3-eager",
+          "ms_per_step": 2591.4895846974105,
+          "peak_allocated_GiB": 16.354036808013916,
+          "peak_reserved_GiB": 17.80078125,
+          "capture_setup_s": 0,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        }
+      ],
+      "mean_ms_per_step": 2584.681395296421
+    },
+    "graph": {
+      "runs": [
+        {
+          "name": "steady-b1-graph",
+          "ms_per_step": 2597.370659932494,
+          "peak_allocated_GiB": 15.12440824508667,
+          "peak_reserved_GiB": 19.40234375,
+          "capture_setup_s": 2.325168257113546,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "steady-b2-graph",
+          "ms_per_step": 2598.1555867319303,
+          "peak_allocated_GiB": 15.12440824508667,
+          "peak_reserved_GiB": 19.40234375,
+          "capture_setup_s": 2.103056462947279,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "steady-b3-graph",
+          "ms_per_step": 2599.432020836199,
+          "peak_allocated_GiB": 15.12440824508667,
+          "peak_reserved_GiB": 19.40234375,
+          "capture_setup_s": 2.3486254797317088,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        }
+      ],
+      "mean_ms_per_step": 2598.319422500208
+    },
+    "step_time_reduction_pct": -0.5276482907566438,
+    "throughput_increase_pct": -0.5248787768619922,
+    "all_45_losses_equal": true
+  },
+  "ep2_expert_dp1": {
+    "eager": {
+      "runs": [
+        {
+          "name": "ep2-steady-b1-eager",
+          "ms_per_step": 1181.391473704328,
+          "peak_allocated_GiB": 21.72019624710083,
+          "peak_reserved_GiB": 23.814453125,
+          "capture_setup_s": 0,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "ep2-steady-b2-eager",
+          "ms_per_step": 1176.7017251656703,
+          "peak_allocated_GiB": 21.72019624710083,
+          "peak_reserved_GiB": 23.814453125,
+          "capture_setup_s": 0,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "ep2-steady-b3-eager",
+          "ms_per_step": 1178.2058071655533,
+          "peak_allocated_GiB": 21.72019624710083,
+          "peak_reserved_GiB": 23.814453125,
+          "capture_setup_s": 0,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        }
+      ],
+      "mean_ms_per_step": 1178.766335345184
+    },
+    "graph": {
+      "runs": [
+        {
+          "name": "ep2-steady-b1-graph",
+          "ms_per_step": 1024.5234314973154,
+          "peak_allocated_GiB": 20.49458074569702,
+          "peak_reserved_GiB": 25.390625,
+          "capture_setup_s": 2.4191406443715096,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "ep2-steady-b2-graph",
+          "ms_per_step": 1025.6503308657557,
+          "peak_allocated_GiB": 20.49458074569702,
+          "peak_reserved_GiB": 25.390625,
+          "capture_setup_s": 2.916406967677176,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        },
+        {
+          "name": "ep2-steady-b3-graph",
+          "ms_per_step": 1022.762346562619,
+          "peak_allocated_GiB": 20.49458074569702,
+          "peak_reserved_GiB": 25.390625,
+          "capture_setup_s": 2.3248515212908387,
+          "control_cpu_enqueue_ms_per_step": 0.0,
+          "policy": null
+        }
+      ],
+      "mean_ms_per_step": 1024.3120363085634
+    },
+    "step_time_reduction_pct": 13.103046329482337,
+    "throughput_increase_pct": 15.078832773775286,
+    "all_45_losses_equal": true
+  },
+  "serialization_controls": {
+    "serialized": [
+      {
+        "name": "steady-b2-serialized",
+        "ms_per_step": 2734.2987922641137,
+        "peak_allocated_GiB": 15.12440824508667,
+        "peak_reserved_GiB": 19.40234375,
+        "capture_setup_s": 2.3875357978977263,
+        "control_cpu_enqueue_ms_per_step": 0.0,
+        "policy": "graph-boundaries-v2"
+      },
+      {
+        "name": "steady-b3-serialized",
+        "ms_per_step": 2742.5406594760716,
+        "peak_allocated_GiB": 15.12440824508667,
+        "peak_reserved_GiB": 19.40234375,
+        "capture_setup_s": 2.2191268601454794,
+        "control_cpu_enqueue_ms_per_step": 0.0,
+        "policy": "graph-boundaries-v2"
+      },
+      {
+        "name": "steady-extra-serialized-v2",
+        "ms_per_step": 2724.268914277976,
+        "peak_allocated_GiB": 15.12440824508667,
+        "peak_reserved_GiB": 19.40234375,
+        "capture_setup_s": 2.127886706031859,
+        "control_cpu_enqueue_ms_per_step": 3.3280921479066214,
+        "policy": "graph-boundaries-v2"
+      }
+    ],
+    "serialized_mean_ms_per_step": 2733.7027886727205,
+    "empty_stream": {
+      "name": "steady-empty-stream-control",
+      "ms_per_step": 2586.508774291724,
+      "peak_allocated_GiB": 15.12440824508667,
+      "peak_reserved_GiB": 19.40234375,
+      "capture_setup_s": 2.012809344101697,
+      "control_cpu_enqueue_ms_per_step": 3.211328325172265,
+      "policy": "graph-boundaries-empty-stream-control"
+    },
+    "all_45_losses_equal": true,
+    "normal_graph_vs_serialized_reduction_pct": 4.952380585537042
+  },
+  "traces": {
+    "trace-ep2-edp2-events": [
+      {
+        "rank": 0,
+        "native_event_records_available": true,
+        "event_completion_tracing": true,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 918.937735,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 494.04938,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 190.083686,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 127.943075,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 587.870997,
+            "graph_intersection_ms": 64.904581
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 522.233474,
+            "graph_intersection_ms": 87.239077
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1680.517444,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 2165.852621,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 1,
+        "native_event_records_available": true,
+        "event_completion_tracing": true,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 121.859851,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 80.207487,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 152.928787,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 128.690244,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1633.335089,
+            "graph_intersection_ms": 50.328513
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 1355.340472,
+            "graph_intersection_ms": 74.572557
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1349.534055,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 1314.606527,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 2,
+        "native_event_records_available": true,
+        "event_completion_tracing": true,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 1209.680432,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 382.572604,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 536.297935,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 385.954211,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 409.896322,
+            "graph_intersection_ms": 121.478569
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 482.82247,
+            "graph_intersection_ms": 11.165088
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1658.831198,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 2031.8726,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 3,
+        "native_event_records_available": true,
+        "event_completion_tracing": true,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 543.576229,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 255.610956,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 394.844094,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 368.942129,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1582.537625,
+            "graph_intersection_ms": 112.867452
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 1253.29136,
+            "graph_intersection_ms": 148.451778
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1048.995101,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 1286.721751,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      }
+    ],
+    "trace-ep2-edp2-natural": [
+      {
+        "rank": 0,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 985.000017,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 512.173482,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 232.149186,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 118.549723,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 574.94056,
+            "graph_intersection_ms": 65.733935
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 529.579939,
+            "graph_intersection_ms": 137.296339
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1554.985626,
+            "graph_intersection_ms": 90.364237
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 2246.600047,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 1,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 121.313307,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 79.491404,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 189.45596,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 120.081303,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1622.419043,
+            "graph_intersection_ms": 54.21379
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 1391.074846,
+            "graph_intersection_ms": 84.721723
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1176.175664,
+            "graph_intersection_ms": 61.118254
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 1346.378844,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 2,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 1284.662158,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 377.105611,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 560.187071,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 422.476918,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 410.837598,
+            "graph_intersection_ms": 112.467243
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 514.535661,
+            "graph_intersection_ms": 17.440329
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1601.718241,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 2128.83865,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 3,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "ep_combine_backward": {
+            "kernels": 32,
+            "kernel_union_ms": 540.641051,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_combine_forward": {
+            "kernels": 32,
+            "kernel_union_ms": 254.963815,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_backward": {
+            "kernels": 64,
+            "kernel_union_ms": 460.727321,
+            "graph_intersection_ms": 0.0
+          },
+          "ep_dispatch_forward": {
+            "kernels": 64,
+            "kernel_union_ms": 365.241308,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1583.818089,
+            "graph_intersection_ms": 117.959032
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 1337.640074,
+            "graph_intersection_ms": 139.556703
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 2322.987575,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 1321.118816,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 32,
+        "reduction_and_finish_event_pairs": 298
+      }
+    ],
+    "trace-ep1-edp3-natural": [
+      {
+        "rank": 0,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1017.960727,
+            "graph_intersection_ms": 112.378687
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 916.367782,
+            "graph_intersection_ms": 134.836183
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 1584.213455,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 449.566199,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 1,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1020.194815,
+            "graph_intersection_ms": 116.478516
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 916.270621,
+            "graph_intersection_ms": 134.545461
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 268.504997,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 449.105456,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 2,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1018.766872,
+            "graph_intersection_ms": 111.277257
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 917.637387,
+            "graph_intersection_ms": 135.653781
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 444.41033,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 449.161354,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      }
+    ],
+    "trace-ep1-edp3-serialized": [
+      {
+        "rank": 0,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 0,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1002.245374,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 903.260353,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 261.918798,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 443.396035,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 1,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 0,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1004.903077,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 903.103104,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 501.484647,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 444.28991,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 2,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 0,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1004.910987,
+            "graph_intersection_ms": 0.0
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 903.525301,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 886.990862,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 443.993683,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      }
+    ],
+    "trace-ep1-edp3-empty-stream": [
+      {
+        "rank": 0,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1009.900464,
+            "graph_intersection_ms": 113.202874
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 919.525257,
+            "graph_intersection_ms": 135.93101
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 268.002131,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 444.28069,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 1,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1011.393094,
+            "graph_intersection_ms": 118.604491
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 918.992231,
+            "graph_intersection_ms": 134.458098
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 503.153985,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 443.350473,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      },
+      {
+        "rank": 2,
+        "native_event_records_available": true,
+        "event_completion_tracing": false,
+        "graph_launches": 64,
+        "native_readiness_chains": 132,
+        "graphs_with_readiness": 64,
+        "prefetch_graph_intersections": 32,
+        "summary": {
+          "expert_dp_AG": {
+            "kernels": 64,
+            "kernel_union_ms": 1009.553407,
+            "graph_intersection_ms": 109.978776
+          },
+          "expert_dp_RS": {
+            "kernels": 32,
+            "kernel_union_ms": 919.230561,
+            "graph_intersection_ms": 134.380512
+          },
+          "ordinary_dp_AG": {
+            "kernels": 68,
+            "kernel_union_ms": 490.097752,
+            "graph_intersection_ms": 0.0
+          },
+          "ordinary_dp_RS": {
+            "kernels": 34,
+            "kernel_union_ms": 442.900811,
+            "graph_intersection_ms": 0.0
+          }
+        },
+        "graph_internal_communication_kernels": 0,
+        "reduction_and_finish_event_pairs": 298
+      }
+    ]
+  }
+}

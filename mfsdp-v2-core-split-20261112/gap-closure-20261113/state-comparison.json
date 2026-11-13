@@ -1,0 +1,26 @@
+[
+  {
+    "rank": 0,
+    "all_12_losses_equal": true,
+    "parameters_main_weights_Adam_byte_equal": true,
+    "gradient_numerics_equal": true,
+    "raw_digest_differences": [],
+    "focused_reruns_reproduce_all_snapshots": true,
+    "eager_repeat_byte_equal": true
+  },
+  {
+    "rank": 1,
+    "all_12_losses_equal": true,
+    "parameters_main_weights_Adam_byte_equal": true,
+    "gradient_numerics_equal": true,
+    "raw_digest_differences": [
+      {
+        "path": "/step12/gradients_before_optimizer/chunk0/module.module.decoder.layers.13.mlp.experts.linear_fc2.weight3/sha256",
+        "eager": "cb3db92d14942be66f4ceb6b9af8c69f8ac104ddadacd329214881ff3b3f3e55",
+        "graph": "dc88fd156e842c894cd102572e39fcc4d0e1017bc9cd82096819522c2063d068"
+      }
+    ],
+    "focused_reruns_reproduce_all_snapshots": true,
+    "eager_repeat_byte_equal": true
+  }
+]

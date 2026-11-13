@@ -1,0 +1,37 @@
+[
+  {
+    "path": "data/wikitext103-train_text_document.bin",
+    "bytes": 239764644,
+    "sha256": "a734d6c2c8c17fec05c483088d1cd91bab5c8266ed0d2fd211c4d731d555bf71"
+  },
+  {
+    "path": "data/wikitext103-train_text_document.idx",
+    "bytes": 23300622,
+    "sha256": "f5ceec4fca992688270c74110277ceb3e55a2c5cac2a46f2088f184f9fb7d464"
+  },
+  {
+    "path": "data/wikitext103-validation_text_document.bin",
+    "bytes": 504944,
+    "sha256": "5df7ed33cc0067acf9bea261716718ddb3fc9fb45e7280b06b72b16a677fedde"
+  },
+  {
+    "path": "data/wikitext103-validation_text_document.idx",
+    "bytes": 49262,
+    "sha256": "805dd744ae240a3db717281f409abc360389ebcbd1a3d6cf6f5443422c5744cb"
+  },
+  {
+    "path": "model/special_tokens_map.json",
+    "bytes": 65,
+    "sha256": "b77491e270c6fcc5b2ecf22370f7318a6a18d3cabea09ba7bab92e9bf12656c2"
+  },
+  {
+    "path": "model/tokenizer.json",
+    "bytes": 2115417,
+    "sha256": "a094266ac6c4982efba277bc251349a5a6d6ad37efb39a2a90f53d8be2a40a40"
+  },
+  {
+    "path": "model/tokenizer_config.json",
+    "bytes": 5372,
+    "sha256": "78a839c7851f14f9fb30e664c2b46166dc0628f2900679e5ec160656f702edff"
+  }
+]

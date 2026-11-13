@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "start_utc": "2026-11-13T05:14:01.895210+00:00",
+  "end_utc": "2026-11-13T05:15:25.293621+00:00",
+  "options": {
+    "name": "ep2-steady-b3-graph",
+    "mode": "graph",
+    "gpus": "0,1",
+    "ep": 2,
+    "steps": 45,
+    "first": 16,
+    "last": 45,
+    "trace": false,
+    "cuda_event_trace": "true",
+    "capture_provenance": false
+  }
+}

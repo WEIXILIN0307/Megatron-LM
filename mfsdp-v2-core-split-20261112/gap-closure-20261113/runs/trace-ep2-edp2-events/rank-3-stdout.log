@@ -1,0 +1,38 @@
+WARNING: one_logger package is required to enable e2e metrics tracking. please go to https://confluence.nvidia.com/display/MLWFO/Package+Repositories for details to install it
+WARNING:megatron.training.kernel_warmup:This PyTorch build lacks empty_host_cache; pinned cache may remain
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    startup-program-entry-spread ...................: (120.29, 412.30)
+    startup-library-setup ..........................: (15.49, 17.51)
+    startup-program-setup ..........................: (520.62, 553.46)
+    startup-in-process-setup .......................: (0.15, 0.17)
+    startup-in-job-setup ...........................: (0.18, 0.22)
+    startup-initialize-megatron ....................: (1311.98, 1759.15)
+    startup-set-jit-fusion-options .................: (5974.63, 6386.75)
+    all-reduce-start-timestamps-tensor .............: (7.65, 419.76)
+    startup-megatron-init-local ....................: (7706.71, 8153.86)
+    startup-megatron-init-global ...................: (8689.97, 8689.97)
+INFO:megatron.core.timers:(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (923.03, 998.46)
+    train/valid/test-data-iterators-setup ..........: (78.81, 190.52)
+ [2026-11-13 04:23:26.526091] iteration        1/       8 | consumed samples:            8 | elapsed time per iteration (ms): 15734.4 | learning rate: 5.000000E-05 | global batch size:     8 | lm loss: 1.123553E+01 | load_balancing_loss: 1.491896E+00 | loss scale: 1.0 | grad norm: 27.074 | num zeros: 0 | params norm: 673.618 | number of skipped iterations:   0 | number of nan iterations:   0 |
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/proof/tmp/nsys-report-ba01.qdstrm'
+
+[1/1] [0%                          ] trace-rank-3.nsys-repProcessing events...
+
+[1/1] [0%                          ] trace-rank-3.nsys-rep
+[1/1] [6%                          ] trace-rank-3.nsys-rep
+[1/1] [=========44%                ] trace-rank-3.nsys-rep
+[1/1] [=====29%                    ] trace-rank-3.nsys-rep
+[1/1] [===22%                      ] trace-rank-3.nsys-rep
+[1/1] [==20%                       ] trace-rank-3.nsys-rep
+[1/1] [=======36%                  ] trace-rank-3.nsys-rep
+[1/1] [============54%             ] trace-rank-3.nsys-rep
+[1/1] [=================72%        ] trace-rank-3.nsys-rep
+[1/1] [==================78%       ] trace-rank-3.nsys-rep
+[1/1] [===================81%      ] trace-rank-3.nsys-rep
+[1/1] [========================100%] trace-rank-3.nsys-rep
+[1/1] [========================100%] trace-rank-3.nsys-rep
+Generated:
+	/proof/runs/trace-ep2-edp2-events/trace-rank-3.nsys-rep
