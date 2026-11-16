@@ -1,0 +1,74 @@
+......                                                                   [100%]
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:74
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/dist_checkpointing/strategies/torch.py:74: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-cleanup]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-cleanup]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/transformer_config.py:4204: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 12 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/mlp.py:465: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 12 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/moe/shared_experts.py:134: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    super().__init__(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-cleanup]
+  sys:1: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-inputs]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[True-finish]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-cleanup]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-cleanup]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/cuda_graphs.py:3083: DeprecationWarning: make_graphed_callables has deprecated `fp8_enabled` kwarg in favor of `enabled`. `fp8_enabled` will be removed in a future release.
+    graphs = make_graphed_callables(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-inputs]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 24 deselected, 70 warnings in 24.01s

@@ -1,0 +1,10 @@
+{
+  "core": "e497dd0a2247e13bc9ed5c974a0bb286f4f599a4",
+  "prerequisites": [
+    "41103622852c379074ad993cf592fb799df65a21",
+    "2886280662e31c1678e9ceb5bb4c94a2c09304e9"
+  ],
+  "composition": "e593b745422f60b235ca496d1d3d23aadfd9e55b",
+  "tree_equal": true,
+  "tree": "982288ffa1b3c60341c01b0a5cb4c04d2cdf493d"
+}

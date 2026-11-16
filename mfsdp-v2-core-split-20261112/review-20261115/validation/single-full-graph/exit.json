@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "single-full-graph",
+    "source": "core",
+    "gpus": "1",
+    "selection": "captures_full_iteration and default",
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_cuda_graph.py"
+  }
+}

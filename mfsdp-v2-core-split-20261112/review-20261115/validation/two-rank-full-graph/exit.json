@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "two-rank-full-graph",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "captures_full_iteration and default",
+    "te_overlay": false,
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_cuda_graph.py"
+  }
+}

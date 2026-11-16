@@ -1,0 +1,4 @@
+{
+  "gpus": "0, GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96, 46852, 40\n1, GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db, 48520, 0\n2, GPU-df9e07cc-8ebc-3204-fabd-601044f800f8, 48522, 0\n3, GPU-c8b76e6b-5a4b-7829-4c91-139b71218405, 28964, 100\n4, GPU-7595108b-553d-3126-385e-30133180c720, 3744, 100\n5, GPU-2d9608b8-3d63-aa73-214e-dadc8b8f1f76, 48522, 0\n6, GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7, 48522, 0\n7, GPU-59be77d4-7713-7d5b-c994-a475ff81556d, 20418, 64\n",
+  "note": "Focused correctness/concurrency only; shared host, not a performance benchmark."
+}

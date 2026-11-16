@@ -1,0 +1,29 @@
+
+[rank 1] tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_delete_recapture[gpt] (setup)
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/valid...e=<pluggy._tracing.TagTracerSub object at 0x7fb7bbafac00>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="session")
+    def tmp_path_dist_ckpt(tmp_path_factory) -> Path:
+        """Common directory for saving the checkpoint.
+
+        Can't use pytest `tmp_path_factory` directly because directory must be shared between processes.
+        """
+
+>       tmp_dir = tmp_path_factory.mktemp('ignored', numbered=False)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit_tests/conftest.py:191:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = PosixPath('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/validation/final-composed/tmp')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileExistsError: [Errno 17] File exists: '/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/validation/final-composed/tmp'
+
+../../../../../minicoda/lib/python3.12/pathlib.py:1311: FileExistsError

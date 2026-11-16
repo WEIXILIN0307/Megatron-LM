@@ -1,0 +1,9 @@
+{
+  "torch": "2.11.0+cu130",
+  "bytes": 2048,
+  "before": 140618779066368,
+  "after": 140618779070464,
+  "address_changed": true,
+  "values_preserved": true,
+  "conclusion": "Resizing already allocated CUDA storage must be avoided for graph-referenced addresses; ordinary released buffers still require allocation."
+}

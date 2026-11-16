@@ -1,0 +1,37 @@
+{
+  "upstream": "c71687a40",
+  "head_before": "26714de5265eb2ac593dc66f17f3f02062058359",
+  "findings": [
+    {
+      "id": "merge",
+      "severity": "P0",
+      "finding": "Upstream gradient-finalization API changed; module.py merge conflict and obsolete RuntimePolicy test argument."
+    },
+    {
+      "id": "start",
+      "severity": "P0",
+      "finding": "_start_capturing is outside exception cleanup; a Python failure after capture start leaks global capture state."
+    },
+    {
+      "id": "cleanup",
+      "severity": "P0",
+      "finding": "Cleanup failure replaces the primary capture exception and can skip RNG restoration."
+    },
+    {
+      "id": "independence",
+      "severity": "P1",
+      "finding": "Per-microbatch evaluation duplicates the eager oracle and unnecessarily makes basic training parity depend on #9372."
+    },
+    {
+      "id": "author",
+      "severity": "P1",
+      "finding": "Author-review checkbox must await explicit human confirmation."
+    }
+  ],
+  "decisions": [
+    "Keep buffer allocation guard; test eager release and graph retention/readiness invariants.",
+    "Merge current upstream without rebasing or force-pushing.",
+    "Keep prerequisite fixes and TE warmup cleanup in their existing independent PRs.",
+    "Use available GPU1/GPU6 for focused correctness; retain historical performance evidence with exact source provenance."
+  ]
+}

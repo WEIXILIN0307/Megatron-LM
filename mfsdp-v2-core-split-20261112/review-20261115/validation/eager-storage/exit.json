@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "eager-storage",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "non_leaf_parameter_view_survives_storage_resize",
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_parameter.py"
+  }
+}

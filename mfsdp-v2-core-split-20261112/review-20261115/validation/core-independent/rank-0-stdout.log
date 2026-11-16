@@ -1,0 +1,70 @@
+......................                                                   [100%]
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:74
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/dist_checkpointing/strategies/torch.py:74: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 22 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 22 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/transformer_config.py:4204: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 44 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/mlp.py:465: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 44 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/moe/shared_experts.py:134: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    super().__init__(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 22 warnings
+  sys:1: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 31 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/cuda_graphs.py:3083: DeprecationWarning: make_graphed_callables has deprecated `fp8_enabled` kwarg in favor of `enabled`. `fp8_enabled` will be removed in a future release.
+    graphs = make_graphed_callables(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-optim_grads_params-attention-gpt]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/profiler/profiler.py:224: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+    _warn_once(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-optim_grads_params-attention-gpt]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-mla-gpt]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/extensions/transformer_engine.py:1509: DeprecationWarning: Warning: tp_group is None, using default tp group. Passing tp_group will be mandatory soon
+    tp_group = get_tensor_model_parallel_group_if_none(tp_group, is_expert=is_expert)
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py: 62 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 8 deselected, 275 warnings in 92.68s (0:01:32)

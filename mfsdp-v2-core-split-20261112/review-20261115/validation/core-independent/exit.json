@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "core-independent",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "not dropout_rng and not delete_recapture",
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+  }
+}

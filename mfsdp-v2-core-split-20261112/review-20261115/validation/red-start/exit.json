@@ -1,0 +1,10 @@
+{
+  "exit_code": 1,
+  "options": {
+    "name": "red-start",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "failure_retry and start",
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+  }
+}

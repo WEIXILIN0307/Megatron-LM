@@ -1,0 +1,5 @@
+W1116 04:26:33.026000 19736 torch/distributed/elastic/agent/server/api.py:739] Received 2 death signal, shutting down workers
+W1116 04:26:33.028000 19736 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 19742 closing signal SIGINT
+W1116 04:26:33.029000 19736 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 19743 closing signal SIGINT
+W1116 04:26:47.519000 19736 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 19742 closing signal SIGTERM
+W1116 04:26:47.519000 19736 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 19743 closing signal SIGTERM

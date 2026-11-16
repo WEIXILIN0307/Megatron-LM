@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "failure-lifetime-final",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "failure_retry",
+    "te_overlay": false,
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+  }
+}

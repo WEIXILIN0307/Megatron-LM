@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "te-dependency",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "",
+    "te_overlay": true,
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_te_warmup_dependency_local.py"
+  }
+}

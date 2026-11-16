@@ -1,0 +1,29 @@
+[
+  {
+    "repo": "NVIDIA/Megatron-LM",
+    "number": 9372,
+    "state": "open",
+    "merged": false,
+    "draft": true,
+    "head": "41103622852c379074ad993cf592fb799df65a21",
+    "url": "https://github.com/NVIDIA/Megatron-LM/pull/9372"
+  },
+  {
+    "repo": "NVIDIA/Megatron-LM",
+    "number": 9374,
+    "state": "open",
+    "merged": false,
+    "draft": true,
+    "head": "2886280662e31c1678e9ceb5bb4c94a2c09304e9",
+    "url": "https://github.com/NVIDIA/Megatron-LM/pull/9374"
+  },
+  {
+    "repo": "NVIDIA/TransformerEngine",
+    "number": 3862,
+    "state": "open",
+    "merged": false,
+    "draft": true,
+    "head": "0eb9c38ba05932a6db5bafb6fbc4fa50661fee8e",
+    "url": "https://github.com/NVIDIA/TransformerEngine/pull/3862"
+  }
+]

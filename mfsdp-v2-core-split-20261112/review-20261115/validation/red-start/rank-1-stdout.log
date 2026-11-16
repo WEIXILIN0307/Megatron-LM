@@ -1,0 +1,245 @@
+F
+=================================== FAILURES ===================================
+_______________ test_partial_capture_failure_retry[False-start] ________________
+
+process_groups = ProcessGroupCollection(tp(1), pp(1), mp(1), embd(1), pos_embd(1), cp(1), tp_cp(1), ep(2), expt_tp(1), tp_ep(2), tp_ep_...gtp_remat(1), expt_gtp_remat(1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(2), intra_expt_dp(1), intra_dist_opt(2))
+hybrid = False, failure = 'start'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f2d9d7a7500>
+
+    @pytest.mark.parametrize(
+        "hybrid,failure",
+        [(False, "inputs"), (True, "inputs"), (False, "finish"), (True, "finish"),
+         (False, "start"), (False, "cleanup")],
+    )
+    def test_partial_capture_failure_retry(process_groups, hybrid, failure, monkeypatch):
+        """Failed real MoE capture must restore its lifecycle before a clean retry."""
+        config = replace(_moe_config(hybrid=hybrid), attention_dropout=0.1, hidden_dropout=0.1)
+        scopes = ["attn", "mlp", "moe_router", "moe_preprocess"]
+        torch.manual_seed(92)
+        batches = [torch.randint(0, 128, (2, 1, 17), device="cuda") for _ in range(4)]
+
+        def run(graphs):
+            model, optimizer = _build_moe_model(
+                config, process_groups, hybrid, scopes, "optim_grads_params", graphs
+            )
+            helper = (
+                TECudaGraphHelper([model], model.config, 16, 1, [optimizer], process_groups)
+                if graphs
+                else None
+            )
+            try:
+                for batch in batches[:3]:
+                    _train_moe_step(model, optimizer, batch)
+                if helper is not None:
+                    before_rng = _rng_contents()
+                    layers = helper.flattened_callables
+                    original_calls = {type(layer): type(layer).__call__ for layer in layers}
+                    hook_names = (
+                        "_forward_pre_hooks",
+                        "_forward_hooks",
+                        "_backward_pre_hooks",
+                        "_backward_hooks",
+                    )
+                    hooks = [
+                        (module, {name: dict(getattr(module, name)) for name in hook_names})
+                        for module in model.modules()
+                    ]
+                    gc_enabled = gc.isenabled()
+
+                    def fail(*args, **kwargs):
+                        raise RuntimeError("controlled capture failure")
+
+                    with monkeypatch.context() as patch:
+                        if failure == "start":
+                            original_start = helper._start_capturing
+
+                            def fail_after_start():
+                                original_start()
+                                fail()
+
+                            patch.setattr(helper, "_start_capturing", fail_after_start)
+                        elif failure == "inputs":
+                            patch.setattr(helper, "_get_cuda_graph_input_data", fail)
+                        else:
+                            patch.setattr(helper, "_finish_capturing", fail)
+                            if failure == "cleanup":
+                                def fail_cleanup():
+                                    raise RuntimeError("controlled cleanup failure")
+
+                                patch.setattr(helper, "_reset_after_capture", fail_cleanup)
+                        with pytest.raises(RuntimeError, match="controlled capture failure") as error:
+                            helper.create_cudagraphs()
+                        if failure == "cleanup":
+                            assert any("controlled cleanup failure" in note for note in error.value.__notes__)
+                    assert not cuda_graphs.is_graph_capturing()
+                    for module_type, original_call in original_calls.items():
+                        assert module_type.__call__ is original_call
+                    assert not te_graph.is_graph_capturing()
+                    assert not helper.graphs_created()
+                    assert not helper._capture_finished
+                    torch.testing.assert_close(_rng_contents(), before_rng, rtol=0, atol=0)
+                    assert gc.isenabled() == gc_enabled
+                    for module, original_hooks in hooks:
+                        for name in hook_names:
+                            assert getattr(module, name) == original_hooks[name], (module, name)
+                    for layer in layers:
+                        assert not layer._fsdp_cuda_graph_capturing
+                        assert not layer.cuda_graphs
+                        assert all(
+                            not group._retain_unsharded_storage for group in layer.parameter_groups
+                        )
+                    helper.create_cudagraphs()
+                return _train_moe_step(model, optimizer, batches[-1])
+            finally:
+                if helper is not None and helper.graphs_created():
+                    helper.delete_cuda_graphs()
+                # Keep a failing test from poisoning unrelated cases in this process.
+                cuda_graphs._set_capture_end()
+
+        expected = run(False)
+>       actual = run(True)
+                 ^^^^^^^^^
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py:585:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+graphs = True
+
+    def run(graphs):
+        model, optimizer = _build_moe_model(
+            config, process_groups, hybrid, scopes, "optim_grads_params", graphs
+        )
+        helper = (
+            TECudaGraphHelper([model], model.config, 16, 1, [optimizer], process_groups)
+            if graphs
+            else None
+        )
+        try:
+            for batch in batches[:3]:
+                _train_moe_step(model, optimizer, batch)
+            if helper is not None:
+                before_rng = _rng_contents()
+                layers = helper.flattened_callables
+                original_calls = {type(layer): type(layer).__call__ for layer in layers}
+                hook_names = (
+                    "_forward_pre_hooks",
+                    "_forward_hooks",
+                    "_backward_pre_hooks",
+                    "_backward_hooks",
+                )
+                hooks = [
+                    (module, {name: dict(getattr(module, name)) for name in hook_names})
+                    for module in model.modules()
+                ]
+                gc_enabled = gc.isenabled()
+
+                def fail(*args, **kwargs):
+                    raise RuntimeError("controlled capture failure")
+
+                with monkeypatch.context() as patch:
+                    if failure == "start":
+                        original_start = helper._start_capturing
+
+                        def fail_after_start():
+                            original_start()
+                            fail()
+
+                        patch.setattr(helper, "_start_capturing", fail_after_start)
+                    elif failure == "inputs":
+                        patch.setattr(helper, "_get_cuda_graph_input_data", fail)
+                    else:
+                        patch.setattr(helper, "_finish_capturing", fail)
+                        if failure == "cleanup":
+                            def fail_cleanup():
+                                raise RuntimeError("controlled cleanup failure")
+
+                            patch.setattr(helper, "_reset_after_capture", fail_cleanup)
+                    with pytest.raises(RuntimeError, match="controlled capture failure") as error:
+                        helper.create_cudagraphs()
+                    if failure == "cleanup":
+                        assert any("controlled cleanup failure" in note for note in error.value.__notes__)
+>               assert not cuda_graphs.is_graph_capturing()
+E               assert not True
+E                +  where True = <function is_graph_capturing at 0x7f2dab725c60>()
+E                +    where <function is_graph_capturing at 0x7f2dab725c60> = cuda_graphs.is_graph_capturing
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py:559: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+Test data already available at /opt/data
+Initializing torch.distributed with rank: 1, world_size: 2
+------------------------------ Captured log call -------------------------------
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:structured.py:28
+DEBUG    torch.__trace:convert_frame.py:276
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:meta_utils.py:276
+DEBUG    torch.__trace:meta_utils.py:499
+DEBUG    torch.__trace:meta_utils.py:2107
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:utils.py:2126
+DEBUG    torch.__trace:utils.py:1796
+DEBUG    torch.__trace:utils.py:2126
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:74
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/dist_checkpointing/strategies/torch.py:74: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/transformer_config.py:4204: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/mlp.py:465: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/megatron/core/transformer/moe/shared_experts.py:134: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    super().__init__(
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+  sys:1: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 29 deselected, 23 warnings in 5.56s

@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "eager-quantized-planes",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "redistributes_selected_planes",
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_quantized_dbuffer.py"
+  }
+}

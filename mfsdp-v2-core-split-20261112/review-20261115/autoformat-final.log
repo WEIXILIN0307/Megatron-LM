@@ -1,0 +1,24 @@
+++ git version
+++ awk '{print $3}'
++ GIT_VERSION=2.47.3
+++ echo 2.47.3
+++ awk -F. '{print $1}'
++ GIT_MAJOR=2
+++ echo 2.47.3
+++ awk -F. '{print $2}'
++ GIT_MINOR=47
++ [[ 2 -eq 2 ]]
++ [[ 47 -lt 31 ]]
++++ dirname -- tools/autoformat.sh
+++ cd -- tools
+++ pwd
++ SCRIPT_DIR=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/mfsdp-review-20261115/core/tools
++ CHECK_ONLY=true
++ SKIP_DOCS=false
++ BASE_REF=main
++ git remote add autoformatter-remote https://github.com/NVIDIA/Megatron-LM.git
+error: remote autoformatter-remote already exists.
++ true
++ git fetch autoformatter-remote main
+error: RPC failed; curl 7 Failed to connect to github.com port 443 after 94116 ms: Could not connect to server
+fatal: expected flush after ref listing

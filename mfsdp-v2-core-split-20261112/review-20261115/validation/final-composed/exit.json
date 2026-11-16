@@ -1,0 +1,11 @@
+{
+  "exit_code": 137,
+  "options": {
+    "name": "final-composed",
+    "source": "composed",
+    "gpus": "1,6",
+    "selection": "dropout_rng or delete_recapture",
+    "te_overlay": false,
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+  }
+}

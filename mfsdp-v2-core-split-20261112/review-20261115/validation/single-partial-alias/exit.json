@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "single-partial-alias",
+    "source": "core",
+    "gpus": "1",
+    "selection": "",
+    "te_overlay": false,
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_cuda_graph_moe_matches_eager[attn-mlp-router-preprocess-optim_grads_params-attention-gpt]"
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "trace": "trace-ep1-edp3-empty-stream",
+    "all_published_summary_fields_reproduced": true,
+    "ranks": 3
+  },
+  {
+    "trace": "trace-ep1-edp3-natural",
+    "all_published_summary_fields_reproduced": true,
+    "ranks": 3
+  },
+  {
+    "trace": "trace-ep1-edp3-serialized",
+    "all_published_summary_fields_reproduced": true,
+    "ranks": 3
+  },
+  {
+    "trace": "trace-ep2-edp2-events",
+    "all_published_summary_fields_reproduced": true,
+    "ranks": 4
+  },
+  {
+    "trace": "trace-ep2-edp2-natural",
+    "all_published_summary_fields_reproduced": true,
+    "ranks": 4
+  }
+]

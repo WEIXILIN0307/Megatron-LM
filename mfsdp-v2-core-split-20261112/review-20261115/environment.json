@@ -1,0 +1,16 @@
+{
+  "python": "3.12.4",
+  "torch": "2.11.0+cu130",
+  "torch_cuda": "13.0",
+  "TE": "2.20.2",
+  "installed_TE_graph_sha256": "8f795d0be87618100ab5b3c6bbb9d11bb1958c3428807ec656b62da5c89209b6",
+  "NCCL": [
+    2,
+    28,
+    9
+  ],
+  "cuDNN_runtime": 91900,
+  "GPU": "NVIDIA RTX A6000",
+  "Nsight": "NVIDIA Nsight Systems version 2025.3.2.474-253236389321v0",
+  "notes": "Normal tests and current trace use stock TE. The separate retry probe uses the recorded isolated Python overlay."
+}

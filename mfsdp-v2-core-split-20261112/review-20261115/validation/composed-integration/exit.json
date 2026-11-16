@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "composed-integration",
+    "source": "composed",
+    "gpus": "1,6",
+    "selection": "dropout_rng or delete_recapture",
+    "file": "tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py"
+  }
+}

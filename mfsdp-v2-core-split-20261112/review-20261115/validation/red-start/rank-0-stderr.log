@@ -1,0 +1,164 @@
+
+[rank 0] tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py::test_partial_capture_failure_retry[False-start] (call)
+process_groups = ProcessGroupCollection(tp(1), pp(1), mp(1), embd(1), pos_embd(1), cp(1), tp_cp(1), ep(2), expt_tp(1), tp_ep(2), tp_ep_...gtp_remat(1), expt_gtp_remat(1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(2), intra_expt_dp(1), intra_dist_opt(2))
+hybrid = False, failure = 'start'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f3b8320ac30>
+
+    @pytest.mark.parametrize(
+        "hybrid,failure",
+        [(False, "inputs"), (True, "inputs"), (False, "finish"), (True, "finish"),
+         (False, "start"), (False, "cleanup")],
+    )
+    def test_partial_capture_failure_retry(process_groups, hybrid, failure, monkeypatch):
+        """Failed real MoE capture must restore its lifecycle before a clean retry."""
+        config = replace(_moe_config(hybrid=hybrid), attention_dropout=0.1, hidden_dropout=0.1)
+        scopes = ["attn", "mlp", "moe_router", "moe_preprocess"]
+        torch.manual_seed(92)
+        batches = [torch.randint(0, 128, (2, 1, 17), device="cuda") for _ in range(4)]
+
+        def run(graphs):
+            model, optimizer = _build_moe_model(
+                config, process_groups, hybrid, scopes, "optim_grads_params", graphs
+            )
+            helper = (
+                TECudaGraphHelper([model], model.config, 16, 1, [optimizer], process_groups)
+                if graphs
+                else None
+            )
+            try:
+                for batch in batches[:3]:
+                    _train_moe_step(model, optimizer, batch)
+                if helper is not None:
+                    before_rng = _rng_contents()
+                    layers = helper.flattened_callables
+                    original_calls = {type(layer): type(layer).__call__ for layer in layers}
+                    hook_names = (
+                        "_forward_pre_hooks",
+                        "_forward_hooks",
+                        "_backward_pre_hooks",
+                        "_backward_hooks",
+                    )
+                    hooks = [
+                        (module, {name: dict(getattr(module, name)) for name in hook_names})
+                        for module in model.modules()
+                    ]
+                    gc_enabled = gc.isenabled()
+
+                    def fail(*args, **kwargs):
+                        raise RuntimeError("controlled capture failure")
+
+                    with monkeypatch.context() as patch:
+                        if failure == "start":
+                            original_start = helper._start_capturing
+
+                            def fail_after_start():
+                                original_start()
+                                fail()
+
+                            patch.setattr(helper, "_start_capturing", fail_after_start)
+                        elif failure == "inputs":
+                            patch.setattr(helper, "_get_cuda_graph_input_data", fail)
+                        else:
+                            patch.setattr(helper, "_finish_capturing", fail)
+                            if failure == "cleanup":
+                                def fail_cleanup():
+                                    raise RuntimeError("controlled cleanup failure")
+
+                                patch.setattr(helper, "_reset_after_capture", fail_cleanup)
+                        with pytest.raises(RuntimeError, match="controlled capture failure") as error:
+                            helper.create_cudagraphs()
+                        if failure == "cleanup":
+                            assert any("controlled cleanup failure" in note for note in error.value.__notes__)
+                    assert not cuda_graphs.is_graph_capturing()
+                    for module_type, original_call in original_calls.items():
+                        assert module_type.__call__ is original_call
+                    assert not te_graph.is_graph_capturing()
+                    assert not helper.graphs_created()
+                    assert not helper._capture_finished
+                    torch.testing.assert_close(_rng_contents(), before_rng, rtol=0, atol=0)
+                    assert gc.isenabled() == gc_enabled
+                    for module, original_hooks in hooks:
+                        for name in hook_names:
+                            assert getattr(module, name) == original_hooks[name], (module, name)
+                    for layer in layers:
+                        assert not layer._fsdp_cuda_graph_capturing
+                        assert not layer.cuda_graphs
+                        assert all(
+                            not group._retain_unsharded_storage for group in layer.parameter_groups
+                        )
+                    helper.create_cudagraphs()
+                return _train_moe_step(model, optimizer, batches[-1])
+            finally:
+                if helper is not None and helper.graphs_created():
+                    helper.delete_cuda_graphs()
+                # Keep a failing test from poisoning unrelated cases in this process.
+                cuda_graphs._set_capture_end()
+
+        expected = run(False)
+>       actual = run(True)
+                 ^^^^^^^^^
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py:585:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+graphs = True
+
+    def run(graphs):
+        model, optimizer = _build_moe_model(
+            config, process_groups, hybrid, scopes, "optim_grads_params", graphs
+        )
+        helper = (
+            TECudaGraphHelper([model], model.config, 16, 1, [optimizer], process_groups)
+            if graphs
+            else None
+        )
+        try:
+            for batch in batches[:3]:
+                _train_moe_step(model, optimizer, batch)
+            if helper is not None:
+                before_rng = _rng_contents()
+                layers = helper.flattened_callables
+                original_calls = {type(layer): type(layer).__call__ for layer in layers}
+                hook_names = (
+                    "_forward_pre_hooks",
+                    "_forward_hooks",
+                    "_backward_pre_hooks",
+                    "_backward_hooks",
+                )
+                hooks = [
+                    (module, {name: dict(getattr(module, name)) for name in hook_names})
+                    for module in model.modules()
+                ]
+                gc_enabled = gc.isenabled()
+
+                def fail(*args, **kwargs):
+                    raise RuntimeError("controlled capture failure")
+
+                with monkeypatch.context() as patch:
+                    if failure == "start":
+                        original_start = helper._start_capturing
+
+                        def fail_after_start():
+                            original_start()
+                            fail()
+
+                        patch.setattr(helper, "_start_capturing", fail_after_start)
+                    elif failure == "inputs":
+                        patch.setattr(helper, "_get_cuda_graph_input_data", fail)
+                    else:
+                        patch.setattr(helper, "_finish_capturing", fail)
+                        if failure == "cleanup":
+                            def fail_cleanup():
+                                raise RuntimeError("controlled cleanup failure")
+
+                            patch.setattr(helper, "_reset_after_capture", fail_cleanup)
+                    with pytest.raises(RuntimeError, match="controlled capture failure") as error:
+                        helper.create_cudagraphs()
+                    if failure == "cleanup":
+                        assert any("controlled cleanup failure" in note for note in error.value.__notes__)
+>               assert not cuda_graphs.is_graph_capturing()
+E               assert not True
+E                +  where True = <function is_graph_capturing at 0x7f3b913c5c60>()
+E                +    where <function is_graph_capturing at 0x7f3b913c5c60> = cuda_graphs.is_graph_capturing
+
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py:559: AssertionError

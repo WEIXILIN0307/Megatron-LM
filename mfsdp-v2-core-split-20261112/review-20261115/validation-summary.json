@@ -1,0 +1,231 @@
+[
+  {
+    "name": "composed-integration",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "8 passed, 22 deselected, 87 warnings in 36.86s"
+      },
+      {
+        "rank": "1",
+        "summary": "8 passed, 22 deselected, 78 warnings in 36.74s"
+      }
+    ]
+  },
+  {
+    "name": "core-independent",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "22 passed, 8 deselected, 275 warnings in 92.68s (0:01:32)"
+      },
+      {
+        "rank": "1",
+        "summary": "22 passed, 8 deselected, 244 warnings in 92.89s (0:01:32)"
+      }
+    ]
+  },
+  {
+    "name": "eager-quantized-planes",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "2 passed, 28 deselected, 18 warnings in 1.36s"
+      },
+      {
+        "rank": "1",
+        "summary": "2 passed, 28 deselected, 17 warnings in 1.23s"
+      }
+    ]
+  },
+  {
+    "name": "eager-storage",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 passed, 7 deselected, 18 warnings in 1.28s"
+      },
+      {
+        "rank": "1",
+        "summary": "1 passed, 7 deselected, 17 warnings in 1.12s"
+      }
+    ]
+  },
+  {
+    "name": "failure-final",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "6 passed, 24 deselected, 70 warnings in 22.87s"
+      },
+      {
+        "rank": "1",
+        "summary": "6 passed, 24 deselected, 63 warnings in 22.86s"
+      }
+    ]
+  },
+  {
+    "name": "failure-lifetime-final",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "6 passed, 24 deselected, 70 warnings in 24.01s"
+      },
+      {
+        "rank": "1",
+        "summary": "6 passed, 24 deselected, 63 warnings in 23.88s"
+      }
+    ]
+  },
+  {
+    "name": "final-composed",
+    "exit": 137,
+    "summary": [],
+    "source": {
+      "commit": "e593b745422f60b235ca496d1d3d23aadfd9e55b",
+      "status": ""
+    }
+  },
+  {
+    "name": "final-composed-isolated-tmp",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "8 passed, 22 deselected, 87 warnings in 40.46s"
+      },
+      {
+        "rank": "1",
+        "summary": "8 passed, 22 deselected, 78 warnings in 40.30s"
+      }
+    ],
+    "source": {
+      "commit": "e593b745422f60b235ca496d1d3d23aadfd9e55b",
+      "status": ""
+    }
+  },
+  {
+    "name": "final-core",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "22 passed, 8 deselected, 275 warnings in 90.64s (0:01:30)"
+      },
+      {
+        "rank": "1",
+        "summary": "22 passed, 8 deselected, 244 warnings in 91.26s (0:01:31)"
+      }
+    ],
+    "source": {
+      "commit": "e497dd0a2247e13bc9ed5c974a0bb286f4f599a4",
+      "status": ""
+    }
+  },
+  {
+    "name": "red-cleanup",
+    "exit": 1,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 failed, 29 deselected, 28 warnings in 4.69s"
+      },
+      {
+        "rank": "1",
+        "summary": "1 failed, 29 deselected, 25 warnings in 4.76s"
+      }
+    ]
+  },
+  {
+    "name": "red-start",
+    "exit": 1,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 failed, 29 deselected, 26 warnings in 5.56s"
+      },
+      {
+        "rank": "1",
+        "summary": "1 failed, 29 deselected, 23 warnings in 5.56s"
+      }
+    ]
+  },
+  {
+    "name": "single-full-graph",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 passed, 2 deselected, 19 warnings in 1.61s"
+      }
+    ]
+  },
+  {
+    "name": "single-partial-alias",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 passed, 29 warnings in 5.29s"
+      }
+    ]
+  },
+  {
+    "name": "single-regression",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 skipped, 7 deselected, 18 warnings in 0.37s"
+      }
+    ]
+  },
+  {
+    "name": "te-dependency",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "2 passed, 37 warnings in 9.81s"
+      },
+      {
+        "rank": "1",
+        "summary": "2 passed, 34 warnings in 9.91s"
+      }
+    ]
+  },
+  {
+    "name": "two-rank-full-graph",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 passed, 2 deselected, 19 warnings in 1.23s"
+      },
+      {
+        "rank": "1",
+        "summary": "1 passed, 2 deselected, 18 warnings in 1.85s"
+      }
+    ]
+  },
+  {
+    "name": "upstream-combined-full-graph",
+    "exit": 0,
+    "summary": [
+      {
+        "rank": "0",
+        "summary": "1 passed, 37 warnings in 3.33s"
+      },
+      {
+        "rank": "1",
+        "summary": "1 passed, 35 warnings in 3.07s"
+      }
+    ]
+  }
+]

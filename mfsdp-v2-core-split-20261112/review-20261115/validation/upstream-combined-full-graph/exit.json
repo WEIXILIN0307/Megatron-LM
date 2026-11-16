@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "options": {
+    "name": "upstream-combined-full-graph",
+    "source": "core",
+    "gpus": "1,6",
+    "selection": "",
+    "te_overlay": false,
+    "file": "tests/unit_tests/a2a_overlap/test_mfsdp_v2_1f1b_cuda_graph.py"
+  }
+}

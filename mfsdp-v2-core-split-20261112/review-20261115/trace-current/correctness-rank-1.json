@@ -1,0 +1,8 @@
+{
+  "rank": 1,
+  "eager_graph_training_state_equal": true,
+  "steps": 6,
+  "profiled_step": 5,
+  "model": "GPT MoE: 2 layers, hidden512, FFN1024, 4 experts/top2, seq16, GA2, BF16/ZeRO3",
+  "limits": "Synthetic-token focused composition/concurrency probe; not a performance benchmark."
+}

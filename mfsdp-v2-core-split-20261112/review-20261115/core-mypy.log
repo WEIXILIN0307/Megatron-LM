@@ -1,0 +1,27 @@
+megatron/core/distributed/fsdp/src/megatron_fsdp/experimental/module.py:121: error: "FsdpModule" has no attribute "register_load_state_dict_pre_hook"  [attr-defined]
+megatron/core/transformer/module.py:145: error: Need type annotation for "sharded_state_dict" (hint: "sharded_state_dict: dict[<type>, <type>] = ...")  [var-annotated]
+megatron/core/transformer/module.py:213: error: Need type annotation for "_symmetric_ar_cache" (hint: "_symmetric_ar_cache: list[<type>] = ...")  [var-annotated]
+megatron/core/transformer/module.py:248: error: Need type annotation for "cuda_graphs" (hint: "cuda_graphs: list[<type>] = ...")  [var-annotated]
+megatron/core/transformer/module.py:253: error: Need type annotation for "cuda_graph_manual_hooks" (hint: "cuda_graph_manual_hooks: list[<type>] = ...")  [var-annotated]
+megatron/core/transformer/cuda_graphs.py:58: error: Skipping analyzing "transformer_engine": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/transformer/cuda_graphs.py:59: error: Skipping analyzing "transformer_engine.pytorch.distributed": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/transformer/cuda_graphs.py:60: error: Skipping analyzing "transformer_engine.pytorch.fp8": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/transformer/cuda_graphs.py:61: error: Skipping analyzing "transformer_engine.pytorch.graph": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/transformer/cuda_graphs.py:68: error: Skipping analyzing "transformer_engine.pytorch.module.base": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/transformer/cuda_graphs.py:68: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+megatron/core/transformer/cuda_graphs.py:69: error: Skipping analyzing "transformer_engine.pytorch.utils": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/transformer/cuda_graphs.py:107: error: Library stubs not installed for "tqdm"  [import-untyped]
+megatron/core/transformer/cuda_graphs.py:107: note: Hint: "python3 -m pip install types-tqdm"
+megatron/core/transformer/cuda_graphs.py:107: note: (or run "mypy --install-types" to install all missing stub packages)
+megatron/core/transformer/cuda_graphs.py:841: error: Need type annotation for "constants" (hint: "constants: dict[<type>, <type>] = ...")  [var-annotated]
+megatron/core/transformer/cuda_graphs.py:1133: error: Need type annotation for "finalized_during_bwd_capture" (hint: "finalized_during_bwd_capture: list[<type>] = ...")  [var-annotated]
+megatron/core/transformer/cuda_graphs.py:1135: error: Need type annotation for "_gtp_finalize_hook_plan" (hint: "_gtp_finalize_hook_plan: list[<type>] = ...")  [var-annotated]
+megatron/core/transformer/cuda_graphs.py:1138: error: Need type annotation for "_gtp_wgrad_ring_slots" (hint: "_gtp_wgrad_ring_slots: list[<type>] = ...")  [var-annotated]
+megatron/core/transformer/cuda_graphs.py:1306: error: Cannot determine type of "fwd_graph_input_surface"  [has-type]
+megatron/core/transformer/cuda_graphs.py:1307: error: Cannot determine type of "fwd_graph_input_args"  [has-type]
+megatron/core/transformer/cuda_graphs.py:1308: error: Cannot determine type of "fwd_graph_input_kwargs"  [has-type]
+megatron/core/transformer/cuda_graphs.py:1309: error: Cannot determine type of "fwd_graph_outputs"  [has-type]
+megatron/core/transformer/cuda_graphs.py:1310: error: Cannot determine type of "fwd_graph_output_surface"  [has-type]
+megatron/core/transformer/cuda_graphs.py:1839: error: Skipping analyzing "transformer_engine.common.recipe": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+tests/unit_tests/distributed/mfsdp_v2/test_mcore_partial_cuda_graph.py:12: error: Skipping analyzing "transformer_engine.pytorch": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+Found 23 errors in 4 files (checked 5 source files)

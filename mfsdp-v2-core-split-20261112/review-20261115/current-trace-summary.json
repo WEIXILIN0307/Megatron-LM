@@ -1,0 +1,478 @@
+[
+  {
+    "rank": 0,
+    "graph_launches": 8,
+    "native_readiness_chains": 16,
+    "graphs_with_readiness": 8,
+    "prefetch_graph_intersections": 4,
+    "summary": {
+      "ep_combine_backward": {
+        "kernels": 2,
+        "kernel_union_ms": 0.312704,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_combine_forward": {
+        "kernels": 2,
+        "kernel_union_ms": 0.482465,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_backward": {
+        "kernels": 4,
+        "kernel_union_ms": 0.284832,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_forward": {
+        "kernels": 4,
+        "kernel_union_ms": 0.545249,
+        "graph_intersection_ms": 0.0
+      },
+      "expert_dp_AG": {
+        "kernels": 4,
+        "kernel_union_ms": 7.103404,
+        "graph_intersection_ms": 1.281826
+      },
+      "expert_dp_RS": {
+        "kernels": 2,
+        "kernel_union_ms": 13.074101,
+        "graph_intersection_ms": 0.301153
+      },
+      "ordinary_dp_AG": {
+        "kernels": 12,
+        "kernel_union_ms": 243.861299,
+        "graph_intersection_ms": 0.463074
+      },
+      "ordinary_dp_RS": {
+        "kernels": 6,
+        "kernel_union_ms": 23.345352,
+        "graph_intersection_ms": 0.356386
+      }
+    },
+    "graph_internal_communication_kernels": 2,
+    "reduction_and_finish_event_pairs": 37,
+    "FSDP_AG_during_TE_capture": 0,
+    "routing_metadata_capture": [
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": true,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "rank": 1,
+    "graph_launches": 8,
+    "native_readiness_chains": 16,
+    "graphs_with_readiness": 8,
+    "prefetch_graph_intersections": 4,
+    "summary": {
+      "ep_combine_backward": {
+        "kernels": 2,
+        "kernel_union_ms": 0.717184,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_combine_forward": {
+        "kernels": 2,
+        "kernel_union_ms": 0.062177,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_backward": {
+        "kernels": 4,
+        "kernel_union_ms": 4.113605,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_forward": {
+        "kernels": 4,
+        "kernel_union_ms": 0.051072,
+        "graph_intersection_ms": 0.0
+      },
+      "expert_dp_AG": {
+        "kernels": 4,
+        "kernel_union_ms": 5.145863,
+        "graph_intersection_ms": 1.276162
+      },
+      "expert_dp_RS": {
+        "kernels": 2,
+        "kernel_union_ms": 8.018858,
+        "graph_intersection_ms": 0.314208
+      },
+      "ordinary_dp_AG": {
+        "kernels": 12,
+        "kernel_union_ms": 270.805478,
+        "graph_intersection_ms": 0.462113
+      },
+      "ordinary_dp_RS": {
+        "kernels": 6,
+        "kernel_union_ms": 31.609385,
+        "graph_intersection_ms": 0.336065
+      }
+    },
+    "graph_internal_communication_kernels": 2,
+    "reduction_and_finish_event_pairs": 37,
+    "FSDP_AG_during_TE_capture": 0,
+    "routing_metadata_capture": [
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": true,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "rank": 2,
+    "graph_launches": 8,
+    "native_readiness_chains": 16,
+    "graphs_with_readiness": 8,
+    "prefetch_graph_intersections": 2,
+    "summary": {
+      "ep_combine_backward": {
+        "kernels": 2,
+        "kernel_union_ms": 0.054624,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_combine_forward": {
+        "kernels": 2,
+        "kernel_union_ms": 0.020256,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_backward": {
+        "kernels": 4,
+        "kernel_union_ms": 0.037568,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_forward": {
+        "kernels": 4,
+        "kernel_union_ms": 0.091552,
+        "graph_intersection_ms": 0.0
+      },
+      "expert_dp_AG": {
+        "kernels": 4,
+        "kernel_union_ms": 2.484488,
+        "graph_intersection_ms": 0.383265
+      },
+      "expert_dp_RS": {
+        "kernels": 2,
+        "kernel_union_ms": 2.906282,
+        "graph_intersection_ms": 0.0
+      },
+      "ordinary_dp_AG": {
+        "kernels": 12,
+        "kernel_union_ms": 2064.034195,
+        "graph_intersection_ms": 0.15792
+      },
+      "ordinary_dp_RS": {
+        "kernels": 6,
+        "kernel_union_ms": 4.16939,
+        "graph_intersection_ms": 0.0
+      }
+    },
+    "graph_internal_communication_kernels": 2,
+    "reduction_and_finish_event_pairs": 37,
+    "FSDP_AG_during_TE_capture": 0,
+    "routing_metadata_capture": [
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": true,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "rank": 3,
+    "graph_launches": 8,
+    "native_readiness_chains": 16,
+    "graphs_with_readiness": 8,
+    "prefetch_graph_intersections": 2,
+    "summary": {
+      "ep_combine_backward": {
+        "kernels": 2,
+        "kernel_union_ms": 3.181028,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_combine_forward": {
+        "kernels": 2,
+        "kernel_union_ms": 11.683987,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_backward": {
+        "kernels": 4,
+        "kernel_union_ms": 11.323698,
+        "graph_intersection_ms": 0.0
+      },
+      "ep_dispatch_forward": {
+        "kernels": 4,
+        "kernel_union_ms": 0.599616,
+        "graph_intersection_ms": 0.0
+      },
+      "expert_dp_AG": {
+        "kernels": 4,
+        "kernel_union_ms": 2.615459,
+        "graph_intersection_ms": 0.392416
+      },
+      "expert_dp_RS": {
+        "kernels": 2,
+        "kernel_union_ms": 3.201701,
+        "graph_intersection_ms": 0.0
+      },
+      "ordinary_dp_AG": {
+        "kernels": 12,
+        "kernel_union_ms": 13.967542,
+        "graph_intersection_ms": 0.165153
+      },
+      "ordinary_dp_RS": {
+        "kernels": 6,
+        "kernel_union_ms": 19.727008,
+        "graph_intersection_ms": 0.445281
+      }
+    },
+    "graph_internal_communication_kernels": 2,
+    "reduction_and_finish_event_pairs": 37,
+    "FSDP_AG_during_TE_capture": 0,
+    "routing_metadata_capture": [
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": false,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "token_dispatcher_gather",
+        "unit": "decoder.layers.1",
+        "cuda_capturing": true,
+        "shape": [
+          4
+        ],
+        "dtype": "torch.int64",
+        "ranks": [
+          2,
+          3
+        ]
+      }
+    ]
+  }
+]
