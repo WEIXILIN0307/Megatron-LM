@@ -1,0 +1,203 @@
+W1121 11:39:56.580000 7 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+Test data already available at /opt/data
+F
+[rank ?] tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata (call)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6e7bf47650>
+
+    def test_dcp_schedule_stats_tp_metadata(monkeypatch):
+        monkeypatch.setattr(data_schedule, 'mtp_on_this_pipeline_rank', lambda *a, **k: False)
+        monkeypatch.setattr(torch.distributed, 'all_reduce', lambda *a, **kw: None)
+    
+        class Group:
+            def __init__(self, rank=0, size=2):
+                self.rank = lambda: rank
+                self.size = lambda: size
+    
+        lengths = [(0, 1048579), (1, 513)]
+        schedule = [[[0], [1]]]
+        padded_work = [1048579**2, 513**2]
+        samples = [
+            {
+                **{
+                    k: None
+                    for k in data_schedule.DpBalancedScheduler(1, 1, 1, None).get_required_sample_keys()
+                },
+                'original_seq_len': torch.tensor([length]),
+            }
+            for length in (4096, 1)
+        ]
+        config = SimpleNamespace(
+            virtual_pipeline_model_parallel_size=None,
+            mtp_num_layers=None,
+            pipeline_model_parallel_layout=None,
+        )
+        monkeypatch.setattr(
+            data_schedule,
+            'get_batch_and_global_seqlens',
+            lambda *a: (samples, lengths, [], [], [x[1] for x in lengths]),
+        )
+        monkeypatch.setattr(data_schedule, 'reroute_samples_to_dcp_ranks', lambda *a, **kw: {})
+        monkeypatch.setattr(data_schedule, 'build_packed_microbatches', lambda *a, **kw: [])
+        monkeypatch.setattr(data_schedule, 'create_data_iterator', lambda *a, **kw: None)
+        wire = []
+    
+        def broadcast(values, group, dev, dtype=torch.float32):
+            assert dtype == (torch.float64 if enabled else torch.float32)
+            if group.rank() == 0:
+                wire[:] = values
+                # The real broadcast returns the source's original Python values.
+                return values
+            return torch.tensor(wire, dtype=dtype).tolist()
+    
+        monkeypatch.setattr(data_schedule, 'broadcast_scalars', broadcast)
+        compute = mock.Mock(wraps=compute_schedule_stats)
+        monkeypatch.setattr(data_schedule, 'compute_schedule_stats', compute)
+        legacy_fields = {}
+        for enabled in (False, True):
+            compute.reset_mock()
+            results = []
+            legacy_fields[enabled] = []
+            for rank in (0, 1):
+                scheduler = data_schedule.DpBalancedScheduler(1, 1, 2, None)
+                monkeypatch.setattr(scheduler, 'get_groups_and_subsamples', lambda *a: schedule)
+                stats = {'stale': 1} if enabled else None
+                result = scheduler.run(
+                    iter(samples) if rank == 0 else None,
+                    1,
+                    Group(),
+                    Group(rank),
+                    Group(0, 1),
+                    Group(),
+                    'cpu',
+                    config,
+                    schedule_stats=stats,
+                )
+                assert len(result) == 4
+                # 4096**2 + 1**2 = 16,777,217: TP0 retains the exact real-token
+                # square sum; only its TP peer receives the existing FP32 rounding.
+>               assert result[1:] == (1, 4097, 16777217 if rank == 0 else 16777216)
+E               assert (1, 4097.0, 16777217.0) == (1, 4097, 16777216)
+E                 
+E                 At index 2 diff: 16777217.0 != 16777216
+E                 Use -v to get more diff
+
+tests/unit_tests/test_sequence_packing.py:185: AssertionError
+
+=================================== FAILURES ===================================
+_____________________ test_dcp_schedule_stats_tp_metadata ______________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6e7bf47650>
+
+    def test_dcp_schedule_stats_tp_metadata(monkeypatch):
+        monkeypatch.setattr(data_schedule, 'mtp_on_this_pipeline_rank', lambda *a, **k: False)
+        monkeypatch.setattr(torch.distributed, 'all_reduce', lambda *a, **kw: None)
+    
+        class Group:
+            def __init__(self, rank=0, size=2):
+                self.rank = lambda: rank
+                self.size = lambda: size
+    
+        lengths = [(0, 1048579), (1, 513)]
+        schedule = [[[0], [1]]]
+        padded_work = [1048579**2, 513**2]
+        samples = [
+            {
+                **{
+                    k: None
+                    for k in data_schedule.DpBalancedScheduler(1, 1, 1, None).get_required_sample_keys()
+                },
+                'original_seq_len': torch.tensor([length]),
+            }
+            for length in (4096, 1)
+        ]
+        config = SimpleNamespace(
+            virtual_pipeline_model_parallel_size=None,
+            mtp_num_layers=None,
+            pipeline_model_parallel_layout=None,
+        )
+        monkeypatch.setattr(
+            data_schedule,
+            'get_batch_and_global_seqlens',
+            lambda *a: (samples, lengths, [], [], [x[1] for x in lengths]),
+        )
+        monkeypatch.setattr(data_schedule, 'reroute_samples_to_dcp_ranks', lambda *a, **kw: {})
+        monkeypatch.setattr(data_schedule, 'build_packed_microbatches', lambda *a, **kw: [])
+        monkeypatch.setattr(data_schedule, 'create_data_iterator', lambda *a, **kw: None)
+        wire = []
+    
+        def broadcast(values, group, dev, dtype=torch.float32):
+            assert dtype == (torch.float64 if enabled else torch.float32)
+            if group.rank() == 0:
+                wire[:] = values
+                # The real broadcast returns the source's original Python values.
+                return values
+            return torch.tensor(wire, dtype=dtype).tolist()
+    
+        monkeypatch.setattr(data_schedule, 'broadcast_scalars', broadcast)
+        compute = mock.Mock(wraps=compute_schedule_stats)
+        monkeypatch.setattr(data_schedule, 'compute_schedule_stats', compute)
+        legacy_fields = {}
+        for enabled in (False, True):
+            compute.reset_mock()
+            results = []
+            legacy_fields[enabled] = []
+            for rank in (0, 1):
+                scheduler = data_schedule.DpBalancedScheduler(1, 1, 2, None)
+                monkeypatch.setattr(scheduler, 'get_groups_and_subsamples', lambda *a: schedule)
+                stats = {'stale': 1} if enabled else None
+                result = scheduler.run(
+                    iter(samples) if rank == 0 else None,
+                    1,
+                    Group(),
+                    Group(rank),
+                    Group(0, 1),
+                    Group(),
+                    'cpu',
+                    config,
+                    schedule_stats=stats,
+                )
+                assert len(result) == 4
+                # 4096**2 + 1**2 = 16,777,217: TP0 retains the exact real-token
+                # square sum; only its TP peer receives the existing FP32 rounding.
+>               assert result[1:] == (1, 4097, 16777217 if rank == 0 else 16777216)
+E               assert (1, 4097.0, 16777217.0) == (1, 4097, 16777216)
+E                 
+E                 At index 2 diff: 16777217.0 != 16777216
+E                 Use -v to get more diff
+
+tests/unit_tests/test_sequence_packing.py:185: AssertionError
+=============================== warnings summary ===============================
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4545
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/extensions/transformer_engine.py:4545: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 15 durations =============================
+0.08s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata
+0.02s setup    tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata
+
+(1 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+FAILED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 19 warnings in 0.46s

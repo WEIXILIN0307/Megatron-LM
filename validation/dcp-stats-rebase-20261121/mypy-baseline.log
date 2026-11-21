@@ -1,0 +1,19 @@
+megatron/core/datasets/data_schedule_utils.py:506: error: Incompatible types in assignment (expression has type "Any | None", variable has type "list[Any]")  [assignment]
+megatron/core/datasets/data_schedule_utils.py:947: error: Incompatible types in assignment (expression has type "tuple[float, int, str, None, list[int]]", variable has type "tuple[float, int, str, int, None] | None")  [assignment]
+megatron/core/datasets/data_schedule_utils.py:954: error: Incompatible types in assignment (expression has type "None", variable has type "list[int]")  [assignment]
+megatron/core/datasets/data_schedule.py:33: error: Skipping analyzing "transformer_engine": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/datasets/data_schedule.py:33: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+megatron/core/datasets/data_schedule.py:36: error: Cannot find implementation or library stub for module named "transformer_engine_torch"  [import-not-found]
+megatron/core/datasets/data_schedule.py:328: error: Argument 1 to "iter" has incompatible type "list[Any] | None"; expected "SupportsIter[Iterator[Any]]"  [arg-type]
+megatron/core/datasets/data_schedule.py:727: error: Unsupported operand types for - ("None" and "int")  [operator]
+megatron/core/datasets/data_schedule.py:727: note: Left operand is of type "int | None"
+megatron/core/datasets/data_schedule.py:762: error: "None" not callable  [misc]
+megatron/core/datasets/data_schedule.py:901: error: "None" not callable  [misc]
+megatron/core/datasets/data_schedule.py:956: error: "None" not callable  [misc]
+tests/unit_tests/test_sequence_packing.py:639: error: Incompatible default for parameter "padded_sequence_lengths" (default has type "None", parameter has type "list[Any]")  [assignment]
+tests/unit_tests/test_sequence_packing.py:639: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+tests/unit_tests/test_sequence_packing.py:639: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+tests/unit_tests/test_sequence_packing.py:640: error: Incompatible default for parameter "local_cp_size" (default has type "None", parameter has type "int")  [assignment]
+tests/unit_tests/test_sequence_packing.py:640: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+tests/unit_tests/test_sequence_packing.py:640: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+Found 12 errors in 3 files (checked 3 source files)

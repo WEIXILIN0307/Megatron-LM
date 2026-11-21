@@ -1,0 +1,68 @@
+{
+  "tested_runtime_head": "e3311dba708a30e8d8418e491d4e15003750bbd6",
+  "upstream_base": "6559f64c27f2c547a3b48e18bd6f7326d980df94",
+  "topology": {
+    "world": 4,
+    "TP": 2,
+    "CP": 2,
+    "PP": 1,
+    "DP": 1,
+    "dp_cp_domain": 2
+  },
+  "updates_per_arm": 5,
+  "bitwise_off_on": [
+    "final_schedules",
+    "scheduled_microbatches",
+    "legacy_FLOPs_return_fields",
+    "legacy_training_FLOPs_inputs",
+    "losses",
+    "gradient_hashes",
+    "updated_parameter_hashes"
+  ],
+  "metrics_only_when_enabled": true,
+  "production_statistics_only_on_TP_sources": true,
+  "evaluation_excluded": true,
+  "per_microbatch_conservation": true,
+  "all_TP_peers_receive_same_summary": true,
+  "log_interval": 2,
+  "stdout_tensorboard_iterations": [
+    2,
+    4,
+    6
+  ],
+  "metrics": {
+    "dcp/estimated_attention_balance_efficiency": 0.92,
+    "dcp/cp_size_1_sample_fraction": 0.875,
+    "dcp/cp_size_2_sample_fraction": 0.125
+  },
+  "windows": [
+    {
+      "iteration": 2,
+      "balance_numerator": 1507328.0,
+      "balance_denominator": 1638400.0,
+      "cp_sample_counts": {
+        "2": 1,
+        "1": 7
+      }
+    },
+    {
+      "iteration": 4,
+      "balance_numerator": 3014656.0,
+      "balance_denominator": 3276800.0,
+      "cp_sample_counts": {
+        "2": 2,
+        "1": 14
+      }
+    },
+    {
+      "iteration": 6,
+      "balance_numerator": 3014656.0,
+      "balance_denominator": 3276800.0,
+      "cp_sample_counts": {
+        "2": 2,
+        "1": 14
+      }
+    }
+  ],
+  "benchmark_rerun": false
+}

@@ -1,0 +1,20 @@
+{
+  "initial-tp/checkpoints/latest_train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-tp/checkpoints/latest_checkpointed_iteration.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+  "initial-tp/checkpoints/iter_0000001/run_config.yaml": "09f724525332c843291f46a51d335d320ff8d385f21d0294b580581a53c2813f",
+  "initial-tp/checkpoints/iter_0000001/train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-tp/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt": "a7d20262f2428b5bd1fd1c01f054e3c7e452f4d0ff165b3f2266cb6a0f06f16d",
+  "initial-tp/checkpoints/iter_0000001/mp_rank_01/model_optim_rng.pt": "d7fb1b7ce2ae05b753e583c5a289272f4e0e32bab457df6d5ee5afe6cde4827e",
+  "tp-off/checkpoints/latest_train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-off/checkpoints/latest_checkpointed_iteration.txt": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683",
+  "tp-off/checkpoints/iter_0000006/run_config.yaml": "d9608a837f3510ba2ed7f05ce4a44b9feee40b5c394089e9a569459171decc66",
+  "tp-off/checkpoints/iter_0000006/train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-off/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": "e648dc1a86996208b3bda8b1d110ba27cdae4681cb0b695f22563b424fda291b",
+  "tp-off/checkpoints/iter_0000006/mp_rank_01/model_optim_rng.pt": "c36ffb5a8ed7f7daab5bc9e073d3fbcc8440a73eda993677a07f2891bc15e55d",
+  "tp-on/checkpoints/latest_train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-on/checkpoints/latest_checkpointed_iteration.txt": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683",
+  "tp-on/checkpoints/iter_0000006/run_config.yaml": "fc29b14164846d1a7b1e3d56cf6f07ac1683d5a0ad473644cc8b5c7e5afd0eb2",
+  "tp-on/checkpoints/iter_0000006/train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-on/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": "0f2db48e943cf0a85c3ca193812b986f23baf8400219413f094a33437b51bcd7",
+  "tp-on/checkpoints/iter_0000006/mp_rank_01/model_optim_rng.pt": "7f02929d73e513225f3f4f4861ff51c2a5b6dfb31edcfee5df38857bd6590e76"
+}

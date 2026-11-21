@@ -1,0 +1,9 @@
+{
+  "existing_data_schedule_utils_definitions_unchanged": true,
+  "DefaultDynamicCPScheduler_planner_and_VPP_alignment_unchanged": true,
+  "pretrain_hybrid_identical_to_upstream": true,
+  "upstream_base": "6559f64c27f2c547a3b48e18bd6f7326d980df94",
+  "tested_runtime_head": "e3311dba708a30e8d8418e491d4e15003750bbd6",
+  "vpp_assembly_modified": false,
+  "benchmark_rerun": false
+}

@@ -1,0 +1,76 @@
+1:  3d7180d83 ! 1:  885ac3b1f Log final DCP schedule attention-work balance and CP-size fractions
+    @@ Commit message
+         Log final DCP schedule attention-work balance and CP-size fractions
+     
+         Signed-off-by: Pinoeer-kingxi <13022943007@163.com>
+    +    Signed-off-by: Pinoeer-kingxi <weixilin307@gmail.com>
+     
+      ## docs/user-guide/data-loading.md ##
+     @@
+    @@ megatron/core/datasets/data_schedule.py: from megatron.core.datasets.data_schedu
+     +    compute_schedule_stats,
+          create_data_iterator,
+          get_batch_and_global_seqlens,
+    -     get_packed_sequence_alignment,
+    +     get_global_real_seqlen_stats,
+     @@ megatron/core/datasets/data_schedule.py: class BasePackingScheduler:
+              dp_cp_group,
+              dev,
+    @@ megatron/core/datasets/data_schedule.py: class DpBalancedScheduler(BasePackingSc
+              """
+              Run the complete scheduling pipeline.
+     @@ megatron/core/datasets/data_schedule.py: class DpBalancedScheduler(BasePackingScheduler):
+    -             seqlen_squared_sum_this_global_batch: Sum of squared seqlens for FLOPs.
+    +             seqlen_squared_sum_this_global_batch: Sum of squared real seqlens for FLOPs.
+              """
+      
+     +        total_dcp_gpus = dp_cp_group.size()
+    @@ megatron/training/training.py: def train_step(
+          if cfg.train.empty_unused_memory_level >= 2:
+              torch.cuda.empty_cache()
+     @@ megatron/training/training.py: def training_log(
+    -     model=None,
+          callback_manager: CallbackManager | None = None,
+          packed_sequence_stats: Optional[Dict[str, float]] = None,
+    +     embedding_min_norm_metrics: Dict[str, float] | None = None,
+     +    dcp_stats: Optional[DcpStatsAccumulator] = None,
+      ):
+          """Log training information such as losses, timing, ...."""
+    @@ megatron/training/training.py: def train(
+                          packed_sequence_stats=packed_sequence_stats,
+     +                    dcp_stats=dcp_stats,
+                          num_microbatches=scheduled_num_microbatches,
+    +                     embedding_min_norm_metrics=embedding_min_norm_metrics,
+                      )
+    -             # OTel: close the iteration-report super-span (parents params_norm + log;
+     
+      ## tests/unit_tests/test_sequence_packing.py ##
+     @@
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +    align_sample_id_groups,
+     +    compute_schedule_stats,
+          create_data_iterator,
+    -     next_hdp_group_packing_aware,
+    +     next_dynamic_cp_group_packing_aware,
+          reroute_samples_to_dcp_ranks,
+     @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_schedule_utils import (
+      from megatron.core.process_groups_config import ProcessGroupCollection
+2:  79bf7b6bc ! 2:  630f5e102 Document A6000 training parity and DCP observation cost measurements
+    @@ Commit message
+         Document A6000 training parity and DCP observation cost measurements
+     
+         Signed-off-by: Pinoeer-kingxi <13022943007@163.com>
+    +    Signed-off-by: Pinoeer-kingxi <weixilin307@gmail.com>
+     
+      ## docs/user-guide/data-loading.md ##
+     @@ docs/user-guide/data-loading.md: Four-GPU topology variants of the command above are TP2×CP2 (add
+3:  915ffdb5a ! 3:  1024ed6eb Document current DCP benchmark and DP2 logging validation
+    @@ Commit message
+         Document current DCP benchmark and DP2 logging validation
+     
+         Signed-off-by: Pinoeer-kingxi <13022943007@163.com>
+    +    Signed-off-by: Pinoeer-kingxi <weixilin307@gmail.com>
+     
+      ## docs/user-guide/data-loading.md ##
+     @@ docs/user-guide/data-loading.md: and stdout/TensorBoard contained no DCP metrics.
+-:  --------- > 4:  e3311dba7 Preserve legacy TP FLOPs metadata when logging DCP statistics

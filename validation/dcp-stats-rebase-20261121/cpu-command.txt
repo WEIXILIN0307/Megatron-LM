@@ -1,0 +1,1 @@
+docker exec -e CUDA_VISIBLE_DEVICES= dcp-stats-rebase-20261121 python -m pytest -q tests/unit_tests/test_sequence_packing.py -k 'dcp_schedule_stats and not distributed'

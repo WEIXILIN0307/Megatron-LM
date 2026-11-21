@@ -1,0 +1,16 @@
+{
+  "backup_ref": "backup/dcp-stats-before-dev-rebase-20261121",
+  "previous_head": "915ffdb5a4d89a3b3f9491ee4d93038cf0985ba2",
+  "upstream_dev": "6559f64c27f2c547a3b48e18bd6f7326d980df94",
+  "tested_runtime_head": "e3311dba708a30e8d8418e491d4e15003750bbd6",
+  "date": "2026-11-21",
+  "timezone": "America/Los_Angeles",
+  "benchmark_rerun": false,
+  "compatibility_patch_applied": false,
+  "gpu_indices": [
+    0,
+    2,
+    5,
+    6
+  ]
+}

@@ -1,0 +1,2 @@
+/data/songbinbin/minicoda/bin/python -S /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-rebase-20261121/launch_train.py tp-off --gpus 4 --tp 2 --iters 6 --audit --load initial-tp --save --eval --log-interval 2 --container dcp-stats-rebase-20261121
+/data/songbinbin/minicoda/bin/python -S /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-rebase-20261121/launch_train.py tp-on --gpus 4 --tp 2 --iters 6 --audit --load initial-tp --save --eval --log-interval 2 --container dcp-stats-rebase-20261121 --on
