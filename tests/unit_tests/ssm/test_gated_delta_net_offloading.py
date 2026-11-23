@@ -72,7 +72,8 @@ def _config(**kwargs: Any) -> TransformerConfig:
             },
             "full recomputation",
         ),
-        ({"cuda_graph_impl": "transformer_engine"}, "CUDA graphs"),
+        ({"cuda_graph_impl": "local"}, "Transformer Engine CUDA graphs"),
+        ({"cuda_graph_impl": "full_iteration"}, "Transformer Engine CUDA graphs"),
     ],
 )
 def test_reject_unsupported_gdn_offload(kwargs: dict[str, Any], match: str) -> None:
