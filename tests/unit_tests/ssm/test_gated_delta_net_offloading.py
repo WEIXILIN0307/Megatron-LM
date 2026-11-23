@@ -59,8 +59,6 @@ def _config(**kwargs: Any) -> TransformerConfig:
     [
         ({"experimental_attention_variant": None}, "only supports GDN"),
         ({"bf16": False, "params_dtype": torch.float32}, "BF16"),
-        ({"fp8": "e4m3"}, "BF16"),
-        ({"fp4": "e2m1"}, "BF16"),
         ({"gdn_kernel_backend": "torch"}, "FLA"),
         ({"gdn_kernel_backend": "transformer_engine"}, "FLA"),
         ({"deterministic_mode": True, "gdn_kernel_backend": "torch"}, "FLA"),
@@ -558,3 +556,19 @@ def test_gdn2_offload_retains_live_sigmoid_gates(
     for names in copied_gates:
         assert ("w" in names) == frozen_gates
         assert ("b" in names) == (frozen_gates or value_heads != 4)
+
+
+@pytest.mark.parametrize("precision", ["fp8", "fp4"])
+@pytest.mark.parametrize("graphs", [False, True])
+@pytest.mark.parametrize("disable_cache", [False, True])
+def test_low_precision_gdn_offload_config(precision, graphs, disable_cache):
+    kwargs = {
+        precision: "e2m1" if precision == "fp4" else "e4m3",
+        "cuda_graph_impl": "transformer_engine" if graphs else "none",
+        "disable_parameter_transpose_cache": disable_cache,
+    }
+    if precision == "fp4" and graphs and not disable_cache:
+        with pytest.raises(ValueError, match="disable_parameter_transpose_cache=True"):
+            _config(**kwargs)
+    else:
+        assert _config(**kwargs).disable_parameter_transpose_cache == disable_cache

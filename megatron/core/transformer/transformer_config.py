@@ -3499,8 +3499,8 @@ class TransformerConfig(ModelParallelConfig):
             if "gdn_core_attn" in self.offload_modules:
                 if self.experimental_attention_variant not in ("gdn", "gdn2"):
                     raise ValueError("gdn_core_attn offloading only supports GDN (gdn or gdn2).")
-                if not self.bf16 or self.fp8 or self.fp4:
-                    raise ValueError("gdn_core_attn offloading requires BF16 without FP8 or FP4.")
+                if not self.bf16:
+                    raise ValueError("gdn_core_attn offloading requires BF16 activations.")
                 if self.gdn_kernel_backend != "fla":
                     raise ValueError("gdn_core_attn offloading requires the FLA recurrence.")
                 if self.recompute_granularity == "full":
@@ -3513,6 +3513,15 @@ class TransformerConfig(ModelParallelConfig):
                 ):
                     raise ValueError(
                         "gdn_core_attn offloading only supports Transformer Engine CUDA graphs."
+                    )
+                if (
+                    self.fp4
+                    and (self.cuda_graph_impl == "transformer_engine" or self.external_cuda_graph)
+                    and not self.disable_parameter_transpose_cache
+                ):
+                    raise ValueError(
+                        "gdn_core_attn offloading with FP4 CUDA graphs requires "
+                        "disable_parameter_transpose_cache=True."
                     )
             if "attn_proj" in self.offload_modules and "core_attn" not in self.offload_modules:
                 raise ValueError(
