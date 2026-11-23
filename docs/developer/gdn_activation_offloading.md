@@ -31,7 +31,7 @@ gate when Q is frozen. Evaluation, no-grad execution and fully frozen recurrence
 bypass the scope. Inputs shared with neighboring operations are not force-released.
 
 Selective `gdn_norm_out` recomputation and (for GDN only) native pre-GDR fusion are
-supported. Configuration rejects FP8/NVFP4, other recurrence backends, full
+supported. Configuration rejects non-BF16 activations, other recurrence backends, full
 recomputation and non-TE CUDA graphs. Projection, convolution and output normalization
 remain outside this scope. Projection/convolution recomputation and convolution
 input offload are separate work in [#7852](https://github.com/NVIDIA/Megatron-LM/pull/7852).
@@ -66,3 +66,19 @@ model with both recurrence and standard-attention offloading enabled.
 Historical graph measurements at `c5264b66197040f4309edfdb22dc9bbaf62189b1`
 reduced reserved memory, not peak allocated memory, and increased step time.
 They do not establish a current-version performance benefit.
+
+## Low-precision Transformer Engine layers
+
+FP8 and NVFP4 apply to the TE projections and MLPs; the FLA recurrence and its
+offloaded saves stay BF16/FP32. FP8 delayed and tensorwise scaling use the
+existing recipes. BF16 remains the default.
+
+TE graph capture forwards `disable_parameter_transpose_cache` to
+`fp8_weight_caching` for both FP8 and NVFP4. Its default is unchanged; BF16 graph
+kwargs are unchanged. NVFP4 graph offloading requires the explicit programmatic
+setting `disable_parameter_transpose_cache=True`; configuration rejects the
+cached combination. Disabling caching requantizes weights on each microbatch.
+
+NVFP4 results on RTX PRO 6000 (SM120) do not replace qualification on SM100/SM103,
+the training devices documented by TE 2.20.2. The separate NVFP4 fused weight-gradient
+output alignment and width-4112 dgrad failures are not recurrence-offload fixes.

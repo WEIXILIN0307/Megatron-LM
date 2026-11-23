@@ -43,7 +43,7 @@ Each scope offloads saved activations to CPU during forward and reloads them bef
 | `moe_act` | Activation function in MoE experts | MoE models only |
 | `fused_group_mlp` | Whole fused grouped MLP | Requires `--use-transformer-engine-op-fuser`; cannot be combined with `expert_fc1` or `moe_act` |
 | `shortcut_post_norm` | Shortcut post-combine normalization | Requires `--moe-shortcut-connection` |
-| `gdn_core_attn` | Tensors saved inside the FLA GDN recurrence | BF16 GDN/GDN2 only; no full recomputation; TE CUDA graphs supported |
+| `gdn_core_attn` | Tensors saved inside the FLA GDN recurrence | BF16 FLA recurrence; TE FP8/NVFP4 projections allowed |
 
 When selective `residual_stream` replay is active, its shared checkpoint manager owns the
 connected ShortcutMoE post-norm. In that case `shortcut_post_norm` offloading is skipped for the
@@ -57,7 +57,7 @@ and anchors backward prefetch on a differentiable recurrence input. Shared input
 are not force-released; evaluation and no-grad execution bypass the scope.
 
 Both variants support selective `gdn_norm_out` recomputation. Pre-GDR fusion is GDN-only.
-FP8/NVFP4, other recurrence backends, full recomputation and non-TE CUDA graphs are
+Non-BF16 activations, other recurrence backends, full recomputation and non-TE CUDA graphs are
 rejected. See [GDN recurrence activation offloading](../../developer/gdn_activation_offloading.md)
 for configuration and the scope of validation.
 
