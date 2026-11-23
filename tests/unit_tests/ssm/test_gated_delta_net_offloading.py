@@ -72,7 +72,8 @@ def _config(**kwargs: Any) -> TransformerConfig:
             },
             "full recomputation",
         ),
-        ({"cuda_graph_impl": "transformer_engine"}, "CUDA graphs"),
+        ({"cuda_graph_impl": "local"}, "Transformer Engine CUDA graphs"),
+        ({"cuda_graph_impl": "full_iteration"}, "Transformer Engine CUDA graphs"),
     ],
 )
 def test_reject_unsupported_gdn_offload(kwargs: dict[str, Any], match: str) -> None:
@@ -577,3 +578,14 @@ def test_gdn2_offload_replay(
         assert manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"] == 0
         off_interface.reset(process_group=torch.distributed.group.WORLD)
         assert (manager.offload_summary_total_bytes > 0) == (fraction > 0)
+
+
+@pytest.mark.parametrize("variant", ["gdn", "gdn2"])
+def test_gdn_offload_te_graph_config(variant: str) -> None:
+    config = _config(
+        experimental_attention_variant=variant,
+        cuda_graph_impl="transformer_engine",
+        cuda_graph_modules=["attn"],
+        cuda_graph_warmup_steps=3,
+    )
+    assert config.cuda_graph_impl == "transformer_engine"
