@@ -61,6 +61,7 @@ def _training_config(
     *,
     fused_pre_gdr: bool = False,
     variant: str = "gdn",
+    precision: str = "bf16",
 ) -> TransformerConfig:
     """Configure the reduced-size complete decoder and its parallel topology."""
     return TransformerConfig(
@@ -81,6 +82,9 @@ def _training_config(
         attention_dropout=0.0,
         hidden_dropout=0.0,
         bf16=True,
+        fp8="e4m3" if precision.startswith("fp8") else None,
+        fp8_recipe="tensorwise" if precision == "fp8-tensorwise" else "delayed",
+        fp4="e2m1" if precision == "fp4" else None,
         pipeline_dtype=torch.bfloat16,
         use_cpu_initialization=True,
         gradient_accumulation_fusion=False,
@@ -188,18 +192,46 @@ def _snapshot_leaf(value: Any) -> Any:
     return value.detach().clone() if isinstance(value, torch.Tensor) else value
 
 
+def _require_precision(precision: str) -> None:
+    """Skip recipes unavailable on this device or unsuitable for exact replay."""
+    if precision == "bf16":
+        return
+    from transformer_engine.common.recipe import NVFP4BlockScaling  # type: ignore[import-untyped]
+    from transformer_engine.pytorch.fp8 import (  # type: ignore[import-untyped]
+        check_fp8_support,
+        check_nvfp4_support,
+    )
+
+    supported, reason = check_nvfp4_support() if precision == "fp4" else check_fp8_support()
+    if not supported:
+        pytest.skip(reason)
+    if precision == "fp4":
+        recipe = NVFP4BlockScaling()
+        if not recipe.disable_rht or not recipe.disable_stochastic_rounding:
+            pytest.skip(
+                "Exact replay requires NVTE_NVFP4_DISABLE_RHT=1 and "
+                "NVTE_NVFP4_DISABLE_STOCHASTIC_ROUNDING=1 before Python starts."
+            )
+
+
 @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
 @pytest.mark.parametrize(
-    "tp,sp,cp,pp,vp,fraction,recompute_norm,fused_pre_gdr,variant",
+    "tp,sp,cp,pp,vp,fraction,recompute_norm,fused_pre_gdr,variant,precision",
     [
-        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", id="decoder"),
-        pytest.param(1, False, 1, 1, None, 1.0, True, False, "gdn2", id="gdn2-decoder"),
-        pytest.param(1, False, 1, 1, None, 0.0, False, False, "gdn", id="resident"),
-        pytest.param(1, False, 1, 1, None, 0.5, True, True, "gdn", id="fused-norm"),
-        pytest.param(2, True, 1, 1, None, 1.0, False, False, "gdn", id="tp-sp"),
-        pytest.param(1, False, 2, 1, None, 1.0, False, False, "gdn", id="cp"),
-        pytest.param(1, False, 1, 2, None, 1.0, False, False, "gdn", id="pp"),
-        pytest.param(1, False, 1, 2, 2, 1.0, False, False, "gdn", id="pp-vpp"),
+        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", "bf16", id="decoder"),
+        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", "fp8-delayed", id="fp8-gdn"),
+        pytest.param(
+            1, False, 1, 1, None, 1.0, True, False, "gdn2", "fp8-tensorwise", id="fp8-gdn2"
+        ),
+        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", "fp4", id="fp4-gdn"),
+        pytest.param(1, False, 1, 1, None, 1.0, True, False, "gdn2", "fp4", id="fp4-gdn2"),
+        pytest.param(1, False, 1, 1, None, 1.0, True, False, "gdn2", "bf16", id="gdn2-decoder"),
+        pytest.param(1, False, 1, 1, None, 0.0, False, False, "gdn", "bf16", id="resident"),
+        pytest.param(1, False, 1, 1, None, 0.5, True, True, "gdn", "bf16", id="fused-norm"),
+        pytest.param(2, True, 1, 1, None, 1.0, False, False, "gdn", "bf16", id="tp-sp"),
+        pytest.param(1, False, 2, 1, None, 1.0, False, False, "gdn", "bf16", id="cp"),
+        pytest.param(1, False, 1, 2, None, 1.0, False, False, "gdn", "bf16", id="pp"),
+        pytest.param(1, False, 1, 2, 2, 1.0, False, False, "gdn", "bf16", id="pp-vpp"),
     ],
 )
 def test_gdn_offload_training(
@@ -212,9 +244,11 @@ def test_gdn_offload_training(
     recompute_norm: bool,
     fused_pre_gdr: bool,
     variant: str,
+    precision: str,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Match losses, accumulated gradients, updated weights and Adam states on every rank."""
+    _require_precision(precision)
     if Utils.world_size % (tp * cp * pp):
         pytest.skip("This topology requires a world size divisible by TP * CP * PP.")
     if variant == "gdn2":
@@ -224,6 +258,9 @@ def test_gdn_offload_training(
         monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
     # Avoid attention-backward nondeterminism obscuring the offload comparison.
     # GDN still uses FLA: config.deterministic_mode would select its reference path.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager
+
+    FP8GlobalStateManager.reset()
     monkeypatch.setenv("NVTE_ALLOW_NONDETERMINISTIC_ALGO", "0")
     Utils.initialize_model_parallel(tp, pp, vp, context_parallel_size=cp)
     off_interface.reset_instance()
@@ -239,6 +276,7 @@ def test_gdn_offload_training(
             recompute_norm,
             fused_pre_gdr=fused_pre_gdr,
             variant=variant,
+            precision=precision,
         )
         baseline_config = replace(
             config, fine_grained_activation_offloading=False, offload_modules=[]
@@ -272,7 +310,7 @@ def test_gdn_offload_training(
                     "position_ids": torch.arange(128, device="cuda").unsqueeze(0),
                 }
                 batches.append(get_batch_on_this_cp_rank(batch, False, cp_group=groups.cp))
-            # Fixed weights and zero dropout must reproduce each repeated example.
+            # BF16 repeats agree at fixed weights; low-precision scaling metadata can evolve.
             # This also catches VPP payload mixups in the disabled baseline.
             batches = batches * 2
             snapshots = []
@@ -298,7 +336,7 @@ def test_gdn_offload_training(
                 # Reject a bad baseline on every rank before the next collective.
                 step_valid = torch.tensor(
                     len(losses) == (4 if is_pp_last_stage(groups.pp) else 0)
-                    and not any(diff(losses[:2], losses[2:]))
+                    and (precision != "bf16" or not any(diff(losses[:2], losses[2:])))
                     and pool_before_reset == ([0] if models is offloaded else []),
                     dtype=torch.int32,
                     device="cuda",
