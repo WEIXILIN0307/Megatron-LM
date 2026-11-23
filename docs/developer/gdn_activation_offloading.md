@@ -1,6 +1,6 @@
 # GDN recurrence activation offloading
 
-`gdn_core_attn` offloads tensors saved by the BF16 FLA GatedDeltaNet recurrence
+`gdn_core_attn` offloads tensors saved by the BF16 FLA GDN/GDN2 recurrence
 using the existing scheduler, transfer streams and pinned-memory pool. It is
 opt-in and trades device memory for host-pinned storage and copy traffic.
 Numerical kernels are unchanged.
@@ -31,10 +31,14 @@ gate when Q is frozen. Evaluation, no-grad execution and fully frozen recurrence
 bypass the scope. Inputs shared with neighboring operations are not force-released.
 
 BF16 GDN, selective `gdn_norm_out` recomputation and native pre-GDR fusion are
-supported. Configuration rejects GDN2, FP8/NVFP4, other recurrence backends, full
+supported. Configuration rejects FP8/NVFP4, other recurrence backends, full
 recomputation and CUDA graphs. Projection, convolution and output normalization
 remain outside this scope. Projection/convolution recomputation and convolution
 input offload are separate work in [#7852](https://github.com/NVIDIA/Megatron-LM/pull/7852).
+
+GDN2's `w` gate and unexpanded `b` gate remain resident when trainable: sigmoid
+backward outside the recurrence still retains their storage. Expanded or frozen
+gates can be offloaded. The recurrence uses the same scheduler and pinned pool.
 
 ## Validation
 
