@@ -1,0 +1,67 @@
+W1123 14:11:25.999000 13 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+Test data already available at /opt/data
+...............
+=============================== warnings summary ===============================
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4545
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/extensions/transformer_engine.py:4545: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_evaluation_does_not_collect
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exit]
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exception]
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[success]
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[skipped]
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/transformer/transformer_config.py:5461: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_evaluation_does_not_collect
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/_rank_utils.py:68: UserWarning: Could not determine world size from torch.distributed, WORLD_SIZE, or SLURM_NTASKS. Defaulting to world size 1.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+0.19s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+0.02s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata
+0.01s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_cli_switch
+
+(12 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[equal-length-ids]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[cp-replicas]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[alternating-hotspots]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule0-lengths0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule1-lengths1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_after_vpp_alignment
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_window_and_reset
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_cli_switch
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_evaluation_does_not_collect
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exit]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exception]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[success]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[skipped]
+15 passed, 67 deselected, 27 warnings in 0.45s

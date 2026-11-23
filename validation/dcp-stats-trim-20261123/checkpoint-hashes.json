@@ -1,0 +1,20 @@
+{
+  "tp-off/checkpoints/latest_train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-off/checkpoints/latest_checkpointed_iteration.txt": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683",
+  "tp-off/checkpoints/iter_0000006/run_config.yaml": "c8238466f8198cff8a096d6cd8d804791843702204c191dc8f04658e296fea38",
+  "tp-off/checkpoints/iter_0000006/train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-off/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": "929077955044b182117ce39760ad8f8db9651d7655e333267f21f125fa9e93e5",
+  "tp-off/checkpoints/iter_0000006/mp_rank_01/model_optim_rng.pt": "2129d85e20927dfbcc06512d6c5a800e23bdf596f55675d9af0f274f11657893",
+  "tp-on/checkpoints/latest_train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-on/checkpoints/latest_checkpointed_iteration.txt": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683",
+  "tp-on/checkpoints/iter_0000006/run_config.yaml": "5919270e4e446cbf16f9ea24f66160491ebf127b203e77cfda67a870c9a038f9",
+  "tp-on/checkpoints/iter_0000006/train_state.pt": "30f4195e9f4014af6d68be2e28daa3cda1d9c1b4b4ed34d969a121725a85ad29",
+  "tp-on/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": "817e333203c75afd66382b0170aadaac1fec245c5711f560119f7434a86954f0",
+  "tp-on/checkpoints/iter_0000006/mp_rank_01/model_optim_rng.pt": "ad50d87a5ef50e829f3e2ed4a25ede6299cf4ed3a0d05c8b86cda06ba3136727",
+  "initial-tp/checkpoints/latest_train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-tp/checkpoints/latest_checkpointed_iteration.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+  "initial-tp/checkpoints/iter_0000001/run_config.yaml": "6c41ee14f2e4ee6dff85233d9f071fe19a84bbc4755d24603b5f54413e19f143",
+  "initial-tp/checkpoints/iter_0000001/train_state.pt": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93",
+  "initial-tp/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt": "db4dd283561af8033a7e67bd14519fa1d06b4b16fe47ea49d167cbe2130a0e4e",
+  "initial-tp/checkpoints/iter_0000001/mp_rank_01/model_optim_rng.pt": "407ae708026f77c45842a13afb5e929383abc60fc8a66990d7d45e2ce38efcdb"
+}
