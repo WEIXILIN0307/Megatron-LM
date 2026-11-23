@@ -1,0 +1,289 @@
+{
+  "rank": 0,
+  "collected": 47,
+  "exit_code": 1,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-only supports GDN]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-full recomputation]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-CUDA graphs]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[resident]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[partial]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[full]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[below-threshold]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[expanded-fused-norm]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 200, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[unfused_pre_gdr-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[unfused_pre_gdr-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[fused_pre_gdr-False]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 321, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[fused_pre_gdr-True]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 321, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[False]",
+      "when": "call",
+      "outcome": "failed",
+      "detail": "gdn_offload_groups = ProcessGroupCollection(tp(1), cp(1))\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd8a05cbe30>\nfrozen_query = False\n\n    @pytest.mark.skipif(not HAVE_FLA, reason=\"FLA is not installed.\")\n    @pytest.mark.parametrize(\"frozen_query\", [False, True])\n    def test_gdn_offload_delayed_d2h(\n        gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch, frozen_query: bool\n    ) -> None:\n        \"\"\"Warmup and missing query gradients still order fallback H2D after delayed D2H.\"\"\"\n        config = _config()\n        baseline, offloaded = _build_pair(config, gdn_offload_groups)\n        if frozen_query:\n            for model in (baseline, offloaded):\n                for layer in model:\n                    layer.in_proj.requires_grad_(False)\n                    layer.conv1d.requires_grad_(False)\n    \n        bulk_offload = ChunkOffloadHandler.bulk_offload_group\n    \n        def delayed_offload(handler: ChunkOffloadHandler, group: OffloadTensorGroup) -> None:\n            with torch.cuda.stream(handler.d2h_stream):\n                torch.cuda._sleep(150_000_000)\n            bulk_offload(handler, group)\n    \n        monkeypatch.setattr(ChunkOffloadHandler, \"bulk_offload_group\", delayed_offload)\n        for _ in range(3):\n            source = torch.randn(128, 2, 256, device=\"cuda\", dtype=torch.bfloat16)\n            # Detach recurrence inputs to exercise trainable gates without query gradients.\n            reference = _run(baseline, source, detached_inputs=frozen_query)\n            result = _run(offloaded, source, offload=True, detached_inputs=frozen_query)\n>           _assert_step_equal(reference, result)\n\ntests/unit_tests/ssm/test_gated_delta_net_offloading.py:368: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nreference = {'output': tensor([[[ 0.5039,  1.5234, -0.8281,  ..., -0.0698, -1.3750,  0.1748],\n         [ 0.9570,  1.8203,  0.4883,...3e-07, -9.6770e-10,\n        -4.9477e-10,  7.4040e-08, -1.4988e-09], device='cuda:0',\n       dtype=torch.bfloat16), ...}\nresult = {'output': tensor([[[ 0.5039,  1.5234, -0.8281,  ..., -0.0698, -1.3750,  0.1748],\n         [ 0.9570,  1.8203,  0.4883,...5e-07,  1.1823e-10,\n         2.0918e-10,  6.7987e-08, -6.8394e-10], device='cuda:0',\n       dtype=torch.bfloat16), ...}\n\n    def _assert_step_equal(reference: dict[str, torch.Tensor], result: dict[str, torch.Tensor]) -> None:\n        \"\"\"Compare outputs, input gradients and the complete parameter-gradient set.\"\"\"\n        assert result.keys() == reference.keys()\n        for name in reference:\n>           assert torch.equal(reference[name], result[name]), name\nE           AssertionError: input_grad\nE           assert False\nE            +  where False = <built-in method equal of type object at 0x7fda5c3f2180>(tensor([[[ 1.5497e-05,  4.6492e-05, -2.5153e-05,  ..., -2.9206e-06,\\n          -4.1485e-05,  5.6028e-06],\\n         [ 2.9922e-05,  5.5313e-05,  1.4722e-05,  ..., -2.5511e-05,\\n           1.8001e-05, -4.9829e-05]],\\n\\n        [[ 3.2663e-05,  3.8624e-05, -1.2100e-05,  ...,  5.5790e-05,\\n           2.0385e-05,  4.6968e-05],\\n         [-9.1195e-06, -2.8849e-05,  3.6240e-05,  ..., -7.4208e-06,\\n           7.2956e-05, -8.3447e-06]],\\n\\n        [[ 3.4273e-06, -2.9922e-05,  8.1658e-06,  ...,  6.3419e-05,\\n           1.4365e-05,  1.8597e-05],\\n         [-3.7909e-05, -4.0770e-05, -5.2929e-05,  ..., -2.0266e-05,\\n           1.6578e-07,  3.8385e-05]],\\n\\n        ...,\\n\\n        [[-9.5963e-06, -4.9114e-05,  7.3433e-05,  ..., -2.2054e-05,\\n          -1.2457e-05, -3.2902e-05],\\n         [-6.0797e-06,  1.1861e-05, -5.2929e-05,  ..., -4.3631e-05,\\n          -4.1485e-05, -3.4809e-05]],\\n\\n        [[-3.9339e-05,  1.8954e-05,  4.1008e-05,  ..., -8.0466e-06,\\n           6.6757e-05,  6.7234e-05],\\n         [ 2.0623e-05, -8.2850e-06, -1.3649e-05,  ...,  3.5524e-05,\\n          -1.4752e-06, -4.4584e-05]],\\n\\n        [[-5.7220e-05, -1.4961e-05,  5.9307e-06,  ...,  5.5432e-06,\\n           1.7762e-05,  8.3447e-06],\\n         [-2.8133e-05, -6.7353e-06, -1.4067e-05,  ..., -3.2425e-05,\\n          -2.8491e-05, -1.8001e-05]]], device='cuda:0', dtype=torch.bfloat16), tensor([[[ 1.5378e-05,  4.6015e-05, -2.5392e-05,  ..., -2.3246e-06,\\n          -4.1485e-05,  5.8115e-06],\\n         [ 2.9445e-05,  5.5552e-05,  1.4424e-05,  ..., -2.5272e-05,\\n           1.7881e-05, -4.9829e-05]],\\n\\n        [[ 3.2425e-05,  3.8624e-05, -1.2159e-05,  ...,  5.6267e-05,\\n           2.0385e-05,  4.6968e-05],\\n         [-9.0599e-06, -2.8729e-05,  3.5763e-05,  ..., -7.3016e-06,\\n           7.2956e-05, -9.0599e-06]],\\n\\n        [[ 3.5167e-06, -3.0279e-05,  7.6890e-06,  ...,  6.3419e-05,\\n           1.4544e-05,  1.8597e-05],\\n         [-3.7432e-05, -4.0531e-05, -5.2691e-05,  ..., -2.0146e-05,\\n           1.7509e-07,  3.8862e-05]],\\n\\n        ...,\\n\\n        [[-9.5367e-06, -4.8876e-05,  7.2956e-05,  ..., -2.2054e-05,\\n          -1.2517e-05, -3.2902e-05],\\n         [-5.9009e-06,  1.1921e-05, -5.2929e-05,  ..., -4.3869e-05,\\n          -4.1485e-05, -3.4571e-05]],\\n\\n        [[-3.9101e-05,  1.8716e-05,  4.1008e-05,  ..., -8.4043e-06,\\n           6.6757e-05,  6.7234e-05],\\n         [ 2.0862e-05, -8.4639e-06, -1.3828e-05,  ...,  3.5048e-05,\\n          -1.0952e-06, -4.5061e-05]],\\n\\n        [[-5.7220e-05, -1.4961e-05,  5.9903e-06,  ...,  5.5730e-06,\\n           1.7762e-05,  8.2850e-06],\\n         [-2.8372e-05, -6.3181e-06, -1.4186e-05,  ..., -3.1948e-05,\\n          -2.8729e-05, -1.7881e-05]]], device='cuda:0', dtype=torch.bfloat16))\nE            +    where <built-in method equal of type object at 0x7fda5c3f2180> = torch.equal\n\ntests/unit_tests/ssm/test_gated_delta_net_offloading.py:143: AssertionError"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[True]",
+      "when": "call",
+      "outcome": "failed",
+      "detail": "gdn_offload_groups = ProcessGroupCollection(tp(1), cp(1))\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd8686fd160>\nfrozen_query = True\n\n    @pytest.mark.skipif(not HAVE_FLA, reason=\"FLA is not installed.\")\n    @pytest.mark.parametrize(\"frozen_query\", [False, True])\n    def test_gdn_offload_delayed_d2h(\n        gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch, frozen_query: bool\n    ) -> None:\n        \"\"\"Warmup and missing query gradients still order fallback H2D after delayed D2H.\"\"\"\n        config = _config()\n        baseline, offloaded = _build_pair(config, gdn_offload_groups)\n        if frozen_query:\n            for model in (baseline, offloaded):\n                for layer in model:\n                    layer.in_proj.requires_grad_(False)\n                    layer.conv1d.requires_grad_(False)\n    \n        bulk_offload = ChunkOffloadHandler.bulk_offload_group\n    \n        def delayed_offload(handler: ChunkOffloadHandler, group: OffloadTensorGroup) -> None:\n            with torch.cuda.stream(handler.d2h_stream):\n                torch.cuda._sleep(150_000_000)\n            bulk_offload(handler, group)\n    \n        monkeypatch.setattr(ChunkOffloadHandler, \"bulk_offload_group\", delayed_offload)\n        for _ in range(3):\n            source = torch.randn(128, 2, 256, device=\"cuda\", dtype=torch.bfloat16)\n            # Detach recurrence inputs to exercise trainable gates without query gradients.\n            reference = _run(baseline, source, detached_inputs=frozen_query)\n            result = _run(offloaded, source, offload=True, detached_inputs=frozen_query)\n>           _assert_step_equal(reference, result)\n\ntests/unit_tests/ssm/test_gated_delta_net_offloading.py:368: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nreference = {'output': tensor([[[ 5.0391e-01,  1.5156e+00, -8.3594e-01,  ..., -7.0801e-02,\n          -1.3828e+00,  1.6895e-01],\n  ...5e-08,  2.8558e-10,\n        -3.0741e-10,  6.6590e-08, -3.1141e-09], device='cuda:0',\n       dtype=torch.bfloat16), ...}\nresult = {'output': tensor([[[ 5.0391e-01,  1.5156e+00, -8.3594e-01,  ..., -7.0801e-02,\n          -1.3828e+00,  1.6895e-01],\n  ...5e-08,  2.8558e-10,\n        -3.0741e-10,  6.6590e-08, -3.1141e-09], device='cuda:0',\n       dtype=torch.bfloat16), ...}\n\n    def _assert_step_equal(reference: dict[str, torch.Tensor], result: dict[str, torch.Tensor]) -> None:\n        \"\"\"Compare outputs, input gradients and the complete parameter-gradient set.\"\"\"\n        assert result.keys() == reference.keys()\n        for name in reference:\n>           assert torch.equal(reference[name], result[name]), name\nE           AssertionError: grad.2.dt_bias\nE           assert False\nE            +  where False = <built-in method equal of type object at 0x7fda5c3f2180>(tensor([ 5.7480e-10,  3.1479e-07, -5.2096e-09,  8.9130e-10, -5.7335e-09,\\n         2.2054e-06,  9.9838e-07,  2.9802e-08], device='cuda:0',\\n       dtype=torch.bfloat16), tensor([0., 0., 0., 0., 0., 0., 0., 0.], device='cuda:0', dtype=torch.bfloat16))\nE            +    where <built-in method equal of type object at 0x7fda5c3f2180> = torch.equal\n\ntests/unit_tests/ssm/test_gated_delta_net_offloading.py:143: AssertionError"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-False-False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-False-False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-False-True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-True-False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-True-False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-True-True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-False-False-False]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 388, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-False-False-True]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 388, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-False-True-False]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 388, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-True-False-False]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 388, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-True-False-True]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 388, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-True-True-False]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gated_delta_net_offloading.py', 388, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_frozen_recurrence_bypass",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[decoder]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[resident]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fused-norm]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-scope-20261123/feature/tests/unit_tests/ssm/test_gdn_offload_training.py', 214, \"Skipped: could not import 'causal_conv1d': No module named 'causal_conv1d'\")"
+    }
+  ]
+}

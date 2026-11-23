@@ -1,0 +1,115 @@
+{
+  "image": "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+  "image_id": "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/data/songbinbin/Proj/Proj_LWX",
+      "Destination": "/data/songbinbin/Proj/Proj_LWX",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/data/songbinbin/minicoda",
+      "Destination": "/data/songbinbin/minicoda",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/lib/x86_64-linux-gnu/libnvidia-ml.so.1",
+      "Destination": "/opt/nvidia/libnvidia-ml.so.1",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1",
+      "Destination": "/opt/nvidia/libnvidia-ptxjitcompiler.so.1",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/songbinbin/gdn-offload-artifacts",
+      "Destination": "/existing-artifacts",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/songbinbin/.venvs/megatron-gdn-offload",
+      "Destination": "/home/songbinbin/.venvs/megatron-gdn-offload",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/lib/x86_64-linux-gnu/libcuda.so.1",
+      "Destination": "/opt/nvidia/libcuda.so.1",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/lib/x86_64-linux-gnu/libnvidia-nvvm.so.4",
+      "Destination": "/opt/nvidia/libnvidia-nvvm.so.4",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/usr/local/cuda-13.0",
+      "Destination": "/usr/local/cuda",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "devices": [
+    {
+      "PathOnHost": "/dev/nvidia0",
+      "PathInContainer": "/dev/nvidia0",
+      "CgroupPermissions": "rwm"
+    },
+    {
+      "PathOnHost": "/dev/nvidia1",
+      "PathInContainer": "/dev/nvidia1",
+      "CgroupPermissions": "rwm"
+    },
+    {
+      "PathOnHost": "/dev/nvidia4",
+      "PathInContainer": "/dev/nvidia4",
+      "CgroupPermissions": "rwm"
+    },
+    {
+      "PathOnHost": "/dev/nvidia6",
+      "PathInContainer": "/dev/nvidia6",
+      "CgroupPermissions": "rwm"
+    },
+    {
+      "PathOnHost": "/dev/nvidiactl",
+      "PathInContainer": "/dev/nvidiactl",
+      "CgroupPermissions": "rwm"
+    },
+    {
+      "PathOnHost": "/dev/nvidia-uvm",
+      "PathInContainer": "/dev/nvidia-uvm",
+      "CgroupPermissions": "rwm"
+    },
+    {
+      "PathOnHost": "/dev/nvidia-uvm-tools",
+      "PathInContainer": "/dev/nvidia-uvm-tools",
+      "CgroupPermissions": "rwm"
+    }
+  ]
+}
