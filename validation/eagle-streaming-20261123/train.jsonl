@@ -1,0 +1,3 @@
+{"conversation_id": "train-0", "messages": [{"role": "user", "content": "What is a tensor?"}, {"role": "assistant", "content": "A tensor is a multidimensional array."}], "chat_template_kwargs": {"enable_thinking": false}}
+{"conversation_id": "train-1", "messages": [{"role": "user", "content": "What is a language model?"}, {"role": "assistant", "content": "It predicts the next token."}], "chat_template_kwargs": {"enable_thinking": false}}
+{"conversation_id": "train-2", "messages": [{"role": "user", "content": "Name a color."}, {"role": "assistant", "content": "Blue."}], "chat_template_kwargs": {"enable_thinking": false}}

@@ -1,0 +1,97 @@
+/data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+[MegatronEagleVllmStreamingDataset] map-style dataset over 1 entries
+rank=0 starting batch at 3886178.727
+rank=1 starting batch at 3886178.727
+rank=1 entering real TP broadcast at 3886178.727
+source reached HTTP teacher endpoint
+/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/modelopt-install/modelopt/torch/speculative/plugins/hf_streaming_dataset.py:293: UserWarning: [streaming] fetch error for timeout: ReadTimeout('timed out')
+  warn_rank_0(f"[streaming] fetch error for {sample['cid']}: {e!r}")
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/probe_tp_failure.py", line 73, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+[rank0]:     return f(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/probe_tp_failure.py", line 68, in main
+[rank0]:     finetune.get_batch(iterator)
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/examples/post_training/modelopt/finetune.py", line 540, in get_batch
+[rank0]:     data = next(data_iterator)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:            ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 801, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+[rank0]:     data = [self.dataset[idx] for idx in possibly_batched_index]
+[rank0]:             ~~~~~~~~~~~~^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/modelopt-install/modelopt/torch/speculative/plugins/hf_streaming_dataset.py", line 298, in __getitem__
+[rank0]:     raise RuntimeError(
+[rank0]: RuntimeError: 1 consecutive _fetch failures in MegatronEagleVllmStreamingDataset; server likely down.
+[rank0]:[W1123 14:57:32.570492327 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1123 14:57:34.513000 3230 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 3236 closing signal SIGTERM
+E1123 14:57:34.679000 3230 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 3235) of binary: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python
+E1123 14:57:34.705000 3230 torch/distributed/elastic/multiprocessing/errors/error_handler.py:145] no error file defined for parent, to copy child error file (/tmp/torchelastic_qr798cb3/89796864-5703-4f43-a9c2-e156de01aefe_cpdkdhjc/attempt_0/0/error.json)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/probe_tp_failure.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-11-23_14:57:34
+  host      : 585d1b59d650
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 3236)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 3236
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-23_14:57:32
+  host      : 585d1b59d650
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 3235)
+  error_file: /tmp/torchelastic_qr798cb3/89796864-5703-4f43-a9c2-e156de01aefe_cpdkdhjc/attempt_0/0/error.json
+  traceback : Traceback (most recent call last):
+    File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+      return f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+    File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/probe_tp_failure.py", line 68, in main
+      finetune.get_batch(iterator)
+    File "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/examples/post_training/modelopt/finetune.py", line 540, in get_batch
+      data = next(data_iterator)
+             ^^^^^^^^^^^^^^^^^^^
+    File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+      data = self._next_data()
+             ^^^^^^^^^^^^^^^^^
+    File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 801, in _next_data
+      data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+      data = [self.dataset[idx] for idx in possibly_batched_index]
+              ~~~~~~~~~~~~^^^^^
+    File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/modelopt-install/modelopt/torch/speculative/plugins/hf_streaming_dataset.py", line 298, in __getitem__
+      raise RuntimeError(
+  RuntimeError: 1 consecutive _fetch failures in MegatronEagleVllmStreamingDataset; server likely down.
+  
+============================================================
+torchrun exit=1 elapsed=17.1s

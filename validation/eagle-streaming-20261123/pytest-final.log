@@ -1,0 +1,94 @@
+W1123 14:41:02.538000 1279 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+Test data already available at /opt/data
+.> building train, validation, and test SFT datasets ...
+INFO:httpx:HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/json/json.py "HTTP/1.1 200 OK"
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1 examples [00:00, 730.97 examples/s]
+[MegatronEagleVllmStreamingDataset] map-style dataset over 1 entries
+INFO:httpx:HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/json/json.py "HTTP/1.1 200 OK"
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1 examples [00:00, 903.17 examples/s]
+[MegatronEagleVllmStreamingDataset] map-style dataset over 1 entries
+.............................
+=============================== warnings summary ===============================
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4412
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/megatron/core/extensions/transformer_engine.py:4412: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+../.codex-artifacts/eagle-streaming-20261123/shared-python/requests/__init__.py:92
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/shared-python/requests/__init__.py:92: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:1488
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+../.codex-artifacts/eagle-streaming-20261123/modelopt-install/modelopt/torch/export/plugins/megatron_importer.py:48
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/eagle-streaming-20261123/modelopt-install/modelopt/torch/export/plugins/megatron_importer.py:48: DeprecationWarning: megatron.core.transformer.torch_norm is deprecated and will be removed in Megatron Core 0.22; import from megatron.core.ops.norm.torch_norm instead.
+    from megatron.core.transformer.torch_norm import L2Norm
+
+tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_streaming_finetune_loads_explicit_splits
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-eagle-streaming/megatron/core/_rank_utils.py:39: UserWarning: Could not determine rank from torch.distributed, RANK, or SLURM_PROCID. Defaulting to rank 0.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+________________ test_streaming_finetune_loads_explicit_splits _________________
+------------------------------ Captured log call -------------------------------
+INFO     httpx:_client.py:1025 HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/json/json.py "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/json/json.py "HTTP/1.1 200 OK"
+============================= slowest 15 durations =============================
+3.84s call     tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_streaming_finetune_loads_explicit_splits
+0.02s call     tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_finetune_forward_batch_alignment[streaming]
+
+(13 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_finetune_data_files_argument_accepts_multiple_files
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_streaming_finetune_loads_explicit_splits
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_accept_validation_with_a_corpus
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options0---eagle-streaming-server-urls]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options1---eagle-streaming-train-data]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options2-offline EAGLE GPTModel checkpoint]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options3---offline-distillation-data]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options4---micro-batch-size 1]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options5-BF16 and CP=PP=1]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options6-built-in sampler]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_streaming_args_reject_unsupported_configuration[options7---eagle-streaming-valid-data]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_finetune_forward_batch_alignment[streaming]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_finetune_forward_batch_alignment[disk]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_eagle_finetune_forward_batch_alignment[sft]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_materialize_data_files_resolves_local_dataset_directory
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_materialize_data_files_downloads_explicit_hub_file
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_materialize_data_files_rejects_wildcards
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_infer_data_files_builder_rejects_mixed_formats
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_load_parquet_data_files_ignores_huggingface_schema_metadata
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_explicit_dataset_loading_does_not_use_global_barriers
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_normalize_input_ids[input_ids0-expected0]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_normalize_input_ids[input_ids1-expected1]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_normalize_input_ids[input_ids2-expected2]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_normalize_input_ids[input_ids3-expected3]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_normalize_input_ids_rejects_batches
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_get_eos_token_id_prefers_valid_converted_id
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_get_eos_token_id_falls_back_from_out_of_vocab_chat_id
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_get_eos_token_id_rejects_out_of_vocab_fallback
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_offline_mode_follows_the_model_config[None-False]
+PASSED tests/unit_tests/post_training/test_modelopt_finetune_dataset.py::test_offline_mode_follows_the_model_config[32-True]
+30 passed, 23 warnings in 3.97s

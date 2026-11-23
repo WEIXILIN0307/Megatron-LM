@@ -1,0 +1,27 @@
+{
+  "runtime_commit": "1b369864d4e77a54961dd1a82013b8498853224c",
+  "pr_head": "f319f96c099e7c0a4c1106ffdf4a077aa46d9a8e",
+  "modelopt_commit": "0e6a792cfccf0bda1ebaecfec8f9b8d294858d62",
+  "cpu_tests": 30,
+  "live_service": [
+    {
+      "tp": 1,
+      "updates": 2,
+      "validation_microbatches": 3,
+      "transfer_acks": 5,
+      "checkpoint_iteration": 2
+    },
+    {
+      "tp": 2,
+      "updates": 2,
+      "validation_microbatches": 3,
+      "transfer_acks": 5,
+      "checkpoint_iteration": 2
+    }
+  ],
+  "teacher_weights_sha256": "1969160295ab0677a24b75707cd8e700ee3f778db0f67235fcef86314b73b048",
+  "tp2_launcher_fault_checks": [
+    "http_timeout_at_batch_entry",
+    "connection_refused_at_finetune_entry"
+  ]
+}
