@@ -32,7 +32,7 @@ bypass the scope. Inputs shared with neighboring operations are not force-releas
 
 Selective `gdn_norm_out` recomputation and (for GDN only) native pre-GDR fusion are
 supported. Configuration rejects FP8/NVFP4, other recurrence backends, full
-recomputation and CUDA graphs. Projection, convolution and output normalization
+recomputation and non-TE CUDA graphs. Projection, convolution and output normalization
 remain outside this scope. Projection/convolution recomputation and convolution
 input offload are separate work in [#7852](https://github.com/NVIDIA/Megatron-LM/pull/7852).
 
@@ -52,3 +52,17 @@ Historical Qwen measurements at `1f2c9ae4f7e617b12caa115e387d95e668517c62`
 reduced peak allocated memory by 952 MiB on A6000, with step-time and pinned-memory
 costs. They do not qualify the current revision. The [versioned evidence](https://github.com/WEIXILIN0307/Megatron-LM/tree/5af996df67ef2483242ea25be876b996d745449c)
 retains commands, original results and experimental profiling/training tools.
+
+## Transformer Engine CUDA graphs
+
+Set `cuda_graph_impl="transformer_engine"`, a positive warmup count and either
+attention capture (`cuda_graph_modules=["attn"]`) or whole-layer capture (`[]`).
+Local and full-iteration graph modes are rejected for this recurrence scope.
+Delayed offload uses the existing `delay_offload_until_cuda_graph` option.
+The graph regression compares complete training states after capture/replay and
+checks actual transfers and pinned-pool release, including a mixed GDN/attention
+model with both recurrence and standard-attention offloading enabled.
+
+Historical graph measurements at `c5264b66197040f4309edfdb22dc9bbaf62189b1`
+reduced reserved memory, not peak allocated memory, and increased step time.
+They do not establish a current-version performance benefit.
