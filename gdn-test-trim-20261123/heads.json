@@ -1,0 +1,22 @@
+{
+  "feature": {
+    "head": "6ce197ba0ef81c3467091414b7455417c6269939",
+    "validation_head": "7d4ed264cacc51eb5db4b63fde3136b0a6fad5d0",
+    "previous_head": "edcb3c98745144fe2aa2868ff1bf41265dde31f6"
+  },
+  "gdn2": {
+    "head": "c5284187e9592c8774eca7e01cfd4806dfcc631b",
+    "validation_head": "cd4f40d653c664a703cf50615ce49525bf3a33fd",
+    "previous_head": "3576a2fb1268e7a8b56e32be38b2b4e01359b725"
+  },
+  "graph": {
+    "head": "f7b8f8f6fa6030da6129e954ba4dacaac542e5bd",
+    "validation_head": "de7b56b6acea62724df6c80a845ef55cedf8acf5",
+    "previous_head": "f858ea43cecc3a6a964f452b4cc094d87d16baf9"
+  },
+  "precision": {
+    "head": "b2a2b61ac306fe59561ed384f84937c5228f0099",
+    "validation_head": "d774e0b24fa2e4a523f694ae6ea64c8e89475704",
+    "previous_head": "504d24c92b7471b6a7216e1169b6e291b0ce73dd"
+  }
+}
