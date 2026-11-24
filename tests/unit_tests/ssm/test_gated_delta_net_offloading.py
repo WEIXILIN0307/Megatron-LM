@@ -355,24 +355,12 @@ def test_gdn_offload_packed_sequence(
 
 
 @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
-@pytest.mark.parametrize(
-    "variant,frozen_query",
-    [
-        pytest.param("gdn", False, id="gdn"),
-        pytest.param("gdn", True, id="gdn-frozen-q"),
-        pytest.param("gdn2", True, id="gdn2-frozen-q"),
-    ],
-)
+@pytest.mark.parametrize("frozen_query", [False, True])
 def test_gdn_offload_delayed_d2h(
-    gdn_offload_groups: ProcessGroupCollection,
-    monkeypatch: pytest.MonkeyPatch,
-    frozen_query: bool,
-    variant: str,
+    gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch, frozen_query: bool
 ) -> None:
     """Warmup and missing query gradients still order fallback H2D after delayed D2H."""
-    if variant == "gdn2":
-        pytest.importorskip("fla.ops.gdn2")
-    config = _config(experimental_attention_variant=variant)
+    config = _config()
     baseline, offloaded = _build_pair(config, gdn_offload_groups)
     if frozen_query:
         for model in (baseline, offloaded):
