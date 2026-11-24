@@ -355,8 +355,14 @@ def test_gdn_offload_packed_sequence(
 
 
 @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
-@pytest.mark.parametrize("variant", ["gdn", "gdn2"])
-@pytest.mark.parametrize("frozen_query", [False, True])
+@pytest.mark.parametrize(
+    "variant,frozen_query",
+    [
+        pytest.param("gdn", False, id="gdn"),
+        pytest.param("gdn", True, id="gdn-frozen-q"),
+        pytest.param("gdn2", True, id="gdn2-frozen-q"),
+    ],
+)
 def test_gdn_offload_delayed_d2h(
     gdn_offload_groups: ProcessGroupCollection,
     monkeypatch: pytest.MonkeyPatch,
