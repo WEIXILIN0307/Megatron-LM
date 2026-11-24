@@ -30,7 +30,7 @@ A differentiable recurrence input anchors backward prefetch, including a trainab
 gate when Q is frozen. Evaluation, no-grad execution and fully frozen recurrences
 bypass the scope. Inputs shared with neighboring operations are not force-released.
 
-BF16 GDN, selective `gdn_norm_out` recomputation and native pre-GDR fusion are
+Selective `gdn_norm_out` recomputation and (for GDN only) native pre-GDR fusion are
 supported. Configuration rejects FP8/NVFP4, other recurrence backends, full
 recomputation and CUDA graphs. Projection, convolution and output normalization
 remain outside this scope. Projection/convolution recomputation and convolution

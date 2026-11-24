@@ -56,7 +56,7 @@ of standard attention's `core_attn` scope. It commits before output normalizatio
 and anchors backward prefetch on a differentiable recurrence input. Shared inputs
 are not force-released; evaluation and no-grad execution bypass the scope.
 
-Selective `gdn_norm_out` recomputation and native pre-GDR fusion are supported.
+Both variants support selective `gdn_norm_out` recomputation. Pre-GDR fusion is GDN-only.
 FP8/NVFP4, other recurrence backends, full recomputation and CUDA graphs are
 rejected. See [GDN recurrence activation offloading](../../developer/gdn_activation_offloading.md)
 for configuration and the scope of validation.

@@ -119,7 +119,7 @@ def _build_training_model(
     stack_spec = ModuleSpec(
         module=HybridStack,
         submodules=HybridStackSubmodules(
-            gdn_layer=layer_specs[0],
+            gdn_layer=layer_specs[0] if config.experimental_attention_variant == "gdn" else None,
             gdn2_layer=layer_specs[0] if config.experimental_attention_variant == "gdn2" else None,
             attention_layer=layer_specs[3],
         ),
