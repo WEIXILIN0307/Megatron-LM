@@ -1,0 +1,97 @@
+{
+  "rank": 0,
+  "collected": 15,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs0-only supports GDN]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs1-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs2-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs3-CUDA graphs]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs4-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs5-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_packed_offload[gdn-packed]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_packed_offload[gdn-packed-fused-norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_packed_offload[gdn-below-threshold]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_resident_forward[gdn-eval]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_resident_forward[gdn-no-grad]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_resident_forward[gdn-frozen]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[decoder]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[resident]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fused-norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

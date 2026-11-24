@@ -1,0 +1,31 @@
+{
+  "rank": 0,
+  "collected": 4,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-sp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-vpp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}
