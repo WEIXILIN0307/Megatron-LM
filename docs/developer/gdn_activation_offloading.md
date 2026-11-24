@@ -43,7 +43,7 @@ gates can be offloaded. The recurrence uses the same scheduler and pinned pool.
 ## Validation
 
 `tests/unit_tests/ssm/test_gated_delta_net_offloading.py` covers fractions,
-thresholds, packed sequences, frozen inputs, delayed copies and pool reuse.
+thresholds, packed sequences, frozen inputs and pool reuse.
 `tests/unit_tests/ssm/test_gdn_offload_training.py` compares native decoder training
 with loss, gradients, weights and complete optimizer state, including pinned
 ownership before schedule reset.

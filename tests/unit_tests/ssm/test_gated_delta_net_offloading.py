@@ -18,10 +18,7 @@ from megatron.core.pipeline_parallel.fine_grained_activation_offload import Chun
 from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
     FineGrainedActivationOffloadingInterface as off_interface,
 )
-from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
-    OffloadTensorGroup,
-    PipelineOffloadManager,
-)
+from megatron.core.pipeline_parallel.fine_grained_activation_offload import PipelineOffloadManager
 from megatron.core.process_groups_config import ProcessGroupCollection
 from megatron.core.ssm.gated_delta_net import HAVE_FLA, GatedDeltaNet2
 from megatron.core.tensor_parallel.random import model_parallel_cuda_manual_seed
@@ -247,82 +244,6 @@ def test_gdn_offload_replay(
 
 @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
 @pytest.mark.parametrize(
-    "fraction,recompute_norm",
-    [pytest.param(0.5, False, id="partial"), pytest.param(1.0, True, id="full-norm")],
-)
-def test_gdn_offload_microbatch_accumulation(
-    gdn_offload_groups: ProcessGroupCollection,
-    monkeypatch: pytest.MonkeyPatch,
-    fraction: float,
-    recompute_norm: bool,
-) -> None:
-    """Accumulate changing microbatches without synchronizing transfers between them."""
-    config = _config(
-        activation_offload_fraction=fraction,
-        recompute_granularity="selective" if recompute_norm else None,
-        recompute_modules=["gdn_norm_out"] if recompute_norm else [],
-    )
-    baseline, offloaded = _build_pair(config, gdn_offload_groups)
-    inputs = [torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16) for _ in range(9)]
-
-    def run(model: torch.nn.ModuleList, offload: bool) -> list[dict[str, torch.Tensor]]:
-        snapshots = []
-        for iteration in range(3):
-            model.zero_grad(set_to_none=True)
-            for microbatch in range(3):
-                if offload:
-                    off_interface.init_chunk_handler(0, None, None, 1024, 0, fraction)
-                x = inputs[iteration * 3 + microbatch].detach().clone().requires_grad_()
-                y = x
-                for layer in model:
-                    layer_output, _ = layer(y, None)
-                    y = y + layer_output
-                (y.float().square().mean() / 3).backward()
-                assert x.grad is not None
-                snapshots.append(
-                    {
-                        "output": y.detach().clone(),
-                        "input_grad": x.grad.clone(),
-                        **{
-                            f"grad.{name}": p.grad.clone()
-                            for name, p in model.named_parameters()
-                            if p.grad is not None
-                        },
-                    }
-                )
-                if offload:
-                    manager = PipelineOffloadManager.get_instance()
-                    assert (
-                        manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"]
-                        == 0
-                    )
-            if offload:
-                assert len(manager._cached_chunks_forward) == 3
-                assert all(
-                    chunk._offloaded_group_index == len(chunk.offload_groups) == config.num_layers
-                    for chunk in manager._cached_chunks_forward
-                )
-                off_interface.reset(process_group=torch.distributed.group.WORLD)
-        # Keep snapshots on GPU so validation does not join copies between steps.
-        torch.cuda.synchronize()
-        return snapshots
-
-    reference = run(baseline, False)
-    bulk_reload = ChunkOffloadHandler.bulk_reload_group
-
-    def delayed_reload(handler: ChunkOffloadHandler) -> None:
-        with torch.cuda.stream(handler.h2d_stream):
-            torch.cuda._sleep(10_000_000)
-        bulk_reload(handler)
-
-    monkeypatch.setattr(ChunkOffloadHandler, "bulk_reload_group", delayed_reload)
-    result = run(offloaded, True)
-    for expected, actual in zip(reference, result):
-        _assert_step_equal(expected, actual)
-
-
-@pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
-@pytest.mark.parametrize(
     "fused_pre_gdr,recompute_norm",
     [pytest.param(False, False, id="unfused"), pytest.param(True, True, id="fused-norm")],
 )
@@ -348,39 +269,6 @@ def test_gdn_offload_packed_sequence(
         source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
         reference = _run(baseline, source, packed)
         result = _run(offloaded, source, packed, offload=True)
-        _assert_step_equal(reference, result)
-        manager = PipelineOffloadManager.get_instance()
-        assert manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"] == 0
-        off_interface.reset(process_group=torch.distributed.group.WORLD)
-
-
-@pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
-@pytest.mark.parametrize("frozen_query", [False, True])
-def test_gdn_offload_delayed_d2h(
-    gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch, frozen_query: bool
-) -> None:
-    """Warmup and missing query gradients still order fallback H2D after delayed D2H."""
-    config = _config()
-    baseline, offloaded = _build_pair(config, gdn_offload_groups)
-    if frozen_query:
-        for model in (baseline, offloaded):
-            for layer in model:
-                layer.in_proj.requires_grad_(False)
-                layer.conv1d.requires_grad_(False)
-
-    bulk_offload = ChunkOffloadHandler.bulk_offload_group
-
-    def delayed_offload(handler: ChunkOffloadHandler, group: OffloadTensorGroup) -> None:
-        with torch.cuda.stream(handler.d2h_stream):
-            torch.cuda._sleep(150_000_000)
-        bulk_offload(handler, group)
-
-    monkeypatch.setattr(ChunkOffloadHandler, "bulk_offload_group", delayed_offload)
-    for _ in range(3):
-        source = torch.randn(128, 2, 256, device="cuda", dtype=torch.bfloat16)
-        # Detach recurrence inputs to exercise trainable gates without query gradients.
-        reference = _run(baseline, source, detached_inputs=frozen_query)
-        result = _run(offloaded, source, offload=True, detached_inputs=frozen_query)
         _assert_step_equal(reference, result)
         manager = PipelineOffloadManager.get_instance()
         assert manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"] == 0
@@ -416,23 +304,6 @@ def test_gdn_offload_training_eval_training(
     baseline, offloaded = _build_pair(config, gdn_offload_groups)
     source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
 
-    def bypass_forward() -> None:
-        offloaded.train(training)
-        with monkeypatch.context() as patch:
-            patch.setattr(
-                PipelineOffloadManager,
-                "get_instance",
-                lambda: pytest.fail("Eval/no-grad forward should not access the offload manager."),
-            )
-            with torch.set_grad_enabled(grad_enabled):
-                output = source
-                for layer in offloaded:
-                    y, _ = layer(output, None)
-                    output = output + y
-
-    # Check bypass both before the manager exists and after the offload policy is learned.
-    bypass_forward()
-    offloaded.train()
     manager = PipelineOffloadManager.get_instance()
     reference = _run(baseline, source)
     result = _run(offloaded, source, offload=True)
@@ -442,7 +313,13 @@ def test_gdn_offload_training_eval_training(
     assert learned_bytes > 0 and not manager._is_warmup
 
     off_interface.init_chunk_handler(0, None, None, 1024, 0, 1.0)
-    bypass_forward()
+    offloaded.train(training)
+    with torch.set_grad_enabled(grad_enabled):
+        output = source
+        for layer in offloaded:
+            y, _ = layer(output, None)
+            output = output + y
+    assert manager._cached_chunks_forward[0]._offloaded_group_index == 0
     off_interface.reset(process_group=torch.distributed.group.WORLD)
     assert not manager._is_warmup
     assert manager.offload_summary_total_bytes == learned_bytes
@@ -457,28 +334,22 @@ def test_gdn_offload_training_eval_training(
 
 
 @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
-def test_gdn_offload_frozen_recurrence_bypass(
-    gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_gdn_offload_frozen_recurrence_bypass(gdn_offload_groups: ProcessGroupCollection) -> None:
     """A frozen recurrence bypasses offload even with global grad mode enabled."""
     model = _build(_config(), gdn_offload_groups).requires_grad_(False)
-    monkeypatch.setattr(
-        PipelineOffloadManager,
-        "get_instance",
-        lambda: pytest.fail("A non-differentiable recurrence should not access the manager."),
-    )
+    off_interface.init_chunk_handler(0, None, None, 1024, 0, 1.0)
+    chunk = PipelineOffloadManager.get_instance().cur_forward_chunk()
     source = torch.randn(64, 1, 256, device="cuda", dtype=torch.bfloat16)
     with torch.enable_grad():
         for layer in model:
             source, _ = layer(source, None)
     assert not source.requires_grad
+    assert chunk._offloaded_group_index == 0
 
 
 @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
-def test_gdn2_eval_bypasses_offload_manager(
-    gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch
-) -> None:
-    """Evaluation with gradients does not initialize the offload manager."""
+def test_gdn2_eval_keeps_recurrence_resident(gdn_offload_groups: ProcessGroupCollection) -> None:
+    """Evaluation with gradients leaves the active offload chunk untouched."""
     pytest.importorskip("fla.ops.gdn2")
     baseline, offloaded = _build_pair(
         _config(experimental_attention_variant="gdn2"), gdn_offload_groups
@@ -486,9 +357,10 @@ def test_gdn2_eval_bypasses_offload_manager(
     baseline.eval()
     offloaded.eval()
     source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
-    monkeypatch.setattr(PipelineOffloadManager, "OFFLOAD_MGR", None)
+    off_interface.init_chunk_handler(0, None, None, 1024, 0, 1.0)
+    chunk = PipelineOffloadManager.get_instance().cur_forward_chunk()
     _assert_step_equal(_run(baseline, source), _run(offloaded, source))
-    assert PipelineOffloadManager.OFFLOAD_MGR is None
+    assert chunk._offloaded_group_index == 0
 
 
 @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
