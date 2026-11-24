@@ -1,0 +1,205 @@
+{
+  "rank": 0,
+  "collected": 33,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestPaddingUtilities::test_pad_to_divisor_exact_multiple",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestPaddingUtilities::test_pad_to_divisor_rounds_up",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestPaddingUtilities::test_pad_to_divisor_zero",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestPaddingUtilities::test_pad_param_start",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestPaddingUtilities::test_pad_bucket_end_basic",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestPaddingUtilities::test_pad_bucket_end_high_busbw",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestPaddingUtilities::test_pad_bucket_end_already_aligned",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestGroupParamsForBuffers::test_single_dtype_no_experts",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestGroupParamsForBuffers::test_grad_reduce_not_fp32",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestGroupParamsForBuffers::test_expert_parallel_separation",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestGroupParamsForBuffers::test_param_indices_independent_per_group",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestGroupParamsForBuffers::test_mixed_dtypes",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_single_bucket_no_padding",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_multiple_buckets",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_no_padding_applied",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_single_param",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[4-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[4-100]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[8-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[8-100]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_param_start_64_alignment",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_bucket_end_dp_divisible",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_bucket_end_high_busbw_padding",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_shared_embedding_gets_separate_bucket",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_shared_embedding_as_first_reversed_param_no_extra_bucket",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_multiple_buckets_with_bucket_size",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_numel_unpadded_vs_padded",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_shared_embedding_with_bucket_size",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDistOptParamLayout::test_layout_matches_default_when_no_padding_needed",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestComputeFullParamLayout::test_dense_only",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestComputeFullParamLayout::test_dense_and_expert_separate_layouts",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestComputeFullParamLayout::test_expert_uses_expert_dp_world_size",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestComputeFullParamLayout::test_param_indices_populated",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

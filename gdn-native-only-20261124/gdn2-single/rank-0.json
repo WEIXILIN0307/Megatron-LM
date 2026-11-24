@@ -1,0 +1,49 @@
+{
+  "rank": 0,
+  "collected": 7,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[gdn2-resident]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[gdn2-partial-packed-norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_eval_keeps_recurrence_resident",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[trainable-unexpanded]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[trainable-expanded]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[frozen]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[gdn2-decoder]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}
