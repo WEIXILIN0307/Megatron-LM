@@ -1,0 +1,20 @@
+{
+  "gdn2": {
+    "head": "d7cb8bd77530d0db375163d23bea097e0e914309",
+    "previous_head": "c5284187e9592c8774eca7e01cfd4806dfcc631b",
+    "validation_head": "3fba560996243f902589adc4c095eba4ec978074",
+    "previous_validation_head": "cd4f40d653c664a703cf50615ce49525bf3a33fd"
+  },
+  "graph": {
+    "head": "18a3b427515b07766000ef4c2d9d646230cd0cd4",
+    "previous_head": "f7b8f8f6fa6030da6129e954ba4dacaac542e5bd",
+    "validation_head": "fa5178043d93351bb38f1fe114383a688c9e3619",
+    "previous_validation_head": "de7b56b6acea62724df6c80a845ef55cedf8acf5"
+  },
+  "precision": {
+    "head": "7f46564b108137222a2da0f6d3fb372ebf579cc1",
+    "previous_head": "b2a2b61ac306fe59561ed384f84937c5228f0099",
+    "validation_head": "975b17bfecf1f01e0a153e9bf816252843c01d67",
+    "previous_validation_head": "d774e0b24fa2e4a523f694ae6ea64c8e89475704"
+  }
+}

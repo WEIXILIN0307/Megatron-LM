@@ -1,0 +1,132 @@
+diff --git a/tests/unit_tests/ssm/test_gated_delta_net_offloading.py b/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+index 284dd1883..246ce8b3c 100644
+--- a/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
++++ b/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+@@ -89,7 +89,6 @@ def test_gdn_offload_config() -> None:
+         assert config.experimental_attention_variant == "gdn"
+     config = _config(recompute_granularity="selective", recompute_modules=["gdn_norm_out"])
+     assert config.offload_modules == ["gdn_core_attn"]
+-    assert _config(experimental_attention_variant="gdn2").offload_modules == ["gdn_core_attn"]
+     assert not TransformerConfig(
+         num_layers=1, hidden_size=128, num_attention_heads=2
+     ).offload_modules
+@@ -178,13 +177,15 @@ def _run(
+ 
+ @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+ @pytest.mark.parametrize(
+-    "fraction,threshold,recompute_norm,value_heads,fused_pre_gdr",
++    "fraction,threshold,recompute_norm,value_heads,fused_pre_gdr,variant,packed",
+     [
+-        pytest.param(0.0, 1024, False, 4, False, id="resident"),
+-        pytest.param(0.5, 1024, False, 4, False, id="partial"),
+-        pytest.param(1.0, 1024, False, 4, False, id="full"),
+-        pytest.param(1.0, 10**9, False, 4, False, id="below-threshold"),
+-        pytest.param(1.0, 1024, True, 8, True, id="expanded-fused-norm"),
++        pytest.param(0.0, 1024, False, 4, False, "gdn", False, id="resident"),
++        pytest.param(0.5, 1024, False, 4, False, "gdn", False, id="partial"),
++        pytest.param(1.0, 1024, False, 4, False, "gdn", False, id="full"),
++        pytest.param(1.0, 10**9, False, 4, False, "gdn", False, id="below-threshold"),
++        pytest.param(1.0, 1024, True, 8, True, "gdn", False, id="expanded-fused-norm"),
++        pytest.param(0.0, 1024, False, 8, False, "gdn2", False, id="gdn2-resident"),
++        pytest.param(0.5, 1024, True, 8, False, "gdn2", True, id="gdn2-partial-packed-norm"),
+     ],
+ )
+ def test_gdn_offload_replay(
+@@ -194,13 +195,18 @@ def test_gdn_offload_replay(
+     recompute_norm: bool,
+     value_heads: int,
+     fused_pre_gdr: bool,
++    variant: str,
++    packed: bool,
+     monkeypatch: pytest.MonkeyPatch,
+ ) -> None:
+     """Outputs and every gradient agree through warmup, policy selection, and pool reuse."""
++    if variant == "gdn2":
++        pytest.importorskip("fla.ops.gdn2")
+     if fused_pre_gdr:
+         pytest.importorskip("causal_conv1d", minversion="1.6.1")
+         monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
+     config = _config(
++        experimental_attention_variant=variant,
+         activation_offload_fraction=fraction,
+         min_offloaded_tensor_size=threshold,
+         linear_num_value_heads=value_heads,
+@@ -210,13 +216,19 @@ def test_gdn_offload_replay(
+         config.recompute_granularity = "selective"
+         config.recompute_modules = ["gdn_norm_out"]
+     baseline, offloaded = _build_pair(config, gdn_offload_groups)
++    sequence = None
++    if packed:
++        cu = torch.tensor([0, 32, 128], device="cuda", dtype=torch.int32)
++        sequence = PackedSeqParams(qkv_format="thd", cu_seqlens_q=cu, cu_seqlens_kv=cu)
+     torch.manual_seed(19)
+     manager = PipelineOffloadManager.get_instance()
+     for iteration in range(3):
+         # Different activations expose stale copies when cached groups/pools are reused.
+-        source = torch.randn(128, 2, 256, device="cuda", dtype=torch.bfloat16)
+-        reference = _run(baseline, source)
+-        result = _run(offloaded, source, offload=True, fraction=fraction, threshold=threshold)
++        source = torch.randn(128, 1 if packed else 2, 256, device="cuda", dtype=torch.bfloat16)
++        reference = _run(baseline, source, sequence)
++        result = _run(
++            offloaded, source, sequence, offload=True, fraction=fraction, threshold=threshold
++        )
+         _assert_step_equal(reference, result)
+         assert manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"] == 0
+         off_interface.reset(process_group=torch.distributed.group.WORLD)
+@@ -487,8 +499,14 @@ def test_gdn2_eval_bypasses_offload_manager(
+ 
+ 
+ @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+-@pytest.mark.parametrize("value_heads", [4, 8])
+-@pytest.mark.parametrize("frozen_gates", [False, True])
++@pytest.mark.parametrize(
++    "value_heads,frozen_gates",
++    [
++        pytest.param(4, False, id="trainable-unexpanded"),
++        pytest.param(8, False, id="trainable-expanded"),
++        pytest.param(4, True, id="frozen"),
++    ],
++)
+ def test_gdn2_offload_retains_live_sigmoid_gates(
+     gdn_offload_groups: ProcessGroupCollection,
+     value_heads: int,
+@@ -540,38 +558,3 @@ def test_gdn2_offload_retains_live_sigmoid_gates(
+     for names in copied_gates:
+         assert ("w" in names) == frozen_gates
+         assert ("b" in names) == (frozen_gates or value_heads != 4)
+-
+-
+-@pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+-@pytest.mark.parametrize(
+-    "fraction,recompute_norm,packed",
+-    [
+-        pytest.param(0.0, False, False, id="resident"),
+-        pytest.param(0.5, True, True, id="partial-packed-norm"),
+-    ],
+-)
+-def test_gdn2_offload_replay(
+-    gdn_offload_groups: ProcessGroupCollection, fraction: float, recompute_norm: bool, packed: bool
+-) -> None:
+-    """GDN2 channel-wise gates retain outputs and all gradients through pool reuse."""
+-    pytest.importorskip("fla.ops.gdn2")
+-    config = _config(
+-        experimental_attention_variant="gdn2",
+-        activation_offload_fraction=fraction,
+-        recompute_granularity="selective" if recompute_norm else None,
+-        recompute_modules=["gdn_norm_out"] if recompute_norm else [],
+-    )
+-    baseline, offloaded = _build_pair(config, gdn_offload_groups)
+-    sequence = None
+-    if packed:
+-        cu = torch.tensor([0, 32, 128], device="cuda", dtype=torch.int32)
+-        sequence = PackedSeqParams(qkv_format="thd", cu_seqlens_q=cu, cu_seqlens_kv=cu)
+-    manager = PipelineOffloadManager.get_instance()
+-    for _ in range(3):
+-        source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
+-        reference = _run(baseline, source, sequence)
+-        result = _run(offloaded, source, sequence, offload=True, fraction=fraction)
+-        _assert_step_equal(reference, result)
+-        assert manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"] == 0
+-        off_interface.reset(process_group=torch.distributed.group.WORLD)
+-        assert (manager.offload_summary_total_bytes > 0) == (fraction > 0)
