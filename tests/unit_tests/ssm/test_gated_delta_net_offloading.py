@@ -522,8 +522,9 @@ def test_gdn2_offload_retains_live_sigmoid_gates(
                 layer.in_proj.requires_grad_(False)
                 layer.conv1d.requires_grad_(False)
 
-    gate_storages: dict[str, int] = {}
-    copied_gates: list[set[str]] = []
+    source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
+    reference = _run(baseline, source, detached_inputs=frozen_gates)
+    gate_copies: list[tuple[dict[str, int], set[int]]] = []
     run_core = GatedDeltaNet2._run_gated_delta_rule
     offload_tensor = ChunkOffloadHandler.offload
 
@@ -532,28 +533,21 @@ def test_gdn2_offload_retains_live_sigmoid_gates(
         kernel_inputs: dict[str, torch.Tensor],
         cu_seqlens: torch.Tensor | None,
     ) -> torch.Tensor:
-        if layer.offload_gdn_core_attention:
-            gate_storages.update(
-                {name: kernel_inputs[name].untyped_storage().data_ptr() for name in ("b", "w")}
-            )
-            copied_gates.append(set())
+        gate_copies.append(
+            ({name: kernel_inputs[name].untyped_storage().data_ptr() for name in ("b", "w")}, set())
+        )
         return run_core(layer, kernel_inputs, cu_seqlens)
 
     def record_copy(handler: ChunkOffloadHandler, tensor: torch.Tensor, **kwargs: Any) -> Any:
-        copied_gates[-1].update(
-            name
-            for name, pointer in gate_storages.items()
-            if pointer == tensor.untyped_storage().data_ptr()
-        )
+        _, copied = gate_copies[-1]
+        copied.add(tensor.untyped_storage().data_ptr())
         return offload_tensor(handler, tensor, **kwargs)
 
     monkeypatch.setattr(GatedDeltaNet2, "_run_gated_delta_rule", record_gates)
     monkeypatch.setattr(ChunkOffloadHandler, "offload", record_copy)
-    source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
-    reference = _run(baseline, source, detached_inputs=frozen_gates)
     result = _run(offloaded, source, offload=True, detached_inputs=frozen_gates)
     _assert_step_equal(reference, result)
-    assert len(copied_gates) == config.num_layers
-    for names in copied_gates:
-        assert ("w" in names) == frozen_gates
-        assert ("b" in names) == (frozen_gates or value_heads != 4)
+    assert len(gate_copies) == config.num_layers
+    for gates, copied in gate_copies:
+        assert (gates["w"] in copied) == frozen_gates
+        assert (gates["b"] in copied) == (frozen_gates or value_heads != 4)
