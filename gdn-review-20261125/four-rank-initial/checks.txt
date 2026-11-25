@@ -1,0 +1,34 @@
+rank 0: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=0/2, vp_stage=0, segment_index=0/2, layers='GGG*' (4 layers), layer_offset=0
+rank 0: GPU_MEMORY mode=eager variant=gdn peak_allocated_mib=263.8 peak_reserved_mib=464.0
+rank 0: PASSED
+rank 0: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=0/2, vp_stage=0, segment_index=0/2, layers='GGG*' (4 layers), layer_offset=0
+rank 0: GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=354.5 peak_reserved_mib=468.0
+rank 0: PASSED
+rank 0: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn-attention] INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 4
+rank 0: GPU_MEMORY mode=graph variant=gdn peak_allocated_mib=789.6 peak_reserved_mib=848.0
+rank 0: PASSED
+rank 0: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn2-layer] INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 4
+rank 1: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn] GPU_MEMORY mode=eager variant=gdn peak_allocated_mib=378.3 peak_reserved_mib=592.0
+rank 1: PASSED
+rank 1: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=411.4 peak_reserved_mib=530.0
+rank 1: PASSED
+rank 1: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn-attention] GPU_MEMORY mode=graph variant=gdn peak_allocated_mib=790.4 peak_reserved_mib=858.0
+rank 1: PASSED
+rank 1: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn2-layer]
+rank 2: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=1/2, vp_stage=0, segment_index=1/2, layers='GGG*' (4 layers), layer_offset=4
+rank 2: GPU_MEMORY mode=eager variant=gdn peak_allocated_mib=370.7 peak_reserved_mib=722.0
+rank 2: PASSED
+rank 2: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=1/2, vp_stage=0, segment_index=1/2, layers='GGG*' (4 layers), layer_offset=4
+rank 2: GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=483.4 peak_reserved_mib=724.0
+rank 2: PASSED
+rank 2: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn-attention] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=1/2, vp_stage=0, segment_index=1/2, layers='GGG*' (4 layers), layer_offset=4
+rank 2: GPU_MEMORY mode=graph variant=gdn peak_allocated_mib=789.5 peak_reserved_mib=914.0
+rank 2: PASSED
+rank 2: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn2-layer] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=1/2, vp_stage=0, segment_index=1/2, layers='GGG*' (4 layers), layer_offset=4
+rank 3: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn] GPU_MEMORY mode=eager variant=gdn peak_allocated_mib=370.7 peak_reserved_mib=722.0
+rank 3: PASSED
+rank 3: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=483.4 peak_reserved_mib=724.0
+rank 3: PASSED
+rank 3: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn-attention] GPU_MEMORY mode=graph variant=gdn peak_allocated_mib=789.5 peak_reserved_mib=914.0
+rank 3: PASSED
+rank 3: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn2-layer]

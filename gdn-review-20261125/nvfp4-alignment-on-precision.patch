@@ -1,0 +1,437 @@
+From b5c1b13934c985f02bf39b33f06f93e5b1e426cf Mon Sep 17 00:00:00 2001
+From: Pinoeer-kingxi <weixilin307@gmail.com>
+Date: Tue, 24 Nov 2026 04:29:05 -0800
+Subject: [PATCH] Keep low-precision validation focused on the cache contract
+ and native training
+
+Signed-off-by: Pinoeer-kingxi <weixilin307@gmail.com>
+---
+ .../fine_grained_activation_offloading.md     |  8 +-
+ megatron/core/transformer/cuda_graphs.py      |  2 +-
+ .../core/transformer/transformer_config.py    | 13 +++-
+ .../ssm/test_gated_delta_net_offloading.py    |  6 +-
+ .../ssm/test_gdn_offload_cuda_graphs.py       | 50 ++++++++++---
+ .../ssm/test_gdn_offload_training.py          | 74 +++++++++++++++----
+ .../transformer/test_cuda_graphs.py           | 40 ++++++++++
+ 7 files changed, 160 insertions(+), 33 deletions(-)
+
+diff --git a/docs/user-guide/features/fine_grained_activation_offloading.md b/docs/user-guide/features/fine_grained_activation_offloading.md
+index d2de119b2..ba32028ae 100644
+--- a/docs/user-guide/features/fine_grained_activation_offloading.md
++++ b/docs/user-guide/features/fine_grained_activation_offloading.md
+@@ -43,7 +43,7 @@ Each scope offloads saved activations to CPU during forward and reloads them bef
+ | `moe_act` | Activation function in MoE experts | MoE models only |
+ | `fused_group_mlp` | Whole fused grouped MLP | Requires `--use-transformer-engine-op-fuser`; cannot be combined with `expert_fc1` or `moe_act` |
+ | `shortcut_post_norm` | Shortcut post-combine normalization | Requires `--moe-shortcut-connection` |
+-| `gdn_core_attn` | Tensors saved inside the FLA GDN recurrence | BF16 GDN/GDN2 only. See the recomputation and CUDA graph restrictions below. |
++| `gdn_core_attn` | Tensors saved inside the FLA GDN recurrence | BF16 FLA recurrence; TE FP8/NVFP4 projections allowed |
+ 
+ When selective `residual_stream` replay is active, its shared checkpoint manager owns the
+ connected ShortcutMoE post-norm. In that case `shortcut_post_norm` offloading is skipped for the
+@@ -62,9 +62,13 @@ Set `--experimental-attention-variant gdn2` to use the GDN2 variant.
+ With an explicit layer-config list, enable the scope on the model config and at least one GDN layer.
+ Both variants support selective `gdn_norm_out` recomputation. Pre-GDR fusion is GDN-only.
+ Whole-GDN selective recomputation (`--recompute-modules gdn`), full recomputation,
+-FP8/NVFP4, other recurrence backends, and non-TE CUDA graphs are rejected.
++non-BF16 activations, other recurrence backends, and non-TE CUDA graphs are rejected.
+ Set `NVTE_CPU_OFFLOAD_V1=1` with Transformer Engine 2.10 or newer.
+ For TE graphs, use PyTorch 2.9+, TE 2.14+, positive warmup and attention or whole-layer capture.
++NVFP4 graph offload requires `disable_parameter_transpose_cache=True`.
++When training NVFP4 with DDP and without the distributed optimizer, use
++`--no-gradient-accumulation-fusion` unless the gradient-buffer layout guarantees
++16-byte alignment for fused weight-gradient outputs.
+ 
+ ### Tuning Parameters
+ 
+diff --git a/megatron/core/transformer/cuda_graphs.py b/megatron/core/transformer/cuda_graphs.py
+index 42d50e3dd..1e420615d 100644
+--- a/megatron/core/transformer/cuda_graphs.py
++++ b/megatron/core/transformer/cuda_graphs.py
+@@ -2886,7 +2886,7 @@ class TECudaGraphHelper:
+                 kwargs['fp8_recipe'] = (
+                     get_fp8_recipe(self.config) if self.config.fp8 else get_fp4_recipe(self.config)
+                 )
+-                kwargs['fp8_weight_caching'] = True
++                kwargs['fp8_weight_caching'] = not self.config.disable_parameter_transpose_cache
+                 if (
+                     is_te_min_version("1.14.0")
+                     and self.pg_collection is not None
+diff --git a/megatron/core/transformer/transformer_config.py b/megatron/core/transformer/transformer_config.py
+index 14e972ee0..007a5db01 100644
+--- a/megatron/core/transformer/transformer_config.py
++++ b/megatron/core/transformer/transformer_config.py
+@@ -3501,8 +3501,8 @@ class TransformerConfig(ModelParallelConfig):
+                     self.experimental_attention_variant
+                 ):
+                     raise ValueError("gdn_core_attn offloading only supports GDN (gdn or gdn2).")
+-                if not self.bf16 or self.fp8 or self.fp4:
+-                    raise ValueError("gdn_core_attn offloading requires BF16 without FP8 or FP4.")
++                if not self.bf16:
++                    raise ValueError("gdn_core_attn offloading requires BF16 activations.")
+                 if self.gdn_kernel_backend != "fla":
+                     raise ValueError("gdn_core_attn offloading requires the FLA recurrence.")
+                 if self.recompute_granularity == "full":
+@@ -3521,6 +3521,15 @@ class TransformerConfig(ModelParallelConfig):
+                     raise ValueError(
+                         "gdn_core_attn offloading only supports Transformer Engine CUDA graphs."
+                     )
++                if (
++                    self.fp4
++                    and (self.cuda_graph_impl == "transformer_engine" or self.external_cuda_graph)
++                    and not self.disable_parameter_transpose_cache
++                ):
++                    raise ValueError(
++                        "gdn_core_attn offloading with FP4 CUDA graphs requires "
++                        "disable_parameter_transpose_cache=True."
++                    )
+             if "attn_proj" in self.offload_modules and "core_attn" not in self.offload_modules:
+                 raise ValueError(
+                     "attn_proj cannot be set to offload_modules alone without core_attn "
+diff --git a/tests/unit_tests/ssm/test_gated_delta_net_offloading.py b/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+index 3b68f411e..fd8ba0a31 100644
+--- a/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
++++ b/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+@@ -48,8 +48,10 @@ def _config(**overrides):
+         ({"bf16": False}, "BF16"),
+         ({"gdn_kernel_backend": "torch"}, "FLA"),
+         ({"cuda_graph_impl": "local"}, "Transformer Engine CUDA graphs"),
+-        ({"fp8": "e4m3"}, "BF16"),
+-        ({"fp4": "e2m1"}, "BF16"),
++        (
++            {"fp4": "e2m1", "cuda_graph_impl": "transformer_engine"},
++            "disable_parameter_transpose_cache=True",
++        ),
+     ],
+ )
+ def test_gdn_offload_config_rejection(kwargs, match):
+diff --git a/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+index 4e4a2325c..0238e7f4e 100644
+--- a/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
++++ b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+@@ -29,6 +29,7 @@ from megatron.core.transformer.transformer_layer_mixins import TECudaGraphTransf
+ from megatron.core.utils import is_te_min_version, is_torch_min_version, unwrap_model
+ from tests.unit_tests.ssm.test_gdn_offload_training import (
+     _build_training_model,
++    _require_precision,
+     _run_microbatches,
+     _step_snapshot,
+     _training_batches,
+@@ -43,15 +44,24 @@ from tests.unit_tests.test_utilities import Utils
+     reason="CUDA graph offloading requires PyTorch >= 2.9 and TE >= 2.14.",
+ )
+ @pytest.mark.parametrize(
+-    "variant,fused,recompute_norm,whole_layer,delay,fraction,tp,pp,mixed",
++    "variant,fused,recompute_norm,whole_layer,delay,fraction,tp,pp,mixed,precision",
+     [
+-        pytest.param("gdn", False, False, False, False, 1.0, 1, 1, True, id="mixed-attn"),
+-        pytest.param("gdn", True, True, False, True, 1.0, 1, 1, False, id="fused-norm-delay"),
+-        pytest.param("gdn", False, False, True, False, 1.0, 1, 1, False, id="gdn-layer"),
+-        pytest.param("gdn2", False, True, True, True, 1.0, 1, 1, False, id="gdn2-layer"),
+-        pytest.param("gdn2", False, False, True, False, 0.0, 1, 1, False, id="resident"),
+-        pytest.param("gdn2", False, False, False, False, 1.0, 2, 1, False, id="tp-sp"),
+-        pytest.param("gdn2", False, False, True, True, 1.0, 1, 2, False, id="pp"),
++        pytest.param("gdn", False, False, False, False, 1.0, 1, 1, True, "bf16", id="mixed-attn"),
++        pytest.param(
++            "gdn", True, True, False, True, 1.0, 1, 1, False, "bf16", id="fused-norm-delay"
++        ),
++        pytest.param("gdn", False, False, True, False, 1.0, 1, 1, False, "bf16", id="gdn-layer"),
++        pytest.param("gdn2", False, True, True, True, 1.0, 1, 1, False, "bf16", id="gdn2-layer"),
++        pytest.param("gdn2", False, False, True, False, 0.0, 1, 1, False, "bf16", id="resident"),
++        pytest.param("gdn2", False, False, False, False, 1.0, 2, 1, False, "bf16", id="tp-sp"),
++        pytest.param("gdn2", False, False, True, True, 1.0, 1, 2, False, "bf16", id="pp"),
++        pytest.param(
++            "gdn", False, False, False, False, 1.0, 1, 1, False, "fp8-delayed", id="fp8-gdn"
++        ),
++        pytest.param(
++            "gdn2", False, True, True, False, 1.0, 1, 1, False, "fp8-tensorwise", id="fp8-gdn2"
++        ),
++        pytest.param("gdn2", False, True, True, False, 1.0, 1, 1, False, "fp4", id="fp4-three-arm"),
+     ],
+ )
+ def test_gdn_offload_with_te_graphs(
+@@ -64,9 +74,11 @@ def test_gdn_offload_with_te_graphs(
+     tp: int,
+     pp: int,
+     mixed: bool,
++    precision: str,
+     monkeypatch: pytest.MonkeyPatch,
+ ) -> None:
+     """Compare complete optimizer states after captured backward on changing inputs."""
++    _require_precision(precision)
+     if Utils.world_size % (tp * pp):
+         pytest.skip("This topology requires two GPUs.")
+     if variant == "gdn2":
+@@ -74,6 +86,8 @@ def test_gdn_offload_with_te_graphs(
+     if fused:
+         pytest.importorskip("causal_conv1d", minversion="1.6.1")
+         monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
++    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager
++
+     monkeypatch.setenv("NVTE_ALLOW_NONDETERMINISTIC_ALGO", "0")
+     Utils.initialize_model_parallel(tp, pp)
+     initialize_rng_tracker(use_te_rng_tracker=True, force_reset=True)
+@@ -111,7 +125,13 @@ def test_gdn_offload_with_te_graphs(
+     try:
+         groups = ProcessGroupCollection.use_mpu_process_groups()
+         references = []
+-        for enabled in (False, True):
++        arms = (
++            [(False, False), (True, False), (True, True)]
++            if precision == "fp4"
++            else [(True, False), (True, True)]
++        )
++        for capture_graphs, enabled in arms:
++            FP8GlobalStateManager.reset()
+             off_interface.reset_instance()
+             replayed_layers.clear()
+             config = replace(
+@@ -125,6 +145,7 @@ def test_gdn_offload_with_te_graphs(
+                     recompute_norm,
+                     fused_pre_gdr=fused,
+                     variant=variant,
++                    precision=precision,
+                 ),
+                 fine_grained_activation_offloading=enabled,
+                 offload_modules=(
+@@ -137,6 +158,7 @@ def test_gdn_offload_with_te_graphs(
+                 cuda_graph_warmup_steps=3,
+                 use_te_rng_tracker=True,
+                 delay_offload_until_cuda_graph=delay,
++                disable_parameter_transpose_cache=precision == "fp4",
+             )
+             # Match native training: DDP's retained AccumulateGrad nodes must use a side stream.
+             current_stream = torch.cuda.current_stream()
+@@ -159,7 +181,7 @@ def test_gdn_offload_with_te_graphs(
+             generator = torch.Generator().manual_seed(19 + groups.dp.rank())
+             states = []
+             for step in range(6):
+-                if step == 3:
++                if step == 3 and capture_graphs:
+                     helper = TECudaGraphHelper(
+                         models, config, 128, 1, optimizers=[optimizer], pg_collection=groups
+                     )
+@@ -172,19 +194,23 @@ def test_gdn_offload_with_te_graphs(
+                 batches = _training_batches(generator, groups, 4)
+                 losses = _run_microbatches(schedule, models, optimizer, groups, batches)
+                 states.append(_step_snapshot(models, optimizer, losses))
+-            assert len(replayed_layers) == len(unwrap_model(models[0]).decoder.layers)
++            assert len(replayed_layers) == (
++                len(unwrap_model(models[0]).decoder.layers) if capture_graphs else 0
++            )
+             if enabled and mixed:
+                 assert mixed_scopes == {"recurrence", "attention"}
+             assert len(pool_checks) == 6
+             if enabled:
+                 assert (manager.offload_summary_total_bytes > 0) == (fraction > 0)
++            if references:
+                 if fused:
+                     torch.testing.assert_close(states, references, rtol=1e-5, atol=1e-8)
+                 else:
+                     assert not any(diff(references, states))
+             else:
+                 references = states
+-            helper.delete_cuda_graphs()
++            if helper is not None:
++                helper.delete_cuda_graphs()
+             helper = None
+             del models, optimizer, states
+             torch.cuda.synchronize()
+diff --git a/tests/unit_tests/ssm/test_gdn_offload_training.py b/tests/unit_tests/ssm/test_gdn_offload_training.py
+index f29b9f4ed..b20481318 100644
+--- a/tests/unit_tests/ssm/test_gdn_offload_training.py
++++ b/tests/unit_tests/ssm/test_gdn_offload_training.py
+@@ -62,6 +62,7 @@ def _training_config(
+     fused_pre_gdr: bool = False,
+     native_hybrid: bool = False,
+     variant: str = "gdn",
++    precision: str = "bf16",
+ ) -> TransformerConfig:
+     """Configure the reduced-size complete decoder and its parallel topology."""
+     return TransformerConfig(
+@@ -82,6 +83,9 @@ def _training_config(
+         attention_dropout=0.0,
+         hidden_dropout=0.0,
+         bf16=True,
++        fp8="e4m3" if precision.startswith("fp8") else None,
++        fp8_recipe="tensorwise" if precision == "fp8-tensorwise" else "delayed",
++        fp4="e2m1" if precision == "fp4" else None,
+         pipeline_dtype=torch.bfloat16,
+         use_cpu_initialization=True,
+         gradient_accumulation_fusion=False,
+@@ -195,6 +199,28 @@ def _snapshot_leaf(value: Any) -> Any:
+     return value.detach().clone() if isinstance(value, torch.Tensor) else value
+ 
+ 
++def _require_precision(precision: str) -> None:
++    """Skip recipes unavailable on this device or unsuitable for exact replay."""
++    if precision == "bf16":
++        return
++    from transformer_engine.common.recipe import NVFP4BlockScaling  # type: ignore[import-untyped]
++    from transformer_engine.pytorch.fp8 import (  # type: ignore[import-untyped]
++        check_fp8_support,
++        check_nvfp4_support,
++    )
++
++    supported, reason = check_nvfp4_support() if precision == "fp4" else check_fp8_support()
++    if not supported:
++        pytest.skip(reason)
++    if precision == "fp4":
++        recipe = NVFP4BlockScaling()
++        if not recipe.disable_rht or not recipe.disable_stochastic_rounding:
++            pytest.skip(
++                "Exact replay requires NVTE_NVFP4_DISABLE_RHT=1 and "
++                "NVTE_NVFP4_DISABLE_STOCHASTIC_ROUNDING=1 before Python starts."
++            )
++
++
+ def _training_batches(generator, groups, count):
+     positions = torch.arange(128, device="cuda").unsqueeze(0)
+     batches = []
+@@ -246,19 +272,33 @@ def _step_snapshot(models, optimizer, losses):
+ 
+ @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+ @pytest.mark.parametrize(
+-    "tp,sp,cp,pp,vp,fraction,recompute_norm,fused_pre_gdr,variant,native_hybrid",
++    "tp,sp,cp,pp,vp,fraction,recompute_norm,fused_pre_gdr,variant,native_hybrid,precision",
+     [
+-        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", False, id="decoder"),
+-        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", True, id="hybrid-gdn"),
+-        pytest.param(1, False, 1, 1, None, 1.0, True, False, "gdn2", False, id="gdn2-decoder"),
+-        pytest.param(1, False, 1, 1, None, 1.0, True, False, "gdn2", True, id="hybrid-gdn2"),
+-        pytest.param(1, False, 1, 1, None, 0.0, False, False, "gdn2", False, id="gdn2-resident"),
+-        pytest.param(1, False, 1, 1, None, 0.0, False, False, "gdn", False, id="resident"),
+-        pytest.param(1, False, 1, 1, None, 0.5, True, True, "gdn", False, id="fused-norm"),
+-        pytest.param(2, True, 1, 1, None, 1.0, False, False, "gdn", False, id="tp-sp"),
+-        pytest.param(1, False, 2, 1, None, 1.0, False, False, "gdn", False, id="cp"),
+-        pytest.param(1, False, 1, 2, None, 1.0, False, False, "gdn", False, id="pp"),
+-        pytest.param(1, False, 1, 2, 2, 1.0, False, False, "gdn", False, id="pp-vpp"),
++        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", False, "bf16", id="decoder"),
++        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", True, "bf16", id="hybrid-gdn"),
++        pytest.param(
++            1, False, 1, 1, None, 1.0, False, False, "gdn", False, "fp8-delayed", id="fp8-gdn"
++        ),
++        pytest.param(
++            1, False, 1, 1, None, 1.0, True, False, "gdn2", False, "fp8-tensorwise", id="fp8-gdn2"
++        ),
++        pytest.param(1, False, 1, 1, None, 1.0, False, False, "gdn", False, "fp4", id="fp4-gdn"),
++        pytest.param(1, False, 1, 1, None, 1.0, True, False, "gdn2", False, "fp4", id="fp4-gdn2"),
++        pytest.param(
++            1, False, 1, 1, None, 1.0, True, False, "gdn2", False, "bf16", id="gdn2-decoder"
++        ),
++        pytest.param(
++            1, False, 1, 1, None, 1.0, True, False, "gdn2", True, "bf16", id="hybrid-gdn2"
++        ),
++        pytest.param(
++            1, False, 1, 1, None, 0.0, False, False, "gdn2", False, "bf16", id="gdn2-resident"
++        ),
++        pytest.param(1, False, 1, 1, None, 0.0, False, False, "gdn", False, "bf16", id="resident"),
++        pytest.param(1, False, 1, 1, None, 0.5, True, True, "gdn", False, "bf16", id="fused-norm"),
++        pytest.param(2, True, 1, 1, None, 1.0, False, False, "gdn", False, "bf16", id="tp-sp"),
++        pytest.param(1, False, 2, 1, None, 1.0, False, False, "gdn", False, "bf16", id="cp"),
++        pytest.param(1, False, 1, 2, None, 1.0, False, False, "gdn", False, "bf16", id="pp"),
++        pytest.param(1, False, 1, 2, 2, 1.0, False, False, "gdn", False, "bf16", id="pp-vpp"),
+     ],
+ )
+ def test_gdn_offload_training(
+@@ -272,9 +312,11 @@ def test_gdn_offload_training(
+     fused_pre_gdr: bool,
+     variant: str,
+     native_hybrid: bool,
++    precision: str,
+     monkeypatch: pytest.MonkeyPatch,
+ ) -> None:
+     """Match losses, accumulated gradients, updated weights and Adam states on every rank."""
++    _require_precision(precision)
+     if Utils.world_size % (tp * cp * pp):
+         pytest.skip("This topology requires a world size divisible by TP * CP * PP.")
+     if variant == "gdn2":
+@@ -284,6 +326,9 @@ def test_gdn_offload_training(
+         monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
+     # Avoid attention-backward nondeterminism obscuring the offload comparison.
+     # GDN still uses FLA: config.deterministic_mode would select its reference path.
++    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager
++
++    FP8GlobalStateManager.reset()
+     monkeypatch.setenv("NVTE_ALLOW_NONDETERMINISTIC_ALGO", "0")
+     Utils.initialize_model_parallel(tp, pp, vp, context_parallel_size=cp)
+     off_interface.reset_instance()
+@@ -300,6 +345,7 @@ def test_gdn_offload_training(
+             fused_pre_gdr=fused_pre_gdr,
+             native_hybrid=native_hybrid,
+             variant=variant,
++            precision=precision,
+         )
+         baseline_config = replace(
+             config, fine_grained_activation_offloading=False, offload_modules=[]
+@@ -324,7 +370,7 @@ def test_gdn_offload_training(
+ 
+         monkeypatch.setattr(OffloadTensorPool, "reset", record_pool_reset)
+         for _ in range(3):
+-            # Fixed weights and zero dropout must reproduce each repeated example.
++            # BF16 repeats agree at fixed weights; low-precision scaling metadata can evolve.
+             # This also catches VPP payload mixups in the disabled baseline.
+             batches = _training_batches(generator, groups, 2) * 2
+             snapshots = []
+@@ -337,7 +383,7 @@ def test_gdn_offload_training(
+                 # Reject a bad baseline on every rank before the next collective.
+                 step_valid = torch.tensor(
+                     len(losses) == (4 if is_pp_last_stage(groups.pp) else 0)
+-                    and not any(diff(losses[:2], losses[2:]))
++                    and (precision != "bf16" or not any(diff(losses[:2], losses[2:])))
+                     and pool_before_reset == ([0] if models is offloaded else []),
+                     dtype=torch.int32,
+                     device="cuda",
+diff --git a/tests/unit_tests/transformer/test_cuda_graphs.py b/tests/unit_tests/transformer/test_cuda_graphs.py
+index f6fc6910d..41016239f 100644
+--- a/tests/unit_tests/transformer/test_cuda_graphs.py
++++ b/tests/unit_tests/transformer/test_cuda_graphs.py
+@@ -1552,6 +1552,46 @@ class TestTECudaGraphHelper:
+         # Note: _unique_buffer_counts is intentionally NOT cleared here so we can
+         # compare values across parametrized test runs
+ 
++    @pytest.mark.parametrize("precision", ["bf16", "fp8", "fp4"])
++    @pytest.mark.parametrize("disable_cache", [False, True])
++    def test_te_graph_weight_caching_kwargs(self, precision, disable_cache):
++        """Forward the explicit cache setting for both low-precision graph modes."""
++        Utils.initialize_model_parallel()
++        init_num_microbatches_calculator(
++            rank=0,
++            global_batch_size=1,
++            micro_batch_size=1,
++            data_parallel_size=1,
++            decrease_batch_size_if_needed=False,
++        )
++        config = TransformerConfig(
++            num_layers=1,
++            hidden_size=64,
++            num_attention_heads=4,
++            bf16=True,
++            params_dtype=torch.bfloat16,
++            fp8="e4m3" if precision == "fp8" else None,
++            fp4="e2m1" if precision == "fp4" else None,
++            cuda_graph_impl="transformer_engine",
++            use_te_rng_tracker=True,
++            disable_parameter_transpose_cache=disable_cache,
++        )
++        torch.manual_seed(123)
++        model_parallel_cuda_manual_seed(123)
++        model = GPTModel(
++            config=config,
++            transformer_layer_spec=get_gpt_layer_with_transformer_engine_spec(),
++            vocab_size=128,
++            max_sequence_length=128,
++        ).cuda()
++        helper = TECudaGraphHelper([model], config, 128, 1, optimizers=[])
++        _, kwargs = helper._get_cuda_graph_input_data()
++        if precision == "bf16":
++            assert kwargs["fp8_enabled"] is False
++            assert "fp8_weight_caching" not in kwargs
++        else:
++            assert kwargs["fp8_weight_caching"] is (not disable_cache)
++
+     @pytest.mark.parametrize("num_microbatches", [16, 64, 256])
+     @pytest.mark.parametrize("pp_size", [1, 2, 4])
+     @pytest.mark.parametrize("vpp_size", [None, 2])
+-- 
+2.55.0
+

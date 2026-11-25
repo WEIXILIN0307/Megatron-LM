@@ -1,0 +1,6 @@
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: =========== 5 passed, 2 deselected, 445 warnings in 93.94s (0:01:33) ===========

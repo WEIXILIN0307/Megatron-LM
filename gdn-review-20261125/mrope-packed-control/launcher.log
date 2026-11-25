@@ -1,0 +1,40 @@
+E1125 11:53:04.207000 819623 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 819636) of binary: <LOCAL_HOME>/.venvs/megatron-gdn-offload/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError:
+============================================================
+<REMOTE_RUN_ROOT>/rank_env_precision_graph.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-11-25_11:53:04
+  host      : lthpc
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 819637)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-25_11:53:04
+  host      : lthpc
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 819636)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

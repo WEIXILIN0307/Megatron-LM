@@ -1,0 +1,34 @@
+W1125 13:02:25.930000 879698 torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers
+W1125 13:02:25.935000 879698 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 879727 closing signal SIGTERM
+W1125 13:02:25.940000 879698 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 879728 closing signal SIGTERM
+W1125 13:02:25.951000 879698 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 879729 closing signal SIGTERM
+W1125 13:02:25.958000 879698 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 879730 closing signal SIGTERM
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 308, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/metrics/api.py", line 134, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 731, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 908, in _invoke_run
+    time.sleep(monitor_interval)
+  File "<LOCAL_HOME>/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 86, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 879698 got signal: 15

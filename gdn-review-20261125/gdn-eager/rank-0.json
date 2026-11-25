@@ -1,0 +1,163 @@
+{
+  "rank": 0,
+  "collected": 26,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs0-only supports GDN]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs1-only supports GDN]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs2-whole-GDN recomputation]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs3-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs4-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs5-CUDA graphs]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs6-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config_rejection[kwargs7-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_hybrid_offload_requires_gdn[pattern]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_hybrid_offload_requires_gdn[config-list]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_hybrid_offload_requires_gdn[layer-off]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_hybrid_offload_requires_gdn[model-off]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_packed_offload[gdn-packed]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_packed_offload[gdn-packed-fused-norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_packed_offload[gdn-below-threshold]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_resident_forward[gdn-eval]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_resident_forward[gdn-no-grad]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_resident_forward[gdn-frozen]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[decoder]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[hybrid-gdn]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[resident]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fused-norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-sp]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('<LOCAL_RUN_ROOT>/gdn/tests/unit_tests/ssm/test_gdn_offload_training.py', 219, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('<LOCAL_RUN_ROOT>/gdn/tests/unit_tests/ssm/test_gdn_offload_training.py', 219, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('<LOCAL_RUN_ROOT>/gdn/tests/unit_tests/ssm/test_gdn_offload_training.py', 219, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-vpp]",
+      "when": "call",
+      "outcome": "skipped",
+      "detail": "('<LOCAL_RUN_ROOT>/gdn/tests/unit_tests/ssm/test_gdn_offload_training.py', 219, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+    }
+  ]
+}

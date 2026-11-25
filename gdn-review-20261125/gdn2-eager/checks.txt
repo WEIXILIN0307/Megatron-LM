@@ -1,0 +1,13 @@
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: =========== 30 passed, 4 skipped, 575 warnings in 353.22s (0:05:53) ============

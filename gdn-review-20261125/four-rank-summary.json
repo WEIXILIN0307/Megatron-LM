@@ -1,0 +1,115 @@
+{
+  "topology": "TP2+SP+PP2, DP1, CP1; NCCL_P2P_DISABLE=1",
+  "hardware": "4 x RTX PRO 6000 Blackwell Server Edition, shared",
+  "model": "8-layer native decoder with embedding, mixed GDN/attention, loss and Adam; BF16, sequence length 128",
+  "test_probe": "test_gdn_tp2_sp_pp2_current.py",
+  "first_run_note": "Manually stopped while the fourth case was running; completed cases are confirmed by rank stdout. The fourth case and GDN2 eager rerun both exited successfully on every rank.",
+  "outcomes": {
+    "eager-gdn": {
+      "0": {
+        "result": "passed",
+        "peak_allocated_mib": 263.8,
+        "peak_reserved_mib": 464.0,
+        "stdout": "four-rank-initial/rank-0-stdout.log.gz"
+      },
+      "1": {
+        "result": "passed",
+        "peak_allocated_mib": 378.3,
+        "peak_reserved_mib": 592.0,
+        "stdout": "four-rank-initial/rank-1-stdout.log.gz"
+      },
+      "2": {
+        "result": "passed",
+        "peak_allocated_mib": 370.7,
+        "peak_reserved_mib": 722.0,
+        "stdout": "four-rank-initial/rank-2-stdout.log.gz"
+      },
+      "3": {
+        "result": "passed",
+        "peak_allocated_mib": 370.7,
+        "peak_reserved_mib": 722.0,
+        "stdout": "four-rank-initial/rank-3-stdout.log.gz"
+      }
+    },
+    "eager-gdn2": {
+      "0": {
+        "result": "passed",
+        "peak_allocated_mib": 303.6,
+        "peak_reserved_mib": 320.0,
+        "stdout": "four-rank-eager-gdn2/rank-0-stdout.log.gz"
+      },
+      "1": {
+        "result": "passed",
+        "peak_allocated_mib": 303.6,
+        "peak_reserved_mib": 320.0,
+        "stdout": "four-rank-eager-gdn2/rank-1-stdout.log.gz"
+      },
+      "2": {
+        "result": "passed",
+        "peak_allocated_mib": 303.8,
+        "peak_reserved_mib": 478.0,
+        "stdout": "four-rank-eager-gdn2/rank-2-stdout.log.gz"
+      },
+      "3": {
+        "result": "passed",
+        "peak_allocated_mib": 303.8,
+        "peak_reserved_mib": 478.0,
+        "stdout": "four-rank-eager-gdn2/rank-3-stdout.log.gz"
+      }
+    },
+    "graph-gdn-attention": {
+      "0": {
+        "result": "passed",
+        "peak_allocated_mib": 789.6,
+        "peak_reserved_mib": 848.0,
+        "stdout": "four-rank-initial/rank-0-stdout.log.gz"
+      },
+      "1": {
+        "result": "passed",
+        "peak_allocated_mib": 790.4,
+        "peak_reserved_mib": 858.0,
+        "stdout": "four-rank-initial/rank-1-stdout.log.gz"
+      },
+      "2": {
+        "result": "passed",
+        "peak_allocated_mib": 789.5,
+        "peak_reserved_mib": 914.0,
+        "stdout": "four-rank-initial/rank-2-stdout.log.gz"
+      },
+      "3": {
+        "result": "passed",
+        "peak_allocated_mib": 789.5,
+        "peak_reserved_mib": 914.0,
+        "stdout": "four-rank-initial/rank-3-stdout.log.gz"
+      }
+    },
+    "graph-gdn2-layer": {
+      "0": {
+        "result": "passed",
+        "peak_allocated_mib": 918.5,
+        "peak_reserved_mib": 996.0,
+        "stdout": "four-rank-graph-gdn2/rank-0-stdout.log.gz"
+      },
+      "1": {
+        "result": "passed",
+        "peak_allocated_mib": 918.5,
+        "peak_reserved_mib": 998.0,
+        "stdout": "four-rank-graph-gdn2/rank-1-stdout.log.gz"
+      },
+      "2": {
+        "result": "passed",
+        "peak_allocated_mib": 918.5,
+        "peak_reserved_mib": 986.0,
+        "stdout": "four-rank-graph-gdn2/rank-2-stdout.log.gz"
+      },
+      "3": {
+        "result": "passed",
+        "peak_allocated_mib": 918.5,
+        "peak_reserved_mib": 986.0,
+        "stdout": "four-rank-graph-gdn2/rank-3-stdout.log.gz"
+      }
+    }
+  },
+  "sampled_process_peak_mib": 4994,
+  "isolated_graph_sampled_process_peak_mib": 1804
+}

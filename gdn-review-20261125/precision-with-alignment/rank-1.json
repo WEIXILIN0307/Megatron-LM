@@ -1,0 +1,13 @@
+{
+  "rank": 1,
+  "collected": 1,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "probes/test_fp4_ordinary_optimizer_current.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

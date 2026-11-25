@@ -1,0 +1,17 @@
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: PASSED
+rank 0: ========= 22 passed, 20 deselected, 2677 warnings in 70.99s (0:01:10) ==========

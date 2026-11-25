@@ -1,0 +1,67 @@
+rank 0: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=0/2, vp_stage=0, segment_index=0/2, layers='GGG*' (4 layers), layer_offset=0
+rank 0: GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=303.6 peak_reserved_mib=320.0
+rank 0: PASSED
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 0: ======================= 1 passed, 14 warnings in 17.33s ========================
+rank 1: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=303.6 peak_reserved_mib=320.0
+rank 1: PASSED
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 1: ======================= 1 passed, 12 warnings in 17.31s ========================
+rank 2: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] INFO:megatron.core.models.hybrid.hybrid_layer_allocation:HybridModel: pp_rank=1/2, vp_stage=0, segment_index=1/2, layers='GGG*' (4 layers), layer_offset=4
+rank 2: GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=303.8 peak_reserved_mib=478.0
+rank 2: PASSED
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 2: ======================= 1 passed, 14 warnings in 17.34s ========================
+rank 3: ../probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2] GPU_MEMORY mode=eager variant=gdn2 peak_allocated_mib=303.8 peak_reserved_mib=478.0
+rank 3: PASSED
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[eager-gdn2]
+rank 3: ======================= 1 passed, 13 warnings in 17.32s ========================

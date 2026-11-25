@@ -1,0 +1,13 @@
+{
+  "rank": 0,
+  "collected": 1,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

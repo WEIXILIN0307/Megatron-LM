@@ -1,0 +1,13 @@
+{
+  "rank": 2,
+  "collected": 1,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "probes/test_gdn_tp2_sp_pp2_current.py::test_tp2_sp_pp2[graph-gdn2-layer]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}
